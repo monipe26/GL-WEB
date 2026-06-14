@@ -2249,8 +2249,12 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost1", videoId: "dE4yy4ULCXI" },
   { id: "ost1", videoId: "Sxh28YQGSq0" },
   { id: "ost1", videoId: "354VXHaqaE4" },
+
+  { id: "ost1", videoId: "qWfsiUJtIIw" },
+
   { id: "ost1", videoId: "Kdyph-0nKwc" },
   { id: "ost1", videoId: "MeEqOOH-2eE" },
   { id: "ost1", videoId: "4hFyFMp9ml4" },
@@ -2370,7 +2374,13 @@ const microficcionArray = [
     canal: "Girls Love Play",
     videoId: "MaCuR49C5Tc",
     esShort: true,
-    videos: ["MaCuR49C5Tc", "cj4hcHsVWgE", "74CANIQkBY8"],
+    videos: [
+      "MaCuR49C5Tc",
+      "cj4hcHsVWgE",
+      "74CANIQkBY8",
+      "iNaMkX_s8Tg",
+      "AkMP_8a9aMU",
+    ],
   },
 ];
 // =====================
