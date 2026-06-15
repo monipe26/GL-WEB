@@ -2325,7 +2325,7 @@ const ostsArray = [
   { id: "ost1", videoId: "5C_vJyhQuQY" },
   { id: "ost1", videoId: "AMzlTbjBLDo" },
   { id: "ost1", videoId: "gzfHZqHFxi0" },
-  { id: "ost1", videoId: "lvBRWn8qldg" },
+
   { id: "ost1", videoId: "I_wl4yurk1U" },
   { id: "ost1", videoId: "HI8z03beTtI" },
   { id: "ost1", videoId: "pgzaWboZUSg" },
@@ -2346,6 +2346,7 @@ const ostsArray = [
   { id: "ost1", videoId: "U1piZH2CNXA" },
   { id: "ost1", videoId: "fWvIbVEf7Yc" },
   { id: "ost1", videoId: "BKBA4FqZwEg" },
+  { id: "ost1", videoId: "lvBRWn8qldg" },
 ];
 // =====================
 // 🎬 MICROFICCIÓN GL
@@ -2381,6 +2382,16 @@ const microficcionArray = [
       "iNaMkX_s8Tg",
       "AkMP_8a9aMU",
     ],
+  },
+
+  // Microdrama por partes 2
+  {
+    id: "micro2",
+    titulo: "❤️",
+    canal: "Girls Love Play",
+    videoId: "hZJzgu4LyiA",
+    esShort: true,
+    videos: ["hZJzgu4LyiA"],
   },
 ];
 // =====================
