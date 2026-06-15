@@ -18,6 +18,16 @@ let lastPlaylistIndex = -1;
 
 const seriesArray = [
   {
+    id: "midnightmart",
+    img: "/img/series/midnight-mart-2026).jpg",
+    titulo: "Midnight Mart (2026)",
+    genero: "Romance",
+    sinopsis:
+      "Una trabajadora de TI se enamora de la cajera de la tienda de conveniencia a la que suele ir.",
+    videos: ["ytPdTSUX4UQ"],
+  },
+
+  {
     id: "neverfade",
     img: "/img/series/never fade.jpg",
     titulo: "Never Fade (2026)",
