@@ -18,6 +18,15 @@ let lastPlaylistIndex = -1;
 
 const seriesArray = [
   {
+    id: "thepartners",
+    img: "/img/series/The-Partners-(2026).jpg",
+    titulo: "The Partners (2026)",
+    genero: "Romance",
+    sinopsis: "",
+    videos: ["klULFypTofQ"],
+  },
+
+  {
     id: "midnightmart",
     img: "/img/series/midnight-mart-2026).jpg",
     titulo: "Midnight Mart (2026)",
@@ -172,6 +181,7 @@ const seriesArray = [
       "UXVmiQfDj88",
       "oZW9P1ajX1M",
       "PqMUqrofZqc",
+      "giGoHCVXxrk",
     ],
   },
 
