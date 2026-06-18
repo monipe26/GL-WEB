@@ -84,6 +84,10 @@ const seriesArray = [
       "XhraM6X-Us0",
       "7sn0RgmEEH4",
       "eLEOndVOQf8",
+      "Ml6KZxDIM4A",
+      "UmNtjXBnNYM",
+      "MQxgHn9bD64",
+      "24RoW8qmkxI",
     ],
   },
 
@@ -110,6 +114,7 @@ const seriesArray = [
       "SidizzkfnAg",
       "XvafSa0b3xA",
       "0i-zd5fo-4g",
+      "1yz7IpZTxDI",
     ],
   },
 
@@ -145,6 +150,10 @@ const seriesArray = [
       "ATRCtanIhHA",
       "iFxDKFwY7VA",
       "3ZHajg945oQ",
+      "tqmuq_UmRb4",
+      "WJxy0WIaNW8",
+      "I00-xKlFuCE",
+      "1pG0SB2i0mA",
     ],
   },
 
@@ -398,6 +407,7 @@ const seriesArray = [
       "IBBu9kphVJ0",
       "33IwA7qUOa0",
       "OJjxWrIL_os",
+      "isILyf2ovQA",
     ],
   },
 
@@ -633,6 +643,15 @@ const seriesArray = [
     sinopsis:
       "Tres amigas abren un bar y enfrentan amores complejos: amor a primera vista, distancia y segundas oportunidades tras una ruptura.",
     videos: ["T5wR1FPpF9U"],
+  },
+
+  {
+    id: "mylittlemiss",
+    img: "/img/series/My Little Miss (2025).jpg",
+    titulo: "My Little Miss (2025)",
+    genero: "Romance",
+    sinopsis: "",
+    videos: ["p2DwTvGnrX4"],
   },
 
   {
@@ -2269,6 +2288,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost1", videoId: "MP4Ciew8Xok" },
   { id: "ost1", videoId: "dE4yy4ULCXI" },
   { id: "ost1", videoId: "Sxh28YQGSq0" },
   { id: "ost1", videoId: "354VXHaqaE4" },
@@ -2401,17 +2421,18 @@ const microficcionArray = [
       "74CANIQkBY8",
       "iNaMkX_s8Tg",
       "AkMP_8a9aMU",
+      "sdQ21YFgsyQ",
     ],
   },
 
   // Microdrama por partes 2
   {
     id: "micro2",
-    titulo: "❤️",
+    titulo: "📩 Las Cartas que Nunca Debieron Llegar",
     canal: "Girls Love Play",
     videoId: "hZJzgu4LyiA",
     esShort: true,
-    videos: ["hZJzgu4LyiA"],
+    videos: ["hZJzgu4LyiA", "u6HzX5tmlU8"],
   },
 ];
 // =====================
