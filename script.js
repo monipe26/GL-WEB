@@ -2288,6 +2288,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost1", videoId: "TTfF-pAf774" },
   { id: "ost1", videoId: "MP4Ciew8Xok" },
   { id: "ost1", videoId: "dE4yy4ULCXI" },
   { id: "ost1", videoId: "Sxh28YQGSq0" },
@@ -2366,7 +2367,6 @@ const ostsArray = [
   { id: "ost1", videoId: "AMzlTbjBLDo" },
   { id: "ost1", videoId: "gzfHZqHFxi0" },
 
-  { id: "ost1", videoId: "I_wl4yurk1U" },
   { id: "ost1", videoId: "HI8z03beTtI" },
   { id: "ost1", videoId: "pgzaWboZUSg" },
   { id: "ost1", videoId: "MNEc23m2ons" },
@@ -2422,6 +2422,8 @@ const microficcionArray = [
       "iNaMkX_s8Tg",
       "AkMP_8a9aMU",
       "sdQ21YFgsyQ",
+      "kkt4pO6t1LM",
+      "xdN-IZD4UH0",
     ],
   },
 
@@ -3627,9 +3629,11 @@ function renderComunidad(
 
       div.innerHTML = `
         <div class="com-thumb">
-          <img src="https://img.youtube.com/vi/${
+          <img src="<img src="https://img.youtube.com/vi/${
             item.videoId
-          }/hqdefault.jpg" alt="" loading="lazy">
+          }/maxresdefault.jpg" alt="" loading="lazy" onerror="this.src='https://img.youtube.com/vi/${
+        item.videoId
+      }/hqdefault.jpg'">">
           <div class="com-play">▶</div>
         </div>
         <div class="com-info">
