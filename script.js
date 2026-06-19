@@ -22,7 +22,7 @@ const seriesArray = [
     titulo: "Cinco minutos de mentira (2026)",
     genero: "Romance/Drama",
     videoId: "MaCuR49C5Tc",
-    img: "/img/microficcion/Cinco minutos de mentira.jpg",
+    img: "/img/microficcion/Cinco-minutos-de-mentira.jpg",
     sinopsis: "",
     esShort: true,
     videos: [
