@@ -18,6 +18,25 @@ let lastPlaylistIndex = -1;
 
 const seriesArray = [
   {
+    id: "cincominutosdementira",
+    titulo: "Cinco minutos de mentira (2026)",
+    genero: "Romance/Drama",
+    videoId: "MaCuR49C5Tc",
+    img: "/img/microficcion/Cinco minutos de mentira.jpg",
+    sinopsis: "",
+    esShort: true,
+    videos: [
+      "MaCuR49C5Tc",
+      "cj4hcHsVWgE",
+      "74CANIQkBY8",
+      "iNaMkX_s8Tg",
+      "AkMP_8a9aMU",
+      "sdQ21YFgsyQ",
+      "kkt4pO6t1LM",
+      "xdN-IZD4UH0",
+    ],
+  },
+  {
     id: "thepartners",
     img: "/img/series/The-Partners-(2026).jpg",
     titulo: "The Partners (2026)",
@@ -33,7 +52,7 @@ const seriesArray = [
     genero: "Romance",
     sinopsis:
       "Una trabajadora de TI se enamora de la cajera de la tienda de conveniencia a la que suele ir.",
-    videos: ["ytPdTSUX4UQ"],
+    videos: ["ytPdTSUX4UQ", "aNr00I3Ow8A"],
   },
 
   {
@@ -98,7 +117,7 @@ const seriesArray = [
     genero: "Romance",
     sinopsis:
       "Claire debe fingir escenas románticas con la escritora Eris. Lo que empieza como investigación podría convertirse en amor real",
-    videos: ["DH6b3St6DVU", "7HbO2qF4B_8", "XYssHJKsh34"],
+    videos: ["DH6b3St6DVU", "7HbO2qF4B_8", "XYssHJKsh34", "8h1WitA0swU"],
   },
 
   {
