@@ -18,6 +18,27 @@ let lastPlaylistIndex = -1;
 
 const seriesArray = [
   {
+    id: "myroommatecrush",
+    img: "/img/series/My-Roommate-Crush.jpg",
+    titulo: "My Roommate Crush (2026)",
+    genero: "Romance",
+    sinopsis: "",
+    videos: [
+      "Gdddq6GCcvY",
+      "sf53bmhxTxQ",
+      "8jbSgzV77ls",
+      "J0_913xTy4c",
+      "AGM-uPnzltc",
+      "7_w2zxEJN4s",
+      "-p63sLOaVco",
+      "OV3C3Pmp9D8",
+      "IHerJiaS-YM",
+      "0POR1eVOeto",
+      "xdQEIXGddsY",
+    ],
+  },
+
+  {
     id: "cincominutosdementira",
     titulo: "Cinco minutos de mentira (2026)",
     genero: "Romance/Drama",
@@ -35,7 +56,7 @@ const seriesArray = [
       "kkt4pO6t1LM",
       "xdN-IZD4UH0",
       "LFyuw2VffCw",
-      "A4Bjcl7jNwg",
+      "v9OZc19k4_U",
     ],
   },
   {
@@ -74,7 +95,20 @@ const seriesArray = [
     genero: "Romance/Drama",
     sinopsis:
       "Shades sigue a seis estudiantes y dos profesoras de una escuela solo para mujeres, donde secretos e identidades ocultas cambian todo.",
-    videos: ["I57LYooYcJs", "OQt-bR7YUHA", "16mRTBTi2T8", "Fab2WHEke4A"],
+    videos: [
+      "I57LYooYcJs",
+      "OQt-bR7YUHA",
+      "16mRTBTi2T8",
+      "Fab2WHEke4A",
+      "S2ot2Nj_s5k",
+      "nIBwomtJbwI",
+      "ve3JSpyxzz4",
+      "D7clbK2iV38",
+      "tmOVIZnJvZM",
+      "SSI5RgXbDjs",
+      "zBTxXz5mPXY",
+      "xQULsHLpxGk",
+    ],
   },
 
   {
@@ -2446,7 +2480,7 @@ const microficcionArray = [
       "kkt4pO6t1LM",
       "xdN-IZD4UH0",
       "LFyuw2VffCw",
-      "A4Bjcl7jNwg",
+      "v9OZc19k4_U",
     ],
   },
 
