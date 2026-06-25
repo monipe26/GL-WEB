@@ -57,6 +57,14 @@ const seriesArray = [
       "xdN-IZD4UH0",
       "LFyuw2VffCw",
       "v9OZc19k4_U",
+      "dcyDAdJf9YY",
+      "W6dp7IcS5xA",
+      "Z4qVZNe2s5A",
+      "WKN6ycgFrtY",
+      "g6GWBDq7KXY",
+      "Oo031FCuld0",
+      "ort5NbUM57g",
+      "06JRCv74G5M",
     ],
   },
   {
@@ -65,7 +73,7 @@ const seriesArray = [
     titulo: "The Partners (2026)",
     genero: "Romance",
     sinopsis: "",
-    videos: ["klULFypTofQ"],
+    videos: ["klULFypTofQ", "CDPsz8-PGUU"],
   },
 
   {
@@ -143,6 +151,10 @@ const seriesArray = [
       "UmNtjXBnNYM",
       "MQxgHn9bD64",
       "24RoW8qmkxI",
+      "JeLmxaL7Xpg",
+      "hkylKDEnRb0",
+      "6PGWoFwunnU",
+      "L42aSu-eV2Q",
     ],
   },
 
@@ -209,6 +221,10 @@ const seriesArray = [
       "WJxy0WIaNW8",
       "I00-xKlFuCE",
       "1pG0SB2i0mA",
+      "DhnFa-c5I3o",
+      "zA8gsdqj5GQ",
+      "DiVA8byF60E",
+      "-IeQBx8qYho",
     ],
   },
 
@@ -2157,6 +2173,16 @@ const seriesArray = [
   },
 
   {
+    id: "every86400seconds",
+    img: "/img/series/Every-86400-Seconds (2023).jpg",
+    titulo: "Every 86400 Seconds (2023)",
+    genero: "Romance/Drama",
+    sinopsis:
+      "Temporada 2 de Claire y Praew: tras su día en el mar y volverse amantes, casi cumplen seis meses. ¿Cómo seguirá su relación?",
+    videos: ["RVR9vpBGHy8", "aJMujCZbn0k", "NL6CoEJtSDo"],
+  },
+
+  {
     id: "putourheartonthepaper",
     img: "/img/series/Put-Our-Heart-on-the-Paper-(2023).jpg",
     titulo: "Put Our Heart on the Paper (2023)",
@@ -2326,6 +2352,7 @@ const seriesArray = [
 // =====================
 
 const comunidadArray = [
+  { id: "c1", videoId: "IOFprq5UfwM" },
   { id: "c1", videoId: "0GALf9zof5E" },
 
   { id: "c1", videoId: "ZZfk7QDx_kU" },
@@ -2481,6 +2508,14 @@ const microficcionArray = [
       "xdN-IZD4UH0",
       "LFyuw2VffCw",
       "v9OZc19k4_U",
+      "dcyDAdJf9YY",
+      "W6dp7IcS5xA",
+      "Z4qVZNe2s5A",
+      "WKN6ycgFrtY",
+      "g6GWBDq7KXY",
+      "Oo031FCuld0",
+      "ort5NbUM57g",
+      "06JRCv74G5M",
     ],
   },
 
