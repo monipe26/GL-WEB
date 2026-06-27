@@ -1103,3 +1103,33 @@ OVERLAY NETFLIX
   padding: 0;
   margin: 0;
 }
+
+.info-contenido {
+  max-width: 800px;
+  margin: 10px auto 10px;
+  padding: 0 20px;
+  text-align: center;
+  display: none;
+}
+
+.info-contenido.active {
+  display: block;
+}
+
+.info-contenido h3 {
+  color: #ff4fd8;
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+
+.info-contenido .info-genero {
+  color: #c4aeff;
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.info-contenido .info-sinopsis {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.7;
+}

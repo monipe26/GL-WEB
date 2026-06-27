@@ -87,6 +87,7 @@ const seriesArray = [
 
   {
     id: "midnightmart",
+    slug: "midnight-mart",
     img: "/img/series/midnight-mart-2026).jpg",
     titulo: "Midnight Mart (2026)",
     genero: "Romance",
@@ -97,6 +98,7 @@ const seriesArray = [
 
   {
     id: "neverfade",
+    slug: "never-fade",
     img: "/img/series/never fade.jpg",
     titulo: "Never Fade (2026)",
     genero: "Romance/Drama",
@@ -107,6 +109,7 @@ const seriesArray = [
 
   {
     id: "shades",
+    slug: "shades",
     img: "/img/series/shades-2026.jpg",
     titulo: "Shades(2026)",
     genero: "Romance/Drama",
@@ -130,6 +133,7 @@ const seriesArray = [
 
   {
     id: "bemyangel",
+    slug: "be-my-angel",
     img: "/img/series/Be_My_Angel_(2026).jpg",
     titulo: "Be My Angel (2026)",
     genero: "Romance/Comedia",
@@ -169,6 +173,7 @@ const seriesArray = [
 
   {
     id: "rentallovelab",
+    slug: "rental-love-lab",
     img: "/img/series/Rental-Love-Lab.jpg",
     titulo: "Rental Love Lab (2026)",
     genero: "Romance",
@@ -179,6 +184,7 @@ const seriesArray = [
 
   {
     id: "10rulesbeforeifellforyou",
+    slug: "10-rules-before-i-fell-for-you",
     img: "/img/series/10-Rules-before-I-Fell-for-You.jpg",
     titulo: "10 Rules before I Fell for You (2026)",
     genero: "Romance",
@@ -3502,11 +3508,13 @@ function actualizarEpisodio() {
 
   if (serie && serie.tiktoks) {
     info.innerText = "Parte " + (current + 1) + " de " + serie.tiktoks.length;
+    mostrarInfoContenido(serie);
     return;
   }
 
   if (serie && serie.fbreels) {
     info.innerText = "Parte " + (current + 1) + " de " + serie.fbreels.length;
+    mostrarInfoContenido(serie);
     return;
   }
 
@@ -3517,9 +3525,47 @@ function actualizarEpisodio() {
     info.innerText = total
       ? "Episodio " + (index + 1) + " de " + total
       : "Episodio " + (index + 1);
+    mostrarInfoContenido(serie);
     return;
   }
+
+  if (serie) {
+    info.innerText = "Episodio " + (current + 1) + " de " + playlist.length;
+    mostrarInfoContenido(serie);
+    return;
+  }
+
+  // Si no es una serie (es un short/historia de microficción u otro contenido)
   info.innerText = "Episodio " + (current + 1) + " de " + playlist.length;
+}
+
+// =====================
+// 📝 INFO CONTENIDO (SEO)
+// =====================
+
+function mostrarInfoContenido(item) {
+  const cont = document.getElementById("info-contenido");
+  if (!cont) return;
+
+  if (!item || !item.titulo) {
+    cont.classList.remove("active");
+    cont.innerHTML = "";
+    return;
+  }
+
+  cont.innerHTML = `
+    <h3>${item.titulo}</h3>
+    ${item.genero ? `<p class="info-genero">${item.genero}</p>` : ""}
+    ${item.sinopsis ? `<p class="info-sinopsis">${item.sinopsis}</p>` : ""}
+  `;
+  cont.classList.add("active");
+}
+
+function ocultarInfoContenido() {
+  const cont = document.getElementById("info-contenido");
+  if (!cont) return;
+  cont.classList.remove("active");
+  cont.innerHTML = "";
 }
 
 // =====================
@@ -3542,6 +3588,9 @@ function reproducirContenido(item) {
     ostTimer = null;
   }
   if (player && player.stopVideo) player.stopVideo();
+
+  // 👇 NUEVO: muestra info de la historia (microficción) si tiene titulo
+  mostrarInfoContenido(item);
 
   setTimeout(() => {
     if (item.tiktoks && item.tiktoks.length) {
@@ -3624,10 +3673,18 @@ function renderSection(array, containerId, paginationId, perPage = 20) {
             div.classList.add("active");
             return;
           }
-          reproducirContenido(item);
+          if (item.slug) {
+            abrirSerie(item);
+          } else {
+            reproducirContenido(item);
+          }
           return;
         }
-        reproducirContenido(item);
+        if (item.slug) {
+          abrirSerie(item);
+        } else {
+          reproducirContenido(item);
+        }
       };
 
       div.innerHTML = `
@@ -3667,7 +3724,6 @@ function renderSection(array, containerId, paginationId, perPage = 20) {
 
   render();
 }
-
 // =====================
 // 📺 RENDER COMUNIDAD
 // =====================
@@ -3735,7 +3791,7 @@ function renderComunidad(
       const div = document.createElement("div");
       div.className = "com-card";
 
-      // 👇 NUEVO: si usarUrl está activo y el item tiene slug, abrirHistoria (URL indexable)
+      // 👇 si usarUrl está activo y el item tiene slug, abrirHistoria (URL indexable)
       div.onclick = () => {
         if (usarUrl && item.slug) {
           abrirHistoria(item);
@@ -3746,7 +3802,7 @@ function renderComunidad(
 
       const cached = titleCache[item.videoId];
 
-      // 👇 ARREGLADO: usa item.img como cover si existe, sino la miniatura de YouTube
+      // 👇 usa item.img como cover si existe, sino la miniatura de YouTube
       const thumbSrc = item.img
         ? item.img
         : `https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`;
@@ -3922,6 +3978,21 @@ function cerrarHistoria() {
 }
 
 // =====================
+// 🎬 ABRIR SERIE (SEO)
+// =====================
+
+function abrirSerie(item) {
+  history.pushState({}, "", "/serie/" + item.slug);
+  document.title = item.titulo + " - Girls Love Play";
+  verSerie(item.id);
+}
+
+function cerrarSerie() {
+  history.pushState({}, "", "/");
+  document.title = "Girls Love Play - Tu espacio GL favorito 💖";
+}
+
+// =====================
 // 📰 MODAL
 // =====================
 
@@ -4062,7 +4133,7 @@ window.addEventListener("load", () => {
     }
   }
 
-  // 👇 NUEVO: abrir historia directo desde URL
+  // 👇 abrir historia directo desde URL
   if (path.startsWith("/historia/")) {
     const slug = path.split("/historia/")[1];
     const historia = microficcionArray.find((h) => h.slug === slug);
@@ -4072,6 +4143,23 @@ window.addEventListener("load", () => {
           reproducirContenido(historia);
           document.title =
             (historia.titulo || "Historia GL") + " - Girls Love Play";
+        } else {
+          setTimeout(intentar, 300);
+        }
+      };
+      intentar();
+    }
+  }
+
+  // 👇 NUEVO: abrir serie directo desde URL
+  if (path.startsWith("/serie/")) {
+    const slug = path.split("/serie/")[1];
+    const serie = seriesArray.find((s) => s.slug === slug);
+    if (serie) {
+      const intentar = () => {
+        if (playerReady) {
+          verSerie(serie.id);
+          document.title = serie.titulo + " - Girls Love Play";
         } else {
           setTimeout(intentar, 300);
         }
