@@ -19,6 +19,7 @@ let lastPlaylistIndex = -1;
 const seriesArray = [
   {
     id: "myroommatecrush",
+    slug: "my-roommate-crush",
     img: "/img/series/My-Roommate-Crush.jpg",
     titulo: "My Roommate Crush (2026)",
     genero: "Romance",
@@ -40,6 +41,7 @@ const seriesArray = [
 
   {
     id: "cincominutosdementira",
+    slug: "cinco-minutos-de-mentira",
     titulo: "Cinco minutos de mentira (2026)",
     genero: "Romance/Drama",
     videoId: "MaCuR49C5Tc",
@@ -74,6 +76,8 @@ const seriesArray = [
   },
   {
     id: "thepartners",
+    slug: "the-partners",
+
     img: "/img/series/The-Partners-(2026).jpg",
     titulo: "The Partners (2026)",
     genero: "Romance",
