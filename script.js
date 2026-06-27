@@ -68,6 +68,8 @@ const seriesArray = [
       "K4Y1K3LtMw4",
       "D-rZtFKiVJI",
       "m06yUUZ_HhA",
+      "tnOb3-EjQKo",
+      "TjK9iKzb-7Y",
     ],
   },
   {
@@ -86,7 +88,7 @@ const seriesArray = [
     genero: "Romance",
     sinopsis:
       "Una trabajadora de TI se enamora de la cajera de la tienda de conveniencia a la que suele ir.",
-    videos: ["ytPdTSUX4UQ", "aNr00I3Ow8A"],
+    videos: ["ytPdTSUX4UQ", "aNr00I3Ow8A", "7g6FjMbRF_g"],
   },
 
   {
@@ -2525,6 +2527,8 @@ const microficcionArray = [
       "K4Y1K3LtMw4",
       "D-rZtFKiVJI",
       "m06yUUZ_HhA",
+      "tnOb3-EjQKo",
+      "TjK9iKzb-7Y",
     ],
   },
 
