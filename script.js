@@ -128,6 +128,10 @@ const seriesArray = [
       "SSI5RgXbDjs",
       "zBTxXz5mPXY",
       "xQULsHLpxGk",
+      "LOovJzIk8mo",
+      "DWcNK8pF_Fc",
+      "Ua2-JKbsQGU",
+      "iRHf1KlrT7s",
     ],
   },
 
@@ -201,7 +205,8 @@ const seriesArray = [
   },
 
   {
-    id: "enemieswithbenefitse",
+    id: "enemieswithbenefits",
+    slug: "enemies-with-benefits",
     img: "/img/series/Enemies-with-Benefits.jpg",
     titulo: "Enemies With Benefits (2026)",
     genero: "Comedia/Romance",
@@ -240,11 +245,16 @@ const seriesArray = [
       "zA8gsdqj5GQ",
       "DiVA8byF60E",
       "-IeQBx8qYho",
+      "7Am1PNq6fzo",
+      "uLz7qZQ4K5k",
+      "ApmsEB9cWl4",
+      "x-2Inmye-Bs",
     ],
   },
 
   {
     id: "fulfill",
+    slug: "fulfill",
     img: "/img/series/Fulfill.jpg",
     titulo: "Fulfill (2026)",
     genero: "Comedia/Romance",
@@ -254,7 +264,8 @@ const seriesArray = [
   },
 
   {
-    id: "lovebeyonddreams (2026)",
+    id: "lovebeyonddreams",
+    slug: "love-beyond-dreams",
     img: "/img/series/Love-beyond-Dreams-2026.jpg",
     titulo: "Love beyond Dreams (2026)",
     genero: "Romance/Fantasy",
@@ -265,6 +276,7 @@ const seriesArray = [
 
   {
     id: "thewaybacktoyou",
+    slug: "the-way-back-to-you",
     img: "/img/series/The-Way-Back-to-You-(2026).jpg",
     titulo: "The Way Back to You (2026)",
     genero: "Romance/Drama",
@@ -282,6 +294,7 @@ const seriesArray = [
 
   {
     id: "twintangle",
+    slug: "twin-tangle",
     img: "/img/series/Twin-Tangle.jpg",
     titulo: "Twin Tangle (2026)",
     genero: "Drama",
@@ -291,6 +304,7 @@ const seriesArray = [
 
   {
     id: "vampireunnie ",
+    slug: "vampir-unnie",
     img: "/img/series/vampire-unnie-2026.jpg",
     titulo: "Vampire Unnie (2026)",
     genero: "Fantasia/Sobrenatural",
@@ -310,6 +324,7 @@ const seriesArray = [
 
   {
     id: "brokenoflove",
+    slug: "broken-of-love",
     img: "/img/series/Broken-of-Love-(2026).jpg",
     titulo: "Broken of Love (2026)",
     genero: "Drama/Psicologico",
@@ -354,6 +369,7 @@ const seriesArray = [
 
   {
     id: "myonlysunshine",
+    slug: "my-only-sunshine",
     img: "/img/series/My-Only-Sunshine-2026-1.jpg",
     titulo: "My Only Sunshine (2026)",
     genero: "Drama/Romance",
@@ -398,6 +414,7 @@ const seriesArray = [
 
   {
     id: "shadowoflove",
+    slug: "shadow-of-love",
     img: "/img/series/Shadow-of-Love-(2026).jpg",
     titulo: "Shadow of Love (2026)",
     genero: "Romance",
@@ -408,6 +425,7 @@ const seriesArray = [
 
   {
     id: "aghostsfirstlove",
+    slug: "a-ghosts-first-love",
     img: "/img/series/A-Ghost-s-First-Love-(2026).jpg",
     titulo: "A Ghost’s First Love (2026)",
     genero: "Romance",
@@ -418,6 +436,7 @@ const seriesArray = [
 
   {
     id: "7destinies",
+    slug: "7-destinies",
     img: "/img/series/Destinos-entrelazados-en-el-bosque.jpg",
     titulo: "7 Destinies (2026)",
     genero: "Drama/Romance",
@@ -434,6 +453,7 @@ const seriesArray = [
 
   {
     id: "ghostfriendforeverseason2",
+    slug: "ghostfriend-forever-season-2",
     img: "/img/series/Ghostfriend-Forever-Season-2-(2026).jpg",
     titulo: "Ghostfriend Forever Season 2 (2026)",
     genero: "Romance",
@@ -453,6 +473,7 @@ const seriesArray = [
 
   {
     id: "iwannabesuptar",
+    slug: "i-wanna-be-suptar",
     img: "/img/series/i-wanna-be-sup-tar.jpg",
     titulo: "I Wanna Be Sup'tar (2026)",
     genero: "Comedia/Romance",
@@ -463,6 +484,7 @@ const seriesArray = [
 
   {
     id: "heartssecretcode",
+    slug: "hearts-secret-code",
     img: "/img/series/Heart-s-Secret-Code-(2026).jpg",
     titulo: "Heart's Secret Code (2026)",
     genero: "Romance",
@@ -2385,6 +2407,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost1", videoId: "SAPDFLMMMfQ" },
   { id: "ost1", videoId: "TTfF-pAf774" },
   { id: "ost1", videoId: "MP4Ciew8Xok" },
   { id: "ost1", videoId: "dE4yy4ULCXI" },
@@ -3508,13 +3531,11 @@ function actualizarEpisodio() {
 
   if (serie && serie.tiktoks) {
     info.innerText = "Parte " + (current + 1) + " de " + serie.tiktoks.length;
-    mostrarInfoContenido(serie);
     return;
   }
 
   if (serie && serie.fbreels) {
     info.innerText = "Parte " + (current + 1) + " de " + serie.fbreels.length;
-    mostrarInfoContenido(serie);
     return;
   }
 
@@ -3525,13 +3546,11 @@ function actualizarEpisodio() {
     info.innerText = total
       ? "Episodio " + (index + 1) + " de " + total
       : "Episodio " + (index + 1);
-    mostrarInfoContenido(serie);
     return;
   }
 
   if (serie) {
     info.innerText = "Episodio " + (current + 1) + " de " + playlist.length;
-    mostrarInfoContenido(serie);
     return;
   }
 
@@ -3540,25 +3559,12 @@ function actualizarEpisodio() {
 }
 
 // =====================
-// 📝 INFO CONTENIDO (SEO)
+// 📝 INFO CONTENIDO (SEO) — DESACTIVADO
 // =====================
 
 function mostrarInfoContenido(item) {
-  const cont = document.getElementById("info-contenido");
-  if (!cont) return;
-
-  if (!item || !item.titulo) {
-    cont.classList.remove("active");
-    cont.innerHTML = "";
-    return;
-  }
-
-  cont.innerHTML = `
-    <h3>${item.titulo}</h3>
-    ${item.genero ? `<p class="info-genero">${item.genero}</p>` : ""}
-    ${item.sinopsis ? `<p class="info-sinopsis">${item.sinopsis}</p>` : ""}
-  `;
-  cont.classList.add("active");
+  // Desactivado por ahora
+  return;
 }
 
 function ocultarInfoContenido() {
@@ -3589,8 +3595,7 @@ function reproducirContenido(item) {
   }
   if (player && player.stopVideo) player.stopVideo();
 
-  // 👇 NUEVO: muestra info de la historia (microficción) si tiene titulo
-  mostrarInfoContenido(item);
+  ocultarInfoContenido();
 
   setTimeout(() => {
     if (item.tiktoks && item.tiktoks.length) {
@@ -3640,7 +3645,6 @@ function reproducirContenido(item) {
   }, 200);
   document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
 }
-
 // =====================
 // 🎞 RENDER SERIES CARDS + PAGINACIÓN
 // =====================
@@ -3791,7 +3795,6 @@ function renderComunidad(
       const div = document.createElement("div");
       div.className = "com-card";
 
-      // 👇 si usarUrl está activo y el item tiene slug, abrirHistoria (URL indexable)
       div.onclick = () => {
         if (usarUrl && item.slug) {
           abrirHistoria(item);
@@ -3802,7 +3805,6 @@ function renderComunidad(
 
       const cached = titleCache[item.videoId];
 
-      // 👇 usa item.img como cover si existe, sino la miniatura de YouTube
       const thumbSrc = item.img
         ? item.img
         : `https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`;
@@ -3827,7 +3829,6 @@ function renderComunidad(
 
       container.appendChild(div);
 
-      // Solo busca el título automático si NO tiene título manual
       if (!cached && !item.titulo) {
         setTimeout(() => fetchTitle(item.videoId, div), i * 100);
       }
@@ -3853,7 +3854,6 @@ function renderComunidad(
       pagination.appendChild(b);
     }
 
-    // Solo hace auto-scroll si el usuario ya scrolleó
     if (document.documentElement.scrollTop > 100) {
       setTimeout(() => {
         const activeBtn = pagination.querySelector("button.active");
@@ -3894,7 +3894,6 @@ function renderNoticias(array, containerId, paginationId, perPage = 5) {
 
       div.style.cursor = "pointer";
 
-      // 👇 ABRIR NOTICIA SEO
       div.onclick = () => abrirNoticia(item);
 
       div.innerHTML = `
@@ -3952,13 +3951,8 @@ function renderNoticias(array, containerId, paginationId, perPage = 5) {
 // =====================
 
 function abrirNoticia(item) {
-  // 👇 CAMBIA URL
   history.pushState({}, "", "/noticia/" + item.slug);
-
-  // 👇 CAMBIA TITULO SEO
   document.title = item.titulo;
-
-  // 👇 ABRE MODAL NORMAL
   abrirModal(item);
 }
 
@@ -3975,6 +3969,7 @@ function abrirHistoria(item) {
 function cerrarHistoria() {
   history.pushState({}, "", "/");
   document.title = "Girls Love Play - Tu espacio GL favorito 💖";
+  ocultarInfoContenido();
 }
 
 // =====================
@@ -3990,6 +3985,7 @@ function abrirSerie(item) {
 function cerrarSerie() {
   history.pushState({}, "", "/");
   document.title = "Girls Love Play - Tu espacio GL favorito 💖";
+  ocultarInfoContenido();
 }
 
 // =====================
@@ -4054,10 +4050,8 @@ function cerrarModal(e) {
 
   document.body.style.overflow = "";
 
-  // 👇 VUELVE A HOME
   history.pushState({}, "", "/");
 
-  // 👇 TITLE NORMAL
   document.title = "GL Series";
 }
 
@@ -4133,7 +4127,6 @@ window.addEventListener("load", () => {
     }
   }
 
-  // 👇 abrir historia directo desde URL
   if (path.startsWith("/historia/")) {
     const slug = path.split("/historia/")[1];
     const historia = microficcionArray.find((h) => h.slug === slug);
@@ -4151,7 +4144,6 @@ window.addEventListener("load", () => {
     }
   }
 
-  // 👇 NUEVO: abrir serie directo desde URL
   if (path.startsWith("/serie/")) {
     const slug = path.split("/serie/")[1];
     const serie = seriesArray.find((s) => s.slug === slug);
