@@ -494,6 +494,7 @@ const seriesArray = [
 
   {
     id: "rawlove",
+    slug: "raw-love",
     img: "/img/series/Raw-Love-(2026).jpg",
     titulo: "Raw Love (2026)",
     genero: "Romance",
@@ -504,6 +505,7 @@ const seriesArray = [
 
   {
     id: "LeLaLesfluidlove",
+    slug: "LeLaLes-fluid-love",
     img: "/img/series/LeLaLes-Fluid-Love-(2026).jpg",
     titulo: "LeLaLes: Fluid Love (2026)",
     genero: "Romance",
@@ -521,6 +523,7 @@ const seriesArray = [
 
   {
     id: "Fruit",
+    slug: "fruit",
     img: "/img/series/Fruit-(2026).jpg",
     titulo: "Fruit (2026)",
     genero: "Romance",
@@ -543,6 +546,7 @@ const seriesArray = [
 
   {
     id: "belovedfrangipani",
+    slug: "beloved-frangipani",
     img: "/img/series/Beloved-Frangipani-(2026).jpg",
     titulo: "Beloved Frangipani (2026)",
     genero: "Romance",
@@ -553,6 +557,7 @@ const seriesArray = [
 
   {
     id: "sweetpunishment",
+    slug: "sweet-punishment",
     img: "/img/series/Sweet Punishment.jpg",
     titulo: "Sweet Punishment (2026)",
     genero: "Romance",
@@ -562,6 +567,7 @@ const seriesArray = [
 
   {
     id: "On&OffSeason3",
+    slug: "On-&-Off-Season-3",
     img: "/img/series/On-&-Off-Season-3(2027).jpg",
     titulo: "On & Off Season 3 (2026)",
     genero: "Romance/Drama",
@@ -572,6 +578,7 @@ const seriesArray = [
 
   {
     id: "whyeventry",
+    slug: "why-even-try",
     img: "/img/series/Why-t-xng-phyayam-(Why-Even-Try) (1).jpg",
     titulo: "Why Even Try (2026)",
     genero: "Romance",
@@ -582,6 +589,7 @@ const seriesArray = [
 
   {
     id: "shockmegirls",
+    slug: "shock-me-girls",
     titulo: "Shock Me Girls (2026)",
     img: "/img/series/Shock-Me-Girls-(2026).jpg",
     genero: "Romance/comedia",
@@ -601,6 +609,7 @@ const seriesArray = [
 
   {
     id: "clairebell",
+    slug: "clairebell",
     img: "/img/series/clairebell.jpg",
     titulo: "Clairebell (2025)",
     genero: "Drama/Romance",
@@ -612,6 +621,7 @@ const seriesArray = [
 
   {
     id: "runaway",
+    slug: "runaway",
     img: "/img/series/runaway-series.jpg",
     titulo: "Runaway (2025)",
     genero: "Drama/Terror",
@@ -656,6 +666,7 @@ const seriesArray = [
 
   {
     id: "player",
+    slug: "player",
     img: "/img/series/player.jpg",
     titulo: "Player (2025)",
     genero: "Comedia/Romance",
@@ -666,6 +677,7 @@ const seriesArray = [
 
   {
     id: "kissofyesterday",
+    slug: "kiss-of-yesterday",
     img: "/img/series/kiss-of-yesterday-the-series.jpg",
     titulo: "Kiss of Yesterday (2025)",
     genero: "Romance",
@@ -676,6 +688,7 @@ const seriesArray = [
 
   {
     id: "dearyou",
+    slug: "dear-you",
     img: "/img/series/Dear-You-(2025).jpg",
     titulo: "Dear You (2025)",
     genero: "Romance",
@@ -685,6 +698,7 @@ const seriesArray = [
 
   {
     id: "whalestorexoxo",
+    slug: "whale-store-xoxo",
     img: "/img/series/whale-store-xoxo.jpg",
     titulo: "Whale Store xoxo (2025)",
     genero: "Drama/Romance",
@@ -695,6 +709,7 @@ const seriesArray = [
 
   {
     id: "yourapple",
+    slug: "your-apple",
     img: "/img/series/(Your)-Apple-(2025).jpg",
     titulo: "(Your) Apple (2025)",
     genero: "Romance",
@@ -705,6 +720,7 @@ const seriesArray = [
 
   {
     id: "reversewithme",
+    slug: "reverse-with-me",
     img: "/img/series/Reverse-with-Me-1.jpg",
     titulo: "Reverse with Me (2025)",
     genero: "Romance/Fantasia",
@@ -715,6 +731,7 @@ const seriesArray = [
 
   {
     id: "adrenaline",
+    slug: "adrenaline",
     img: "/img/series/Adrenaline-The-Rhythm-of-Love-(2025).jpg",
     titulo: "Adrenaline (2025)",
     genero: "Romance",
@@ -725,6 +742,7 @@ const seriesArray = [
 
   {
     id: "mystarmysky",
+    slug: "my-star-my-sky",
     img: "/img/series/My-Star-My-Sky-(2025).jpg",
     titulo: "My Star, My Sky (2025)",
     genero: "Romance",
@@ -735,6 +753,7 @@ const seriesArray = [
 
   {
     id: "musicstorylosingcontrol",
+    slug: "music-story-losing-control",
     img: "/img/series/Music-Story-Losing-Control.jpg",
     titulo: "Music Story: Losing Control (2025)",
     genero: "Drama/Romance",
@@ -745,6 +764,7 @@ const seriesArray = [
 
   {
     id: "LLLproject",
+    slug: "lll-project",
     img: "/img/series/L-L-L-Project.jpg",
     titulo: "L.L.L. Project (2025)",
     genero: "Drama/Romance",
@@ -755,6 +775,7 @@ const seriesArray = [
 
   {
     id: "mylittlemiss",
+    slug: "my-little-miss",
     img: "/img/series/My Little Miss (2025).jpg",
     titulo: "My Little Miss (2025)",
     genero: "Romance",
@@ -764,6 +785,7 @@ const seriesArray = [
 
   {
     id: "asyouwishlovelovereset",
+    slug: "as-you-wish-love-love-reset",
     img: "/img/series/As-You-Wish-Love-Love-Reset.jpg",
     titulo: "As You Wish Love: Love Reset (2025)",
     genero: "Comedia/Romance",
@@ -774,6 +796,7 @@ const seriesArray = [
 
   {
     id: "poisonouslove",
+    slug: "poisonous-love",
     img: "/img/series/Poisonous-Love.jpg",
     titulo: "Poisonous Love (2025)",
     genero: "Drama/Romance",
@@ -830,6 +853,7 @@ const seriesArray = [
 
   {
     id: "nowitsmyturn",
+    slug: "now-its-my-turn",
     img: "/img/series/Now-Its-My-Turn-(2025).jpg",
     titulo: "Now It’s My Turn (2025)",
     genero: "Romance",
@@ -851,6 +875,7 @@ const seriesArray = [
 
   {
     id: "somewheresomehow",
+    slug: "somewhere-somehow",
     img: "/img/series/Somewhere-Somehow.jpg",
     titulo: "Somewhere Somehow (2025)",
     genero: "Comedia/Romance",
@@ -861,6 +886,7 @@ const seriesArray = [
 
   {
     id: "catchcatcrush",
+    slug: "catch-cat-crush",
     img: "/img/series/Catch-Cat-Crush.jpg",
     titulo: "Catch Cat Crush (2025)",
     genero: "Comedia/Romance",
@@ -871,6 +897,7 @@ const seriesArray = [
 
   {
     id: "harmonysecret",
+    slug: "harmony-secret",
     img: "/img/series/harmony-secret.jpg",
     titulo: "Harmony Secret (2025)",
     genero: "Comedia/Romance",
@@ -881,6 +908,7 @@ const seriesArray = [
 
   {
     id: "missionloveorlies",
+    slug: "mission-love-or-lies",
     img: "/img/series/Mission-Love-or-Lies (1).jpg",
     titulo: "Mission: Love or Lies (2025)",
     genero: "Acción/Comedia",
@@ -891,6 +919,7 @@ const seriesArray = [
 
   {
     id: "hateyouloveyou",
+    slug: "hate-you-love-you",
     img: "/img/series/hate-you-love-you-gl.jpg",
     titulo: "Hate You Love You (2025)",
     genero: "Drama/Romance",
@@ -901,6 +930,7 @@ const seriesArray = [
 
   {
     id: "firstlove",
+    slug: "first-love",
     img: "/img/series/First-Love-(2025).jpg",
     titulo: "First Love (2025)",
     genero: "Romance",
@@ -911,6 +941,7 @@ const seriesArray = [
 
   {
     id: "on&off",
+    slug: "on-&-off",
     img: "/img/series/ON-OFF.jpg",
     titulo: "On & Off (2025)",
     genero: "Drama/Romance ",
@@ -921,6 +952,7 @@ const seriesArray = [
 
   {
     id: "unlimitedlove",
+    slug: "un-limited-love",
     img: "/img/series/Unlimited-Love-The-Series.jpg",
     titulo: "Unlimited Love (2025)",
     genero: "Comedia/Romance",
@@ -931,6 +963,7 @@ const seriesArray = [
 
   {
     id: "lovehouse",
+    slug: "love-house",
     img: "/img/series/Love-House-(2025).jpg",
     titulo: "Love House (2025)",
     genero: "Romance",
@@ -3394,6 +3427,20 @@ function cargarSerie(id) {
     ostTimer = null;
   }
   ocultarTikTok();
+
+  ocultarTikTok();
+
+  // 🔧 Adaptar el reproductor a vertical si la serie es un short
+  const hero = document.querySelector(".hero");
+  if (serie.esShort) {
+    hero.style.aspectRatio = "9/16";
+    hero.style.maxWidth = "340px";
+    hero.style.margin = "15px auto";
+  } else {
+    hero.style.aspectRatio = "";
+    hero.style.maxWidth = "";
+    hero.style.margin = "";
+  }
 
   if (serie.tiktoks && serie.tiktoks.length) {
     mostrarTikTok(serie.tiktoks[0]);
