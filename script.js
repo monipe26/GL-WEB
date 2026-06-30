@@ -72,6 +72,11 @@ const seriesArray = [
       "m06yUUZ_HhA",
       "tnOb3-EjQKo",
       "TjK9iKzb-7Y",
+      "YZlvT5ts3N0",
+      "dPZFDJUpwEQ",
+      "muEb7NJl-to",
+      "0kPg4ZKaeGY",
+      "UNrro7PlM-s",
     ],
   },
   {
@@ -2440,6 +2445,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost1", videoId: "i_SF8XZasmU" },
   { id: "ost1", videoId: "SAPDFLMMMfQ" },
   { id: "ost1", videoId: "TTfF-pAf774" },
   { id: "ost1", videoId: "MP4Ciew8Xok" },
@@ -2595,6 +2601,11 @@ const microficcionArray = [
       "m06yUUZ_HhA",
       "tnOb3-EjQKo",
       "TjK9iKzb-7Y",
+      "YZlvT5ts3N0",
+      "dPZFDJUpwEQ",
+      "muEb7NJl-to",
+      "0kPg4ZKaeGY",
+      "UNrro7PlM-s",
     ],
   },
 
