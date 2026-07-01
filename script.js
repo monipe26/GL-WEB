@@ -40,6 +40,17 @@ const seriesArray = [
   },
 
   {
+    id: "offtherecord",
+    slug: "off-the-record",
+    img: "/img/series/Off-the-Record-(2026).jpg",
+    titulo: "Off the Record (2026)",
+    genero: "Romance",
+    sinopsis:
+      "Una pasante sin hogar vive en secreto con su estricta líder de equipo. La convivencia rompe los límites profesionales y cambia su relación.",
+    videos: ["88KSedd9OpY"],
+  },
+
+  {
     id: "myroommatecrush",
     slug: "my-roommate-crush",
     img: "/img/series/My-Roommate-Crush.jpg",
@@ -1002,6 +1013,7 @@ const seriesArray = [
 
   {
     id: "heartrule",
+    slug: "heart-rule",
     img: "/img/series/Heart-Rule-(2025).jpg",
     titulo: "Heart Rule (2025)",
     genero: "Romance",
@@ -1012,6 +1024,7 @@ const seriesArray = [
 
   {
     id: "timelesslove",
+    slug: "timeless-love",
     img: "/img/series/Timeless-love.jpg",
     titulo: "Timeless Love (2025)",
     genero: "Romance",
@@ -1029,6 +1042,7 @@ const seriesArray = [
 
   {
     id: "sassyseason",
+    slug: "sassy-season",
     img: "/img/series/Sassy-Season-(2025).jpg",
     titulo: "Sassy Season (2025)",
     genero: "Romance",
@@ -1039,6 +1053,7 @@ const seriesArray = [
 
   {
     id: "kissthehater",
+    slug: "kiss-the-hater",
     img: "/img/series/kiss-the-hater.jpg",
     titulo: "Kiss the Hater (2025)",
     genero: "Drama/Romance",
@@ -1049,6 +1064,7 @@ const seriesArray = [
 
   {
     id: "tasteofher",
+    slug: "taste-of-her",
     img: "/img/series/Taste-of-Her-(2025).jpg",
     titulo: "Taste of Her (2025)",
     genero: "Romance/Thriller",
@@ -1059,6 +1075,7 @@ const seriesArray = [
 
   {
     id: "isthislove?",
+    slug: "is-this-love?",
     img: "/img/series/is-this-love.jpg",
     titulo: "Is This Love? (2025)",
     genero: "Drama/Romance",
@@ -1069,6 +1086,7 @@ const seriesArray = [
 
   {
     id: "dangerousqueen",
+    slug: "dangerous-queen",
     img: "/img/series/Dangerous-Queen.jpg",
     titulo: "Dangerous Queen (2025)",
     genero: "Drama/Romance",
@@ -1079,6 +1097,7 @@ const seriesArray = [
 
   {
     id: "icebreakheartmelt",
+    slug: "icebreak-heartmelt",
     img: "/img/series/Ice-Break-Heart-Melt.jpg",
     titulo: "Ice Break, Heart Melt (2025)",
     genero: "Drama/Romance",
@@ -1089,6 +1108,7 @@ const seriesArray = [
 
   {
     id: "theend",
+    slug: "the-end",
     img: "/img/series/The-End.jpg",
     titulo: "The End (2025)",
     genero: "Drama/Romance",
@@ -1099,6 +1119,7 @@ const seriesArray = [
 
   {
     id: "ustheseries",
+    slug: "us-the-series",
     img: "/img/series/us.jpg",
     titulo: "Us: The Series (2025)",
     genero: "Drama/Romance",
@@ -1109,6 +1130,7 @@ const seriesArray = [
 
   {
     id: "teachmesoftly",
+    slug: "teach-me-softly",
     img: "/img/series/Teach-Me-Softly-(2025).jpg",
     titulo: "Teach Me Softly (2025)",
     genero: "Romance",
@@ -1119,6 +1141,7 @@ const seriesArray = [
 
   {
     id: "untilonceagain",
+    slug: "until-once-again",
     img: "/img/series/Until-Once-Again.jpg",
     titulo: "Until Once Again (2025)",
     genero: "Drama",
@@ -1129,6 +1152,7 @@ const seriesArray = [
 
   {
     id: "hiddenhalf",
+    slug: "hidden-half",
     img: "/img/series/Hidden-Half-(2025).jpg",
     titulo: "Hidden Half (2025)",
     genero: "Romance",
@@ -1139,6 +1163,7 @@ const seriesArray = [
 
   {
     id: "thegirlwhomeow",
+    slug: "the-girl-who-meow",
     img: "/img/series/The-Girl-Who-Meow.jpg",
     titulo: "The Girl Who Meow (2025)",
     genero: "Romance",
