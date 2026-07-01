@@ -68,7 +68,8 @@ const seriesArray = [
     genero: "Romance/Drama",
     videoId: "MaCuR49C5Tc",
     img: "/img/series/Cinco-minutos-de-mentira.jpg",
-    sinopsis: "",
+    sinopsis:
+      "Cinco minutos de mentira cambiaron todo. Ahora Nari y Valentina deberán enfrentar un pasado lleno de secretos y una verdad imposible de ocultar.",
     esShort: true,
     videos: [
       "MaCuR49C5Tc",
