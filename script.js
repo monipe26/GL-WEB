@@ -18,6 +18,28 @@ let lastPlaylistIndex = -1;
 
 const seriesArray = [
   {
+    id: "aigirl",
+    slug: "ai-girl",
+    img: "/img/series/AI-Girl-(2026).jpg",
+    titulo: "AI Girl (2026)",
+    genero: "Romance/Ciencia ficción",
+    sinopsis:
+      "Una diseñadora de rostros con IA crea a la chica de sus sueños, pero todo cambia cuando esa cara cobra vida como un androide.",
+    videos: ["3CC58stapKQ", "1HDj3Hlumv4", "DqifdSf7vVQ", "wrcBP3zbTNY"],
+  },
+
+  {
+    id: "myladysbodyguard",
+    slug: "my-ladys-bodyguard",
+    img: "/img/series/My-Lady's-Bodyguard.jpg",
+    titulo: "My Lady's Bodyguard (2026)",
+    genero: "Romance",
+    sinopsis:
+      "Una guardaespaldas protege a una joven rebelde mientras enfrentan peligros. Entre secretos y desafíos, el amor florece entre ambas.",
+    videos: ["3QCTtz_y4JU", "wNVt7i8P_Ns"],
+  },
+
+  {
     id: "myroommatecrush",
     slug: "my-roommate-crush",
     img: "/img/series/My-Roommate-Crush.jpg",
@@ -72,11 +94,6 @@ const seriesArray = [
       "m06yUUZ_HhA",
       "tnOb3-EjQKo",
       "TjK9iKzb-7Y",
-      "YZlvT5ts3N0",
-      "dPZFDJUpwEQ",
-      "muEb7NJl-to",
-      "0kPg4ZKaeGY",
-      "UNrro7PlM-s",
     ],
   },
   {
@@ -2445,7 +2462,6 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
-  { id: "ost1", videoId: "i_SF8XZasmU" },
   { id: "ost1", videoId: "SAPDFLMMMfQ" },
   { id: "ost1", videoId: "TTfF-pAf774" },
   { id: "ost1", videoId: "MP4Ciew8Xok" },
@@ -2601,11 +2617,6 @@ const microficcionArray = [
       "m06yUUZ_HhA",
       "tnOb3-EjQKo",
       "TjK9iKzb-7Y",
-      "YZlvT5ts3N0",
-      "dPZFDJUpwEQ",
-      "muEb7NJl-to",
-      "0kPg4ZKaeGY",
-      "UNrro7PlM-s",
     ],
   },
 
