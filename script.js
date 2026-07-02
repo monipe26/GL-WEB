@@ -36,7 +36,7 @@ const seriesArray = [
     genero: "Romance",
     sinopsis:
       "Una guardaespaldas protege a una joven rebelde mientras enfrentan peligros. Entre secretos y desafíos, el amor florece entre ambas.",
-    videos: ["3QCTtz_y4JU", "wNVt7i8P_Ns", "fvZlKcmwBDI"],
+    videos: ["3QCTtz_y4JU", "wNVt7i8P_Ns", "wNVt7i8P_Ns"],
   },
 
   {
