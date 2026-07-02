@@ -1029,8 +1029,6 @@ OVERLAY NETFLIX
   hyphens: auto;
   word-spacing: -1px;
   min-height: 180px;
-  opacity: 0;
-  transition: opacity 0.25s ease;
 }
 
 .modal-texto.visible {
