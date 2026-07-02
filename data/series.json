@@ -6,13 +6,9 @@
     "titulo": "AI Girl (2026)",
     "genero": "Romance/Ciencia ficción",
     "sinopsis": "Una diseñadora de rostros con IA crea a la chica de sus sueños, pero todo cambia cuando esa cara cobra vida como un androide.",
-    "videos": [
-      "3CC58stapKQ",
-      "1HDj3Hlumv4",
-      "DqifdSf7vVQ",
-      "wrcBP3zbTNY"
-    ]
+    "videos": ["3CC58stapKQ", "1HDj3Hlumv4", "DqifdSf7vVQ", "wrcBP3zbTNY"]
   },
+
   {
     "id": "myladysbodyguard",
     "slug": "my-ladys-bodyguard",
@@ -20,12 +16,9 @@
     "titulo": "My Lady's Bodyguard (2026)",
     "genero": "Romance",
     "sinopsis": "Una guardaespaldas protege a una joven rebelde mientras enfrentan peligros. Entre secretos y desafíos, el amor florece entre ambas.",
-    "videos": [
-      "3QCTtz_y4JU",
-      "wNVt7i8P_Ns",
-      "wNVt7i8P_Ns"
-    ]
+    "videos": ["3QCTtz_y4JU", "wNVt7i8P_Ns", "wNVt7i8P_Ns"]
   },
+
   {
     "id": "offtherecord",
     "slug": "off-the-record",
@@ -33,10 +26,9 @@
     "titulo": "Off the Record (2026)",
     "genero": "Romance",
     "sinopsis": "Una pasante sin hogar vive en secreto con su estricta líder de equipo. La convivencia rompe los límites profesionales y cambia su relación.",
-    "videos": [
-      "88KSedd9OpY"
-    ]
+    "videos": ["88KSedd9OpY"]
   },
+
   {
     "id": "myroommatecrush",
     "slug": "my-roommate-crush",
@@ -58,6 +50,7 @@
       "xdQEIXGddsY"
     ]
   },
+
   {
     "id": "cincominutosdementira",
     "slug": "cinco-minutos-de-mentira",
@@ -101,16 +94,14 @@
   {
     "id": "thepartners",
     "slug": "the-partners",
+
     "img": "/img/series/The-Partners-(2026).jpg",
     "titulo": "The Partners (2026)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "klULFypTofQ",
-      "CDPsz8-PGUU",
-      "O59KrAE3nKE"
-    ]
+    "videos": ["klULFypTofQ", "CDPsz8-PGUU", "O59KrAE3nKE"]
   },
+
   {
     "id": "midnightmart",
     "slug": "midnight-mart",
@@ -118,12 +109,9 @@
     "titulo": "Midnight Mart (2026)",
     "genero": "Romance",
     "sinopsis": "Una trabajadora de TI se enamora de la cajera de la tienda de conveniencia a la que suele ir.",
-    "videos": [
-      "ytPdTSUX4UQ",
-      "aNr00I3Ow8A",
-      "7g6FjMbRF_g"
-    ]
+    "videos": ["ytPdTSUX4UQ", "aNr00I3Ow8A", "7g6FjMbRF_g"]
   },
+
   {
     "id": "neverfade",
     "slug": "never-fade",
@@ -131,10 +119,9 @@
     "titulo": "Never Fade (2026)",
     "genero": "Romance/Drama",
     "sinopsis": "Never Fade es un corto GL de Yoko Apasra, su proyecto de graduación, sobre tatuajes, miedo, dolor y un amor entre mujeres que perdura.",
-    "videos": [
-      "cxhBYv0On58"
-    ]
+    "videos": ["cxhBYv0On58"]
   },
+
   {
     "id": "shades",
     "slug": "shades",
@@ -161,6 +148,7 @@
       "iRHf1KlrT7s"
     ]
   },
+
   {
     "id": "bemyangel",
     "slug": "be-my-angel",
@@ -199,6 +187,7 @@
       "L42aSu-eV2Q"
     ]
   },
+
   {
     "id": "rentallovelab",
     "slug": "rental-love-lab",
@@ -206,13 +195,9 @@
     "titulo": "Rental Love Lab (2026)",
     "genero": "Romance",
     "sinopsis": "Claire debe fingir escenas románticas con la escritora Eris. Lo que empieza como investigación podría convertirse en amor real",
-    "videos": [
-      "DH6b3St6DVU",
-      "7HbO2qF4B_8",
-      "XYssHJKsh34",
-      "8h1WitA0swU"
-    ]
+    "videos": ["DH6b3St6DVU", "7HbO2qF4B_8", "XYssHJKsh34", "8h1WitA0swU"]
   },
+
   {
     "id": "10rulesbeforeifellforyou",
     "slug": "10-rules-before-i-fell-for-you",
@@ -229,6 +214,7 @@
       "1yz7IpZTxDI"
     ]
   },
+
   {
     "id": "enemieswithbenefits",
     "slug": "enemies-with-benefits",
@@ -275,6 +261,7 @@
       "x-2Inmye-Bs"
     ]
   },
+
   {
     "id": "fulfill",
     "slug": "fulfill",
@@ -284,6 +271,7 @@
     "sinopsis": "Aioon y Paifun ven tambalear su matrimonio cuando el deseo de ser madres y la llegada de Nubnueng cambian sus vidas para siempre.",
     "playlist": "PLDIqVRSvaz9K1QU_-MbiWVgtSqMZmmh7e"
   },
+
   {
     "id": "lovebeyonddreams",
     "slug": "love-beyond-dreams",
@@ -293,6 +281,7 @@
     "sinopsis": "Aran vuelve a Tailandia y descubre que Lene murió. Tras despertar cinco años en el pasado, intentará cambiar su destino y salvarla.",
     "playlist": "PLFnFjT24wVPX7gxcGvZV89N6h7PASbnPc"
   },
+
   {
     "id": "thewaybacktoyou",
     "slug": "the-way-back-to-you",
@@ -309,6 +298,7 @@
       "giGoHCVXxrk"
     ]
   },
+
   {
     "id": "twintangle",
     "slug": "twin-tangle",
@@ -316,10 +306,9 @@
     "titulo": "Twin Tangle (2026)",
     "genero": "Drama",
     "sinopsis": "",
-    "videos": [
-      "3VY8S_XDchw"
-    ]
+    "videos": ["3VY8S_XDchw"]
   },
+
   {
     "id": "vampireunnie ",
     "slug": "vampir-unnie",
@@ -338,6 +327,7 @@
       "E5HsIoInpFo"
     ]
   },
+
   {
     "id": "brokenoflove",
     "slug": "broken-of-love",
@@ -381,6 +371,7 @@
       "EECHvMaDigQ"
     ]
   },
+
   {
     "id": "myonlysunshine",
     "slug": "my-only-sunshine",
@@ -424,6 +415,7 @@
       "Ptlf4ElFTrk"
     ]
   },
+
   {
     "id": "shadowoflove",
     "slug": "shadow-of-love",
@@ -433,6 +425,7 @@
     "sinopsis": "Dos jóvenes criadas como hermanas descubren, entre conflictos y cercanía, un amor prohibido que cambiará sus vidas para siempre.",
     "playlist": "PLI1xfwk6UKPm_8_O79pRsdO5r2aF-pYUd"
   },
+
   {
     "id": "aghostsfirstlove",
     "slug": "a-ghosts-first-love",
@@ -440,12 +433,9 @@
     "titulo": "A Ghost’s First Love (2026)",
     "genero": "Romance",
     "sinopsis": "Jeong A vive en soledad y agotamiento hasta que un “fantasma” aparece en su cuarto. Unidas por el vacío, descubre por primera vez lo que es ser amada.",
-    "videos": [
-      "h4fZl8EGGCg",
-      "uyubmnEOJ7s",
-      "g735aONHXoQ"
-    ]
+    "videos": ["h4fZl8EGGCg", "uyubmnEOJ7s", "g735aONHXoQ"]
   },
+
   {
     "id": "7destinies",
     "slug": "7-destinies",
@@ -461,6 +451,7 @@
       "cPMBdj0ZhU4"
     ]
   },
+
   {
     "id": "ghostfriendforeverseason2",
     "slug": "ghostfriend-forever-season-2",
@@ -479,6 +470,7 @@
       "3fA30vCz_u8"
     ]
   },
+
   {
     "id": "iwannabesuptar",
     "slug": "i-wanna-be-suptar",
@@ -488,6 +480,7 @@
     "sinopsis": "Una chica que sueña con ser superestrella desafía a sus padres y convive con una exfamosa que huye del espectáculo.",
     "playlist": "PLpRvR46QQnisTu0dNhVThDTQE1fAeZ5Kf"
   },
+
   {
     "id": "heartssecretcode",
     "slug": "hearts-secret-code",
@@ -495,10 +488,9 @@
     "titulo": "Heart's Secret Code (2026)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "v7WqC4g_-7I"
-    ]
+    "videos": ["v7WqC4g_-7I"]
   },
+
   {
     "id": "rawlove",
     "slug": "raw-love",
@@ -506,10 +498,9 @@
     "titulo": "Raw Love (2026)",
     "genero": "Romance",
     "sinopsis": "Dos mujeres enfrentan amor, sacrificios y distancia mientras luchan por proteger el futuro de su relación.",
-    "videos": [
-      "TaqnZUJzL-s"
-    ]
+    "videos": ["TaqnZUJzL-s"]
   },
+
   {
     "id": "LeLaLesfluidlove",
     "slug": "LeLaLes-fluid-love",
@@ -526,6 +517,7 @@
       "isILyf2ovQA"
     ]
   },
+
   {
     "id": "Fruit",
     "slug": "fruit",
@@ -547,6 +539,7 @@
       "LToyXdKRNR0"
     ]
   },
+
   {
     "id": "belovedfrangipani",
     "slug": "beloved-frangipani",
@@ -554,10 +547,9 @@
     "titulo": "Beloved Frangipani (2026)",
     "genero": "Romance",
     "sinopsis": "Tras una infidelidad, Tharn pierde la fe en el amor. En un viaje conoce a Anna y vuelve a enamorarse, recuperando su sonrisa.",
-    "videos": [
-      "sJO2g0jZW88"
-    ]
+    "videos": ["sJO2g0jZW88"]
   },
+
   {
     "id": "sweetpunishment",
     "slug": "sweet-punishment",
@@ -565,10 +557,9 @@
     "titulo": "Sweet Punishment (2026)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "OIJLv4bvrJ4"
-    ]
+    "videos": ["OIJLv4bvrJ4"]
   },
+
   {
     "id": "On&OffSeason3",
     "slug": "On-&-Off-Season-3",
@@ -576,10 +567,9 @@
     "titulo": "On & Off Season 3 (2026)",
     "genero": "Romance/Drama",
     "sinopsis": "Una CEO exitosa enfrenta romances, desafíos empresariales y complejas relaciones personales junto a las mujeres que forman parte de su círculo más cercano.",
-    "videos": [
-      "hCIZIANZCsY"
-    ]
+    "videos": ["hCIZIANZCsY"]
   },
+
   {
     "id": "whyeventry",
     "slug": "why-even-try",
@@ -587,10 +577,9 @@
     "titulo": "Why Even Try (2026)",
     "genero": "Romance",
     "sinopsis": "La historia sigue a Sol y Wine, pareja desde hace dos años. Con el tiempo, el amor se enfría y Wine enfrenta el desgaste de amar sola.",
-    "videos": [
-      "a54mqYRquiI"
-    ]
+    "videos": ["a54mqYRquiI"]
   },
+
   {
     "id": "shockmegirls",
     "slug": "shock-me-girls",
@@ -610,6 +599,7 @@
       "7624984138382167297"
     ]
   },
+
   {
     "id": "clairebell",
     "slug": "clairebell",
@@ -620,6 +610,7 @@
     "playlist": "PLHC1cSXiDxwB2ZhuIaA3Rz8hsdSV5A_2N",
     "ostVideo": "qjuXnqA4KRY"
   },
+
   {
     "id": "runaway",
     "slug": "runaway",
@@ -663,6 +654,7 @@
       "J8I6yfpfGPY"
     ]
   },
+
   {
     "id": "player",
     "slug": "player",
@@ -672,6 +664,7 @@
     "sinopsis": "Pun, diseñadora estafada por Phetai, se acerca a su hermana Ploy para recuperar su dinero. En este juego de seducción, ¿quién es presa y quién tigre?",
     "playlist": "PLV0UxBZPooaqXplt6aQvidPABZb5FP-dd"
   },
+
   {
     "id": "kissofyesterday",
     "slug": "kiss-of-yesterday",
@@ -679,10 +672,9 @@
     "titulo": "Kiss of Yesterday (2025)",
     "genero": "Romance",
     "sinopsis": "Miniserie web tailandesa GL sobre romances, reencuentros, decisiones del destino y segundas oportunidades en el amor.",
-    "videos": [
-      "UpPiWO1GZUI"
-    ]
+    "videos": ["UpPiWO1GZUI"]
   },
+
   {
     "id": "dearyou",
     "slug": "dear-you",
@@ -690,10 +682,9 @@
     "titulo": "Dear You (2025)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "h5BNEgM3ucE"
-    ]
+    "videos": ["h5BNEgM3ucE"]
   },
+
   {
     "id": "whalestorexoxo",
     "slug": "whale-store-xoxo",
@@ -703,6 +694,7 @@
     "sinopsis": "Tras perder a su padre y su empleo, Wan dirige la tienda familiar. Maewnam la ayuda y surge amor, pero su familia planea un centro comercial que amenaza.",
     "playlist": "PLszepnkojZI4qpSumzOHRdNa79JRiC-cE"
   },
+
   {
     "id": "yourapple",
     "slug": "your-apple",
@@ -712,6 +704,7 @@
     "sinopsis": "Un año después, con Karn cada vez más famosa, Kris y Karn deberán enfrentar los desafíos que amenazan su amor.",
     "playlist": "PL-3lmw1GIQMlo0R7hc1_KaF2fzpOLyLeH"
   },
+
   {
     "id": "reversewithme",
     "slug": "reverse-with-me",
@@ -721,6 +714,7 @@
     "sinopsis": "Kliaokhluen busca a quien la salvó de morir siete años atrás con poderes del tiempo. Es Karan, cirujana distante, y su destino desata un amor desafiante.",
     "playlist": "PLnN7O-RXuCgq6DEZyJK2JZcqyU8l5n-UQ"
   },
+
   {
     "id": "adrenaline",
     "slug": "adrenaline",
@@ -728,13 +722,9 @@
     "titulo": "Adrenaline (2025)",
     "genero": "Romance",
     "sinopsis": "Cuando «Pim» tiene que demostrar su valía En medio de la presión de «May», que es a la vez talentosa y feroz… ¿A dónde te llevarán el amor y los desafíos?",
-    "videos": [
-      "BELKthPt9Lw",
-      "Hh62UYr8MnA",
-      "M4bNzUDqV4g",
-      "oYwbHQj7OcA"
-    ]
+    "videos": ["BELKthPt9Lw", "Hh62UYr8MnA", "M4bNzUDqV4g", "oYwbHQj7OcA"]
   },
+
   {
     "id": "mystarmysky",
     "slug": "my-star-my-sky",
@@ -742,10 +732,9 @@
     "titulo": "My Star, My Sky (2025)",
     "genero": "Romance",
     "sinopsis": "Un romance dulce y desgarrador entre Byul, una estrella top, y Haneul, quien por accidente termina siendo su manager.",
-    "videos": [
-      "PVvg7w9MxCY"
-    ]
+    "videos": ["PVvg7w9MxCY"]
   },
+
   {
     "id": "musicstorylosingcontrol",
     "slug": "music-story-losing-control",
@@ -755,6 +744,7 @@
     "sinopsis": "La relación de tres mujeres, Queen, Sea y Bam explora emociones muy intensas tras un vínculo nacido del engaño, dependencia y consecuencias inesperadas.",
     "playlist": "PLZqIjfvyGXxZGx16rrQepH12AUCsVajKr"
   },
+
   {
     "id": "LLLproject",
     "slug": "lll-project",
@@ -762,10 +752,9 @@
     "titulo": "L.L.L. Project (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "Tres amigas abren un bar y enfrentan amores complejos: amor a primera vista, distancia y segundas oportunidades tras una ruptura.",
-    "videos": [
-      "T5wR1FPpF9U"
-    ]
+    "videos": ["T5wR1FPpF9U"]
   },
+
   {
     "id": "mylittlemiss",
     "slug": "my-little-miss",
@@ -773,10 +762,9 @@
     "titulo": "My Little Miss (2025)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "p2DwTvGnrX4"
-    ]
+    "videos": ["p2DwTvGnrX4"]
   },
+
   {
     "id": "asyouwishlovelovereset",
     "slug": "as-you-wish-love-love-reset",
@@ -784,13 +772,9 @@
     "titulo": "As You Wish Love: Love Reset (2025)",
     "genero": "Comedia/Romance",
     "sinopsis": "Yah filma contenido en el restaurante de su novia Noey, pero mezclar amor y trabajo podría poner su relación al límite.",
-    "videos": [
-      "-eS5sv47758",
-      "qmGdvGqFfj4",
-      "wU_Zm3LWfZo",
-      "LlzOCzTN_-Q"
-    ]
+    "videos": ["-eS5sv47758", "qmGdvGqFfj4", "wU_Zm3LWfZo", "LlzOCzTN_-Q"]
   },
+
   {
     "id": "poisonouslove",
     "slug": "poisonous-love",
@@ -846,6 +830,7 @@
       "gMk8FeC5nhE"
     ]
   },
+
   {
     "id": "nowitsmyturn",
     "slug": "now-its-my-turn",
@@ -866,6 +851,7 @@
       "7IR05IPNF2s"
     ]
   },
+
   {
     "id": "somewheresomehow",
     "slug": "somewhere-somehow",
@@ -875,6 +861,7 @@
     "sinopsis": "Kee, ingeniera reservada, y Peem, rica y traviesa, se enamoran en secreto en la preparatoria. Siete años después, se reencuentran como jefa y empleada.",
     "playlist": "PL4D0KlUVq4Ix1AF1_vliipbSFOvvGUNWO"
   },
+
   {
     "id": "catchcatcrush",
     "slug": "catch-cat-crush",
@@ -884,6 +871,7 @@
     "sinopsis": "Smay vuelve a su antigua casa y se reencuentra con Thian, su vecina distante; entre secretos y amor, deberán enfrentar su pasado y sus sentimientos.",
     "playlist": "PLhsCXKbbbsR2TwTdHRsoliZmpV_eRiFS_"
   },
+
   {
     "id": "harmonysecret",
     "slug": "harmony-secret",
@@ -893,6 +881,7 @@
     "sinopsis": "Dos herederas, una hotelera y otra comercial, compiten por una licitación Duty-Free… pero entre ellas nace una atracción inesperada.",
     "playlist": "PLpRvR46QQniulz-JYJziV6GsmAE0TryaC"
   },
+
   {
     "id": "missionloveorlies",
     "slug": "mission-love-or-lies",
@@ -902,6 +891,7 @@
     "sinopsis": "Una capitana debe proteger a la hija de un poderoso político tras un atentado, pero la misión destapa mentiras, secretos… y un amor inesperado.",
     "playlist": "PLoNn-GA9nEjblnH30YZDRuEfBAXgCyS5g"
   },
+
   {
     "id": "hateyouloveyou",
     "slug": "hate-you-love-you",
@@ -909,10 +899,9 @@
     "titulo": "Hate You Love You (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "Dos mujeres viven una relación compleja donde el amor se entrelaza con el odio y la rivalidad, en un drama de emociones intensas.",
-    "videos": [
-      "j7-niX50iSE"
-    ]
+    "videos": ["j7-niX50iSE"]
   },
+
   {
     "id": "firstlove",
     "slug": "first-love",
@@ -920,10 +909,9 @@
     "titulo": "First Love (2025)",
     "genero": "Romance",
     "sinopsis": "Un romance universitario entre un introvertido y un extrovertido que, al ser emparejados en clase para un proyecto, descubren algo más.",
-    "videos": [
-      "TqbDzaW-JLU"
-    ]
+    "videos": ["TqbDzaW-JLU"]
   },
+
   {
     "id": "on&off",
     "slug": "on-&-off",
@@ -931,10 +919,9 @@
     "titulo": "On & Off (2025)",
     "genero": "Drama/Romance ",
     "sinopsis": "Dos amantes ocultan su relación en la oficina; entre presiones sociales y jerarquías, su amor lucha por sobrevivir.",
-    "videos": [
-      "h9u5l8ZtHgg"
-    ]
+    "videos": ["h9u5l8ZtHgg"]
   },
+
   {
     "id": "unlimitedlove",
     "slug": "un-limited-love",
@@ -944,6 +931,7 @@
     "sinopsis": "Plu es despedida tras enfrentar a un jefe acosador. Con Ray funda una empresa de trabajos varios, donde el caos se vuelve hogar y nace el amor.",
     "playlist": "PLpRvR46QQnisdrPR51W51EBmMzkIxK0ZS"
   },
+
   {
     "id": "lovehouse",
     "slug": "love-house",
@@ -951,10 +939,9 @@
     "titulo": "Love House (2025)",
     "genero": "Romance",
     "sinopsis": "Yuna se muda con tres mujeres; entre vínculos y deseo, su historia de amor comienza… ¿con quién terminará?",
-    "videos": [
-      "sbhXozoCQA4"
-    ]
+    "videos": ["sbhXozoCQA4"]
   },
+
   {
     "id": "heartrule",
     "slug": "heart-rule",
@@ -962,10 +949,9 @@
     "titulo": "Heart Rule (2025)",
     "genero": "Romance",
     "sinopsis": "Napdao, hija de Khun Phop, es protegida por la guardaespaldas Chris; juntas surgen sentimientos, pero la llegada de Nicha complica todo.",
-    "videos": [
-      "DjVH0w_CtzA"
-    ]
+    "videos": ["DjVH0w_CtzA"]
   },
+
   {
     "id": "timelesslove",
     "slug": "timeless-love",
@@ -982,6 +968,7 @@
       "nFTlDsnjeuA"
     ]
   },
+
   {
     "id": "sassyseason",
     "slug": "sassy-season",
@@ -991,6 +978,7 @@
     "sinopsis": "Cin vuelve al resort familiar y choca con Green, el gerente. Entre roces y trabajo, empiezan a entenderse y acercarse.",
     "playlist": "PLhsCXKbbbsR2Y6WIwnERaKB3EK6ghpGtX"
   },
+
   {
     "id": "kissthehater",
     "slug": "kiss-the-hater",
@@ -998,10 +986,9 @@
     "titulo": "Kiss the Hater (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "Dos universitarias con personalidades y límites diferentes intentan arreglárselas viviendo juntas.",
-    "videos": [
-      "a7l1aY1jldQ"
-    ]
+    "videos": ["a7l1aY1jldQ"]
   },
+
   {
     "id": "tasteofher",
     "slug": "taste-of-her",
@@ -1009,10 +996,9 @@
     "titulo": "Taste of Her (2025)",
     "genero": "Romance/Thriller",
     "sinopsis": "Una antigua profecía une a un humano recién llegado a los veinte años y a un vampiro. ¿Podrá el amor desafiar su destino?",
-    "videos": [
-      "BPRDPOeUU48"
-    ]
+    "videos": ["BPRDPOeUU48"]
   },
+
   {
     "id": "isthislove?",
     "slug": "is-this-love?",
@@ -1022,6 +1008,7 @@
     "sinopsis": "Mint y Sian descubren que el amor no tiene barreras: cuando dos corazones se aman, siempre encuentran su camino juntas.",
     "playlist": "PLY1myBF61GHJUwkNFfzvcxGb9er7XkTpP"
   },
+
   {
     "id": "dangerousqueen",
     "slug": "dangerous-queen",
@@ -1031,6 +1018,7 @@
     "sinopsis": "Bonita trabaja para saldar las deudas de su madre y termina con Queen, quien la marcó desde niña. Lo profesional se vuelve personal entre mundos opuestos.",
     "playlist": "PL7f8J6cuHYT7fa0sR-tV588KY7MoVzUqs"
   },
+
   {
     "id": "icebreakheartmelt",
     "slug": "icebreak-heartmelt",
@@ -1040,6 +1028,7 @@
     "sinopsis": "Neve, patinadora fría, y Ivy, heredera astuta, fingen un romance; lo que empieza como negocio se convierte en risas, sinceridad y amor real.",
     "playlist": "PLhsCXKbbbsR20QAUI45hxtWnA4z1fDR4H"
   },
+
   {
     "id": "theend",
     "slug": "the-end",
@@ -1047,10 +1036,9 @@
     "titulo": "The End (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "Sherene, una florista enamorada de su novia Sol, sueña con casarse, pero su comportamiento sospechoso amenaza con destruir su relación.",
-    "videos": [
-      "zfENHOROMQM"
-    ]
+    "videos": ["zfENHOROMQM"]
   },
+
   {
     "id": "ustheseries",
     "slug": "us-the-series",
@@ -1060,6 +1048,7 @@
     "sinopsis": "Dokrak se enamora de Pam en una cafetería, pero su hermano también la ama y le pide ayuda para conquistarla, obligándola a ocultar su dolor.",
     "playlist": "PLszepnkojZI7mOWtISfvxWVPikIM6yiXE"
   },
+
   {
     "id": "teachmesoftly",
     "slug": "teach-me-softly",
@@ -1069,6 +1058,7 @@
     "sinopsis": "Ida, una chica traviesa con dificultades en tailandés, toma clases con Taam, una misteriosa tutora. Entre secretos y choques, nace algo inesperado.",
     "playlist": "PLhsCXKbbbsR2UrfvoYFNofUFensowIhs1"
   },
+
   {
     "id": "untilonceagain",
     "slug": "until-once-again",
@@ -1078,6 +1068,7 @@
     "sinopsis": "Tras discutir, Peach y Miuu quedan atrapadas en un día que se repite en un resort. Para escapar, deberán enfrentar sentimientos que nunca se atrevieron a decir.",
     "playlist": "PLhsCXKbbbsR3sbTyqkRB_OUWXC0mH8KDU"
   },
+
   {
     "id": "hiddenhalf",
     "slug": "hidden-half",
@@ -1085,10 +1076,9 @@
     "titulo": "Hidden Half (2025)",
     "genero": "Romance",
     "sinopsis": "La historia sigue la relación entre Frame y Prim, un amor del pasado marcado por secretos que podrían cambiarlo todo.",
-    "videos": [
-      "NaMx2n30Ncs"
-    ]
+    "videos": ["NaMx2n30Ncs"]
   },
+
   {
     "id": "thegirlwhomeow",
     "slug": "the-girl-who-meow",
@@ -1105,96 +1095,88 @@
       "3OytYyXfG2M"
     ]
   },
+
   {
     "id": "lovereturns",
     "img": "/img/series/Love-Returns-(2025).jpg",
     "titulo": "Love Returns (2025)",
     "genero": "Romance/Drama",
     "sinopsis": "La Dra. Por ama sinceramente a Fong y la ayuda a sanar tras una dolorosa ruptura. Pero cuando la ex de Fong reaparece, sus sentimientos vuelven a confundirse.",
-    "videos": [
-      "iuCCF1Wd4XY"
-    ]
+    "videos": ["iuCCF1Wd4XY"]
   },
+
   {
     "id": "theotherme2025",
     "img": "/img/series/The-Other-Me-(2025).jpg",
     "titulo": "The Other Me (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "En un café, dos mujeres ocultan secretos. Entre miradas y charlas nace una conexión peligrosa que podría cambiarlo todo para siempre.",
-    "videos": [
-      "_QN1qiUYvXY"
-    ]
+    "videos": ["_QN1qiUYvXY"]
   },
+
   {
     "id": "trunkgirl",
     "img": "/img/series/trunk girl.jpg",
     "titulo": "Trunk Girl (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "Una joven huye de casa y se va a quedar a casa de su amiga.",
-    "videos": [
-      "fDGThnho-Bk"
-    ]
+    "videos": ["fDGThnho-Bk"]
   },
+
   {
     "id": "thiWaRaTri",
     "img": "/img/series/Thi-Wa-Ra-Tri.jpg",
     "titulo": "ThiWaRaTri (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "Una joven cae en magia negra cuando su novio la usa para dañarla. Su vida se desmorona y busca ayuda en una curandera.",
-    "videos": [
-      "hJG8y12Q70A"
-    ]
+    "videos": ["hJG8y12Q70A"]
   },
+
   {
     "id": "hiddenheat",
     "img": "/img/series/Hidden-Heat-(2025).jpg",
     "titulo": "Hidden Heat (2025)",
     "genero": "Romance",
     "sinopsis": "Frame, gerente estricta, y Gale, nueva asistente, reencuentran su pasado tras un malentendido. Entre trabajo y tensión, surge un amor inesperado.",
-    "videos": [
-      "ErY515fLGh8"
-    ]
+    "videos": ["ErY515fLGh8"]
   },
+
   {
     "id": "absolutelove",
     "img": "/img/series/Absolute-Love-(2025).jpg",
     "titulo": "Absolute Love (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "",
-    "videos": [
-      "NrZVtsIQnIU"
-    ]
+    "videos": ["NrZVtsIQnIU"]
   },
+
   {
     "id": "deardiary",
     "img": "/img/series/Dear-Diary(2025).jpg",
     "titulo": "Dear Diary (2025)",
     "genero": "Romance",
     "sinopsis": "Mai se enamora de su compañera de universidad, Mean. Tras graduarse, deberán superar obstáculos familiares, laborales y la distancia.",
-    "videos": [
-      "BE7TQGpQMCE"
-    ]
+    "videos": ["BE7TQGpQMCE"]
   },
+
   {
     "id": "killerheart",
     "img": "/img/series/Killer-Heart-(2025).jpg",
     "titulo": "Killer Heart (2025)",
     "genero": "Romance",
     "sinopsis": "Tras el asesinato de sus padres, Surprise es secuestrada por un hombre que recibe la orden de matarla, desencadenando un peligroso vínculo.",
-    "videos": [
-      "qLojsGI26CQ"
-    ]
+    "videos": ["qLojsGI26CQ"]
   },
+
   {
     "id": "closeup",
     "img": "/img/series/Close Up (2025).jpg",
     "titulo": "Close Up (2025)",
     "genero": "Romance/Drama",
     "sinopsis": "Una fotógrafa y una modelo inician una relación sin compromisos, pero los sentimientos y un misterioso tercero complican el acuerdo.",
-    "videos": [
-      "R7WwZc7nNWk"
-    ]
+    "videos": ["R7WwZc7nNWk"]
   },
+
   {
     "id": "howtohatemyex",
     "img": "/img/series/How-to-Hate-My-Ex-(2025).jpg",
@@ -1211,6 +1193,7 @@
       "kChRAexDHPw"
     ]
   },
+
   {
     "id": "resettoremember",
     "img": "/img/series/Reset-To-Remember.jpg",
@@ -1227,6 +1210,7 @@
       "5ayBjKlo9d0"
     ]
   },
+
   {
     "id": "lovemoment",
     "img": "/img/series/Love-Moment-(2025).jpg",
@@ -1244,6 +1228,7 @@
       "S954ACHHSTA"
     ]
   },
+
   {
     "id": "rollercoaster",
     "img": "/img/series/Roller-Coaster-(2025).jpg",
@@ -1285,46 +1270,43 @@
       "LHQB3x37MKs"
     ]
   },
+
   {
     "id": "bunnybunny",
     "img": "/img/series/Bunny-Bunny.jpg",
     "titulo": "Bunny Bunny (2025)",
     "genero": "Drama/Romance",
     "sinopsis": "",
-    "videos": [
-      "VnnRSP4RsiI"
-    ]
+    "videos": ["VnnRSP4RsiI"]
   },
+
   {
     "id": "On&offseason2",
     "img": "/img/series/on-n-off-2.jpg",
     "titulo": "On & Off Season 2 (2025)",
     "genero": "Romance",
     "sinopsis": "Dos amantes ocultan su relación en la oficina. Entre jerarquías y normas conservadoras, deberán elegir entre el amor y las apariencias.",
-    "videos": [
-      "EKgy5EM-Vhw"
-    ]
+    "videos": ["EKgy5EM-Vhw"]
   },
+
   {
     "id": "firstoffice",
     "img": "/img/series/first-office.jpg",
     "titulo": "First Office (2025)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "xqmPqqIOLNY"
-    ]
+    "videos": ["xqmPqqIOLNY"]
   },
+
   {
     "id": "mydearghost",
     "img": "/img/series/My-Dear-Ghost.jpg",
     "titulo": "My Dear Ghost (2025)",
     "genero": "Romance",
     "sinopsis": "Sky, una escritora, consigue una casa barata cerca del trabajo, sin saber que oculta un secreto oscuro guardado durante 20 años.",
-    "videos": [
-      "bq97pXTH7qo"
-    ]
+    "videos": ["bq97pXTH7qo"]
   },
+
   {
     "id": "fromliarintolover",
     "img": "/img/series/From-Liar-into-Lover-(2025).jpg",
@@ -1333,6 +1315,7 @@
     "sinopsis": "Nuevo, gerente seria, debe trabajar con BB, creativa rebelde y hija del dueño en secreto. Entre choques y secretos, nacen sentimientos.",
     "playlist": "PLhsCXKbbbsR3EbFTQl9zefYZXpeyLXf9X"
   },
+
   {
     "id": "whoknowsgirlsl",
     "img": "/img/series/Who-Knows-Girls-L-(2025).jpg",
@@ -1341,16 +1324,16 @@
     "sinopsis": "Dos mujeres se conocen en un evento y surge la chispa, pero todo cambia al descubrir que trabajan juntas. Entre deseo y límites, el amor se complica.",
     "playlist": "PL1TNeoXRrjlnh0N_Q-8b9bI2wHqjHw5Ek"
   },
+
   {
     "id": "youremygift (2025)",
     "img": "/img/series/You-re-My-Gift-(2025).jpg",
     "titulo": "You're My Gift (2025)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "ctx5JOLe7Bc"
-    ]
+    "videos": ["ctx5JOLe7Bc"]
   },
+
   {
     "id": "blank",
     "img": "/img/series/blank.jpg",
@@ -1385,6 +1368,7 @@
       "I1YwnCtCp3Q"
     ]
   },
+
   {
     "id": "affair",
     "img": "/img/series/affair.jpg",
@@ -1426,6 +1410,7 @@
       "szlL9N4UpCU"
     ]
   },
+
   {
     "id": "pluto",
     "img": "/img/series/pluto-the-series.jpg",
@@ -1434,6 +1419,7 @@
     "sinopsis": "Ai-oon suplanta a su gemela en coma para romper con May, pero al conocerla y descubrir que es ciega, termina enamorándose.",
     "playlist": "PL_TZVYzKgZYQ-w9LCwO1F0P4dy8NyCPPh"
   },
+
   {
     "id": "findloveinhermind",
     "img": "/img/series/Find-love-in-her-mind.jpg",
@@ -1442,6 +1428,7 @@
     "sinopsis": "Jane, escritora que tras comer una galleta misteriosa puede leer la mente de su vecina Kate, creando una conexión profunda.",
     "playlist": "PLhsCXKbbbsR0gu-_8MKwwvlaH-Iaitiu5"
   },
+
   {
     "id": "heartbreaktohappiness",
     "img": "/img/series/Heartbreak-to-Happiness-(2024).jpg",
@@ -1450,29 +1437,25 @@
     "sinopsis": "Para seguir adelante, Haru crea una lista de diez metas. Junto a Hom, su casero, redescubre sueños y quizás también el amor.",
     "playlist": "PLhsCXKbbbsR0TWMJ2yS5pUETzkap7EzhE"
   },
+
   {
     "id": "1440minutes",
     "img": "/img/series/1440-Minutes.jpg",
     "titulo": "1440 Minutes (2024)",
     "genero": "Drama/Romance",
     "sinopsis": "",
-    "videos": [
-      "UHfgmfD64Zg",
-      "THNlUQ4NIPU",
-      "0fDLWSvnY1g",
-      "91BCOXKz4W8"
-    ]
+    "videos": ["UHfgmfD64Zg", "THNlUQ4NIPU", "0fDLWSvnY1g", "91BCOXKz4W8"]
   },
+
   {
     "id": "thesevenwishes",
     "img": "/img/series/The-Seven-Wishes (2024).jpg",
     "titulo": "The Seven Wishes (2024)",
     "genero": "Romance",
     "sinopsis": "Tras perder a su madre, Rada encuentra consuelo en la doctora Ice. Entre siete deseos y el duelo, nace un inesperado amor.",
-    "videos": [
-      "7wzmfMxTwBU"
-    ]
+    "videos": ["7wzmfMxTwBU"]
   },
+
   {
     "id": "sameplace,newpace",
     "img": "/img/series/same-place-new-pace.jpg",
@@ -1481,6 +1464,7 @@
     "sinopsis": "Amy vuelve a su casa de infancia en busca de objetos de su madre y cruza caminos con Pugan, una artista reservada, en su búsqueda de felicidad.",
     "playlist": "PLhsCXKbbbsR1CkiBe2rwilMZubMc8i6Bk"
   },
+
   {
     "id": "staywithme",
     "img": "/img/series/Stay-with-Me.jpg",
@@ -1506,6 +1490,7 @@
       "5AsqguZXcBo"
     ]
   },
+
   {
     "id": "feartofreedom",
     "img": "/img/series/Fear_to_Freedom (2024).jpg",
@@ -1523,6 +1508,7 @@
       "AqVJL1OSUfo"
     ]
   },
+
   {
     "id": "thesecretofus",
     "img": "/img/series/The_Secret_of_Us_(2024).jpg",
@@ -1550,29 +1536,25 @@
       "7FVuDuM66iU"
     ]
   },
+
   {
     "id": "friendwithbenefits",
     "img": "/img/series/Friend-with-Benefits-(2024).jpg",
     "titulo": "Friend with Benefits (2024)",
     "genero": "Romance",
     "sinopsis": "Vicky, tras una ruptura, conoce a la cantante Nune en una noche de fiesta. Entre dudas y sentimientos del pasado, surge una conexión inesperada.",
-    "videos": [
-      "pTacCic-1qQ"
-    ]
+    "videos": ["pTacCic-1qQ"]
   },
+
   {
     "id": "lovefromanotherstar",
     "img": "/img/series/Love-from-Another-Star-(2025).jpg",
     "titulo": "Love from Another Star (2025)",
     "genero": "Romance",
     "sinopsis": "Una alienígena de Venus llega a la Tierra y conoce a Rada. Para volver, debe llenar su tubo de felicidad. ¿Podrán enamorarse?",
-    "videos": [
-      "7m8Ynov6Ewk",
-      "KHr7eDjzeJE",
-      "3UH1yOVwX18",
-      "kusucblEaAs"
-    ]
+    "videos": ["7m8Ynov6Ewk", "KHr7eDjzeJE", "3UH1yOVwX18", "kusucblEaAs"]
   },
+
   {
     "id": "unlockyourlove",
     "img": "/img/series/Unlock-Your-Love-02.jpg",
@@ -1581,19 +1563,16 @@
     "sinopsis": "Rain, marcada por decepciones amorosas, cierra su corazón hasta que Love llega y derriba sus muros, iniciando un romance de sanación emocional.",
     "playlist": "PLZqIjfvyGXxYUrbgnQcaOK2TVEKSGgOGI"
   },
+
   {
     "id": "sharehouse",
     "img": "/img/series/Share-House.jpg",
     "titulo": "Share House (2024)",
     "genero": "Romance",
     "sinopsis": "Vicky y Nune se mudan juntas, pero los problemas pondrán a prueba su relación y su capacidad de seguir adelante.",
-    "videos": [
-      "39GwEgVGHEo",
-      "GFSoD0wcqeQ",
-      "ifrPVoiYXL4",
-      "g1RE-Saz8y4"
-    ]
+    "videos": ["39GwEgVGHEo", "GFSoD0wcqeQ", "ifrPVoiYXL4", "g1RE-Saz8y4"]
   },
+
   {
     "id": "loyalpin",
     "img": "/img/series/loyal-pin.jpg",
@@ -1602,6 +1581,7 @@
     "sinopsis": "Lady Pin, recatada y correcta, y la traviesa princesa Anilaphat crecen unidas por el destino, mientras sus sentimientos comienzan a cambiar.",
     "playlist": "PL4D0KlUVq4IyqMr7kszWIINegVFFrztUD"
   },
+
   {
     "id": "amongthecloud",
     "img": "/img/series/Among-the-cloud.jpg",
@@ -1610,6 +1590,7 @@
     "sinopsis": "Irene hereda tierras de su abuelo y debe vivir en el campo dos meses. Allí conoce a una mujer que cambiará su vida y despertará el amor.",
     "playlist": "PLhsCXKbbbsR0XAsVbXiRA9rTmiyi5ealN"
   },
+
   {
     "id": "deepnightsidestorythetwoofus",
     "img": "/img/series/Deep-Night-Side-Story-The-Two-of-Us.jpg",
@@ -1618,6 +1599,7 @@
     "sinopsis": "Dos mujeres se encuentran de noche y, entre silencios y confesiones, el amor y el deseo florecen en una historia íntima dentro de cuatro paredes.",
     "playlist": "PLIh-ltO6DKlUqDdUYdL0EipyhvTThS_AH"
   },
+
   {
     "id": "deepnightsidestorythetwoofus2",
     "img": "/img/series/Deep-Night-Side-Story-The-Two-of-Us-Season-2.jpg",
@@ -1626,6 +1608,7 @@
     "sinopsis": "",
     "playlist": "PLIh-ltO6DKlXTSdCCoT8t0YFpZqc31VBL"
   },
+
   {
     "id": "mate",
     "img": "/img/series/Mate-(2024).jpg",
@@ -1647,6 +1630,7 @@
       "QtMPvVA5YSQ"
     ]
   },
+
   {
     "id": "apple",
     "img": "/img/series/Apple-My-Love.jpg",
@@ -1685,46 +1669,43 @@
       "TtMolYAgtu4"
     ]
   },
+
   {
     "id": "fateswhispers",
     "img": "/img/series/Fate-s-Whispers.jpg",
     "titulo": "Fate's Whispers (2024)",
     "genero": "Romance",
     "sinopsis": "Ice, con mala suerte, debe pasar 7 días con su alma gemela Rada, vidente con poderes, para cambiar su destino.",
-    "videos": [
-      "1JlW5yyUIDA"
-    ]
+    "videos": ["1JlW5yyUIDA"]
   },
+
   {
     "id": "designyoubesideme",
     "img": "/img/series/Design-You-Beside-Me.jpg",
     "titulo": "Design You Beside Me (2024)",
     "genero": "Romance",
     "sinopsis": "Prae ayuda a Cher a escapar de un contrato abusivo, y entre apoyo, confianza y amor nace una historia que cambiará sus vida",
-    "videos": [
-      "701d1TTwuLc"
-    ]
+    "videos": ["701d1TTwuLc"]
   },
+
   {
     "id": "midsummerlove",
     "img": "/img/series/Midsummer-Love-(2024).jpg",
     "titulo": "Midsummer Love (2024)",
     "genero": "Romance",
     "sinopsis": "Entre oficinas y secretos, Ice, Rada, Nuney y Vicky descubren que el amor en el trabajo puede cambiarlo todo.",
-    "videos": [
-      "o9qvCcZMZ1A"
-    ]
+    "videos": ["o9qvCcZMZ1A"]
   },
+
   {
     "id": "seayousoon",
     "img": "/img/series/Sea-You-Soon.jpg",
     "titulo": "Sea You Soon (2024)",
     "genero": "Romance",
     "sinopsis": "Tras una ruptura, Ice viaja sola a Ko Sichang y conoce a Ferin, una joven que despierta sentimientos que creía imposibles.",
-    "videos": [
-      "Ca4pWQH-EhE"
-    ]
+    "videos": ["Ca4pWQH-EhE"]
   },
+
   {
     "id": "ghostfriendforever",
     "img": "/img/series/Ghostfriend-forever.jpg",
@@ -1733,16 +1714,16 @@
     "sinopsis": "Day se muda y conoce a Luv, un hermoso fantasma que no sabe que murió. Surge el amor, pero deberán enfrentar lo imposible: ¿pueden amar humano y fantasma?",
     "playlist": "PLhsCXKbbbsR2JAnJLlxyRVQYh4WZIit4T"
   },
+
   {
     "id": "deleteyourpast",
     "img": "/img/series/Delete-Your-Past.jpg",
     "titulo": "Delete Your Past (2024)",
     "genero": "Drama/Romance",
     "sinopsis": "Im, una joven que trabaja desde casa, vive tres romances y acude a una misteriosa clínica. ¿Sanará su dolor o complicará aún más su búsqueda del amor?",
-    "videos": [
-      "FEDYja9QznM"
-    ]
+    "videos": ["FEDYja9QznM"]
   },
+
   {
     "id": "littlecupid",
     "img": "/img/series/Little-Cupid.jpg",
@@ -1751,56 +1732,52 @@
     "sinopsis": "Prem debe cuidar a su traviesa sobrina Proud, y con la ayuda de Rada, enfrenta desafíos diarios mientras forman un vínculo lleno de ternura.",
     "playlist": "PLSEF-5TOVlugr4NrM_aw1q_Gqy4vvp11O"
   },
+
   {
     "id": "mywednesday",
     "img": "/img/series/My-Wednesday.jpg",
     "titulo": "My Wednesday (2024)",
     "genero": "Drama/Romance",
     "sinopsis": "Historias de amor entre mujeres en distintos momentos de sus vidas, explorando emociones, vínculos y conexiones profundas.",
-    "videos": [
-      "scW8diYeaQ8"
-    ]
+    "videos": ["scW8diYeaQ8"]
   },
+
   {
     "id": "melodyofadream",
     "img": "/img/series/Melody-of-a-Dream-(2024).jpg",
     "titulo": "Melody of a Dream (2024)",
     "genero": "Drama/Romance",
     "sinopsis": "Este drama explora relaciones de pareja, poder, trabajo y secretos que pondrán a prueba a sus protagonistas.",
-    "videos": [
-      "huduKpVGEhM"
-    ]
+    "videos": ["huduKpVGEhM"]
   },
+
   {
     "id": "redwhisper",
     "img": "/img/series/Red-Whisper.jpg",
     "titulo": "Red Whisper (2024)",
     "genero": "Romance",
     "sinopsis": "Este drama explora relaciones de pareja, poder, trabajo y secretos que pondrán a prueba a sus protagonistas.",
-    "videos": [
-      "huduKpVGEhM"
-    ]
+    "videos": ["huduKpVGEhM"]
   },
+
   {
     "id": "myghostlove",
     "img": "/img/series/Amor_(fantasmal)_en_la_oficina.jpg",
     "titulo": "My (Ghost) Love (2024)",
     "genero": "Romance/Sobrenatural",
     "sinopsis": "Una chica muere y regresa como fantasma; su amor crece con la única que puede verla, entre romance y secretos sobrenaturales.",
-    "videos": [
-      "JVekL5u78l4"
-    ]
+    "videos": ["JVekL5u78l4"]
   },
+
   {
     "id": "INTPflirting",
     "img": "/img/series/INTP-Flirting-(2024).jpg",
     "titulo": "INTP Flirting (2024))",
     "genero": "Romance",
     "sinopsis": "La historia de amor entre So Min Jae y Chae Su In, dos universitarias que terminan unidas por un mismo proyecto grupal.",
-    "videos": [
-      "I2fLHLRAxGI"
-    ]
+    "videos": ["I2fLHLRAxGI"]
   },
+
   {
     "id": "clubfridayseason16lovebully",
     "img": "/img/series/Club-Friday-Season-16-Love-Bully.jpg",
@@ -1826,46 +1803,43 @@
       "RJQtGJEdL98"
     ]
   },
+
   {
     "id": "lonelygirls",
     "img": "/img/series/Lonely-Girls-(2024).jpg",
     "titulo": "Lonely Girls (2024)",
     "genero": "Drama/Romance",
     "sinopsis": "Nos conocimos en Tinder, pero Ji Eun llenó un vacío en mí. Lo que siento es tan intenso que ya no sé si es solo amistad o algo más.",
-    "videos": [
-      "86X7eb-P1yM"
-    ]
+    "videos": ["86X7eb-P1yM"]
   },
+
   {
     "id": "24hourlove",
     "img": "/img/series/24-Hour-Love-(2024).jpg",
     "titulo": "24 Hour Love (2024)",
     "genero": "Romance",
     "sinopsis": "Ice, tras una ruptura, contrata a una chica con vibra de novia para viajar 24 horas. Lo que empieza como acuerdo se convierte en un amor inesperado.",
-    "videos": [
-      "6TUxFLEIrIk"
-    ]
+    "videos": ["6TUxFLEIrIk"]
   },
+
   {
     "id": "apieceofmemory",
     "img": "/img/series/a-piece-of-memory.jpg",
     "titulo": "A Piece of Memory (2024)",
     "genero": "Romance",
     "sinopsis": "Un romance que comienza con las consecuencias de un accidente automovilístico protagonizado por Nune,Vicky y Kitty.",
-    "videos": [
-      "Z5jvMj3-qFU"
-    ]
+    "videos": ["Z5jvMj3-qFU"]
   },
+
   {
     "id": "xiaoxiangyijiu",
     "img": "/img/series/Xiao-Xiang-Yi-Jiu-(2024).jpg",
     "titulo": "Xiao Xiang Yi Jiu (2024)",
     "genero": "Romance/Drama",
     "sinopsis": "La serie sigue un apasionado romance entre una empleada y su jefa, quienes se reencuentran tras años separadas.",
-    "videos": [
-      "Hj0lnl73GYU"
-    ]
+    "videos": ["Hj0lnl73GYU"]
   },
+
   {
     "id": "21dayscloserstep",
     "img": "/img/series/21-days-Closer-Step.jpg",
@@ -1883,6 +1857,7 @@
       "dbMVZ36UtaU"
     ]
   },
+
   {
     "id": "mymarvellousdreamisyou (2024)",
     "img": "/img/series/My-Marvellous-Dream-Is-You-(2024).jpg",
@@ -1940,6 +1915,7 @@
       "4mI1zWAmlZw"
     ]
   },
+
   {
     "id": "blankseason2",
     "img": "/img/series/Blank-Season-2-(2024).jpg",
@@ -1973,6 +1949,7 @@
       "yP1PXZqq-0g"
     ]
   },
+
   {
     "id": "iamdevil",
     "img": "/img/series/I-Am-Devil-(2024).jpg",
@@ -2006,6 +1983,7 @@
       "M4KCAcALnFQ"
     ]
   },
+
   {
     "id": "borderlessline",
     "img": "/img/series/Borderless-Line.jpg",
@@ -2021,16 +1999,16 @@
       "EXxYPkfXrOc"
     ]
   },
+
   {
     "id": "mysecrettutor",
     "img": "/img/series/My-Secret-Tutor-(2024).jpg",
     "titulo": "My Secret Tutor (2024)",
     "genero": "Romance",
     "sinopsis": "Dos jóvenes viven una relación secreta, enfrentando emociones, desafíos y crecimiento personal mientras descubren sus verdaderos sentimientos.",
-    "videos": [
-      "w1970zkdih0"
-    ]
+    "videos": ["w1970zkdih0"]
   },
+
   {
     "id": "accidentallyyours",
     "img": "/img/series/Accidentally-Yours-(2024).jpg",
@@ -2046,6 +2024,7 @@
       "cYlfuL3nRtI"
     ]
   },
+
   {
     "id": "youarevitaminsinnyroutine",
     "img": "/img/series/You-are-vitamins-in-my-routine.jpg",
@@ -2054,36 +2033,34 @@
     "sinopsis": "P'Pun y N'Ava se reencuentran junto al mar. Entre la calma, su amor renace, fortaleciendo su vínculo en una historia dulce y llena de emociones.",
     "playlist": "PLhsCXKbbbsR36jek_rA_ng0zq6pNmT9wE"
   },
+
   {
     "id": "I Still Remember the Feeling",
     "img": "/img/series/I-Still-Remember-the-Feeling-(2023).jpg",
     "titulo": "I Still Remember the Feeling (2023)",
     "genero": "Romance",
     "sinopsis": "Pleng contrata a Grace, su antigua amiga, para decorar su hogar. El reencuentro revive sentimientos, pero su futuro es incierto.",
-    "videos": [
-      "nCyv7p2rlc0"
-    ]
+    "videos": ["nCyv7p2rlc0"]
   },
+
   {
     "id": "antichristmasclub",
     "img": "/img/series/Anti-Christmas-Club-(2023).jpg",
     "titulo": "Anti Christmas Club (2023)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "rF5rZ9-PPfI"
-    ]
+    "videos": ["rF5rZ9-PPfI"]
   },
+
   {
     "id": "rulerbreaker",
     "img": "/img/series/Rule-Breaker.jpg",
     "titulo": "Rule Breaker (2025)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "D2PqEjN_I-w"
-    ]
+    "videos": ["D2PqEjN_I-w"]
   },
+
   {
     "id": "luckymylove",
     "img": "/img/series/Lucky-My-Love.jpg",
@@ -2098,6 +2075,7 @@
       "UAmxRU7KKdI"
     ]
   },
+
   {
     "id": "lovesenior",
     "img": "/img/series/Love-Senior-(2023).jpg",
@@ -2147,6 +2125,7 @@
       "XQNMsgCoccU"
     ]
   },
+
   {
     "id": "welcometothelesbianbar",
     "img": "/img/series/Welcome-to-the-Lesbian-Bar-(2023).jpg",
@@ -2161,44 +2140,34 @@
       "MDHAwYY-Szg"
     ]
   },
+
   {
     "id": "dontbreakmymission",
     "img": "/img/series/Don-t-Break-My-Mission-(2023).jpg",
     "titulo": "Dont Break My Mission (2023)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": [
-      "mUk1kSJZmU0",
-      "BBAfysT8vhI",
-      "uI7kyUwN7ig",
-      "2zsiVh52VUA"
-    ]
+    "videos": ["mUk1kSJZmU0", "BBAfysT8vhI", "uI7kyUwN7ig", "2zsiVh52VUA"]
   },
+
   {
     "id": "every86400seconds",
     "img": "/img/series/Every-86400-Seconds (2023).jpg",
     "titulo": "Every 86400 Seconds (2023)",
     "genero": "Romance/Drama",
     "sinopsis": "Temporada 2 de Claire y Praew: tras su día en el mar y volverse amantes, casi cumplen seis meses. ¿Cómo seguirá su relación?",
-    "videos": [
-      "RVR9vpBGHy8",
-      "aJMujCZbn0k",
-      "NL6CoEJtSDo"
-    ]
+    "videos": ["RVR9vpBGHy8", "aJMujCZbn0k", "NL6CoEJtSDo"]
   },
+
   {
     "id": "putourheartonthepaper",
     "img": "/img/series/Put-Our-Heart-on-the-Paper-(2023).jpg",
     "titulo": "Put Our Heart on the Paper (2023)",
     "genero": "Romance",
     "sinopsis": "Por un bloqueo creativo, la autora Mind busca una roommate. Cake, fan de sus libros, se muda con ella. ¿Podrá mantener su secreto?",
-    "videos": [
-      "p0WxssffJaU",
-      "5Qe5c3p61dI",
-      "YmgSIBIx6oA",
-      "E9be40G4HOg"
-    ]
+    "videos": ["p0WxssffJaU", "5Qe5c3p61dI", "YmgSIBIx6oA", "E9be40G4HOg"]
   },
+
   {
     "id": "lemonvsmelon",
     "img": "/img/series/Lemon-VS-Melon.jpg",
@@ -2207,6 +2176,7 @@
     "sinopsis": "Fai, tranquilo y amable, choca con la traviesa Punch, pero ese conflicto los acerca y los obliga a enfrentar lo que realmente sienten.",
     "playlist": "PLhsCXKbbbsR05fomBiv8HbsfpG7L6NYMN"
   },
+
   {
     "id": "cozyfirstlove",
     "img": "/img/series/Cozy-First-Love.jpg",
@@ -2215,6 +2185,7 @@
     "sinopsis": "Dos chicas comparten la vida escolar y, entre momentos cotidianos, su amistad evoluciona en un romance íntimo, suave y acogedor.",
     "playlist": "PLhsCXKbbbsR3-NF5CzmGJz9CZPswBzyKQ"
   },
+
   {
     "id": "youarethecreaminmycoffee",
     "img": "/img/series/You-Are-the-Cream-in-My-Coffee-(2023).jpg",
@@ -2223,6 +2194,7 @@
     "sinopsis": "Una chica se acerca a la barista que le gusta fingiendo aprender café, dando inicio a una historia romántica, dulce y sin complicaciones.",
     "playlist": "PLhsCXKbbbsR1OS6dnWMzilUeA1IzYsQuf"
   },
+
   {
     "id": "showmelove",
     "img": "/img/series/show-me-love.jpg",
@@ -2265,6 +2237,7 @@
       "fRAMMGEThhg"
     ]
   },
+
   {
     "id": "gaptheseries",
     "img": "/img/series/GAP-8.jpg",
@@ -2273,16 +2246,16 @@
     "sinopsis": "Mon entra a trabajar cerca de Sam, su ídolo y CEO real, pero descubre que no es como la imaginaba; sus diferencias y edad complican el vínculo",
     "playlist": "PL4D0KlUVq4IzJslrn8ilKnXV7B3U6DBqO"
   },
+
   {
     "id": "2PMcampus",
     "img": "/img/series/2PM-Campus-(2022).jpg",
     "titulo": "2PM Campus (2022)",
     "genero": "Drama/Romance",
     "sinopsis": "En el momento más intenso del día, seguimos a mujeres de 20 enfrentando dudas, deseos y realidades de su generación.",
-    "videos": [
-      "BDAimbbgBdQ"
-    ]
+    "videos": ["BDAimbbgBdQ"]
   },
+
   {
     "id": "from1metreto1centimetre",
     "img": "/img/series/From-1-Metre-to-1-Centimetre.jpg",
@@ -2291,17 +2264,16 @@
     "sinopsis": "",
     "playlist": "PLhsCXKbbbsR1cNxxuo8vEzM6ohTvO88ak"
   },
+
   {
     "id": "alwaysbeyou",
     "img": "/img/series/Always-Be-You-(2022).jpg",
     "titulo": "Always Be You (2022)",
     "genero": "Romance",
     "sinopsis": "Minnie y Ai, exnovias del colegio, se reencuentran años después. Los recuerdos resurgen. ¿Podrán revivir su amor o ya siguieron adelante?",
-    "videos": [
-      "xlTC4Y_OMBk",
-      "5PEHsbQSzyM"
-    ]
+    "videos": ["xlTC4Y_OMBk", "5PEHsbQSzyM"]
   },
+
   {
     "id": "girlfriendprojectday1",
     "img": "/img/series/girlfriend.jpg",
@@ -2310,6 +2282,7 @@
     "sinopsis": "Hee Ram y Ga In deben fingir ser pareja en una clase universitaria; aunque no se llevan bien, la misión comienza a cambiar sus sentimientos.",
     "playlist": "PLvaDF5IH_PZvVQqlb9Y9pFsWLAkXj8m4D"
   },
+
   {
     "id": "myfairyghost",
     "img": "/img/series/My-Fairy-Ghost-(2022).jpg",
@@ -2318,25 +2291,22 @@
     "sinopsis": "Riko, una novelista bloqueada, se enamora de Kei, el fantasma de una pintora atrapada entre el amor y la despedida.",
     "playlist": "PLyqngFOTdamAXFE9oFKVflhYaYCM75hRU"
   },
+
   {
     "id": "sorrymyfriend",
     "img": "/img/series/Sorry-My-friend.jpg",
     "titulo": "Sorry My Friend (2020)",
     "genero": "Romance",
     "sinopsis": "Dos mejores amigas ven cambiar su relación cuando surgen sentimientos románticos, enfrentando una dolorosa separación.",
-    "videos": [
-      "1C_q9XV5GUU",
-      "e4Sreb8Cpw8"
-    ]
+    "videos": ["1C_q9XV5GUU", "e4Sreb8Cpw8"]
   },
+
   {
     "id": "outofbreath",
     "img": "/img/series/Out-of-Breath.jpg",
     "titulo": "Out of Breath (2019)",
     "genero": "Romance/Drama",
     "sinopsis": "Tras una ruptura, Ha Eun conoce a Min Seo en una app de citas. Juntas cumplen sueños pendientes, pero ¿logrará olvidar a su ex?",
-    "videos": [
-      "DUGblEoORXI"
-    ]
+    "videos": ["DUGblEoORXI"]
   }
 ]
