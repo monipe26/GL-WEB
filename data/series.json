@@ -1098,6 +1098,7 @@
 
   {
     "id": "lovereturns",
+    "slug": "love-returns",
     "img": "/img/series/Love-Returns-(2025).jpg",
     "titulo": "Love Returns (2025)",
     "genero": "Romance/Drama",
@@ -1106,7 +1107,8 @@
   },
 
   {
-    "id": "theotherme2025",
+    "id": "theotherme",
+    "slug": "the-other-me",
     "img": "/img/series/The-Other-Me-(2025).jpg",
     "titulo": "The Other Me (2025)",
     "genero": "Drama/Romance",
@@ -1116,6 +1118,7 @@
 
   {
     "id": "trunkgirl",
+    "slug": "trunk-girl",
     "img": "/img/series/trunk girl.jpg",
     "titulo": "Trunk Girl (2025)",
     "genero": "Drama/Romance",
@@ -1125,6 +1128,7 @@
 
   {
     "id": "thiWaRaTri",
+    "slug": "thiWaRaTri",
     "img": "/img/series/Thi-Wa-Ra-Tri.jpg",
     "titulo": "ThiWaRaTri (2025)",
     "genero": "Drama/Romance",
@@ -1134,6 +1138,7 @@
 
   {
     "id": "hiddenheat",
+    "slug": "hidden-heat",
     "img": "/img/series/Hidden-Heat-(2025).jpg",
     "titulo": "Hidden Heat (2025)",
     "genero": "Romance",
@@ -1143,6 +1148,7 @@
 
   {
     "id": "absolutelove",
+    "slug": "absolute-love",
     "img": "/img/series/Absolute-Love-(2025).jpg",
     "titulo": "Absolute Love (2025)",
     "genero": "Drama/Romance",
@@ -1152,6 +1158,7 @@
 
   {
     "id": "deardiary",
+    "slug": "dear-diary",
     "img": "/img/series/Dear-Diary(2025).jpg",
     "titulo": "Dear Diary (2025)",
     "genero": "Romance",
@@ -1161,6 +1168,7 @@
 
   {
     "id": "killerheart",
+    "slug": "killer-heart",
     "img": "/img/series/Killer-Heart-(2025).jpg",
     "titulo": "Killer Heart (2025)",
     "genero": "Romance",
@@ -1170,6 +1178,7 @@
 
   {
     "id": "closeup",
+    "slug": "close-up",
     "img": "/img/series/Close Up (2025).jpg",
     "titulo": "Close Up (2025)",
     "genero": "Romance/Drama",
@@ -1179,6 +1188,7 @@
 
   {
     "id": "howtohatemyex",
+    "slug": "how-to-hate-my-ex",
     "img": "/img/series/How-to-Hate-My-Ex-(2025).jpg",
     "titulo": "How to Hate My Ex (2025)",
     "genero": "Drama/Romance",
@@ -1196,6 +1206,7 @@
 
   {
     "id": "resettoremember",
+    "slug": "reset-to-remember",
     "img": "/img/series/Reset-To-Remember.jpg",
     "titulo": "Reset To Remember (2025)",
     "genero": "Romance",
@@ -1213,6 +1224,7 @@
 
   {
     "id": "lovemoment",
+    "slug": "love-moment",
     "img": "/img/series/Love-Moment-(2025).jpg",
     "titulo": "Love Moment (2025)",
     "genero": "Life",
@@ -1231,6 +1243,7 @@
 
   {
     "id": "rollercoaster",
+    "slug": "roller-coaster",
     "img": "/img/series/Roller-Coaster-(2025).jpg",
     "titulo": "Roller Coaster (2025)",
     "genero": "Drama/Romance",
@@ -1273,6 +1286,7 @@
 
   {
     "id": "bunnybunny",
+    "slug": "bunny-bunny",
     "img": "/img/series/Bunny-Bunny.jpg",
     "titulo": "Bunny Bunny (2025)",
     "genero": "Drama/Romance",
@@ -1282,6 +1296,7 @@
 
   {
     "id": "On&offseason2",
+    "slug": "On-&-off-season2",
     "img": "/img/series/on-n-off-2.jpg",
     "titulo": "On & Off Season 2 (2025)",
     "genero": "Romance",
