@@ -4175,6 +4175,36 @@ function cerrarModal(e) {
   document.title = "GL Series";
 }
 
+/ =====================
+// 🚀 PRECARGA DE NOTICIAS EN SEGUNDO PLANO
+// =====================
+
+function precargarNoticiasCompletas() {
+  if (!Array.isArray(noticiasArray) || noticiasArray.length === 0) return;
+
+  let i = 0;
+
+  function precargarSiguiente() {
+    if (i >= noticiasArray.length) return;
+
+    const item = noticiasArray[i];
+    i++;
+
+    obtenerNoticiaCompleta(item.id)
+      .catch(() => {}) // si una falla, no corta la precarga de las demás
+      .finally(() => {
+        // Precarga una por una, sin saturar la red
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(precargarSiguiente);
+        } else {
+          setTimeout(precargarSiguiente, 50);
+        }
+      });
+  }
+
+  precargarSiguiente();
+}
+
 // =====================
 // INIT
 // =====================
