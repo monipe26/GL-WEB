@@ -1000,7 +1000,7 @@ OVERLAY NETFLIX
   border-radius: 10px;
   margin-bottom: 14px;
   object-fit: cover;
-  max-height: 220px;
+  height: 220px;
 }
 
 .modal-fecha {
