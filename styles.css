@@ -1026,6 +1026,7 @@ OVERLAY NETFLIX
   text-align: justify;
   hyphens: auto;
   word-spacing: -1px;
+  min-height: 180px;
 }
 /* ===================== */
 /* BANNER TOP            */
