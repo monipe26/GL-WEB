@@ -4117,49 +4117,47 @@ async function abrirModal(item) {
   document.getElementById("modal-fecha").textContent = "📅 " + item.fecha;
   document.getElementById("modal-titulo").textContent = item.titulo;
   document.getElementById("modal-texto").textContent = "Cargando...";
-  document.getElementById("modal-video").innerHTML = "";
+
+  // El trailer ya viene en el índice -> se muestra de una, sin esperar el fetch
+  const videoEl = document.getElementById("modal-video");
+  if (item.trailer) {
+    videoEl.innerHTML = `
+      <div
+        style="
+          position:relative;
+          padding-bottom:58.25%;
+          height:0;
+          margin-top:10px;
+          border-radius:10px;
+          overflow:hidden;
+        "
+      >
+        <iframe
+          style="
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border:none;
+            border-radius:10px;
+          "
+          src="https://www.youtube.com/embed/${item.trailer}"
+          allowfullscreen
+        ></iframe>
+      </div>
+    `;
+  } else {
+    videoEl.innerHTML = "";
+  }
 
   document.getElementById("modal-noticias").classList.add("active");
   document.body.style.overflow = "hidden";
 
-  // Contenido pesado -> se pide bajo demanda
+  // Solo el texto se pide bajo demanda
   try {
     const detalle = await obtenerNoticiaCompleta(item.id);
-
     document.getElementById("modal-texto").textContent = detalle.texto;
-
-    const videoEl = document.getElementById("modal-video");
-
-    if (detalle.trailer) {
-      videoEl.innerHTML = `
-        <div
-          style="
-            position:relative;
-            padding-bottom:58.25%;
-            height:0;
-            margin-top:10px;
-            border-radius:10px;
-            overflow:hidden;
-          "
-        >
-          <iframe
-            style="
-              position:absolute;
-              top:0;
-              left:0;
-              width:100%;
-              height:100%;
-              border:none;
-              border-radius:10px;
-            "
-            src="https://www.youtube.com/embed/${detalle.trailer}"
-            allowfullscreen
-          ></iframe>
-        </div>
-      `;
-    } else {
-      videoEl.innerHTML = "";
-    }
   } catch (err) {
     document.getElementById("modal-texto").textContent =
       "No se pudo cargar la noticia. Intentá de nuevo más tarde.";
