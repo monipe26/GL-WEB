@@ -36,7 +36,7 @@ const seriesArray = [
     genero: "Romance",
     sinopsis:
       "Una guardaespaldas protege a una joven rebelde mientras enfrentan peligros. Entre secretos y desafíos, el amor florece entre ambas.",
-    videos: ["3QCTtz_y4JU", "wNVt7i8P_Ns"],
+    videos: ["3QCTtz_y4JU", "wNVt7i8P_Ns", "fvZlKcmwBDI"],
   },
 
   {
@@ -121,7 +121,7 @@ const seriesArray = [
     titulo: "The Partners (2026)",
     genero: "Romance",
     sinopsis: "",
-    videos: ["klULFypTofQ", "CDPsz8-PGUU"],
+    videos: ["klULFypTofQ", "CDPsz8-PGUU", "O59KrAE3nKE"],
   },
 
   {
@@ -2655,17 +2655,6 @@ const microficcionArray = [
       "UNrro7PlM-s",
     ],
   },
-
-  // Microdrama por partes 2
-  {
-    id: "micro2",
-    slug: "las-cartas-que-nunca-debieron-llegar",
-    titulo: "📩 Las Cartas que Nunca Debieron Llegar",
-    canal: "Girls Love Play",
-    videoId: "hZJzgu4LyiA",
-    esShort: true,
-    videos: ["hZJzgu4LyiA", "u6HzX5tmlU8"],
-  },
 ];
 // =====================
 // TIENDA GL
@@ -4116,7 +4105,10 @@ async function abrirModal(item) {
   document.getElementById("modal-img").src = item.img;
   document.getElementById("modal-fecha").textContent = "📅 " + item.fecha;
   document.getElementById("modal-titulo").textContent = item.titulo;
-  document.getElementById("modal-texto").textContent = "Cargando...";
+
+  const textoEl = document.getElementById("modal-texto");
+  textoEl.textContent = "Cargando...";
+  textoEl.classList.remove("visible");
 
   // El trailer ya viene en el índice -> se muestra de una, sin esperar el fetch
   const videoEl = document.getElementById("modal-video");
@@ -4157,10 +4149,12 @@ async function abrirModal(item) {
   // Solo el texto se pide bajo demanda
   try {
     const detalle = await obtenerNoticiaCompleta(item.id);
-    document.getElementById("modal-texto").textContent = detalle.texto;
+    textoEl.textContent = detalle.texto;
+    textoEl.classList.add("visible");
   } catch (err) {
-    document.getElementById("modal-texto").textContent =
+    textoEl.textContent =
       "No se pudo cargar la noticia. Intentá de nuevo más tarde.";
+    textoEl.classList.add("visible");
     console.error("Error cargando detalle de noticia:", err);
   }
 }
