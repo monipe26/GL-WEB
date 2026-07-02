@@ -4105,10 +4105,7 @@ async function abrirModal(item) {
   document.getElementById("modal-img").src = item.img;
   document.getElementById("modal-fecha").textContent = "📅 " + item.fecha;
   document.getElementById("modal-titulo").textContent = item.titulo;
-
-  const textoEl = document.getElementById("modal-texto");
-  textoEl.textContent = "Cargando...";
-  textoEl.classList.remove("visible");
+  document.getElementById("modal-texto").textContent = "Cargando...";
 
   // El trailer ya viene en el índice -> se muestra de una, sin esperar el fetch
   const videoEl = document.getElementById("modal-video");
@@ -4149,12 +4146,10 @@ async function abrirModal(item) {
   // Solo el texto se pide bajo demanda
   try {
     const detalle = await obtenerNoticiaCompleta(item.id);
-    textoEl.textContent = detalle.texto;
-    textoEl.classList.add("visible");
+    document.getElementById("modal-texto").textContent = detalle.texto;
   } catch (err) {
-    textoEl.textContent =
+    document.getElementById("modal-texto").textContent =
       "No se pudo cargar la noticia. Intentá de nuevo más tarde.";
-    textoEl.classList.add("visible");
     console.error("Error cargando detalle de noticia:", err);
   }
 }
@@ -4173,36 +4168,6 @@ function cerrarModal(e) {
   history.pushState({}, "", "/");
 
   document.title = "GL Series";
-}
-
-/ =====================
-// 🚀 PRECARGA DE NOTICIAS EN SEGUNDO PLANO
-// =====================
-
-function precargarNoticiasCompletas() {
-  if (!Array.isArray(noticiasArray) || noticiasArray.length === 0) return;
-
-  let i = 0;
-
-  function precargarSiguiente() {
-    if (i >= noticiasArray.length) return;
-
-    const item = noticiasArray[i];
-    i++;
-
-    obtenerNoticiaCompleta(item.id)
-      .catch(() => {}) // si una falla, no corta la precarga de las demás
-      .finally(() => {
-        // Precarga una por una, sin saturar la red
-        if ("requestIdleCallback" in window) {
-          requestIdleCallback(precargarSiguiente);
-        } else {
-          setTimeout(precargarSiguiente, 50);
-        }
-      });
-  }
-
-  precargarSiguiente();
 }
 
 // =====================
