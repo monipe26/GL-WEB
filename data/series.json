@@ -1473,6 +1473,7 @@
 
   {
     "id": "staywithme",
+    "slug": "stay-with-me",
     "img": "/img/series/Stay-with-Me.jpg",
     "titulo": "Stay with Me (2024)",
     "genero": "Romance",
@@ -1499,6 +1500,7 @@
 
   {
     "id": "feartofreedom",
+    "slug": "fear-to-freedom",
     "img": "/img/series/Fear_to_Freedom (2024).jpg",
     "titulo": "Fear to Freedom (2024)",
     "genero": "Romance",
@@ -1517,6 +1519,7 @@
 
   {
     "id": "friendwithbenefits",
+    "slug": "friend-with-benefits",
     "img": "/img/series/Friend-with-Benefits-(2024).jpg",
     "titulo": "Friend with Benefits (2024)",
     "genero": "Romance",
@@ -1526,6 +1529,7 @@
 
   {
     "id": "lovefromanotherstar",
+    "slug": "love-from-another-star",
     "img": "/img/series/Love-from-Another-Star-(2025).jpg",
     "titulo": "Love from Another Star (2025)",
     "genero": "Romance",
@@ -1535,6 +1539,7 @@
 
   {
     "id": "unlockyourlove",
+    "slug": "unlock-your-love",
     "img": "/img/series/Unlock-Your-Love-02.jpg",
     "titulo": "Unlock your love (2024)",
     "genero": "Comedia/Romance",
@@ -1544,6 +1549,7 @@
 
   {
     "id": "sharehouse",
+    "slug": "share-house",
     "img": "/img/series/Share-House.jpg",
     "titulo": "Share House (2024)",
     "genero": "Romance",
@@ -1553,6 +1559,7 @@
 
   {
     "id": "loyalpin",
+    "slug": "loyal-pin",
     "img": "/img/series/loyal-pin.jpg",
     "titulo": "Loyal Pin (2024)",
     "genero": "Romance/Historico",
@@ -1562,6 +1569,7 @@
 
   {
     "id": "amongthecloud",
+    "slug": "among-the-cloud",
     "img": "/img/series/Among-the-cloud.jpg",
     "titulo": "Among the cloud (2024)",
     "genero": "Drama/Romance",
