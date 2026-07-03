@@ -1413,7 +1413,7 @@
 
   {
     "id": "pluto",
-
+    "slug": "pluto",
     "img": "/img/series/pluto-the-series.jpg",
     "titulo": "Pluto (2024)",
     "genero": "Drama/Romance",
@@ -1423,6 +1423,7 @@
 
   {
     "id": "findloveinhermind",
+    "slug": "find-love-in-her-mind",
     "img": "/img/series/Find-love-in-her-mind.jpg",
     "titulo": "Find Love In Her Mind (2024)",
     "genero": "Romance/Sobrenatural",
@@ -1432,6 +1433,7 @@
 
   {
     "id": "heartbreaktohappiness",
+    "slug": "heart-break-to-happiness",
     "img": "/img/series/Heartbreak-to-Happiness-(2024).jpg",
     "titulo": "Heartbreak to Happiness (2024)",
     "genero": "Drama/Romance",
@@ -1441,6 +1443,7 @@
 
   {
     "id": "1440minutes",
+    "slug": "1440-minutes",
     "img": "/img/series/1440-Minutes.jpg",
     "titulo": "1440 Minutes (2024)",
     "genero": "Drama/Romance",
@@ -1450,6 +1453,7 @@
 
   {
     "id": "thesevenwishes",
+    "slug": "the-seven-wishes",
     "img": "/img/series/The-Seven-Wishes (2024).jpg",
     "titulo": "The Seven Wishes (2024)",
     "genero": "Romance",
@@ -1459,6 +1463,7 @@
 
   {
     "id": "sameplace,newpace",
+    "slug": "same-place-new-pace",
     "img": "/img/series/same-place-new-pace.jpg",
     "titulo": "Same Place, New Pace (2024)",
     "genero": "Romance",
