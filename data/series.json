@@ -30,6 +30,44 @@
   },
 
   {
+    "id": "beneaththemoonsshadow",
+    "slug": "beneath-the-moons-shadow",
+    "titulo": "Beneath the Moon's Shadow (2026)",
+    "genero": "Thriller/Romance",
+    "videoId": "ui2fMGshSQU",
+    "img": "/img/series/Beneath-the-Moon's Shadow-(2026).jpg",
+    "sinopsis": "Una policía protege a una testigo amnésica mientras persiguen a un asesino serial. Pero ella podría ser la clave... o la propia asesina.",
+    "esShort": true,
+    "videos": [
+      "ui2fMGshSQU",
+      "Slixd7VOlC8",
+      "TMu44_Vx5us",
+      "rxdR7oAi6ps",
+      "AwN6fQIcnSo",
+      "SoYZB8Jd3vE",
+      "paLtCfMkMfo",
+      "fYdZLta4m_4",
+      "mpAcxRB8FqE",
+      "9ktBgl9ZPFM",
+      "Jw6cf7KmzrI",
+      "GxuJdBokE4M",
+      "1l0jEKh9y-s",
+      "l8GJYTcaKF0",
+      "WbJBzJwgfFE",
+      "JzmOWAyZ9f4",
+      "59Cw_dE062o",
+      "o7JUvRbkLXM",
+      "1nd1m8kO9w4",
+      "vka99jDts38",
+      "Y1pgioKhjGE",
+      "kvaKiiYpXPM",
+      "_M_MOOZDygE",
+      "EHW8umiKF7s",
+      "awq3Lbtl_0Y"
+    ]
+  },
+
+  {
     "id": "myroommatecrush",
     "slug": "my-roommate-crush",
     "img": "/img/series/My-Roommate-Crush.jpg",
@@ -184,7 +222,11 @@
       "JeLmxaL7Xpg",
       "hkylKDEnRb0",
       "6PGWoFwunnU",
-      "L42aSu-eV2Q"
+      "L42aSu-eV2Q",
+      "ftaRkR_UtsM",
+      "8kKXlanUbGE",
+      "4Je_9bjEryU",
+      "X3fsk7DtBu4"
     ]
   },
 
@@ -369,50 +411,6 @@
       "8SXP_tJ7cio",
       "DCcFAnwCYv4",
       "EECHvMaDigQ"
-    ]
-  },
-
-  {
-    "id": "myonlysunshine",
-    "slug": "my-only-sunshine",
-    "img": "/img/series/My-Only-Sunshine-2026-1.jpg",
-    "titulo": "My Only Sunshine (2026)",
-    "genero": "Drama/Romance",
-    "sinopsis": "Una actriz persigue a la hermana mayor de su mejor amiga, una poderosa ejecutiva. Rumores falsos, celos y una gemela perdida complican el camino al amor.",
-    "videos": [
-      "ux1BNnro_to",
-      "g-sMS2vcxcI",
-      "JWD7zSGJnu0",
-      "j4oAssekcFo",
-      "gzvvYywn2Ko",
-      "NaJCrCAlE-U",
-      "1-T7BxXe1bE",
-      "89cZCAZ33Jg",
-      "E8q4klApbZM",
-      "1sW2f-EoaPU",
-      "_tMwcyWavKY",
-      "iIlIgii1_ls",
-      "sviflQL715Y",
-      "SkY3A3YqIQo",
-      "97qmIIrBtmQ",
-      "YiWu0ZjtpCY",
-      "l8cxOx8ojkY",
-      "9DXbeascqxs",
-      "NYQ85o6CVes",
-      "IIYUONt_zzk",
-      "kLXKYZm_vhA",
-      "Frr91SY4F_A",
-      "LaMTnqlD3qQ",
-      "GmP2tbbii7k",
-      "zl__qBRxx-g",
-      "2gV0NIyWGo8",
-      "A_oys84oirg",
-      "DI5XdgNsy4U",
-      "avW9JJoYVy4",
-      "ygFJ-cOP4SY",
-      "6K-cE5b2Gh0",
-      "cQQ3dA9XDJI",
-      "Ptlf4ElFTrk"
     ]
   },
 
@@ -673,16 +671,6 @@
     "genero": "Romance",
     "sinopsis": "Miniserie web tailandesa GL sobre romances, reencuentros, decisiones del destino y segundas oportunidades en el amor.",
     "videos": ["UpPiWO1GZUI"]
-  },
-
-  {
-    "id": "dearyou",
-    "slug": "dear-you",
-    "img": "/img/series/Dear-You-(2025).jpg",
-    "titulo": "Dear You (2025)",
-    "genero": "Romance",
-    "sinopsis": "",
-    "videos": ["h5BNEgM3ucE"]
   },
 
   {
@@ -1147,16 +1135,6 @@
   },
 
   {
-    "id": "absolutelove",
-    "slug": "absolute-love",
-    "img": "/img/series/Absolute-Love-(2025).jpg",
-    "titulo": "Absolute Love (2025)",
-    "genero": "Drama/Romance",
-    "sinopsis": "",
-    "videos": ["NrZVtsIQnIU"]
-  },
-
-  {
     "id": "deardiary",
     "slug": "dear-diary",
     "img": "/img/series/Dear-Diary(2025).jpg",
@@ -1306,6 +1284,7 @@
 
   {
     "id": "firstoffice",
+    "slug": "first-office",
     "img": "/img/series/first-office.jpg",
     "titulo": "First Office (2025)",
     "genero": "Romance",
@@ -1315,6 +1294,7 @@
 
   {
     "id": "mydearghost",
+    "slug": "my-dear-ghost",
     "img": "/img/series/My-Dear-Ghost.jpg",
     "titulo": "My Dear Ghost (2025)",
     "genero": "Romance",
@@ -1324,6 +1304,7 @@
 
   {
     "id": "fromliarintolover",
+    "slug": "from-liar-into-lover",
     "img": "/img/series/From-Liar-into-Lover-(2025).jpg",
     "titulo": "From Liar into Lover (2025)",
     "genero": "Romance",
@@ -1333,6 +1314,7 @@
 
   {
     "id": "whoknowsgirlsl",
+    "slug": "who-knows-girls-l",
     "img": "/img/series/Who-Knows-Girls-L-(2025).jpg",
     "titulo": "Who Knows Girls' L (2025)",
     "genero": "Romance",
@@ -1341,7 +1323,8 @@
   },
 
   {
-    "id": "youremygift (2025)",
+    "id": "youremygift",
+    "slug": "youre-my-gift",
     "img": "/img/series/You-re-My-Gift-(2025).jpg",
     "titulo": "You're My Gift (2025)",
     "genero": "Romance",
@@ -1351,6 +1334,7 @@
 
   {
     "id": "blank",
+    "slug": "blank",
     "img": "/img/series/blank.jpg",
     "titulo": "Blank (2024)",
     "genero": "Drama/Romance",
@@ -1386,6 +1370,7 @@
 
   {
     "id": "affair",
+    "slug": "affair",
     "img": "/img/series/affair.jpg",
     "titulo": "Affair (2024)",
     "genero": "Drama/Romance",
@@ -1428,6 +1413,7 @@
 
   {
     "id": "pluto",
+
     "img": "/img/series/pluto-the-series.jpg",
     "titulo": "Pluto (2024)",
     "genero": "Drama/Romance",
@@ -1521,34 +1507,6 @@
       "D-dqtAd7Ubc",
       "V3Yppvwi8U8",
       "AqVJL1OSUfo"
-    ]
-  },
-
-  {
-    "id": "thesecretofus",
-    "img": "/img/series/The_Secret_of_Us_(2024).jpg",
-    "titulo": "The Secret of Us (2024)",
-    "genero": "Drama/Romance",
-    "sinopsis": "La doctora Lada, marcada por un viejo amor, deberá reencontrarse con su ex Earn cuando ella se convierta en portavoz del hospital.",
-    "videos": [
-      "bgLSvDzl0HA",
-      "4fhWN0lO0_Y",
-      "q1-bagGmHsQ",
-      "h28JZXFklVE",
-      "o_dcLc0ITnA",
-      "VbmStSZ25dI",
-      "2JeOu2F_gXw",
-      "JxA19ZJ5FUA",
-      "s4nxa9V-xf4",
-      "rlF3DYAph2E",
-      "iG789WimfAY",
-      "naCbpeK1DsQ",
-      "lZaRR1LWNz0",
-      "bHXN3b7C8lc",
-      "hU7BKJBdGuQ",
-      "uphgbtnRxaI",
-      "MKbpVQ4kN7o",
-      "7FVuDuM66iU"
     ]
   },
 
@@ -2065,15 +2023,6 @@
     "genero": "Romance",
     "sinopsis": "",
     "videos": ["rF5rZ9-PPfI"]
-  },
-
-  {
-    "id": "rulerbreaker",
-    "img": "/img/series/Rule-Breaker.jpg",
-    "titulo": "Rule Breaker (2025)",
-    "genero": "Romance",
-    "sinopsis": "",
-    "videos": ["D2PqEjN_I-w"]
   },
 
   {
