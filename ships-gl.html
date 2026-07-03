@@ -166,11 +166,12 @@
               />
             </a>
 
-
             <a href="https://www.tiktok.com/@girls.love.play" target="_blank">
-              <img src="https://i.postimg.cc/902K6hdd/tik-tok.png" alt="Tik Tok" />
+              <img
+                src="https://i.postimg.cc/902K6hdd/tik-tok.png"
+                alt="Tik Tok"
+              />
             </a>
-
 
             <a href="https://www.youtube.com/@GirlsLovePlay" target="_blank">
               <img
@@ -708,6 +709,22 @@
           descripcion:
             "Mie y Aya (MieAya) son una pareja GL emergente que ha ganado gran popularidad por su participación en Love Beyond Dreams. Destacan por la química natural que muestran tanto en pantalla como fuera de ella, lo que ha impulsado una fandom en rápido crecimiento. Su trabajo en esta serie es el principal responsable de su creciente reconocimiento dentro del género y de la consolidación de su base de seguidores.",
         },
+
+        {
+          ship: "meenbabe",
+          slug: "meenbabe-gl-ship",
+          nombres: "Rina Chatamonchai y Thaweeporn Phingchamrat",
+          pais: "Tailandia 🇹🇭",
+          estado: "✅ Vigente",
+          img: "/img/ships/meenbabe.jpg",
+          instagram: [
+            { nombre: "Meena", url: "https://www.instagram.com/meenaxrina" },
+            { nombre: "Aoom", url: "https://www.instagram.com/aoomtwp" },
+          ],
+          series: ["Love beyond Dreams (2026)"],
+          descripcion:
+            "Mie y Aya (MieAya) son una pareja GL emergente que ha ganado gran popularidad por su participación en Love Beyond Dreams. Destacan por la química natural que muestran tanto en pantalla como fuera de ella, lo que ha impulsado una fandom en rápido crecimiento. Su trabajo en esta serie es el principal responsable de su creciente reconocimiento dentro del género y de la consolidación de su base de seguidores.",
+        },
       ];
 
       let shipsFiltrados = [...shipsArray];
@@ -806,7 +823,7 @@
         document.getElementById("ship-modal-nombres").textContent =
           item.nombres;
         document.getElementById("ship-modal-body").innerHTML = `
-        <p class="modal-texto" style="margin-top:12px;line-height:1.8">${
+        <p class="modal-texto" style="margin-top:12px;line-height:1.8;min-height:0">${
           item.descripcion
         }</p>
         <p style="margin-top:16px;color:#ff4fd8;font-weight:700;font-size:12px;letter-spacing:1px">🎬 SERIES JUNTAS</p>
