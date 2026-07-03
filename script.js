@@ -1385,7 +1385,7 @@ function renderSection(array, containerId, paginationId, perPage = 20) {
         render();
         setTimeout(() => {
           const section = document.getElementById("series");
-          const yOffset = -100;
+          const yOffset = -50;
           const y =
             section.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
