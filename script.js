@@ -737,7 +737,7 @@ function abrirShip(item) {
   ).innerHTML = `<span style="color:${estadoColor}">${item.estado}</span> &nbsp;·&nbsp; ${item.pais}`;
   document.getElementById("ship-modal-nombres").textContent = item.nombres;
   document.getElementById("ship-modal-body").innerHTML = `
-    <p class="modal-texto" style="margin-top:12px;line-height:1.8">${
+    <p class="modal-texto ship-desc" style="margin-top:12px;line-height:1.8">${
       item.descripcion
     }</p>
     <p style="margin-top:16px;color:#ff4fd8;font-weight:700;font-size:12px;letter-spacing:1px">🎬 SERIES JUNTAS</p>

@@ -1034,6 +1034,10 @@ OVERLAY NETFLIX
 .modal-texto.visible {
   opacity: 1;
 }
+
+.modal-texto.ship-desc {
+  min-height: 0;
+}
 /* ===================== */
 /* BANNER TOP            */
 /* ===================== */
