@@ -126,7 +126,10 @@
       "dPZFDJUpwEQ",
       "muEb7NJl-to",
       "0kPg4ZKaeGY",
-      "UNrro7PlM-s"
+      "UNrro7PlM-s",
+      "g8IYws4kIoY",
+      "0I8uNe6gg3A",
+      "fkCDF5mlkJ4"
     ]
   },
   {
@@ -147,7 +150,7 @@
     "titulo": "Midnight Mart (2026)",
     "genero": "Romance",
     "sinopsis": "Una trabajadora de TI se enamora de la cajera de la tienda de conveniencia a la que suele ir.",
-    "videos": ["ytPdTSUX4UQ", "aNr00I3Ow8A", "7g6FjMbRF_g"]
+    "videos": ["ytPdTSUX4UQ", "aNr00I3Ow8A", "7g6FjMbRF_g", "wlQiPvZ6_FM"]
   },
 
   {
@@ -183,7 +186,11 @@
       "LOovJzIk8mo",
       "DWcNK8pF_Fc",
       "Ua2-JKbsQGU",
-      "iRHf1KlrT7s"
+      "iRHf1KlrT7s",
+      "RCcMbp3pkkQ",
+      "a2PqZtHl7oo",
+      "qoPw1kWx8nA",
+      "RqvFeRnLL7A"
     ]
   },
 
@@ -1579,6 +1586,7 @@
 
   {
     "id": "deepnightsidestorythetwoofus",
+    "slug": "deep-night-side-story-the-two-of-us",
     "img": "/img/series/Deep-Night-Side-Story-The-Two-of-Us.jpg",
     "titulo": "The Two of Us Season 1 (2024)",
     "genero": "Drama/Romance",
@@ -1588,6 +1596,7 @@
 
   {
     "id": "deepnightsidestorythetwoofus2",
+    "slug": "deep-night-side-story-the-two-of-us-2",
     "img": "/img/series/Deep-Night-Side-Story-The-Two-of-Us-Season-2.jpg",
     "titulo": "The Two of Us Season 2 (2024)",
     "genero": "Drama/Romance",
@@ -1597,6 +1606,7 @@
 
   {
     "id": "mate",
+    "slug": "mate",
     "img": "/img/series/Mate-(2024).jpg",
     "titulo": "Mate (2024)",
     "genero": "Drama/Romance",
@@ -1619,6 +1629,7 @@
 
   {
     "id": "apple",
+    "slug": "apple",
     "img": "/img/series/Apple-My-Love.jpg",
     "titulo": "Apple (2024)",
     "genero": "Romance",
@@ -1658,6 +1669,7 @@
 
   {
     "id": "fateswhispers",
+    "slug": "fates-whispers",
     "img": "/img/series/Fate-s-Whispers.jpg",
     "titulo": "Fate's Whispers (2024)",
     "genero": "Romance",
@@ -1667,6 +1679,7 @@
 
   {
     "id": "designyoubesideme",
+    "slug": "design-you-beside-me",
     "img": "/img/series/Design-You-Beside-Me.jpg",
     "titulo": "Design You Beside Me (2024)",
     "genero": "Romance",
@@ -1676,6 +1689,7 @@
 
   {
     "id": "midsummerlove",
+    "slug": "midsummer-love",
     "img": "/img/series/Midsummer-Love-(2024).jpg",
     "titulo": "Midsummer Love (2024)",
     "genero": "Romance",
@@ -1685,6 +1699,7 @@
 
   {
     "id": "seayousoon",
+    "slug": "sea-you-soon",
     "img": "/img/series/Sea-You-Soon.jpg",
     "titulo": "Sea You Soon (2024)",
     "genero": "Romance",
@@ -1694,6 +1709,7 @@
 
   {
     "id": "ghostfriendforever",
+    "slug": "ghost-friend-forever",
     "img": "/img/series/Ghostfriend-forever.jpg",
     "titulo": "GhostFriend Forever (2024)",
     "genero": "Romance",
@@ -1703,6 +1719,7 @@
 
   {
     "id": "deleteyourpast",
+    "slug": "delete-your-past",
     "img": "/img/series/Delete-Your-Past.jpg",
     "titulo": "Delete Your Past (2024)",
     "genero": "Drama/Romance",
