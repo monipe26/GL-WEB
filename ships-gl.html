@@ -89,16 +89,39 @@
         padding: 0 20px 20px;
       "
     >
-      <button class="filtro-btn active" onclick="filtrarEstado('todos', this)">
+      <button
+        class="filtro-btn filtro-estado active"
+        onclick="filtrarEstado('todos', this)"
+      >
         Todos
       </button>
-      <button class="filtro-btn" onclick="filtrarEstado('vigente', this)">
+      <button
+        class="filtro-btn filtro-estado"
+        onclick="filtrarEstado('vigente', this)"
+      >
         ✅ Vigentes
       </button>
-      <button class="filtro-btn" onclick="filtrarEstado('finalizado', this)">
+      <button
+        class="filtro-btn filtro-estado"
+        onclick="filtrarEstado('finalizado', this)"
+      >
         ❌ Finalizados
       </button>
     </div>
+
+    <!-- FILTRO ALFABÉTICO -->
+    <div
+      id="filtro-letras"
+      style="
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        padding: 0 20px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      "
+    ></div>
 
     <!-- SHIPS CONTAINER -->
     <section class="section">
@@ -231,6 +254,10 @@
 
       function filtrarShips() {
         const q = document.getElementById("buscador-ships").value.toLowerCase();
+        if (q === "") {
+          limpiarShips();
+          return;
+        }
         shipsFiltrados = shipsArray.filter(
           (s) =>
             s.ship.toLowerCase().includes(q) ||
@@ -241,18 +268,12 @@
       }
 
       function filtrarEstado(estado, btn) {
+        estadoActivo = estado;
         document
-          .querySelectorAll(".filtro-btn")
+          .querySelectorAll(".filtro-estado")
           .forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-        if (estado === "todos") {
-          shipsFiltrados = [...shipsArray];
-        } else if (estado === "vigente") {
-          shipsFiltrados = shipsArray.filter((s) => s.estado.includes("✅"));
-        } else {
-          shipsFiltrados = shipsArray.filter((s) => s.estado.includes("❌"));
-        }
-        renderShips(shipsFiltrados, "ships-container", "pagination-ships", 12);
+        aplicarFiltros();
       }
 
       // =====================
@@ -766,9 +787,92 @@
           descripcion:
             "Kapook y Ciize son una prometedora pareja GL de GMMTV, reconocida por su gran química en Pluto (2024) y Enemies with Benefits (2026). Su sólida conexión en pantalla y el constante crecimiento de su fandom internacional las han consolidado como una de las parejas GL más destacadas de la actualidad.",
         },
+
+        {
+          ship: "PuyfaiPloy",
+          slug: "puyfai-ploy-gl-ship",
+          nombres: "Puyfai and Ploy ",
+          pais: "Tailandia 🇹🇭",
+          estado: "✅ Vigente",
+          img: "/img/ships/PuyfaiPloy.jpg",
+          instagram: [
+            { nombre: "Puyfai", url: "https://www.instagram.com/puyy_faii" },
+            {
+              nombre: "Ploy",
+              url: "https://www.instagram.com/jhutaa",
+            },
+          ],
+          series: ["Shades (2026)"],
+          descripcion:
+            "Puyfai y Ploy (PuyfaiPloy) son una de las parejas emergentes más prometedoras del GL tailandés. Alcanzaron reconocimiento al interpretar a Jane y Nano en la serie Shades, donde conquistaron al público con su intensa química y una historia que evoluciona de la rivalidad al amor. Gracias a la naturalidad de sus interpretaciones y la conexión que transmiten en pantalla, se han convertido en una de las duplas favoritas entre los seguidores del género.",
+        },
       ];
 
+      // Ordenar alfabéticamente por nombre del ship
+      shipsArray.sort((a, b) =>
+        a.ship.toLowerCase().localeCompare(b.ship.toLowerCase())
+      );
+
       let shipsFiltrados = [...shipsArray];
+      let letraActiva = "todas";
+      let estadoActivo = "todos";
+
+      // =====================
+      // GENERAR BOTONES DE LETRAS
+      // =====================
+      function generarFiltroLetras() {
+        const letrasExistentes = [
+          ...new Set(shipsArray.map((s) => s.ship[0].toUpperCase())),
+        ].sort();
+
+        const contenedor = document.getElementById("filtro-letras");
+        contenedor.innerHTML = "";
+
+        // Botón "Todas"
+        const btnTodas = document.createElement("button");
+        btnTodas.textContent = "Todas";
+        btnTodas.className = "filtro-btn filtro-letra active";
+        btnTodas.onclick = () => filtrarLetra("todas", btnTodas);
+        contenedor.appendChild(btnTodas);
+
+        letrasExistentes.forEach((letra) => {
+          const btn = document.createElement("button");
+          btn.textContent = letra;
+          btn.className = "filtro-btn filtro-letra";
+          btn.onclick = () => filtrarLetra(letra, btn);
+          contenedor.appendChild(btn);
+        });
+      }
+
+      // =====================
+      // FILTRAR POR LETRA
+      // =====================
+      function filtrarLetra(letra, btn) {
+        letraActiva = letra;
+        document
+          .querySelectorAll(".filtro-letra")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        aplicarFiltros();
+      }
+
+      // =====================
+      // APLICAR FILTROS COMBINADOS
+      // =====================
+      function aplicarFiltros() {
+        shipsFiltrados = shipsArray.filter((s) => {
+          const pasaEstado =
+            estadoActivo === "todos" ||
+            (estadoActivo === "vigente" && s.estado.includes("✅")) ||
+            (estadoActivo === "finalizado" && s.estado.includes("❌"));
+
+          const pasaLetra =
+            letraActiva === "todas" || s.ship[0].toUpperCase() === letraActiva;
+
+          return pasaEstado && pasaLetra;
+        });
+        renderShips(shipsFiltrados, "ships-container", "pagination-ships", 12);
+      }
 
       // =====================
       // RENDER SHIPS
@@ -894,6 +998,7 @@
       }
 
       // Iniciar
+      generarFiltroLetras();
       renderShips(shipsFiltrados, "ships-container", "pagination-ships", 12);
     </script>
 
@@ -919,6 +1024,13 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
+      }
+
+      .filtro-letra {
+        padding: 5px 12px !important;
+        font-size: 12px !important;
+        min-width: 36px;
+        font-weight: 700;
       }
 
       @media (max-width: 900px) {
