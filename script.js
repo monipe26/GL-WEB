@@ -51,6 +51,9 @@ fetch("/data/series.json")
 
 const comunidadArray = [
   { id: "c1", videoId: "IOFprq5UfwM" },
+
+  { id: "c1", videoId: "JnyrUiMeHqo" },
+
   { id: "c1", videoId: "0GALf9zof5E" },
 
   { id: "c1", videoId: "ZZfk7QDx_kU" },
@@ -231,7 +234,21 @@ const microficcionArray = [
       "g8IYws4kIoY",
       "0I8uNe6gg3A",
       "fkCDF5mlkJ4",
+      "fMP7aptesxw",
+      "K0CJTZFCcqA",
+      "OXVhnvP-Y-Y",
+      "szlbEEU_0vg",
     ],
+  },
+
+  {
+    id: "micro2",
+    slug: "lo-que-nunca-nos-dijimos",
+    titulo: "Lo que nunca nos dijimos ❤️",
+    canal: "Girls Love Play",
+    videoId: "ttopwmuZ7QI",
+    esShort: true,
+    videos: ["ttopwmuZ7QI", "ncsSqJEQOHg"],
   },
 ];
 // =====================
