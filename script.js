@@ -12,6 +12,8 @@ let ostTimer = null;
 let playlistLength = 0;
 let lastPlaylistIndex = -1;
 
+let progressInterval = null; // guarda el progreso cada X segundos mientras se reproduce
+
 // =====================
 // 🎬 SERIES
 // =====================
@@ -995,6 +997,45 @@ function mostrarFBReel(reelId) {
 }
 
 // =====================
+// 💾 CONTINUAR VIENDO (guardar/leer progreso)
+// =====================
+
+function claveProgreso(serieId) {
+  return "progreso_serie_" + serieId;
+}
+
+function obtenerProgreso(serieId) {
+  try {
+    const raw = localStorage.getItem(claveProgreso(serieId));
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function guardarProgreso() {
+  if (!player || typeof player.getCurrentTime !== "function") return;
+  const segundo = player.getCurrentTime();
+  if (!segundo || segundo < 1) return;
+
+  const serie = [...seriesArray].find((s) => s.id === currentSerieId);
+  let indice = current;
+  if (serie && serie.playlist && player.getPlaylistIndex) {
+    const idx = player.getPlaylistIndex();
+    if (idx >= 0) indice = idx;
+  }
+
+  localStorage.setItem(
+    claveProgreso(currentSerieId),
+    JSON.stringify({ indice, segundo })
+  );
+}
+
+function borrarProgreso(serieId) {
+  localStorage.removeItem(claveProgreso(serieId));
+}
+
+// =====================
 // YOUTUBE API
 // =====================
 
@@ -1027,6 +1068,15 @@ function onYouTubeIframeAPIReady() {
           actualizarEpisodio();
           if (player.setOption)
             player.setOption("captions", "track", { languageCode: "es" });
+
+          // 💾 arranca a guardar el progreso cada 5s mientras se reproduce
+          if (!progressInterval) {
+            progressInterval = setInterval(guardarProgreso, 5000);
+          }
+        }
+
+        if (e.data === YT.PlayerState.PAUSED) {
+          guardarProgreso(); // guarda también al pausar
         }
 
         if (e.data === YT.PlayerState.ENDED) {
@@ -1042,6 +1092,13 @@ function onYouTubeIframeAPIReady() {
             }
             return;
           }
+
+          // 💾 la serie terminó del todo: borramos el progreso guardado
+          if (progressInterval) {
+            clearInterval(progressInterval);
+            progressInterval = null;
+          }
+          borrarProgreso(currentSerieId);
 
           playingOst = false;
           nextVideo();
@@ -1096,11 +1153,15 @@ function cargarSerie(id) {
     return;
   }
 
+  // 💾 ¿hay progreso guardado de esta serie? si hay, retomamos ahí
+  const progreso = obtenerProgreso(id);
+
   if (serie.playlist) {
+    const indiceInicial = progreso ? progreso.indice : 0;
     player.loadPlaylist({
       listType: "playlist",
       list: serie.playlist,
-      index: 0,
+      index: indiceInicial,
     });
     setTimeout(() => {
       player.setShuffle(false);
@@ -1109,6 +1170,10 @@ function cargarSerie(id) {
       const lista = player.getPlaylist();
       playlistLength = lista && lista.length ? lista.length : 0;
       lastPlaylistIndex = -1;
+      // 💾 si veníamos con un segundo guardado, saltamos ahí
+      if (progreso && progreso.segundo > 0 && player.seekTo) {
+        player.seekTo(progreso.segundo, true);
+      }
       actualizarEpisodio();
     }, 1500);
     return;
@@ -1116,7 +1181,13 @@ function cargarSerie(id) {
 
   playlist = serie.videos || [];
   if (playlist.length) {
-    player.loadVideoById(playlist[0]);
+    current =
+      progreso && progreso.indice < playlist.length ? progreso.indice : 0;
+    const segundoInicial = progreso ? progreso.segundo : 0;
+    player.loadVideoById({
+      videoId: playlist[current],
+      startSeconds: segundoInicial,
+    });
     if (player.setOption)
       player.setOption("captions", "track", { languageCode: "es" });
   }
