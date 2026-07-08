@@ -1737,6 +1737,7 @@
 
   {
     "id": "littlecupid",
+    "slug": "little-cupid",
     "img": "/img/series/Little-Cupid.jpg",
     "titulo": "Little Cupid (2024)",
     "genero": "Romance/Familia",
@@ -1746,6 +1747,7 @@
 
   {
     "id": "mywednesday",
+    "slug": "my-wednesday",
     "img": "/img/series/My-Wednesday.jpg",
     "titulo": "My Wednesday (2024)",
     "genero": "Drama/Romance",
@@ -1755,6 +1757,7 @@
 
   {
     "id": "melodyofadream",
+    "slug": "melody-of-a-dream",
     "img": "/img/series/Melody-of-a-Dream-(2024).jpg",
     "titulo": "Melody of a Dream (2024)",
     "genero": "Drama/Romance",
@@ -1764,6 +1767,7 @@
 
   {
     "id": "redwhisper",
+    "slug": "red-whisper",
     "img": "/img/series/Red-Whisper.jpg",
     "titulo": "Red Whisper (2024)",
     "genero": "Romance",
@@ -1773,6 +1777,7 @@
 
   {
     "id": "myghostlove",
+    "slug": "my-ghost-love",
     "img": "/img/series/Amor_(fantasmal)_en_la_oficina.jpg",
     "titulo": "My (Ghost) Love (2024)",
     "genero": "Romance/Sobrenatural",
@@ -1782,6 +1787,7 @@
 
   {
     "id": "INTPflirting",
+    "slug": "INTP-flirting",
     "img": "/img/series/INTP-Flirting-(2024).jpg",
     "titulo": "INTP Flirting (2024))",
     "genero": "Romance",
@@ -1791,6 +1797,7 @@
 
   {
     "id": "clubfridayseason16lovebully",
+    "slug": "club-friday-season-16-lovebully",
     "img": "/img/series/Club-Friday-Season-16-Love-Bully.jpg",
     "titulo": "Club Friday Season 16: Love Bully (2024)",
     "genero": "Drama/Romance",
@@ -1817,6 +1824,7 @@
 
   {
     "id": "lonelygirls",
+    "slug": "lonely-girls",
     "img": "/img/series/Lonely-Girls-(2024).jpg",
     "titulo": "Lonely Girls (2024)",
     "genero": "Drama/Romance",
@@ -1826,6 +1834,7 @@
 
   {
     "id": "24hourlove",
+    "slug": "24-hour-love",
     "img": "/img/series/24-Hour-Love-(2024).jpg",
     "titulo": "24 Hour Love (2024)",
     "genero": "Romance",
@@ -1835,6 +1844,7 @@
 
   {
     "id": "apieceofmemory",
+    "slug": "a-piece-of-memory",
     "img": "/img/series/a-piece-of-memory.jpg",
     "titulo": "A Piece of Memory (2024)",
     "genero": "Romance",
@@ -1844,6 +1854,7 @@
 
   {
     "id": "xiaoxiangyijiu",
+    "slug": "xiao-xiang-yi-jiu",
     "img": "/img/series/Xiao-Xiang-Yi-Jiu-(2024).jpg",
     "titulo": "Xiao Xiang Yi Jiu (2024)",
     "genero": "Romance/Drama",
@@ -1853,6 +1864,7 @@
 
   {
     "id": "21dayscloserstep",
+    "slug": "21-days-closer-step",
     "img": "/img/series/21-days-Closer-Step.jpg",
     "titulo": "21 days Closer Step (2024)",
     "genero": "Romance",
@@ -1870,7 +1882,8 @@
   },
 
   {
-    "id": "mymarvellousdreamisyou (2024)",
+    "id": "mymarvellousdreamisyou",
+    "slug": "my-marvellous-dream-is-you",
     "img": "/img/series/My-Marvellous-Dream-Is-You-(2024).jpg",
     "titulo": "My Marvellous Dream Is You (2024)",
     "genero": "Romance/Fantasy",
@@ -1929,6 +1942,7 @@
 
   {
     "id": "blankseason2",
+    "slug": "blank-season-2",
     "img": "/img/series/Blank-Season-2-(2024).jpg",
     "titulo": "Blank Season 2 (2024)",
     "genero": "Romance/Drama",
@@ -1963,6 +1977,7 @@
 
   {
     "id": "iamdevil",
+    "slug": "i-am-devil",
     "img": "/img/series/I-Am-Devil-(2024).jpg",
     "titulo": "I Am Devil (2024)",
     "genero": "Romance/Drama",
@@ -1997,6 +2012,7 @@
 
   {
     "id": "borderlessline",
+    "slug": "border-less-line",
     "img": "/img/series/Borderless-Line.jpg",
     "titulo": "Borderless Line (2024)",
     "genero": "Comedia/Romance",
@@ -2013,6 +2029,7 @@
 
   {
     "id": "mysecrettutor",
+    "slug": "my-secret-tutor",
     "img": "/img/series/My-Secret-Tutor-(2024).jpg",
     "titulo": "My Secret Tutor (2024)",
     "genero": "Romance",
@@ -2022,6 +2039,7 @@
 
   {
     "id": "accidentallyyours",
+    "slug": "accidentally-yours",
     "img": "/img/series/Accidentally-Yours-(2024).jpg",
     "titulo": "Accidentally Yours (2024)",
     "genero": "Romance",
@@ -2037,7 +2055,8 @@
   },
 
   {
-    "id": "youarevitaminsinnyroutine",
+    "id": "youarevitaminsinmyroutine",
+    "slug": "you-are-vitamins-in-my-routine",
     "img": "/img/series/You-are-vitamins-in-my-routine.jpg",
     "titulo": "You Are Vitamins in My Routine (2023)",
     "genero": "Drama/Romance",
@@ -2047,6 +2066,7 @@
 
   {
     "id": "I Still Remember the Feeling",
+    "slug": "i-still-remember-the-feeling",
     "img": "/img/series/I-Still-Remember-the-Feeling-(2023).jpg",
     "titulo": "I Still Remember the Feeling (2023)",
     "genero": "Romance",
@@ -2056,6 +2076,7 @@
 
   {
     "id": "antichristmasclub",
+    "slug": "anti-christmas-club",
     "img": "/img/series/Anti-Christmas-Club-(2023).jpg",
     "titulo": "Anti Christmas Club (2023)",
     "genero": "Romance",
@@ -2065,6 +2086,7 @@
 
   {
     "id": "luckymylove",
+    "slug": "lucky-my-love",
     "img": "/img/series/Lucky-My-Love.jpg",
     "titulo": "Lucky My Love (2023)",
     "genero": "Comedia/Romance",
@@ -2080,6 +2102,7 @@
 
   {
     "id": "lovesenior",
+    "slug": "love-senior",
     "img": "/img/series/Love-Senior-(2023).jpg",
     "titulo": "Love Senior (2023)",
     "genero": "Romance/Drama",
@@ -2130,6 +2153,7 @@
 
   {
     "id": "welcometothelesbianbar",
+    "slug": "welcome-to-the-lesbian-bar",
     "img": "/img/series/Welcome-to-the-Lesbian-Bar-(2023).jpg",
     "titulo": "Welcome to the Lesbian Bar (2023)",
     "genero": "Romance",
@@ -2145,6 +2169,7 @@
 
   {
     "id": "dontbreakmymission",
+    "slug": "dont-break-my-mission",
     "img": "/img/series/Don-t-Break-My-Mission-(2023).jpg",
     "titulo": "Dont Break My Mission (2023)",
     "genero": "Romance",
@@ -2154,6 +2179,7 @@
 
   {
     "id": "every86400seconds",
+    "slug": "every-86400-seconds",
     "img": "/img/series/Every-86400-Seconds (2023).jpg",
     "titulo": "Every 86400 Seconds (2023)",
     "genero": "Romance/Drama",
@@ -2163,6 +2189,7 @@
 
   {
     "id": "putourheartonthepaper",
+    "slug": "put-our-heart-on-the-paper",
     "img": "/img/series/Put-Our-Heart-on-the-Paper-(2023).jpg",
     "titulo": "Put Our Heart on the Paper (2023)",
     "genero": "Romance",
@@ -2172,6 +2199,7 @@
 
   {
     "id": "lemonvsmelon",
+    "slug": "lemon-vs-melon",
     "img": "/img/series/Lemon-VS-Melon.jpg",
     "titulo": "Lemon vs Melon (2023)",
     "genero": "Romance",
@@ -2181,6 +2209,7 @@
 
   {
     "id": "cozyfirstlove",
+    "slug": "cozy-first-love",
     "img": "/img/series/Cozy-First-Love.jpg",
     "titulo": "Cozy First Love (2023)",
     "genero": "Drama/Romance",
@@ -2190,6 +2219,7 @@
 
   {
     "id": "youarethecreaminmycoffee",
+    "slug": "you-are-the-cream-in-my-coffee",
     "img": "/img/series/You-Are-the-Cream-in-My-Coffee-(2023).jpg",
     "titulo": "You Are the Cream in My Coffee (2023)",
     "genero": "Romance",
@@ -2199,6 +2229,7 @@
 
   {
     "id": "showmelove",
+    "slug": "show-me-love",
     "img": "/img/series/show-me-love.jpg",
     "titulo": "Show me love (2023)",
     "genero": "Drama/Romance",
@@ -2242,6 +2273,7 @@
 
   {
     "id": "gaptheseries",
+    "slug": "gap-the-series",
     "img": "/img/series/GAP-8.jpg",
     "titulo": "GAP The Series (2022)",
     "genero": "Comedia/Romance",
@@ -2251,6 +2283,7 @@
 
   {
     "id": "2PMcampus",
+    "slug": "2PM-campus",
     "img": "/img/series/2PM-Campus-(2022).jpg",
     "titulo": "2PM Campus (2022)",
     "genero": "Drama/Romance",
@@ -2260,6 +2293,7 @@
 
   {
     "id": "from1metreto1centimetre",
+    "slug": "from-1-metre-to-1-centimetre",
     "img": "/img/series/From-1-Metre-to-1-Centimetre.jpg",
     "titulo": "From 1 Metre to 1 Centimetre (2022)",
     "genero": "Drama/Romance",
@@ -2269,6 +2303,7 @@
 
   {
     "id": "alwaysbeyou",
+    "slug": "always-be-you",
     "img": "/img/series/Always-Be-You-(2022).jpg",
     "titulo": "Always Be You (2022)",
     "genero": "Romance",
@@ -2278,6 +2313,7 @@
 
   {
     "id": "girlfriendprojectday1",
+    "slug": "girl-friend-project-day-1",
     "img": "/img/series/girlfriend.jpg",
     "titulo": "Girlfriend Project Day 1 (2022)",
     "genero": "Romance",
@@ -2287,6 +2323,7 @@
 
   {
     "id": "myfairyghost",
+    "slug": "my-fairy-ghost",
     "img": "/img/series/My-Fairy-Ghost-(2022).jpg",
     "titulo": "My Fairy Ghost (2022)",
     "genero": "Romance/Drama",
@@ -2296,6 +2333,7 @@
 
   {
     "id": "sorrymyfriend",
+    "slug": "sorry-my-friend",
     "img": "/img/series/Sorry-My-friend.jpg",
     "titulo": "Sorry My Friend (2020)",
     "genero": "Romance",
@@ -2305,6 +2343,7 @@
 
   {
     "id": "outofbreath",
+    "slug": "out-of-breath",
     "img": "/img/series/Out-of-Breath.jpg",
     "titulo": "Out of Breath (2019)",
     "genero": "Romance/Drama",
