@@ -1067,8 +1067,19 @@ function onYouTubeIframeAPIReady() {
           if (idx >= 0) lastPlaylistIndex = idx;
           actualizarEpisodio();
           actualizarTituloYoutube();
-          if (player.setOption)
-            player.setOption("captions", "track", { languageCode: "es" });
+          if (player.setOption && player.getOption) {
+            const tracks = player.getOption("captions", "tracklist") || [];
+            const trackEs = tracks.find((t) => t.languageCode === "es");
+            const trackAuto = tracks.find((t) => t.kind === "asr");
+
+            if (trackEs) {
+              player.setOption("captions", "track", { languageCode: "es" });
+            } else if (trackAuto) {
+              player.setOption("captions", "track", {
+                languageCode: trackAuto.languageCode,
+              });
+            }
+          }
 
           // 💾 arranca a guardar el progreso cada 5s mientras se reproduce
           if (!progressInterval) {
