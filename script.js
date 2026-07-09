@@ -1066,6 +1066,7 @@ function onYouTubeIframeAPIReady() {
           const idx = player.getPlaylistIndex();
           if (idx >= 0) lastPlaylistIndex = idx;
           actualizarEpisodio();
+          actualizarTituloYoutube();
           if (player.setOption)
             player.setOption("captions", "track", { languageCode: "es" });
 
@@ -1316,6 +1317,24 @@ function actualizarEpisodio() {
 
   // Si no es una serie (es un short/historia de microficción u otro contenido)
   info.innerText = "Episodio " + (current + 1) + " de " + playlist.length;
+}
+
+// =====================
+// 🎬 TÍTULO AUTOMÁTICO DEL VIDEO (YouTube)
+// =====================
+
+function actualizarTituloYoutube() {
+  const el = document.getElementById("video-titulo-youtube");
+  if (!el || !player || typeof player.getVideoData !== "function") return;
+
+  const data = player.getVideoData();
+
+  if (data && data.title) {
+    el.innerText = data.title;
+  } else {
+    // A veces YouTube tarda un instante en entregar el título, reintentamos
+    setTimeout(actualizarTituloYoutube, 300);
+  }
 }
 
 // =====================
