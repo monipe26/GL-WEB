@@ -1067,8 +1067,13 @@ function onYouTubeIframeAPIReady() {
           if (idx >= 0) lastPlaylistIndex = idx;
           actualizarEpisodio();
           actualizarTituloYoutube();
-          if (player.setOption)
+
+          const serieActual = [...seriesArray].find(
+            (s) => s.id === currentSerieId
+          );
+          if (player.setOption && !(serieActual && serieActual.esShort)) {
             player.setOption("captions", "track", { languageCode: "es" });
+          }
 
           // 💾 arranca a guardar el progreso cada 5s mientras se reproduce
           if (!progressInterval) {
