@@ -283,6 +283,7 @@ OVERLAY NETFLIX
     aspect-ratio: unset;
     max-width: 100%;
     height: 60vh;
+    height: 60svh;
     margin: 0;
     border-radius: 0;
     border: none;
