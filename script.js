@@ -73,6 +73,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost1", videoId: "9dxckG0eJ44" },
   { id: "ost1", videoId: "U2ayv8Kaln0" },
 
   { id: "ost1", videoId: "i_SF8XZasmU" },
