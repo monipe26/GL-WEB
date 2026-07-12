@@ -1901,11 +1901,9 @@ renderComunidad(
   "comunidadgl"
 );
 renderComunidad(ostsArray, "osts-container", "pagination-osts", 8, "ostsgl");
-// Fix scroll al inicio en móvil
-if (!window.location.hash) {
-  window.scrollTo(0, 0);
-  setTimeout(() => window.scrollTo(0, 0), 300);
-}
+// Fix scroll al inicio (SIEMPRE arriba, sin importar el # que tenga la URL)
+window.scrollTo(0, 0);
+setTimeout(() => window.scrollTo(0, 0), 300);
 
 // =====================
 // MENÚ HAMBURGUESA
