@@ -632,7 +632,7 @@ OVERLAY NETFLIX
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   margin: 18px 0 0px;
   font-family: "Poppins", sans-serif;
 }
@@ -674,6 +674,31 @@ OVERLAY NETFLIX
   opacity: 0.8;
   letter-spacing: 1px;
   text-align: center;
+}
+
+.episodio-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 6px rgba(255, 79, 216, 0.6));
+  animation: latido 1.6s ease-in-out 5;
+}
+
+.episodio-icono img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes latido {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
 }
 
 #series h2 {

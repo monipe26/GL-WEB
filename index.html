@@ -72,7 +72,10 @@
 
     <div class="player-controls">
       <button onclick="prevVideo()">⏮ Episodio anterior</button>
-      <span id="episodio-info">Episodio 1</span>
+      <span id="episodio-info" style="display:none">Episodio 1</span>
+      <span class="episodio-icono" aria-hidden="true">
+        <img src="/img/corazon-play.png" alt="" />
+      </span>
       <button onclick="nextVideo()">Episodio siguiente ⏭</button>
     </div>
 
@@ -314,10 +317,14 @@
 
 <script>
 (function() {
-  // 👉 CAMBIÁ ESTA FECHA por el día que actives el hosting (formato: "YYYY-MM-DD")
-  const FECHA_LANZAMIENTO = "2026-07-15";
+  // ============================================
+  // 👇 CONFIGURACIÓN — TOCÁ SOLO ESTO
+  // ============================================
+  const MODO_PRUEBA = true; // true = aparece siempre (para probar) | false = una sola vez por persona
+  const FECHA_LANZAMIENTO = "2026-07-15"; // fecha en que activás el hosting
   const DIAS_CAMPANA = 15;
-  const DURACION_CARTEL_MS = 6000; // 6 segundos
+  const DURACION_CARTEL_MS = 6000; // milisegundos (6000 = 6 segundos)
+  // ============================================
 
   const inicio = new Date(FECHA_LANZAMIENTO).getTime();
   const fin = inicio + DIAS_CAMPANA * 24 * 60 * 60 * 1000;
@@ -325,16 +332,19 @@
 
   const banner = document.getElementById("welcomeBanner");
 
-  if (ahora > fin) {
+  if (!MODO_PRUEBA && ahora > fin) {
     banner.style.display = "none";
     return;
   }
 
-  if (localStorage.getItem("welcomeShown")) {
+  if (!MODO_PRUEBA && localStorage.getItem("welcomeShown")) {
     banner.style.display = "none";
     return;
   }
-  localStorage.setItem("welcomeShown", "true");
+
+  if (!MODO_PRUEBA) {
+    localStorage.setItem("welcomeShown", "true");
+  }
 
   // --- Canvas ---
   const canvas = document.getElementById("confettiCanvas");
@@ -344,7 +354,6 @@
 
   const coloresSerpentina = ["#ff595e","#ffca3a","#8ac926","#1982c4","#6a4c93"];
 
-  // Serpentinas cayendo (tiras rectangulares que rotan)
   let serpentinas = Array.from({length: 80}, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * -canvas.height,
@@ -356,7 +365,6 @@
     color: coloresSerpentina[Math.floor(Math.random() * coloresSerpentina.length)]
   }));
 
-  // Globos subiendo (emoji)
   let globos = Array.from({length: 18}, () => ({
     x: Math.random() * canvas.width,
     y: canvas.height + Math.random() * 300,
@@ -374,7 +382,6 @@
     frame++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Dibujar serpentinas
     serpentinas.forEach(s => {
       ctx.save();
       ctx.translate(s.x, s.y);
@@ -388,7 +395,6 @@
       if (s.y > canvas.height) s.y = -20;
     });
 
-    // Dibujar globos con emoji
     ctx.textAlign = "center";
     globos.forEach(g => {
       ctx.font = g.tam + "px serif";
