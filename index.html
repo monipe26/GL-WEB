@@ -39,13 +39,13 @@
       <!-- MENÚ -->
       <nav class="nav">
         <a href="/">Inicio</a>
-        <a href="/#series">Series GL</a>
-        <a href="/#noticias">Noticias GL</a>
+        <a href="#series">Series GL</a>
+        <a href="#noticias">Noticias GL</a>
         <a href="ships-gl.html">💕 Ships GL</a>
-        <a href="/#microficcion">🎬 GL Play Originals</a>
-        <a href="/#ostsgl">OSTs GL</a>
+        <a href="#microficcion">🎬 GL Play Originals</a>
+        <a href="#ostsgl">OSTs GL</a>
         <a href="proximamente-gl.html">Próximamente</a>
-        <a href="/#comunidadgl">Comunidad GL</a>
+        <a href="#comunidadgl">Comunidad GL</a>
       </nav>
 
       <!-- BUSCADOR -->
@@ -320,10 +320,10 @@
   // ============================================
   // 👇 CONFIGURACIÓN — TOCÁ SOLO ESTO
   // ============================================
-  const MODO_PRUEBA = true; // true = aparece siempre (para probar) | false = una sola vez por persona
-  const FECHA_LANZAMIENTO = "2026-07-15"; // fecha en que activás el hosting
-  const DIAS_CAMPANA = 15;
-  const DURACION_CARTEL_MS = 6000; // milisegundos (6000 = 6 segundos)
+  const MODO_PRUEBA = true; // true = aparece siempre, aunque ya lo hayas visto (para probar) | false = una sola vez por persona
+  const FECHA_LANZAMIENTO = "2026-07-15"; // fecha real en que activás el hosting
+  const DIAS_CAMPANA = 7;
+  const DURACION_CARTEL_MS = 6000; // 6 segundos
   // ============================================
 
   const inicio = new Date(FECHA_LANZAMIENTO).getTime();
@@ -354,6 +354,7 @@
 
   const coloresSerpentina = ["#ff595e","#ffca3a","#8ac926","#1982c4","#6a4c93"];
 
+  // Serpentinas cayendo (tiras rectangulares que rotan)
   let serpentinas = Array.from({length: 80}, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * -canvas.height,
@@ -365,6 +366,7 @@
     color: coloresSerpentina[Math.floor(Math.random() * coloresSerpentina.length)]
   }));
 
+  // Globos subiendo (emoji)
   let globos = Array.from({length: 18}, () => ({
     x: Math.random() * canvas.width,
     y: canvas.height + Math.random() * 300,
@@ -382,6 +384,7 @@
     frame++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Dibujar serpentinas
     serpentinas.forEach(s => {
       ctx.save();
       ctx.translate(s.x, s.y);
@@ -395,6 +398,7 @@
       if (s.y > canvas.height) s.y = -20;
     });
 
+    // Dibujar globos con emoji
     ctx.textAlign = "center";
     globos.forEach(g => {
       ctx.font = g.tam + "px serif";
