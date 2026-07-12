@@ -182,25 +182,27 @@ const ostsArray = [
 // 🎬 MICROFICCIÓN GL
 // =====================
 const microficcionArray = [
-  // Short individual
+  // Microdrama por partes
   {
     id: "micro3",
-    slug: "no-dijo-estoy-celosa-pero-lo-estaba",
-    videoId: "kxO8_5xRHn0",
+    slug: "nos-vemos-el-viernes",
+    titulo: "Nos vemos el viernes",
+    canal: "Girls Love Play",
+    videoId: "xnB-EeT8TtQ",
     esShort: true,
-    videos: ["kxO8_5xRHn0"],
+    videos: ["xnB-EeT8TtQ"],
   },
 
-  // Short individual
   {
-    id: "micro2b",
-    slug: "no-la-mires-asi",
-    videoId: "F-Nbm3qOx8o",
+    id: "micro2",
+    slug: "lo-que-nunca-nos-dijimos",
+    titulo: "Lo que nunca nos dijimos ❤️",
+    canal: "Girls Love Play",
+    videoId: "ttopwmuZ7QI",
     esShort: true,
-    videos: ["F-Nbm3qOx8o"],
+    videos: ["ttopwmuZ7QI", "ncsSqJEQOHg"],
   },
 
-  // Microdrama por partes
   {
     id: "micro1",
     slug: "cinco-minutos-de-mentira",
@@ -247,14 +249,22 @@ const microficcionArray = [
     ],
   },
 
+  // Short individual
   {
-    id: "micro2",
-    slug: "lo-que-nunca-nos-dijimos",
-    titulo: "Lo que nunca nos dijimos ❤️",
-    canal: "Girls Love Play",
-    videoId: "ttopwmuZ7QI",
+    id: "micro3",
+    slug: "no-dijo-estoy-celosa-pero-lo-estaba",
+    videoId: "kxO8_5xRHn0",
     esShort: true,
-    videos: ["ttopwmuZ7QI", "ncsSqJEQOHg"],
+    videos: ["kxO8_5xRHn0"],
+  },
+
+  // Short individual
+  {
+    id: "micro2b",
+    slug: "no-la-mires-asi",
+    videoId: "F-Nbm3qOx8o",
+    esShort: true,
+    videos: ["F-Nbm3qOx8o"],
   },
 ];
 // =====================
@@ -1366,7 +1376,7 @@ function ocultarInfoContenido() {
 // ▶ REPRODUCTOR UNIVERSAL
 // =====================
 
-function reproducirContenido(item) {
+function reproducirContenido(item, ocultarControles = false) {
   document
     .querySelectorAll(".card")
     .forEach((c) => c.classList.remove("active"));
@@ -1382,6 +1392,11 @@ function reproducirContenido(item) {
     ostTimer = null;
   }
   if (player && player.stopVideo) player.stopVideo();
+
+  const controlesEpisodio = document.querySelector(".player-controls");
+  if (controlesEpisodio) {
+    controlesEpisodio.classList.toggle("oculto-controles", ocultarControles);
+  }
 
   ocultarInfoContenido();
 
@@ -1587,7 +1602,7 @@ function renderComunidad(
         if (usarUrl && item.slug) {
           abrirHistoria(item);
         } else {
-          reproducirContenido(item);
+          reproducirContenido(item, sectionId === "ostsgl");
         }
       };
 
@@ -1874,7 +1889,7 @@ renderComunidad(
   microficcionArray,
   "microficcion-container",
   "pagination-microficcion",
-  8,
+  4,
   "microficcion",
   true
 );
