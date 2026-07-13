@@ -76,6 +76,7 @@
     "img": "/img/series/Beneath-the-Moon's Shadow-(2026).jpg",
     "sinopsis": "Una policía protege a una testigo amnésica mientras persiguen a un asesino serial. Pero ella podría ser la clave... o la propia asesina.",
     "esShort": true,
+    "oculto": true,
     "videos": [
       "ui2fMGshSQU",
       "Slixd7VOlC8",
