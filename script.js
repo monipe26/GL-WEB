@@ -9,6 +9,7 @@ let player,
 let currentSerieId = "gaptheseries";
 let playingOst = false;
 let ostTimer = null;
+let idiomaSubtituloAplicado = false; // evita re-forzar el idioma en cada pausa/play
 let playlistLength = 0;
 let lastPlaylistIndex = -1;
 
@@ -52,7 +53,6 @@ fetch("/data/series.json")
 // =====================
 
 const comunidadArray = [
-  { id: "c1", videoId: "Oys-JKFDi6I" },
   { id: "c1", videoId: "IOFprq5UfwM" },
 
   { id: "c1", videoId: "JnyrUiMeHqo" },
@@ -1086,8 +1086,13 @@ function onYouTubeIframeAPIReady() {
           const serieActual = [...seriesArray].find(
             (s) => s.id === currentSerieId
           );
-          if (player.setOption && !(serieActual && serieActual.esShort)) {
+          if (
+            player.setOption &&
+            !(serieActual && serieActual.esShort) &&
+            !idiomaSubtituloAplicado
+          ) {
             player.setOption("captions", "track", { languageCode: "es" });
+            idiomaSubtituloAplicado = true;
           }
 
           // 💾 arranca a guardar el progreso cada 5s mientras se reproduce
@@ -1136,6 +1141,7 @@ function onYouTubeIframeAPIReady() {
 function cargarSerie(id) {
   const serie = [...seriesArray].find((s) => s.id === id);
   if (!serie) return;
+  idiomaSubtituloAplicado = false;
   currentSerieId = id;
   current = 0;
   playlist = [];
@@ -1215,6 +1221,7 @@ function cargarSerie(id) {
 }
 
 function prevVideo() {
+  idiomaSubtituloAplicado = false;
   const serie = [...seriesArray].find((s) => s.id === currentSerieId);
 
   if (serie && serie.tiktoks) {
@@ -1246,6 +1253,7 @@ function prevVideo() {
 }
 
 function nextVideo() {
+  idiomaSubtituloAplicado = false;
   const serie = [...seriesArray].find((s) => s.id === currentSerieId);
 
   if (serie && serie.tiktoks) {
@@ -1378,6 +1386,7 @@ function ocultarInfoContenido() {
 // =====================
 
 function reproducirContenido(item, ocultarControles = false) {
+  idiomaSubtituloAplicado = false;
   document
     .querySelectorAll(".card")
     .forEach((c) => c.classList.remove("active"));
