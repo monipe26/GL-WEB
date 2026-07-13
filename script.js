@@ -24,7 +24,8 @@ let seriesArray = [];
 fetch("/data/series.json")
   .then((r) => r.json())
   .then((data) => {
-    seriesArray = data;
+    // Las series con "oculto": true en el JSON no se muestran en la web
+    seriesArray = data.filter((s) => !s.oculto);
     renderSection(seriesArray, "series-container", "pagination-series", 20);
 
     // Si entraron directo a una URL de serie, abrirla
