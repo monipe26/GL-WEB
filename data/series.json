@@ -1,5 +1,24 @@
 [
   {
+    "id": "aigirl",
+    "slug": "ai-girl",
+    "img": "/img/series/AI-Girl-(2026).jpg",
+    "titulo": "AI Girl (2026)",
+    "genero": "Romance/Ciencia ficción",
+    "sinopsis": "Una diseñadora de rostros con IA crea a la chica de sus sueños, pero todo cambia cuando esa cara cobra vida como un androide.",
+    "videos": [
+      "3CC58stapKQ",
+      "1HDj3Hlumv4",
+      "DqifdSf7vVQ",
+      "wrcBP3zbTNY",
+      "o3w6FnCRTuw",
+      "pMnY_hR3PjE",
+      "MmeEGUlexR0",
+      "MmIN3re_Ews"
+    ]
+  },
+
+  {
     "id": "chonglaewchonglao",
     "slug": "chong-laew-chong-lao",
     "titulo": "Chong Laew Chong Lao (2026)",
@@ -18,25 +37,6 @@
       "7660486529269173524",
       "7660875573513817365",
       "7661228376241474837"
-    ]
-  },
-
-  {
-    "id": "aigirl",
-    "slug": "ai-girl",
-    "img": "/img/series/AI-Girl-(2026).jpg",
-    "titulo": "AI Girl (2026)",
-    "genero": "Romance/Ciencia ficción",
-    "sinopsis": "Una diseñadora de rostros con IA crea a la chica de sus sueños, pero todo cambia cuando esa cara cobra vida como un androide.",
-    "videos": [
-      "3CC58stapKQ",
-      "1HDj3Hlumv4",
-      "DqifdSf7vVQ",
-      "wrcBP3zbTNY",
-      "o3w6FnCRTuw",
-      "pMnY_hR3PjE",
-      "MmeEGUlexR0",
-      "MmIN3re_Ews"
     ]
   },
 
