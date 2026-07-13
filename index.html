@@ -1,5 +1,13 @@
 <head>
   <meta charset="UTF-8" />
+  <script>
+    // Corta cualquier #seccion que haya quedado pegado en la URL,
+    // ANTES de que el navegador intente saltar hacia ahí.
+    // Así la página siempre abre arriba, sin tirones ni saltos visibles.
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+  </script>
   <base href="/" />
   <title>Girls Love Play - Comunidad GL en español 🇦🇷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
