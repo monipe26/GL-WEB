@@ -1057,6 +1057,20 @@ function borrarProgreso(serieId) {
 // YOUTUBE API
 // =====================
 
+// En Android, al entrar a pantalla completa, intentamos forzar horizontal
+// (en iPhone/Safari no tiene efecto, Apple no lo permite desde la web)
+document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement) {
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock("landscape").catch(() => {});
+    }
+  } else {
+    if (screen.orientation && screen.orientation.unlock) {
+      screen.orientation.unlock();
+    }
+  }
+});
+
 let tag = document.createElement("script");
 tag.src = "https://www.youtube.com/iframe_api";
 document.body.appendChild(tag);
