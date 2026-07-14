@@ -55,6 +55,7 @@ fetch("/data/series.json")
 
 const comunidadArray = [
   { id: "c1", videoId: "Oys-JKFDi6I" },
+  { id: "c1", videoId: "FY_UColcMDc" },
 
   { id: "c1", videoId: "IOFprq5UfwM" },
 
@@ -91,9 +92,9 @@ const ostsArray = [
   { id: "ost1", videoId: "qWfsiUJtIIw" },
 
   { id: "ost1", videoId: "Kdyph-0nKwc" },
-  { id: "ost1", videoId: "MeEqOOH-2eE" },
-  { id: "ost1", videoId: "4hFyFMp9ml4" },
-  { id: "ost1", videoId: "27klSLsVCR4" },
+  { id: "ost2", videoId: "MeEqOOH-2eE" },
+  { id: "ost3", videoId: "4hFyFMp9ml4" },
+  { id: "ost4", videoId: "27klSLsVCR4" },
   { id: "ost1", videoId: "xWvhq6bsde8" },
   { id: "ost1", videoId: "NTXo8HpAugU" },
   { id: "ost1", videoId: "cOvvSf-XhE4" },
@@ -1065,19 +1066,8 @@ document.addEventListener("fullscreenchange", () => {
       screen.orientation.lock("landscape").catch(() => {});
     }
   } else {
-    if (screen.orientation && screen.orientation.lock) {
-      // Pedimos explícitamente volver a vertical (en vez de solo "soltar"),
-      // para forzar al navegador a recalcular bien el tamaño de la página.
-      screen.orientation
-        .lock("portrait")
-        .then(() => {
-          setTimeout(() => {
-            if (screen.orientation.unlock) screen.orientation.unlock();
-          }, 200);
-        })
-        .catch(() => {
-          if (screen.orientation.unlock) screen.orientation.unlock();
-        });
+    if (screen.orientation && screen.orientation.unlock) {
+      screen.orientation.unlock();
     }
   }
 });
