@@ -76,17 +76,17 @@
     "img": "/img/series/Beneath-the-Moon's Shadow-(2026).jpg",
     "sinopsis": "Una policía protege a una testigo amnésica mientras persiguen a un asesino serial. Pero ella podría ser la clave... o la propia asesina.",
     "esShort": true,
-    "oculto": true,
+
     "videos": [
       "ui2fMGshSQU",
-      "Slixd7VOlC8",
+
       "TMu44_Vx5us",
       "rxdR7oAi6ps",
       "AwN6fQIcnSo",
       "SoYZB8Jd3vE",
       "paLtCfMkMfo",
       "fYdZLta4m_4",
-      "mpAcxRB8FqE",
+
       "9ktBgl9ZPFM",
       "Jw6cf7KmzrI",
       "GxuJdBokE4M",
@@ -98,11 +98,28 @@
       "o7JUvRbkLXM",
       "1nd1m8kO9w4",
       "vka99jDts38",
-      "Y1pgioKhjGE",
+
       "kvaKiiYpXPM",
       "_M_MOOZDygE",
       "EHW8umiKF7s",
-      "awq3Lbtl_0Y"
+      "awq3Lbtl_0Y",
+      "cUP6pncdpuw",
+      "RfvS03ekePc",
+      "UIsuYbWN5h8",
+      "YYtq_ftYJPg",
+      "NjKZPGnc3O4",
+      "mmZm07QnkYc",
+      "jRIaY0xZdCk",
+      "ywzbW0PidJg",
+      "ezadw5gKcms",
+      "nka4Cf3HVag",
+      "XN9cKtZ4zRo",
+      "vt_Bh7IOKHU",
+      "EbvSZ_zbkNY",
+      "3iA4CKl3EmI",
+      "yn8jWPOv8S0",
+      "TGf27xMK8oA",
+      "-dU3W8p3nzk"
     ]
   },
 
@@ -136,7 +153,7 @@
     "titulo": "The Partners (2026)",
     "genero": "Romance",
     "sinopsis": "",
-    "videos": ["klULFypTofQ", "CDPsz8-PGUU", "O59KrAE3nKE", "FZf4X39YFTo"]
+    "videos": ["e_DdbQBv1W0"]
   },
 
   {
@@ -342,6 +359,7 @@
     "titulo": "The Way Back to You (2026)",
     "genero": "Romance/Drama",
     "sinopsis": "Shen Fang, una joven apasionada, reencuentra a Ku Ching Shui y juntas enfrentan conflictos, amor y presión social para sanar su pasado.",
+    "oculto": true,
     "videos": [
       "Q2NlhgGtx9Q",
       "yUp9pg6QcnA",
@@ -379,6 +397,16 @@
       "JkI3GGSLnNs",
       "E5HsIoInpFo"
     ]
+  },
+
+  {
+    "id": "clairebellafterthefinalscene",
+    "slug": "clairebell-after-the-Final-Scene-2026",
+    "img": "/img/series/clairebell-after-the-Final-Scene.jpg",
+    "titulo": "Clairebell After the Final Scene (2026)",
+    "genero": "Romance",
+    "sinopsis": "La vida de ClaireBell después de la cárcel.",
+    "videos": ["dceI250V76M", "lw7gSlqD96M", "yXHeNvD0roY"]
   },
 
   {
@@ -932,7 +960,7 @@
   {
     "id": "missionloveorlies",
     "slug": "mission-love-or-lies",
-    "img": "/img/series/Mission-Love-or-Lies (1).jpg",
+    "img": "/img/series/Mission-Love-or-Lies.jpg",
     "titulo": "Mission: Love or Lies (2025)",
     "genero": "Acción/Comedia",
     "sinopsis": "Una capitana debe proteger a la hija de un poderoso político tras un atentado, pero la misión destapa mentiras, secretos… y un amor inesperado.",
@@ -1114,6 +1142,16 @@
     "genero": "Drama",
     "sinopsis": "Tras discutir, Peach y Miuu quedan atrapadas en un día que se repite en un resort. Para escapar, deberán enfrentar sentimientos que nunca se atrevieron a decir.",
     "playlist": "PLhsCXKbbbsR3sbTyqkRB_OUWXC0mH8KDU"
+  },
+
+  {
+    "id": "muteLuvhelloisthisluck",
+    "slug": "muteLuv-hello-is-this-luck-2025",
+    "img": "/img/series/MuTeLuv Hello, Is This Luck.jpg",
+    "titulo": "MuTeLuv: Hello, Is This Luck? (2025)",
+    "genero": "Romance/Supernatural",
+    "sinopsis": "Na, una estudiante de medicina talentosa pero desafortunada, cambia su destino con un número de suerte y se acerca al amor que creía imposible.",
+    "playlist": "PLrKFaSNpCtB2NKIJkfctZT7Yp0eugSLjH"
   },
 
   {
@@ -2272,6 +2310,16 @@
   },
 
   {
+    "id": "beminetheseriesprologueday",
+    "slug": "be-mine-the-series-prologue-day-2023",
+    "img": "/img/series/be-mine-prologue-day.jpg",
+    "titulo": "Be Mine the Series: Prologue Day (2023)",
+    "genero": "Romance",
+    "sinopsis": "El prólogo presenta a cuatro parejas, sus desafíos amorosos y cómo sus historias se entrelazan en un camino lleno de emociones.",
+    "playlist": "PLa6HxdVh8zglhEudCqar7DR22tsWzKCJY"
+  },
+
+  {
     "id": "showmelove",
     "slug": "show-me-love",
     "img": "/img/series/show-me-love.jpg",
@@ -2393,5 +2441,15 @@
     "genero": "Romance/Drama",
     "sinopsis": "Tras una ruptura, Ha Eun conoce a Min Seo en una app de citas. Juntas cumplen sueños pendientes, pero ¿logrará olvidar a su ex?",
     "videos": ["DUGblEoORXI"]
+  },
+
+  {
+    "id": "amitheonlyonewithbutterflies?",
+    "slug": "am-i-the-only-one-with-butterflies-2018",
+    "img": "/img/series/am-i-the-only-one-with-butterflies.jpg",
+    "titulo": "Am I The Only One With Butterflies? (2018) 1 y 2",
+    "genero": "Romance",
+    "sinopsis": "El primer día de trabajo la conoció y, desde entonces, siente mariposas por su jefa. ¿Será la única que siente esta emoción?",
+    "playlist": "PLNEeUHmc7hsAGhHF7ej87nzM_egZN7fYR"
   }
 ]
