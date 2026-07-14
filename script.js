@@ -78,6 +78,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost1", videoId: "uYPWFkDaakI" },
   { id: "ost1", videoId: "9dxckG0eJ44" },
   { id: "ost1", videoId: "U2ayv8Kaln0" },
 
@@ -162,25 +163,25 @@ const ostsArray = [
   { id: "ost1", videoId: "AMzlTbjBLDo" },
   { id: "ost1", videoId: "gzfHZqHFxi0" },
 
-  { id: "ost1", videoId: "HI8z03beTtI" },
-  { id: "ost1", videoId: "pgzaWboZUSg" },
-  { id: "ost1", videoId: "MNEc23m2ons" },
-  { id: "ost1", videoId: "QcsBxsmMrtA" },
-  { id: "ost1", videoId: "gdSsAoYOeLw" },
-  { id: "ost1", videoId: "9ae1xxRggbs" },
-  { id: "ost1", videoId: "Fu7d92Q3o0o" },
-  { id: "ost1", videoId: "n1ih3Ptg9Bo" },
-  { id: "ost1", videoId: "DoTt57nnMg8" },
-  { id: "ost1", videoId: "xmBeo_FRhvg" },
-  { id: "ost1", videoId: "8AUbwoXi7RQ" },
-  { id: "ost1", videoId: "j2SPeBnDNtE" },
-  { id: "ost1", videoId: "NBw1jF342vw" },
-  { id: "ost1", videoId: "LAZpP0_w23k" },
-  { id: "ost1", videoId: "DznDzQd8C_A" },
-  { id: "ost1", videoId: "wzRI0JYUJFM" },
-  { id: "ost1", videoId: "U1piZH2CNXA" },
-  { id: "ost1", videoId: "fWvIbVEf7Yc" },
-  { id: "ost1", videoId: "BKBA4FqZwEg" },
+  { id: "ost20", videoId: "HI8z03beTtI" },
+  { id: "ost19", videoId: "pgzaWboZUSg" },
+  { id: "ost18", videoId: "MNEc23m2ons" },
+  { id: "ost17", videoId: "QcsBxsmMrtA" },
+  { id: "ost16", videoId: "gdSsAoYOeLw" },
+  { id: "ost15", videoId: "9ae1xxRggbs" },
+  { id: "ost14", videoId: "Fu7d92Q3o0o" },
+  { id: "ost13", videoId: "n1ih3Ptg9Bo" },
+  { id: "ost12", videoId: "DoTt57nnMg8" },
+  { id: "ost11", videoId: "xmBeo_FRhvg" },
+  { id: "ost10", videoId: "8AUbwoXi7RQ" },
+  { id: "ost9", videoId: "j2SPeBnDNtE" },
+  { id: "ost8", videoId: "NBw1jF342vw" },
+  { id: "ost7", videoId: "LAZpP0_w23k" },
+  { id: "ost6", videoId: "DznDzQd8C_A" },
+  { id: "ost5", videoId: "wzRI0JYUJFM" },
+  { id: "ost4", videoId: "U1piZH2CNXA" },
+  { id: "ost3", videoId: "fWvIbVEf7Yc" },
+  { id: "ost2", videoId: "BKBA4FqZwEg" },
   { id: "ost1", videoId: "lvBRWn8qldg" },
 ];
 // =====================
@@ -1174,6 +1175,12 @@ function cargarSerie(id) {
 
   ocultarTikTok();
 
+  // 🔧 Por si veníamos de un OST o Comunidad (que la esconden), volvemos a mostrar la botonera
+  const controlesEpisodio = document.querySelector(".player-controls");
+  if (controlesEpisodio) {
+    controlesEpisodio.classList.remove("oculto-controles");
+  }
+
   // 🔧 Adaptar el reproductor a vertical si la serie es un short
   const hero = document.querySelector(".hero");
   if (serie.esShort) {
@@ -1630,7 +1637,10 @@ function renderComunidad(
         if (usarUrl && item.slug) {
           abrirHistoria(item);
         } else {
-          reproducirContenido(item, sectionId === "ostsgl");
+          reproducirContenido(
+            item,
+            sectionId === "ostsgl" || sectionId === "comunidadgl"
+          );
         }
       };
 
