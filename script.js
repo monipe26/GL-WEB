@@ -1068,6 +1068,12 @@ document.addEventListener("fullscreenchange", () => {
     if (screen.orientation && screen.orientation.unlock) {
       screen.orientation.unlock();
     }
+    // A veces Android no recalcula bien el tamaño de la página al volver.
+    // Forzamos un "empujón" para que se acomode sola, sin que haya que tocarla.
+    setTimeout(() => {
+      window.scrollTo(0, window.scrollY);
+      window.dispatchEvent(new Event("resize"));
+    }, 300);
   }
 });
 
