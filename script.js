@@ -1059,34 +1059,27 @@ function borrarProgreso(serieId) {
 
 // En Android, al entrar a pantalla completa, intentamos forzar horizontal
 // (en iPhone/Safari no tiene efecto, Apple no lo permite desde la web)
-function forzarReacomodoPantalla() {
-  // Truco fuerte: obligamos al navegador a "re-dibujar" toda la página desde cero
-  document.body.style.display = "none";
-  void document.body.offsetHeight; // esto obliga a que se aplique ya mismo
-  document.body.style.display = "";
-  window.scrollTo(0, 0);
-  window.dispatchEvent(new Event("resize"));
-}
-
 document.addEventListener("fullscreenchange", () => {
   if (document.fullscreenElement) {
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock("landscape").catch(() => {});
     }
   } else {
-    if (screen.orientation && screen.orientation.unlock) {
-      screen.orientation.unlock();
+    if (screen.orientation && screen.orientation.lock) {
+      // Pedimos explícitamente volver a vertical (en vez de solo "soltar"),
+      // para forzar al navegador a recalcular bien el tamaño de la página.
+      screen.orientation
+        .lock("portrait")
+        .then(() => {
+          setTimeout(() => {
+            if (screen.orientation.unlock) screen.orientation.unlock();
+          }, 200);
+        })
+        .catch(() => {
+          if (screen.orientation.unlock) screen.orientation.unlock();
+        });
     }
-    // Repetimos el "sacudón" varias veces, porque en Android puede tardar
-    // un poco distinto según el celular en terminar de girar de vuelta.
-    setTimeout(forzarReacomodoPantalla, 100);
-    setTimeout(forzarReacomodoPantalla, 400);
-    setTimeout(forzarReacomodoPantalla, 800);
   }
-});
-
-window.addEventListener("orientationchange", () => {
-  setTimeout(forzarReacomodoPantalla, 200);
 });
 
 let tag = document.createElement("script");
