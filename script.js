@@ -195,7 +195,7 @@ const microficcionArray = [
     canal: "Girls Love Play",
     videoId: "xnB-EeT8TtQ",
     esShort: true,
-    videos: ["xnB-EeT8TtQ"],
+    videos: ["xnB-EeT8TtQ", "AEvA4W3Heew"],
   },
 
   {
@@ -1930,8 +1930,10 @@ renderComunidad(
 );
 renderComunidad(ostsArray, "osts-container", "pagination-osts", 8, "ostsgl");
 // Fix scroll al inicio (SIEMPRE arriba, sin importar el # que tenga la URL)
-window.scrollTo(0, 0);
-setTimeout(() => window.scrollTo(0, 0), 300);
+if (!window.location.hash) {
+  window.scrollTo(0, 0);
+  setTimeout(() => window.scrollTo(0, 0), 300);
+}
 
 // =====================
 // MENÚ HAMBURGUESA

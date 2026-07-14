@@ -2,6 +2,19 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RPZ4XSDK4N");
+    </script>
     <base href="/" />
     <title>Próximamente GL - Girls Love Play 🎬</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +54,7 @@
         <a href="/#series">Series GL</a>
         <a href="/#noticias">Noticias GL</a>
         <a href="ships-gl.html">💕 Ships GL</a>
-        <a href="/#microficcion">🎬 GL Play Originals</a>
+        <a href="/#glplayoriginals">🎬 GL Play Originals</a>
         <a href="/#ostsgl">OSTs GL</a>
         <a href="proximamente-gl.html">🎬 Próximamente</a>
         <a href="/#comunidadgl">Comunidad GL</a>
@@ -663,6 +676,20 @@
       const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       document.head.appendChild(tag);
+
+      // En Android, al entrar a pantalla completa, intentamos forzar horizontal
+      // (en iPhone/Safari no tiene efecto, Apple no lo permite desde la web)
+      document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) {
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock("landscape").catch(() => {});
+          }
+        } else {
+          if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+          }
+        }
+      });
     </script>
 
     <style>

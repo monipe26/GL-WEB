@@ -1,13 +1,14 @@
 <head>
   <meta charset="UTF-8" />
-  <script>
-    // Corta cualquier #seccion que haya quedado pegado en la URL,
-    // ANTES de que el navegador intente saltar hacia ahí.
-    // Así la página siempre abre arriba, sin tirones ni saltos visibles.
-    if (window.location.hash) {
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-    }
-  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-RPZ4XSDK4N");
+</script>
+
   <base href="/" />
   <title>Girls Love Play - Series, OST y Noticias GL en español 🇦🇷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,7 +51,7 @@
         <a href="#series">Series GL</a>
         <a href="#noticias">Noticias GL</a>
         <a href="ships-gl.html">💕 Ships GL</a>
-        <a href="#microficcion">🎬 GL Play Originals</a>
+        <a href="#glplayoriginals">🎬 GL Play Originals</a>
         <a href="#ostsgl">OSTs GL</a>
         <a href="proximamente-gl.html">Próximamente</a>
         <a href="#comunidadgl">Comunidad GL</a>
@@ -124,7 +125,7 @@
 </section>
 
     <!-- GIRLS LOVE PLAY ORIGINALS -->
-    <div id="microficcion" class="section">
+    <div id="glplayoriginals" class="section">
       <h2>🎬 Girls Love Play Originals</h2>
       <p class="subtitulo">Micro historias y series cortas GL</p>
       <div id="microficcion-container" class="row"></div>
@@ -172,7 +173,7 @@
           <a href="#series">Series GL</a>
           <a href="#noticias">Noticias GL</a>
           <a href="ships-gl.html">💕 Ships GL</a>
-          <a href="#microficcion">🎬 GL Play Originals</a>
+         <a href="/#glplayoriginals">🎬 GL Play Originals</a>
           <a href="#ostsgl">OSTs GL</a>
           <a href="proximamente-gl.html">Próximamente</a>
           <a href="#comunidadgl">Comunidad GL</a>
