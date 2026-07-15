@@ -506,16 +506,6 @@
                 e.target.playVideo();
                 document.getElementById("episodio-info-prox").textContent =
                   "▶ Reproduciendo";
-                // Intentamos sacar el mute apenas arranca. El navegador
-                // puede bloquear esto (política de autoplay con sonido),
-                // pero el video igual va a reproducirse solo (muteado si
-                // no lo deja sonar).
-                setTimeout(() => {
-                  try {
-                    e.target.unMute();
-                    e.target.setVolume(30); // volumen no muy alto
-                  } catch (err) {}
-                }, 250);
                 // Fade-in suave del iframe en vez de que aparezca de golpe
                 const iframe = e.target.getIframe();
                 if (iframe) {
