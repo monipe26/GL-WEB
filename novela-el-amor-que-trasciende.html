@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RPZ4XSDK4N");
+    </script>
+
+    <base href="/" />
+    <title>El Amor Que Trasciende - Novela GL - Girls Love Play</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Girls Love Play - El Amor Que Trasciende: novela GL original. Dos almas destinadas a cuidarse desde las sombras, hasta que romper las reglas se vuelve la única opción."
+    />
+    <meta name="author" content="Monipe" />
+    <meta name="publisher" content="Girls Love Play" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="El Amor Que Trasciende - Novela GL - Girls Love Play"
+    />
+    <meta
+      property="og:description"
+      content="Dos almas destinadas a cuidarse desde las sombras, hasta que romper las reglas se vuelve la única opción."
+    />
+    <meta
+      property="og:image"
+      content="https://girlsloveplay.com/img/novelas/el amor que transciende - monipe1.jpg"
+    />
+    
+    <meta property="og:type" content="article" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <style>
+      html,
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a0a2e 0%,
+          #2d1050 40%,
+          #1e0a35 70%,
+          #3d1060 100%
+        );
+        background-attachment: fixed;
+      }
+      .angeles-hero {
+        display: flex;
+        gap: 26px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+      }
+      .angeles-hero img {
+        width: 200px;
+        border-radius: 16px;
+        flex-shrink: 0;
+        box-shadow: 0 10px 30px rgba(143, 92, 255, 0.25);
+      }
+      .angeles-hero-texto {
+        flex: 1;
+        min-width: 220px;
+      }
+      .angeles-hero-texto p {
+        color: #ccc;
+        line-height: 1.8;
+        font-size: 14px;
+        text-align: justify;
+      }
+      .angeles-hero-texto .novela-autor {
+        color: #a598c4;
+        font-size: 13px;
+        margin: -4px 0 12px;
+        text-align: left;
+      }
+      @media (max-width: 700px) {
+        .angeles-hero {
+          flex-direction: column;
+          align-items: center;
+          gap: 18px;
+        }
+        .angeles-hero img {
+          width: 65%;
+          max-width: 260px;
+        }
+        .angeles-hero-texto {
+          min-width: 0;
+          width: 100%;
+          text-align: center;
+        }
+        .angeles-hero-texto .novela-autor {
+          text-align: center;
+        }
+      }
+      .novela-tag {
+        display: inline-block;
+        background: rgba(196, 158, 230, 0.12);
+        border: 1px solid rgba(196, 158, 230, 0.35);
+        color: #d8c4ee;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 11px;
+        margin-right: 6px;
+        margin-bottom: 10px;
+      }
+      .ep-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      @media (max-width: 700px) {
+        .ep-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .ep-card {
+        background: rgba(30, 22, 58, 0.6);
+        border-radius: 14px;
+        padding: 16px;
+        border: 1px solid rgba(196, 158, 230, 0.2);
+        text-decoration: none;
+        display: block;
+        transition: border-color 0.25s ease, transform 0.25s ease;
+      }
+      .ep-card:hover {
+        border-color: rgba(216, 170, 235, 0.55);
+        transform: translateY(-3px);
+      }
+      .ep-card h4 {
+        color: #e6c9f0;
+        margin: 0 0 6px;
+        font-size: 14px;
+      }
+      .ep-card p {
+        color: #a598c4;
+        margin: 0;
+        font-size: 12px;
+      }
+      .ep-card .estado {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: #9de8b0;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .ep-card.bloqueado {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      }
+      .ep-card.bloqueado .estado {
+        color: #a98fd6;
+      }
+      .btn-volver {
+        display: block;
+        text-align: center;
+        margin: 30px auto 0;
+        max-width: 320px;
+        padding: 14px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #c88ee0, #8f5cff);
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .btn-volver:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(143, 92, 255, 0.35);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="logo-container"><img src="/img/logo.png" class="logo" /></div>
+      <nav class="nav">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#series">Series GL</a>
+        <a href="index.html#noticias">Noticias GL</a>
+        <a href="ships-gl.html">💕 Ships GL</a>
+        <a href="index.html#glplayoriginals">🎬 GL Play Originals</a>
+        <a href="index.html#ostsgl">OSTs GL</a>
+        <a href="proximamente-gl.html">🎬 Próximamente</a>
+
+        <a href="novelas.html">📖 Novelas GL</a>
+        <a href="index.html#comunidadgl">Comunidad GL</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" placeholder="Buscar..." disabled />
+        <button>✕</button>
+      </div>
+    </header>
+
+    <div style="max-width: 960px; margin: 40px auto; padding: 20px">
+      <div class="angeles-hero">
+        <img
+          src="/img/novelas/el amor que transciende - monipe.jpg"
+          alt="Ángeles"
+        />
+        <div class="angeles-hero-texto">
+          <h1 style="color: #e6c9f0; font-size: 30px; margin: 0 0 10px">
+            El Amor Que Transciende
+          </h1>
+          <p class="novela-autor">Por Monipe</p>
+          <div>
+            <span class="novela-tag">Romance</span>
+            <span class="novela-tag">Fantasía</span>
+            <span class="novela-tag">GL Original</span>
+          </div>
+          <p>
+            Camila vive huyendo de un pasado que amenaza con alcanzarla desde
+            las sombras. Cuando Niranya, una misteriosa guardiana espiritual
+            proveniente de otro mundo, aparece en su vida, ambas descubrirán que
+            su encuentro estaba escrito mucho antes de conocerse. Mientras una
+            fuerza oscura intenta romper el equilibrio entre las dimensiones, un
+            amor imposible comenzará a cambiar el destino de las dos.
+          </p>
+        </div>
+      </div>
+
+      <h2 style="color: #e6c9f0; font-size: 20px; margin-bottom: 16px">
+        Episodios
+      </h2>
+      <div class="ep-grid">
+        <a class="ep-card" href="novela-el-amor-que-trasciende-ep1-parte1.html">
+          <span class="estado">✅ Disponible</span>
+          <h4>Capítulo 1: El llamado de Aetheris</h4>
+          <p>Parte 1 de 3</p>
+        </a>
+
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 1: El llamado de Aetheris</h4>
+          <p>Parte 2 de 3</p>
+        </div>
+
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 1: El llamado de Aetheris</h4>
+          <p>Parte 3 de 3</p>
+        </div>
+
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 2</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 3</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 4</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 5</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 6</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 7</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 8</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 9</h4>
+          <p>Aún sin publicar</p>
+        </div>
+        <div class="ep-card bloqueado">
+          <span class="estado">🔒 Próximamente</span>
+          <h4>Capítulo 10</h4>
+          <p>Aún sin publicar</p>
+        </div>
+      </div>
+
+      <a href="novelas.html" class="btn-volver">← Volver a Novelas GL</a>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- LOGO / MARCA -->
+        <div class="footer-brand">
+          <img
+            src="/img/logo.png"
+            alt="logo"
+          />
+          <p>Tu espacio GL favorito 💖</p>
+        </div>
+    
+            <!-- LINKS -->
+            <div class="footer-links">
+              <h4>Explorar</h4>
+              <a href="#inicio">Inicio</a>
+              <a href="#series">Series GL</a>
+              <a href="#noticias">Noticias GL</a>
+              <a href="ships-gl.html">💕 Ships GL</a>
+             <a href="/#glplayoriginals">🎬 GL Play Originals</a>
+              <a href="#ostsgl">OSTs GL</a>
+              <a href="proximamente-gl.html">Próximamente</a>
+              <a href="novelas.html">📖 Novelas GL</a>
+              <a href="#comunidadgl">Comunidad GL</a>
+              <a href="sobre-nosotras.html">Sobre Nosotras 💖</a>
+            </div>
+    
+            <!-- LEGAL -->
+            <div class="footer-legal">
+              <h4>Legal</h4>
+              <p>
+                Este sitio no almacena videos ni archivos propios. Todo el contenido
+                proviene de fuentes externas.
+              </p>
+              <p>Los derechos pertenecen a sus respectivos autores.</p>
+              <a href="avisolegal.html" class="footer-links-item">Aviso Legal</a>
+              <a href="privacidad.html" class="footer-links-item"
+                >Politica de Privacidad</a
+              >
+              <a href="cookies.html" class="footer-links-item"
+                >Politica de Cookies</a
+              >
+            </div>
+    
+        <!-- CONTACTO -->
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p>Email: contacto@girlsloveplay.com</p>
+      <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn">💖 Apoyar proyecto</a>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/girlsloveplayoficial/" target="_blank">
+          <img src="/img/iconos/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/girlslove.play" target="_blank">
+          <img src="/img/iconos/instagram.png" alt="Instagram" />
+        </a>
+    
+        <a href="https://www.tiktok.com/@girls.love.play" target="_blank">
+          <img src="/img/iconos/tiktok.png" alt="Tik Tok" />
+        </a>
+    
+        <a href="https://x.com/girlslove_play" target="_blank">
+          <img src="/img/iconos/x.png" alt="X" />
+        </a>
+    
+        <a href="https://www.youtube.com/@GirlsLovePlay" target="_blank">
+          <img src="/img/iconos/youtube.png" alt="Youtube" />
+        </a>
+      </div>
+    </div>
+          </div>
+        </div>
+      </div> <!-- cierra footer-container -->
+      <div class="footer-bottom">
+        <p>© 2026 Girls Love - Todos los derechos reservados</p>
+      </div>
+    </footer>
+    <button
+      onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      id="btn-arriba"
+    >
+      ⬆
+    </button>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav").classList.toggle("active");
+      }
+      document
+        .querySelectorAll(".nav a")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            document.querySelector(".nav").classList.remove("active")
+          )
+        );
+    </script>
+  </body>
+</html>

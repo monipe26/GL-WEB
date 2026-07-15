@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RPZ4XSDK4N");
+    </script>
+
+    <base href="/" />
+    <title>Novelas GL - Girls Love Play</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Girls Love Play - Novelas GL originales, publicadas por capítulos, escritas por nosotras."
+    />
+    <meta name="author" content="Girls Love Play" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Novelas GL - Girls Love Play" />
+    <meta
+      property="og:description"
+      content="Novelas GL originales, publicadas por capítulos."
+    />
+    <meta
+      property="og:image"
+      content="https://girlsloveplay.com/img/logo.png"
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <style>
+      html,
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a0a2e 0%,
+          #2d1050 40%,
+          #1e0a35 70%,
+          #3d1060 100%
+        );
+        background-attachment: fixed;
+      }
+      .nov-intro {
+        color: #c9b8e8;
+        margin-bottom: 30px;
+      }
+      .nov-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      @media (max-width: 700px) {
+        .nov-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .nov-card {
+          flex-direction: row;
+          align-items: stretch;
+        }
+        .nov-card img {
+          width: 100px;
+          aspect-ratio: 2 / 3;
+          height: auto;
+          flex-shrink: 0;
+        }
+        .nov-card-texto {
+          padding: 12px;
+        }
+        .nov-card-texto h3 {
+          font-size: 15px;
+        }
+        .nov-card-texto p {
+          font-size: 12px;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+      .nov-card {
+        display: flex;
+        flex-direction: column;
+        background: rgba(30, 22, 58, 0.6);
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(196, 158, 230, 0.2);
+        text-decoration: none;
+        transition: border-color 0.25s ease, transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .nov-card:hover {
+        border-color: rgba(216, 170, 235, 0.55);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px rgba(143, 92, 255, 0.25);
+      }
+      .nov-card img {
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+      }
+      .nov-card-texto {
+        padding: 18px;
+      }
+      .nov-card-texto h3 {
+        color: #e6c9f0;
+        margin: 0 0 8px;
+        font-size: 17px;
+      }
+      .nov-card-texto p {
+        color: #b8aed4;
+        font-size: 13px;
+        margin: 0;
+        line-height: 1.55;
+      }
+      .nov-card .estado {
+        display: inline-block;
+        font-size: 11px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        color: #9de8b0;
+      }
+      .nov-card.bloqueada {
+        opacity: 0.55;
+      }
+      .nov-card.bloqueada .estado {
+        color: #a98fd6;
+      }
+      .nov-card.bloqueada:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: rgba(196, 158, 230, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="logo-container"><img src="/img/logo.png" class="logo" /></div>
+      <nav class="nav">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#series">Series GL</a>
+        <a href="index.html#noticias">Noticias GL</a>
+        <a href="ships-gl.html">💕 Ships GL</a>
+        <a href="index.html#glplayoriginals">🎬 GL Play Originals</a>
+        <a href="index.html#ostsgl">OSTs GL</a>
+        <a href="proximamente-gl.html">🎬 Próximamente</a>
+
+        <a href="novelas.html">📖 Novelas GL</a>
+        <a href="index.html#comunidadgl">Comunidad GL</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" placeholder="Buscar..." disabled />
+        <button>✕</button>
+      </div>
+    </header>
+
+    <div style="max-width: 960px; margin: 40px auto; padding: 20px">
+      <h1 style="color: #e6c9f0; font-size: 28px; margin-bottom: 8px">
+        📖 Novelas GL
+      </h1>
+      <p class="nov-intro">Historias originales GL, publicadas por capítulos</p>
+
+      <div class="nov-grid">
+        <!-- NOVELA 1 -->
+        <a class="nov-card" href="novela-el-amor-que-trasciende.html">
+          <img
+            src="/img/novelas/el amor que transciende - monipe1.jpg"
+            alt="Ángeles"
+          />
+          <div class="nov-card-texto">
+            <span class="estado">✅ Publicando</span>
+            <h3>El Amor Que Transciende</h3>
+            <p>
+              Entre ciencia, universos y destinos entrelazados, Camila y Niranya
+              descubrirán un amor capaz de desafiar cualquier realidad.
+            </p>
+          </div>
+        </a>
+
+        <!-- NOVELA 2 (próximamente) -->
+        <div class="nov-card bloqueada">
+          <img src="/img/novelas/novela2.jpg" alt="Próxima novela" />
+          <div class="nov-card-texto">
+            <span class="estado">🔒 En camino</span>
+            <h3>Historia sin título</h3>
+            <p>
+              Una nueva historia está naciendo. Personajes, emociones y un mundo
+              completamente diferente te esperan muy pronto.
+            </p>
+          </div>
+        </div>
+
+        <!-- NOVELA 3 (próximamente) -->
+        <div class="nov-card bloqueada">
+          <img src="/img/novelas/novela3.jpg" alt="Próxima novela" />
+          <div class="nov-card-texto">
+            <span class="estado">💭 Idea en desarrollo</span>
+            <h3>Historia sin título</h3>
+            <p>
+              Todavía no tiene nombre, pero ya está reservando un lugar para su
+              propia historia.
+            </p>
+          </div>
+        </div>
+
+        <!-- NOVELA 4 (próximamente) -->
+        <div class="nov-card bloqueada">
+          <img src="/img/novelas/novela4.jpg" alt="Próxima novela" />
+          <div class="nov-card-texto">
+            <span class="estado">🔒 Próximamente</span>
+            <h3>Historia sin título</h3>
+            <p>
+              Cada libro comienza con una idea. Esta aún está creciendo, pero
+              pronto abrirá sus primeras páginas.
+            </p>
+          </div>
+        </div>
+
+        <!-- NOVELA 5 (próximamente) -->
+        <div class="nov-card bloqueada">
+          <img src="/img/novelas/novela5.jpg" alt="Próxima novela" />
+          <div class="nov-card-texto">
+            <span class="estado">🔒 Próximamente</span>
+            <h3>Historia sin título</h3>
+            <p>
+              Otra historia original llegará muy pronto. Una nueva aventura,
+              nuevos personajes y un nuevo comienzo.
+            </p>
+          </div>
+        </div>
+
+        <!-- NOVELA 6 (próximamente) -->
+        <div class="nov-card bloqueada">
+          <img src="/img/novelas/novela6.jpg" alt="Próxima novela" />
+          <div class="nov-card-texto">
+            <span class="estado">🔒 Próximamente</span>
+            <h3>Historia sin título</h3>
+            <p>
+              El próximo libro todavía está escribiendo su destino. Gracias por
+              acompañar este proyecto desde el principio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- LOGO / MARCA -->
+        <div class="footer-brand">
+          <img
+            src="/img/logo.png"
+            alt="logo"
+          />
+          <p>Tu espacio GL favorito 💖</p>
+        </div>
+    
+            <!-- LINKS -->
+            <div class="footer-links">
+              <h4>Explorar</h4>
+              <a href="#inicio">Inicio</a>
+              <a href="#series">Series GL</a>
+              <a href="#noticias">Noticias GL</a>
+              <a href="ships-gl.html">💕 Ships GL</a>
+             <a href="/#glplayoriginals">🎬 GL Play Originals</a>
+              <a href="#ostsgl">OSTs GL</a>
+              <a href="proximamente-gl.html">Próximamente</a>
+              <a href="novelas.html">📖 Novelas GL</a>
+              <a href="#comunidadgl">Comunidad GL</a>
+              <a href="sobre-nosotras.html">Sobre Nosotras 💖</a>
+            </div>
+    
+            <!-- LEGAL -->
+            <div class="footer-legal">
+              <h4>Legal</h4>
+              <p>
+                Este sitio no almacena videos ni archivos propios. Todo el contenido
+                proviene de fuentes externas.
+              </p>
+              <p>Los derechos pertenecen a sus respectivos autores.</p>
+              <a href="avisolegal.html" class="footer-links-item">Aviso Legal</a>
+              <a href="privacidad.html" class="footer-links-item"
+                >Politica de Privacidad</a
+              >
+              <a href="cookies.html" class="footer-links-item"
+                >Politica de Cookies</a
+              >
+            </div>
+    
+        <!-- CONTACTO -->
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p>Email: contacto@girlsloveplay.com</p>
+      <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn">💖 Apoyar proyecto</a>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/girlsloveplayoficial/" target="_blank">
+          <img src="/img/iconos/facebook.png" alt="Facebook" />
+        </a>
+        <a href="https://www.instagram.com/girlslove.play" target="_blank">
+          <img src="/img/iconos/instagram.png" alt="Instagram" />
+        </a>
+    
+        <a href="https://www.tiktok.com/@girls.love.play" target="_blank">
+          <img src="/img/iconos/tiktok.png" alt="Tik Tok" />
+        </a>
+    
+        <a href="https://x.com/girlslove_play" target="_blank">
+          <img src="/img/iconos/x.png" alt="X" />
+        </a>
+    
+        <a href="https://www.youtube.com/@GirlsLovePlay" target="_blank">
+          <img src="/img/iconos/youtube.png" alt="Youtube" />
+        </a>
+      </div>
+    </div>
+          </div>
+        </div>
+      </div> <!-- cierra footer-container -->
+      <div class="footer-bottom">
+        <p>© 2026 Girls Love - Todos los derechos reservados</p>
+      </div>
+    </footer>
+
+    <button
+      onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      id="btn-arriba"
+    >
+      ⬆
+    </button>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav").classList.toggle("active");
+      }
+      document
+        .querySelectorAll(".nav a")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            document.querySelector(".nav").classList.remove("active")
+          )
+        );
+    </script>
+  </body>
+</html>
