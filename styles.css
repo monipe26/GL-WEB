@@ -213,8 +213,7 @@ body {
   position: relative;
   scroll-margin-top: 90px;
   aspect-ratio: 16 / 9;
-  background: url("https://i.postimg.cc/sXPW0mk2/GAP-8.png") no-repeat
-    center/cover;
+  background: url("/img/GAP-8.jpg") no-repeat center/cover;
 }
 
 #player {

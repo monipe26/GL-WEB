@@ -172,7 +172,7 @@
         </div>
         <div class="footer-contact">
           <h4>Contacto</h4>
-          <p>Email: info.girlsloveplay@gmail.com</p>
+          <p>Email: contacto@girlsloveplay.com</p>
           <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn"
             >💖 Apoyar proyecto</a
           >
@@ -181,39 +181,22 @@
               href="https://www.facebook.com/girlsloveplayoficial/"
               target="_blank"
             >
-            <div class="footer-socials">
-              <a
-                href="https://www.facebook.com/girlsloveplayoficial/"
-                target="_blank"
-              >
-                <img
-                  src="https://i.postimg.cc/yNCH6MKJ/facebook.png"
-                  alt="Facebook"
-                />
-              </a>
-              <a href="https://www.instagram.com/girlslove.play" target="_blank">
-                <img
-                  src="https://i.postimg.cc/NFKs2Rz5/instagram.png"
-                  alt="Instagram"
-                />
-              </a>
-  
-              <a href="https://www.tiktok.com/@girls.love.play" target="_blank">
-                <img
-                  src="https://i.postimg.cc/902K6hdd/tik-tok.png"
-                  alt="Tik Tok"
-                />
-              </a>
-  
-              <a href="https://x.com/girlslove_play" target="_blank">
-                <img src="/img/iconos/x.png" alt="X" />
-              </a>
-  
-              <a href="https://www.youtube.com/@GirlsLovePlay" target="_blank">
-                <img
-                  src="https://i.postimg.cc/X7yNVcF6/youtube.png"
-                  alt="Youtube"
-                />
+              <img src="/img/iconos/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/girlslove.play" target="_blank">
+              <img src="/img/iconos/instagram.png" alt="Instagram" />
+            </a>
+
+            <a href="https://www.tiktok.com/@girls.love.play" target="_blank">
+              <img src="/img/iconos/tiktok.png" alt="Tik Tok" />
+            </a>
+
+            <a href="https://x.com/girlslove_play" target="_blank">
+              <img src="/img/iconos/x.png" alt="X" />
+            </a>
+
+            <a href="https://www.youtube.com/@GirlsLovePlay" target="_blank">
+              <img src="/img/iconos/youtube.png" alt="Youtube" />
             </a>
           </div>
         </div>
@@ -506,18 +489,34 @@
       function cargarTrailer(item, actualizarUrl = true) {
         document.getElementById("episodio-info-prox").textContent =
           "Cargando...";
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // Solo hacemos scroll cuando el usuario elige un trailer manualmente
+        // (actualizarUrl = true). Si es la carga automática al entrar a la
+        // página (actualizarUrl = false), no hace falta scrollear.
+        if (actualizarUrl) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
         if (playerProx && typeof playerProx.loadVideoById === "function") {
           playerProx.loadVideoById(item.videoId);
         } else {
           playerProx = new YT.Player("player-prox", {
             videoId: item.videoId,
-            playerVars: { autoplay: 1, rel: 0, modestbranding: 1, mute: 1 },
+            playerVars: { autoplay: 1, rel: 0, modestbranding: 1, mute: 0 },
             events: {
               onReady: (e) => {
+                e.target.unMute();
+                e.target.setVolume(30); // volumen no muy alto
                 e.target.playVideo();
                 document.getElementById("episodio-info-prox").textContent =
                   "▶ Reproduciendo";
+                // Fade-in suave del iframe en vez de que aparezca de golpe
+                const iframe = e.target.getIframe();
+                if (iframe) {
+                  iframe.style.opacity = "0";
+                  iframe.style.transition = "opacity 0.5s ease";
+                  requestAnimationFrame(() => {
+                    iframe.style.opacity = "1";
+                  });
+                }
               },
             },
           });
