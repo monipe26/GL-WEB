@@ -1893,7 +1893,10 @@ async function abrirModal(item) {
   // Solo el texto se pide bajo demanda
   try {
     const detalle = await obtenerNoticiaCompleta(item.id);
-    document.getElementById("modal-texto").textContent = detalle.texto;
+    document.getElementById("modal-texto").innerHTML = detalle.texto.replace(
+      /\n\n/g,
+      "<br><br>"
+    );
   } catch (err) {
     document.getElementById("modal-texto").textContent =
       "No se pudo cargar la noticia. Intentá de nuevo más tarde.";
