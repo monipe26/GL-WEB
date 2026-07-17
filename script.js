@@ -54,7 +54,6 @@ fetch("/data/series.json")
 // =====================
 
 const comunidadArray = [
-  { id: "c14", videoId: "c5Z4TtrIXcI" },
   { id: "c13", videoId: "rmjhUfGblsg" },
   { id: "c12", videoId: "Oys-JKFDi6I" },
   { id: "c11", videoId: "FY_UColcMDc" },
