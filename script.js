@@ -54,22 +54,24 @@ fetch("/data/series.json")
 // =====================
 
 const comunidadArray = [
-  { id: "c1", videoId: "Oys-JKFDi6I" },
-  { id: "c1", videoId: "FY_UColcMDc" },
+  { id: "c14", videoId: "c5Z4TtrIXcI" },
+  { id: "c13", videoId: "rmjhUfGblsg" },
+  { id: "c12", videoId: "Oys-JKFDi6I" },
+  { id: "c11", videoId: "FY_UColcMDc" },
 
-  { id: "c1", videoId: "IOFprq5UfwM" },
+  { id: "c10", videoId: "IOFprq5UfwM" },
 
-  { id: "c1", videoId: "JnyrUiMeHqo" },
+  { id: "c9", videoId: "JnyrUiMeHqo" },
 
-  { id: "c1", videoId: "0GALf9zof5E" },
+  { id: "c8", videoId: "0GALf9zof5E" },
 
-  { id: "c1", videoId: "ZZfk7QDx_kU" },
-  { id: "c1", videoId: "NBA7TbOdxR8" },
-  { id: "c1", videoId: "nkwwTjPt2Lc" },
-  { id: "c1", videoId: "MEu9JBMic3w" },
+  { id: "c7", videoId: "ZZfk7QDx_kU" },
+  { id: "c6", videoId: "NBA7TbOdxR8" },
+  { id: "c5", videoId: "nkwwTjPt2Lc" },
+  { id: "c4", videoId: "MEu9JBMic3w" },
 
-  { id: "c1", videoId: "_cXUI8Jtjn4" },
-  { id: "c1", videoId: "STVqrStyr6I" },
+  { id: "c3", videoId: "_cXUI8Jtjn4" },
+  { id: "c2", videoId: "STVqrStyr6I" },
   { id: "c1", videoId: "rqHYlB51-oo" },
 ];
 
@@ -197,7 +199,7 @@ const microficcionArray = [
     canal: "Girls Love Play",
     videoId: "xnB-EeT8TtQ",
     esShort: true,
-    videos: ["xnB-EeT8TtQ", "AEvA4W3Heew", "kzbfjUFgBAQ"],
+    videos: ["xnB-EeT8TtQ", "AEvA4W3Heew", "kzbfjUFgBAQ", "RGaxbYo8dws"],
   },
 
   {
