@@ -54,6 +54,7 @@ fetch("/data/series.json")
 // =====================
 
 const comunidadArray = [
+  { id: "c14", videoId: "c5Z4TtrIXcI" },
   { id: "c13", videoId: "rmjhUfGblsg" },
   { id: "c12", videoId: "Oys-JKFDi6I" },
   { id: "c11", videoId: "FY_UColcMDc" },
@@ -1075,9 +1076,11 @@ document.addEventListener("fullscreenchange", () => {
   }
 });
 
-let tag = document.createElement("script");
-tag.src = "https://www.youtube.com/iframe_api";
-document.body.appendChild(tag);
+window.addEventListener("load", () => {
+  let tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+});
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player", {
@@ -1107,13 +1110,8 @@ function onYouTubeIframeAPIReady() {
           const serieActual = [...seriesArray].find(
             (s) => s.id === currentSerieId
           );
-          if (
-            player.setOption &&
-            !(serieActual && serieActual.esShort) &&
-            !idiomaSubtituloAplicado
-          ) {
+          if (player.setOption && !(serieActual && serieActual.esShort)) {
             player.setOption("captions", "track", { languageCode: "es" });
-            idiomaSubtituloAplicado = true;
           }
 
           // 💾 arranca a guardar el progreso cada 5s mientras se reproduce
