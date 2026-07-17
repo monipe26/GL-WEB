@@ -1,5 +1,15 @@
 [
   {
+    "id": "noticia33",
+    "img": "/img/noticias/ice-memi.jpg",
+    "slug": "heart-pop-studio-anuncia-fin-icememi-dupla-artistica",
+    "titulo": "Heart Pop Studio anuncia el fin de IceMemi como dupla artística",
+    "fecha": "17 Julio, 2026",
+    "resumen": "Heart Pop Studio confirmó el fin de IceMemi como dupla artística. Ice Amena y Memi Muanfun continuarán sus carreras por separado.",
+    "trailer": ""
+  },
+
+  {
     "id": "noticia32",
     "img": "/img/noticias/pang-sahassaya.jpg",
     "slug": "north-star-presenta-pang-sahassaya-jansai",
