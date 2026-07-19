@@ -80,22 +80,21 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
-  { id: "ost106", videoId: "D7O-CA32bzI" },
-  { id: "ost105", videoId: "vyZCwAPMSlo" },
-  { id: "ost104", videoId: "uYPWFkDaakI" },
-  { id: "ost103", videoId: "9dxckG0eJ44" },
-  { id: "ost102", videoId: "U2ayv8Kaln0" },
-
-  { id: "ost101", videoId: "i_SF8XZasmU" },
-  { id: "ost100", videoId: "SAPDFLMMMfQ" },
-  { id: "ost99", videoId: "TTfF-pAf774" },
-  { id: "ost98", videoId: "MP4Ciew8Xok" },
+  { id: "ost108", videoId: "D7O-CA32bzI" },
+  { id: "ost107", videoId: "vyZCwAPMSlo" },
+  { id: "ost106", videoId: "uYPWFkDaakI" },
+  { id: "ost105", videoId: "9dxckG0eJ44" },
+  { id: "ost104", videoId: "U2ayv8Kaln0" },
+  { id: "ost103", videoId: "i_SF8XZasmU" },
+  { id: "ost102", videoId: "SAPDFLMMMfQ" },
+  { id: "ost101", videoId: "TTfF-pAf774" },
+  { id: "ost100", videoId: "MP4Ciew8Xok" },
+  { id: "ost99", videoId: "CUA6nuvO_4Y" },
+  { id: "ost98", videoId: "4d8hxSf67rE" },
   { id: "ost97", videoId: "dE4yy4ULCXI" },
   { id: "ost96", videoId: "Sxh28YQGSq0" },
   { id: "ost95", videoId: "354VXHaqaE4" },
-
   { id: "ost94", videoId: "qWfsiUJtIIw" },
-
   { id: "ost93", videoId: "Kdyph-0nKwc" },
   { id: "ost92", videoId: "MeEqOOH-2eE" },
   { id: "ost91", videoId: "4hFyFMp9ml4" },
@@ -166,7 +165,6 @@ const ostsArray = [
   { id: "ost23", videoId: "5C_vJyhQuQY" },
   { id: "ost22", videoId: "AMzlTbjBLDo" },
   { id: "ost21", videoId: "gzfHZqHFxi0" },
-
   { id: "ost20", videoId: "HI8z03beTtI" },
   { id: "ost19", videoId: "pgzaWboZUSg" },
   { id: "ost18", videoId: "MNEc23m2ons" },

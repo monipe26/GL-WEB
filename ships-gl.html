@@ -60,7 +60,7 @@
         <a href="/#glplayoriginals">🎬 GL Play Originals</a>
         <a href="/#ostsgl">OSTs GL</a>
         <a href="proximamente-gl.html">Próximamente</a>
-
+        <a href="extras-gl.html">🎬GL Extras</a>
         <a href="novelas.html">📖 Novelas GL</a>
         <a href="/#comunidadgl">Comunidad GL</a>
       </nav>
@@ -159,12 +159,10 @@
           <a href="/#series">Series GL</a>
           <a href="/#noticias">Noticias GL</a>
           <a href="ships-gl.html">💕 Ships GL</a>
-
           <a href="/#glplayoriginals">🎬 GL Play Originals</a>
-
           <a href="/#ostsgl">OSTs GL</a>
-
           <a href="proximamente-gl.html">Próximamente</a>
+          <a href="extras-gl.html">🎬 GL Extras</a>
           <a href="novelas.html">📖 Novelas GL</a>
           <a href="/#comunidadgl">Comunidad GL</a>
           <a href="sobre-nosotras.html">Sobre Nosotras 💖</a>
@@ -927,6 +925,25 @@
           descripcion:
             "Tangkwa Phinyanech Aungsuwan (TK) y Nur Desoraya Techapaibul alcanzaron gran reconocimiento tras protagonizar la serie tailandesa Dangerous Queen. Su química en pantalla conquistó al público y las convirtió en una de las parejas GL revelación, ganando una sólida base de seguidores tanto en Tailandia como a nivel internacional.",
         },
+
+        {
+          ship: "FahsaiSeya",
+          slug: "fahsai-Seya-gl-ship",
+          nombres: "Paweensuda Drouin y Nichada Thongchua",
+          pais: "Tailandia 🇹🇭",
+          estado: "✅ Vigente",
+          img: "/img/ships/fahsai-seya.jpg",
+          instagram: [
+            { nombre: "Fahsai", url: "https://www.instagram.com/paweensuda" },
+            {
+              nombre: "Seya",
+              url: "https://www.instagram.com/seya_thongchua",
+            },
+          ],
+          series: ["The Hidden Blood (2026)"],
+          descripcion:
+            "FahsaiSeya es una prometedora dupla GL tailandesa formada por Fahsai y Seya. Ambas han comenzado a ganar reconocimiento gracias a su química y conexión en pantalla, generando interés entre las fans del género. Su participación en *The Hidden Blood*, uno de los proyectos GL previstos para 2026, las posiciona como una pareja a seguir dentro de la nueva generación de duplas de la industria tailandesa.",
+        },
       ];
 
       // Ordenar alfabéticamente por nombre del ship
@@ -1024,16 +1041,16 @@
               : "#ffd966";
 
             div.innerHTML = `
-                  <div class="noticia-img">
-                    <img loading="lazy" src="${item.img}" alt="Ship ${item.ship}">
-                  </div>
-                  <div class="noticia-info">
-                    <p class="noticia-fecha" style="color:${estadoColor}">${item.estado} · ${item.pais}</p>
-                    <p class="noticia-titulo">${item.ship}</p>
-                    <p class="noticia-texto">${item.nombres}</p>
-                    <p class="noticia-texto" style="color:#9d8fcc;margin-top:4px">🎬 ${seriesTexto}</p>
-                  </div>
-                `;
+                        <div class="noticia-img">
+                          <img loading="lazy" src="${item.img}" alt="Ship ${item.ship}">
+                        </div>
+                        <div class="noticia-info">
+                          <p class="noticia-fecha" style="color:${estadoColor}">${item.estado} · ${item.pais}</p>
+                          <p class="noticia-titulo">${item.ship}</p>
+                          <p class="noticia-texto">${item.nombres}</p>
+                          <p class="noticia-texto" style="color:#9d8fcc;margin-top:4px">🎬 ${seriesTexto}</p>
+                        </div>
+                      `;
             container.appendChild(div);
           });
 
@@ -1089,17 +1106,17 @@
         document.getElementById("ship-modal-nombres").textContent =
           item.nombres;
         document.getElementById("ship-modal-body").innerHTML = `
-              <p class="modal-texto" style="margin-top:12px;line-height:1.8;min-height:0">${
-                item.descripcion
-              }</p>
-              <p style="margin-top:16px;color:#ff4fd8;font-weight:700;font-size:12px;letter-spacing:1px">🎬 SERIES JUNTAS</p>
-              <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">${seriesHTML}</div>
-              ${
-                instaHTML
-                  ? `<p style="margin-top:16px;color:#ff4fd8;font-weight:700;font-size:12px;letter-spacing:1px">📸 INSTAGRAM</p><div style="margin-top:8px">${instaHTML}</div>`
-                  : ""
-              }
-            `;
+                    <p class="modal-texto" style="margin-top:12px;line-height:1.8;min-height:0">${
+                      item.descripcion
+                    }</p>
+                    <p style="margin-top:16px;color:#ff4fd8;font-weight:700;font-size:12px;letter-spacing:1px">🎬 SERIES JUNTAS</p>
+                    <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">${seriesHTML}</div>
+                    ${
+                      instaHTML
+                        ? `<p style="margin-top:16px;color:#ff4fd8;font-weight:700;font-size:12px;letter-spacing:1px">📸 INSTAGRAM</p><div style="margin-top:8px">${instaHTML}</div>`
+                        : ""
+                    }
+                  `;
 
         document.getElementById("modal-ships").classList.add("active");
         document.body.style.overflow = "hidden";

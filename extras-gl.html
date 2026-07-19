@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RPZ4XSDK4N");
+    </script>
+    <base href="/" />
+    <title>GL Extras - Girls Love Play 🎬</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Girls Love Play - GL Extras 🎬. Behind the scenes, talk sessions y clips especiales del mundo GL asiático."
+    />
+    <meta
+      name="keywords"
+      content="GL extras, behind the scenes GL, talk session GL, clips especiales GL tailandés"
+    />
+    <meta name="author" content="Girls Love Play" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="GL Extras - Girls Love Play 🎬" />
+    <meta
+      property="og:description"
+      content="Girls Love Play - GL Extras 🎬. Behind the scenes, talk sessions y clips especiales del mundo GL asiático."
+    />
+    <meta
+      property="og:image"
+      content="https://girlsloveplay.com/img/logo.png"
+    />
+    <meta
+      property="og:url"
+      content="https://girlsloveplay.com/extras-gl.html"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <style>
+      /* Evita el flash blanco antes de que cargue styles.css */
+      html,
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a0a2e 0%,
+          #2d1050 40%,
+          #1e0a35 70%,
+          #3d1060 100%
+        );
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="inicio"></div>
+
+    <header class="header">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="logo-container">
+        <a href="/"><img src="/img/logo.png" class="logo" /></a>
+      </div>
+      <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/#series">Series GL</a>
+        <a href="/#noticias">Noticias GL</a>
+        <a href="ships-gl.html">💕 Ships GL</a>
+        <a href="/#glplayoriginals">🎬 GL Play Originals</a>
+        <a href="/#ostsgl">OSTs GL</a>
+        <a href="proximamente-gl.html">🎬 Próximamente</a>
+        <a href="extras-gl.html">🎬 GL Extras</a>
+        <a href="novelas.html">📖 Novelas GL</a>
+        <a href="/#comunidadgl">Comunidad GL</a>
+      </nav>
+      <div class="search-box">
+        <input
+          type="text"
+          id="buscador-extras"
+          placeholder="Buscar extra..."
+          onkeyup="filtrarExtras()"
+          autocomplete="off"
+        />
+        <button onclick="limpiarExtras()">✕</button>
+      </div>
+    </header>
+
+    <!-- TÍTULO -->
+    <div style="text-align: center; padding: 30px 20px 10px">
+      <h1
+        style="
+          font-size: 2rem;
+          background: linear-gradient(90deg, #ff4fd8, #8f5cff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin: 0;
+        "
+      >
+        🎬 GL Extras
+      </h1>
+      <p style="color: #ccc; font-size: 14px; margin-top: 8px">
+        Behind the scenes, talks y clips especiales
+      </p>
+    </div>
+
+    <!-- REPRODUCTOR -->
+    <div id="hero-extras">
+      <div id="player-extras"></div>
+    </div>
+
+    <div class="player-controls">
+      <span
+        id="episodio-info-extras"
+        style="color: #fff; font-size: 13px; opacity: 0.8; letter-spacing: 1px"
+        >Seleccioná un video</span
+      >
+    </div>
+
+    <!-- INFO DEL VIDEO SELECCIONADO -->
+    <div id="info-extras">
+      <h3 id="info-extras-titulo">Cargando...</h3>
+      <p id="info-extras-tipo"></p>
+      <p id="info-extras-sinopsis"></p>
+    </div>
+
+    <!-- GRID -->
+    <div class="section" id="extras">
+      <h2 style="color: #ff4fd8">GL Extras</h2>
+      <p class="subtitulo">
+        Behind the scenes, talk sessions y clips especiales
+      </p>
+      <div id="extras-container"></div>
+      <div class="pagination-wrapper">
+        <div class="pagination" id="pagination-extras"></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="/img/logo.png" alt="logo" />
+          <p>Tu espacio GL favorito 💖</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explorar</h4>
+          <a href="/">Inicio</a>
+          <a href="/#series">Series GL</a>
+          <a href="/#noticias">Noticias GL</a>
+          <a href="ships-gl.html">💕 Ships GL</a>
+          <a href="/#glplayoriginals">🎬 GL Play Originals</a>
+          <a href="/#ostsgl">OSTs GL</a>
+          <a href="proximamente-gl.html">Próximamente</a>
+          <a href="extras-gl.html">🎬 GL Extras</a>
+          <a href="novelas.html">📖 Novelas GL</a>
+          <a href="/#comunidadgl">Comunidad GL</a>
+          <a href="sobre-nosotras.html">Sobre Nosotras 💖</a>
+        </div>
+        <div class="footer-legal">
+          <h4>Legal</h4>
+          <p>
+            Este sitio no almacena videos ni archivos propios. Todo el contenido
+            proviene de fuentes externas.
+          </p>
+          <p>Los derechos pertenecen a sus respectivos autores.</p>
+          <a href="avisolegal.html" class="footer-links-item">Aviso Legal</a>
+          <a href="privacidad.html" class="footer-links-item"
+            >Política de Privacidad</a
+          >
+          <a href="cookies.html" class="footer-links-item"
+            >Política de Cookies</a
+          >
+        </div>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p>Email: contacto@girlsloveplay.com</p>
+          <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn"
+            >💖 Apoyar proyecto</a
+          >
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/girlsloveplayoficial/"
+              target="_blank"
+            >
+              <img src="/img/iconos/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/girlslove.play" target="_blank">
+              <img src="/img/iconos/instagram.png" alt="Instagram" />
+            </a>
+            <a href="https://www.tiktok.com/@girls.love.play" target="_blank">
+              <img src="/img/iconos/tiktok.png" alt="Tik Tok" />
+            </a>
+            <a href="https://x.com/girlslove_play" target="_blank">
+              <img src="/img/iconos/x.png" alt="X" />
+            </a>
+            <a href="https://www.youtube.com/@GirlsLovePlay" target="_blank">
+              <img src="/img/iconos/youtube.png" alt="Youtube" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Girls Love - Todos los derechos reservados</p>
+      </div>
+    </footer>
+
+    <button
+      onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      id="btn-arriba"
+    >
+      ⬆
+    </button>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav").classList.toggle("active");
+      }
+
+      // 👉 "slug" = identificador único para la URL (minúsculas, con guiones, sin espacios ni tildes).
+      // 👉 "tipo" = etiqueta corta: "Talk Session", "Behind the Scenes", "Clip especial", etc.
+      // 👉 Agregá "sinopsis" a mano si querés un texto descriptivo (opcional).
+      const extrasArray = [
+        {
+          slug: "behind-the-scenes-broken-of-love-q9",
+          videoId: "M672b6Bjqjc", // 👈 reemplazá esto con el ID real de YouTube
+          sinopsis: "",
+        },
+
+        {
+          slug: "reaction-ai-girl-series-gen-until-ep-1",
+          videoId: "kOps0IATjL8", // 👈 reemplazá esto con el ID real de YouTube
+          sinopsis: "",
+        },
+
+        {
+          slug: "janjingjing-kapookciize-talk-session-ewb",
+          videoId: "wCgA02mkfNw", // 👈 reemplazá esto con el ID real de YouTube
+          sinopsis: "",
+        },
+
+        {
+          slug: "highlight-reaction-ep-1-ep-2-my-ladys-bodyguard",
+          videoId: "kEn1IaV3QLM", // 👈 reemplazá esto con el ID real de YouTube
+          sinopsis: "",
+        },
+
+        {
+          slug: "behind-the-scenes-lanl-not-like-wine-enemies-with-benefits-ep-8",
+          videoId: "CoZrph-jVM4", // 👈 reemplazá esto con el ID real de YouTube
+
+          sinopsis: "",
+        },
+
+        {
+          slug: "vlog-faye-x-engfa-mahachon-3",
+          videoId: "zpWiK0_2ZT0", // 👈 reemplazá esto con el ID real de YouTube
+
+          sinopsis: "",
+        },
+
+        {
+          slug: "behind-the-scenes-fitting-day",
+          videoId: "2IKHBOGx1Ds", // 👈 reemplazá esto con el ID real de YouTube
+
+          sinopsis: "",
+        },
+
+        {
+          slug: "behind-the-scenes-moonshadow-gmmtv-live-house",
+          videoId: "RnDtkb1D1hU", // 👈 reemplazá esto con el ID real de YouTube
+
+          sinopsis: "",
+        },
+      ];
+
+      let playerExtras = null;
+
+      function buscarPorSlugExtras(slug) {
+        return extrasArray.find((it) => it.slug === slug);
+      }
+
+      function onYouTubeIframeAPIReady() {
+        const params = new URLSearchParams(window.location.search);
+        const slugUrl = params.get("v");
+        const item =
+          (slugUrl && buscarPorSlugExtras(slugUrl)) || extrasArray[0];
+        cargarExtra(item, false); // false = no reescribir la URL al cargar la página
+      }
+
+      function cargarExtra(item, actualizarUrl = true) {
+        document.getElementById("episodio-info-extras").textContent =
+          "Cargando...";
+        if (actualizarUrl) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        if (playerExtras && typeof playerExtras.loadVideoById === "function") {
+          playerExtras.loadVideoById(item.videoId);
+        } else {
+          playerExtras = new YT.Player("player-extras", {
+            videoId: item.videoId,
+            playerVars: { autoplay: 1, rel: 0, modestbranding: 1, mute: 1 },
+            events: {
+              onReady: (e) => {
+                e.target.playVideo();
+                document.getElementById("episodio-info-extras").textContent =
+                  "▶ Reproduciendo";
+                const iframe = e.target.getIframe();
+                if (iframe) {
+                  iframe.style.opacity = "0";
+                  iframe.style.transition = "opacity 0.5s ease";
+                  requestAnimationFrame(() => {
+                    iframe.style.opacity = "1";
+                  });
+                }
+              },
+            },
+          });
+        }
+        mostrarInfoExtra(item);
+        if (actualizarUrl) {
+          const nuevaUrl = "extras-gl.html?v=" + item.slug;
+          history.pushState({ slug: item.slug }, "", nuevaUrl);
+        }
+      }
+
+      window.addEventListener("popstate", () => {
+        const params = new URLSearchParams(window.location.search);
+        const slugUrl = params.get("v");
+        const item =
+          (slugUrl && buscarPorSlugExtras(slugUrl)) || extrasArray[0];
+        cargarExtra(item, false);
+      });
+
+      async function mostrarInfoExtra(item) {
+        const tituloEl = document.getElementById("info-extras-titulo");
+        const tipoEl = document.getElementById("info-extras-tipo");
+        const sinopsisEl = document.getElementById("info-extras-sinopsis");
+
+        tipoEl.textContent = item.tipo || "";
+        sinopsisEl.textContent = item.sinopsis || "";
+        sinopsisEl.style.display = item.sinopsis ? "block" : "none";
+
+        if (titleCacheExtras[item.videoId]) {
+          tituloEl.textContent = titleCacheExtras[item.videoId].title;
+        } else {
+          tituloEl.textContent = "Cargando...";
+          const dummyDiv = document.createElement("div");
+          await fetchTitleExtras(item.videoId, dummyDiv);
+          tituloEl.textContent = titleCacheExtras[item.videoId]
+            ? titleCacheExtras[item.videoId].title
+            : "▶ Ver video";
+        }
+      }
+
+      const titleCacheExtras = {};
+
+      async function fetchTitleExtras(videoId, div) {
+        if (titleCacheExtras[videoId]) {
+          const tituloEl = div.querySelector(".com-titulo");
+          const canalEl = div.querySelector(".com-canal");
+          if (tituloEl) tituloEl.textContent = titleCacheExtras[videoId].title;
+          if (canalEl) canalEl.textContent = titleCacheExtras[videoId].author;
+          return;
+        }
+        const urls = [
+          `https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoId}`,
+          `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`,
+        ];
+        for (const url of urls) {
+          try {
+            const r = await fetch(url);
+            if (!r.ok) continue;
+            const data = await r.json();
+            if (!data.title) continue;
+            titleCacheExtras[videoId] = {
+              title: data.title,
+              author: data.author_name || "",
+            };
+            const tituloEl = div.querySelector(".com-titulo");
+            const canalEl = div.querySelector(".com-canal");
+            if (tituloEl) tituloEl.textContent = data.title;
+            if (canalEl) canalEl.textContent = data.author_name || "";
+            return;
+          } catch (_) {}
+        }
+        const tituloEl = div.querySelector(".com-titulo");
+        if (tituloEl) tituloEl.textContent = "▶ Ver video";
+      }
+
+      function renderExtras(array, containerId, paginationId, perPage = 8) {
+        let page = 1;
+        const container = document.getElementById(containerId);
+        const pagination = document.getElementById(paginationId);
+
+        async function render() {
+          container.innerHTML = "";
+          const start = (page - 1) * perPage;
+          const end = start + perPage;
+          const slice = array.slice(start, end);
+
+          for (let i = 0; i < slice.length; i++) {
+            const item = slice[i];
+            const div = document.createElement("a");
+            div.className = "com-card";
+            div.href = "extras-gl.html?v=" + item.slug;
+            div.onclick = (e) => {
+              e.preventDefault();
+              cargarExtra(item);
+            };
+            const cached = titleCacheExtras[item.videoId];
+            div.innerHTML = `
+              <div class="com-thumb">
+                <img src="https://img.youtube.com/vi/${
+                  item.videoId
+                }/hqdefault.jpg" alt="" loading="lazy">
+                <div class="com-play">▶</div>
+              </div>
+              <div class="com-info">
+                <p class="com-titulo">${
+                  cached ? cached.title : "Cargando..."
+                }</p>
+                <span class="com-canal">${item.tipo || ""}</span>
+              </div>
+            `;
+            container.appendChild(div);
+            if (!cached)
+              setTimeout(() => fetchTitleExtras(item.videoId, div), i * 100);
+          }
+
+          pagination.innerHTML = "";
+          const total = Math.ceil(array.length / perPage);
+          for (let i = 1; i <= total; i++) {
+            const b = document.createElement("button");
+            b.textContent = i;
+            if (i === page) b.classList.add("active");
+            b.onclick = () => {
+              page = i;
+              render();
+              setTimeout(() => {
+                const section = document.getElementById("extras");
+                const y =
+                  section.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  100;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }, 100);
+            };
+            pagination.appendChild(b);
+          }
+        }
+        render();
+      }
+
+      let extrasFiltrados = [...extrasArray];
+
+      function filtrarExtras() {
+        const q = document
+          .getElementById("buscador-extras")
+          .value.toLowerCase();
+        extrasFiltrados = extrasArray.filter((item) => {
+          const cached = titleCacheExtras[item.videoId];
+          const matchTipo = (item.tipo || "").toLowerCase().includes(q);
+          if (!cached) return true || matchTipo;
+          return (
+            cached.title.toLowerCase().includes(q) ||
+            cached.author.toLowerCase().includes(q) ||
+            matchTipo
+          );
+        });
+        renderExtras(
+          extrasFiltrados,
+          "extras-container",
+          "pagination-extras",
+          12
+        );
+      }
+
+      function limpiarExtras() {
+        document.getElementById("buscador-extras").value = "";
+        extrasFiltrados = [...extrasArray];
+        renderExtras(
+          extrasFiltrados,
+          "extras-container",
+          "pagination-extras",
+          12
+        );
+      }
+
+      renderExtras(extrasArray, "extras-container", "pagination-extras", 12);
+
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+
+      document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) {
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock("landscape").catch(() => {});
+          }
+        } else {
+          if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+          }
+        }
+      });
+    </script>
+
+    <style>
+      #hero-extras {
+        width: 90%;
+        max-width: 1000px;
+        margin: 15px auto;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 3px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 20px rgba(255, 79, 216, 0.25);
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background: #000;
+      }
+      #hero-extras #player-extras {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #info-extras {
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto 0 auto;
+        padding: 16px 20px;
+        text-align: left;
+      }
+      #info-extras-titulo {
+        color: #fff;
+        font-size: 1.3rem;
+        margin: 0 0 6px 0;
+      }
+      #info-extras-tipo {
+        color: #ff9fe8;
+        font-size: 13px;
+        margin: 0 0 10px 0;
+        letter-spacing: 0.5px;
+      }
+      #info-extras-sinopsis {
+        color: #ccc;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        text-align: left;
+      }
+      @media (max-width: 700px) {
+        #info-extras {
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
+          padding: 16px 20px;
+          margin: 0;
+        }
+      }
+      #extras {
+        padding-top: 0 !important;
+      }
+      #extras h2 {
+        margin-top: 0 !important;
+      }
+      #extras-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      #extras-container .com-card {
+        width: 100%;
+        min-width: 0;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
+      #extras-container .com-thumb {
+        height: 140px;
+      }
+      @media (max-width: 900px) {
+        #extras-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 700px) {
+        #extras-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        #hero-extras {
+          width: 100%;
+          max-width: 100%;
+          margin: 0;
+          border-radius: 0;
+          border: none;
+        }
+      }
+      @media (max-width: 400px) {
+        #extras-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </body>
+</html>
