@@ -1203,6 +1203,8 @@ function cargarSerie(id) {
   if (serie.tiktoks && serie.tiktoks.length) {
     mostrarTikTok(serie.tiktoks[0]);
     actualizarEpisodio();
+    const tituloEl = document.getElementById("video-titulo-youtube");
+    if (tituloEl) tituloEl.innerText = serie.titulo || "";
     return;
   }
 
@@ -1446,6 +1448,8 @@ function reproducirContenido(item, ocultarControles = false) {
     if (item.tiktoks && item.tiktoks.length) {
       mostrarTikTok(item.tiktoks[0]);
       actualizarEpisodio();
+      const tituloEl = document.getElementById("video-titulo-youtube");
+      if (tituloEl) tituloEl.innerText = item.titulo || "";
       return;
     }
 
