@@ -684,9 +684,8 @@ body {
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 0 6px rgba(255, 79, 216, 0.6));
-  animation: latido 1.5s ease-in-out 80;
+  animation: latido 1.5s ease-in-out infinite;
 }
-
 .episodio-icono img {
   width: 32px;
   height: 32px;
