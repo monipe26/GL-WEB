@@ -11,15 +11,26 @@ export async function onRequestGet(context) {
 
   if (!item) return htmlRes;
 
+  // Traer el texto completo de la noticia (no solo el resumen)
+  let textoCompleto = item.resumen || "";
+  try {
+    const detalleRes = await env.ASSETS.fetch(
+      new URL(`/data/noticias/${item.id}.json`, request.url)
+    );
+    if (detalleRes.ok) {
+      const detalle = await detalleRes.json();
+      textoCompleto = detalle.texto || textoCompleto;
+    }
+  } catch (e) {}
+
   const titulo = `${item.titulo} - Girls Love Play`;
-  const descripcion =
-    item.resumen || item.texto || "Noticias GL en Girls Love Play";
+  const descripcion = item.resumen || "Noticias GL en Girls Love Play";
   const imagen = item.img.startsWith("http")
     ? item.img
     : `https://girlsloveplay.com${item.img}`;
   const url = `https://girlsloveplay.com/noticia/${params.slug}`;
 
-  class Meta {
+  class MetaProp {
     element(el) {
       const prop = el.getAttribute("property");
       if (prop === "og:title") el.setAttribute("content", titulo);
@@ -29,8 +40,27 @@ export async function onRequestGet(context) {
     }
   }
 
+  class MetaDescription {
+    element(el) {
+      if (el.getAttribute("name") === "description") {
+        el.setAttribute("content", descripcion);
+      }
+    }
+  }
+
+  // 👇 esto es lo nuevo: mete el texto real, visible, en el HTML
+  class InfoContenido {
+    element(el) {
+      el.setInnerContent(`<h1>${item.titulo}</h1><p>${textoCompleto}</p>`, {
+        html: true,
+      });
+    }
+  }
+
   return new HTMLRewriter()
-    .on('meta[property^="og:"]', new Meta())
+    .on('meta[property^="og:"]', new MetaProp())
+    .on('meta[name="description"]', new MetaDescription())
     .on("title", { element: (el) => el.setInnerContent(titulo) })
+    .on("#info-contenido", new InfoContenido())
     .transform(htmlRes);
 }
