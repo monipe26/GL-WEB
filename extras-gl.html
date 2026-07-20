@@ -227,6 +227,12 @@
       // 👉 Agregá "sinopsis" a mano si querés un texto descriptivo (opcional).
       const extrasArray = [
         {
+          slug: "meenbabe-one-day-trip-special-vlog",
+          videoId: "BLpKhi-3KlY", // 👈 reemplazá esto con el ID real de YouTube
+          sinopsis: "",
+        },
+
+        {
           slug: "behind-the-scenes-broken-of-love-q9",
           videoId: "M672b6Bjqjc", // 👈 reemplazá esto con el ID real de YouTube
           sinopsis: "",
@@ -281,6 +287,99 @@
 
       let playerExtras = null;
 
+      // --- Progreso de reproducción (retomar donde quedó cada video) ---
+      const CLAVE_PROGRESO_EXTRAS = "glExtrasProgreso";
+
+      function obtenerProgresosExtras() {
+        try {
+          return JSON.parse(
+            localStorage.getItem(CLAVE_PROGRESO_EXTRAS) || "{}"
+          );
+        } catch (_) {
+          return {};
+        }
+      }
+
+      function guardarProgresoExtra(videoId, segundos) {
+        try {
+          const data = obtenerProgresosExtras();
+          data[videoId] = segundos;
+          localStorage.setItem(CLAVE_PROGRESO_EXTRAS, JSON.stringify(data));
+        } catch (_) {}
+      }
+
+      function obtenerProgresoExtra(videoId) {
+        const data = obtenerProgresosExtras();
+        return data[videoId] || 0;
+      }
+
+      function borrarProgresoExtra(videoId) {
+        try {
+          const data = obtenerProgresosExtras();
+          delete data[videoId];
+          localStorage.setItem(CLAVE_PROGRESO_EXTRAS, JSON.stringify(data));
+        } catch (_) {}
+      }
+
+      let intervaloProgresoExtras = null;
+
+      function iniciarTrackeoProgresoExtras(videoId) {
+        detenerTrackeoProgresoExtras();
+        intervaloProgresoExtras = setInterval(() => {
+          if (
+            playerExtras &&
+            typeof playerExtras.getCurrentTime === "function"
+          ) {
+            guardarProgresoExtra(videoId, playerExtras.getCurrentTime());
+          }
+        }, 3000);
+      }
+
+      function detenerTrackeoProgresoExtras() {
+        if (intervaloProgresoExtras) {
+          clearInterval(intervaloProgresoExtras);
+          intervaloProgresoExtras = null;
+        }
+      }
+
+      function onPlayerStateChangeExtras(e) {
+        const videoData = e.target.getVideoData
+          ? e.target.getVideoData()
+          : null;
+        const videoId = videoData ? videoData.video_id : null;
+        if (!videoId) return;
+
+        if (e.data === YT.PlayerState.PLAYING) {
+          iniciarTrackeoProgresoExtras(videoId);
+        } else if (e.data === YT.PlayerState.PAUSED) {
+          detenerTrackeoProgresoExtras();
+          guardarProgresoExtra(videoId, e.target.getCurrentTime());
+        } else if (e.data === YT.PlayerState.ENDED) {
+          detenerTrackeoProgresoExtras();
+          borrarProgresoExtra(videoId); // terminó: la próxima vez arranca de cero
+        }
+      }
+
+      function guardarProgresoActualExtras() {
+        if (playerExtras && typeof playerExtras.getCurrentTime === "function") {
+          const videoData = playerExtras.getVideoData
+            ? playerExtras.getVideoData()
+            : null;
+          if (videoData && videoData.video_id) {
+            guardarProgresoExtra(
+              videoData.video_id,
+              playerExtras.getCurrentTime()
+            );
+          }
+        }
+      }
+
+      window.addEventListener("beforeunload", guardarProgresoActualExtras);
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden")
+          guardarProgresoActualExtras();
+      });
+
       function buscarPorSlugExtras(slug) {
         return extrasArray.find((it) => it.slug === slug);
       }
@@ -294,17 +393,37 @@
       }
 
       function cargarExtra(item, actualizarUrl = true) {
+        // Antes de cambiar de video, guardamos dónde íbamos en el anterior
+        guardarProgresoActualExtras();
+        detenerTrackeoProgresoExtras();
+
         document.getElementById("episodio-info-extras").textContent =
           "Cargando...";
         if (actualizarUrl) {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
+
+        const progresoGuardado = obtenerProgresoExtra(item.videoId);
+
         if (playerExtras && typeof playerExtras.loadVideoById === "function") {
-          playerExtras.loadVideoById(item.videoId);
+          if (progresoGuardado > 5) {
+            playerExtras.loadVideoById({
+              videoId: item.videoId,
+              startSeconds: progresoGuardado,
+            });
+          } else {
+            playerExtras.loadVideoById(item.videoId);
+          }
         } else {
           playerExtras = new YT.Player("player-extras", {
             videoId: item.videoId,
-            playerVars: { autoplay: 1, rel: 0, modestbranding: 1, mute: 1 },
+            playerVars: {
+              autoplay: 1,
+              rel: 0,
+              modestbranding: 1,
+              mute: 1,
+              start: progresoGuardado > 5 ? Math.floor(progresoGuardado) : 0,
+            },
             events: {
               onReady: (e) => {
                 e.target.playVideo();
@@ -319,6 +438,7 @@
                   });
                 }
               },
+              onStateChange: onPlayerStateChangeExtras,
             },
           });
         }
@@ -542,6 +662,7 @@
         color: #fff;
         font-size: 1.3rem;
         margin: 0 0 6px 0;
+        text-align: center;
       }
       #info-extras-tipo {
         color: #ff9fe8;
