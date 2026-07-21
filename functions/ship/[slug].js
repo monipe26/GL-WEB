@@ -174,7 +174,7 @@ export async function onRequestGet(context) {
   const imagen = `https://girlsloveplay.com${item.img}`;
   const url = `https://girlsloveplay.com/ship/${params.slug}`;
 
-  class Meta {
+  class MetaProp {
     element(el) {
       const prop = el.getAttribute("property");
       if (prop === "og:title") el.setAttribute("content", titulo);
@@ -184,8 +184,28 @@ export async function onRequestGet(context) {
     }
   }
 
+  class MetaDescription {
+    element(el) {
+      if (el.getAttribute("name") === "description") {
+        el.setAttribute("content", descripcion);
+      }
+    }
+  }
+
+  // 👇 esto es lo nuevo: mete el texto real, visible, en el HTML
+  class InfoContenido {
+    element(el) {
+      el.setInnerContent(
+        `<h1>${item.ship}</h1><p>${descripcion}</p>`,
+        { html: true }
+      );
+    }
+  }
+
   return new HTMLRewriter()
-    .on('meta[property^="og:"]', new Meta())
+    .on('meta[property^="og:"]', new MetaProp())
+    .on('meta[name="description"]', new MetaDescription())
     .on("title", { element: (el) => el.setInnerContent(titulo) })
+    .on("#info-contenido", new InfoContenido())
     .transform(htmlRes);
 }
