@@ -1899,10 +1899,20 @@ async function abrirModal(item) {
   // Solo el texto se pide bajo demanda
   try {
     const detalle = await obtenerNoticiaCompleta(item.id);
-    document.getElementById("modal-texto").innerHTML = detalle.texto.replace(
-      /\n\n/g,
-      "<br><br>"
-    );
+    let textoHtml = detalle.texto.replace(/\n\n/g, "<br><br>");
+
+    // Si la noticia tiene una segunda imagen (imgFinal), se agrega debajo del texto
+    if (detalle.imgFinal) {
+      textoHtml += `
+        <img
+          src="${detalle.imgFinal}"
+          alt="${item.titulo}"
+          style="width:100%;border-radius:10px;margin-top:16px;display:block;"
+        />
+      `;
+    }
+
+    document.getElementById("modal-texto").innerHTML = textoHtml;
   } catch (err) {
     document.getElementById("modal-texto").textContent =
       "No se pudo cargar la noticia. Intentá de nuevo más tarde.";
