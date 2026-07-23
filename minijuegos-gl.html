@@ -99,9 +99,6 @@
       >
         🎮 Minijuegos GL
       </h1>
-      <p style="color: #ccc; font-size: 14px; margin-top: 8px">
-        Jugá, distraete y descubrí qué ver hoy
-      </p>
     </div>
 
     <div class="section" id="sorteo-gl">
@@ -320,11 +317,11 @@
               btn.disabled = false;
               return;
             }
-            const delay = 70 + ticks * ticks * 2.5;
+            const delay = 50 + ticks * ticks * 1.6;
             setTimeout(tick, delay);
           }
 
-          setTimeout(tick, 70);
+          setTimeout(tick, 50);
         });
       })();
 
@@ -437,6 +434,7 @@
         width: 100%;
         aspect-ratio: 2 / 3;
         height: auto;
+        max-height: 45vh;
         border-radius: 12px;
         background: linear-gradient(135deg, #ff4fd8, #8f5cff);
         display: flex;
