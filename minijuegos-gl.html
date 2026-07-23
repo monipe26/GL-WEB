@@ -408,6 +408,13 @@
         overflow-wrap: break-word;
       }
 
+      #sorteo-gl {
+        padding-top: 0;
+      }
+      #sorteo-gl h2 {
+        margin-top: 0;
+      }
+
       .ticket-gl {
         position: relative;
         background: #2d1050;
@@ -425,7 +432,9 @@
         margin-bottom: 14px;
       }
       .ticket-gl-cover {
-        height: 320px;
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        height: auto;
         border-radius: 12px;
         background: linear-gradient(135deg, #ff4fd8, #8f5cff);
         display: flex;
@@ -438,7 +447,7 @@
       .ticket-gl-cover-img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         display: block;
       }
       .ticket-gl-cover-titulo {
