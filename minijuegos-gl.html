@@ -304,21 +304,25 @@
           const finalPick =
             seriesSorteoGL[Math.floor(Math.random() * seriesSorteoGL.length)];
 
-          const interval = setInterval(function () {
+          function tick() {
             const s =
               seriesSorteoGL[Math.floor(Math.random() * seriesSorteoGL.length)];
             applyShow(s);
             ticks++;
             if (ticks >= maxTicks) {
-              clearInterval(interval);
               applyShow(finalPick);
               tagline.textContent = "¡" + finalPick.titulo + "!";
               stamp.style.transform = "rotate(-18deg) scale(1)";
               verSerieLink.href = "/serie/" + finalPick.slug;
               verSerieLink.style.display = "block";
               btn.disabled = false;
+              return;
             }
-          }, 70 + ticks * 6);
+            const delay = 70 + ticks * ticks * 2.5;
+            setTimeout(tick, delay);
+          }
+
+          setTimeout(tick, 70);
         });
       })();
 
@@ -421,7 +425,7 @@
         margin-bottom: 14px;
       }
       .ticket-gl-cover {
-        height: 120px;
+        height: 320px;
         border-radius: 12px;
         background: linear-gradient(135deg, #ff4fd8, #8f5cff);
         display: flex;
