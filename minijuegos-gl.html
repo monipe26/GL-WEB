@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RPZ4XSDK4N");
+    </script>
+    <base href="/" />
+    <title>Minijuegos GL - Girls Love Play 🎮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Girls Love Play - Minijuegos GL 🎮. Sorteá tu próxima serie GL a ver y descubrí qué mirar hoy."
+    />
+    <meta
+      name="keywords"
+      content="minijuegos GL, sorteo series GL, que ver GL, loteria series tailandesas"
+    />
+    <meta name="author" content="Girls Love Play" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Minijuegos GL - Girls Love Play 🎮" />
+    <meta
+      property="og:description"
+      content="Girls Love Play - Minijuegos GL 🎮. Sorteá tu próxima serie GL a ver y descubrí qué mirar hoy."
+    />
+    <meta
+      property="og:image"
+      content="https://girlsloveplay.com/img/logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <style>
+      html,
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a0a2e 0%,
+          #2d1050 40%,
+          #1e0a35 70%,
+          #3d1060 100%
+        );
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="inicio"></div>
+
+    <header class="header">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="logo-container">
+        <a href="/"><img src="/img/logo.png" class="logo" /></a>
+      </div>
+      <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/#series">Series GL</a>
+        <a href="/#noticias">Noticias GL</a>
+        <a href="ships-gl.html">💕 Ships GL</a>
+        <a href="/#glplayoriginals">🎬 GL Play Originals</a>
+        <a href="/#ostsgl">OSTs GL</a>
+        <a href="proximamente-gl.html">🎬 Próximamente</a>
+        <a href="extras-gl.html">🎬 GL Extras</a>
+        <a href="novelas.html">📖 Novelas GL</a>
+        <a href="/minijuegos-gl.html">🎮 Mini Juegos GL</a>
+        <a href="/#comunidadgl">Comunidad GL</a>
+      </nav>
+      <div class="search-box" style="visibility: hidden; pointer-events: none">
+        <input
+          type="text"
+          id="buscador-juegos"
+          placeholder="Buscar minijuego..."
+          onkeyup="filtrarJuegos()"
+          autocomplete="off"
+        />
+        <button onclick="limpiarBusquedaJuegos()">✕</button>
+      </div>
+    </header>
+
+    <div style="text-align: center; padding: 30px 20px 10px">
+      <h1
+        style="
+          font-size: 2rem;
+          background: linear-gradient(90deg, #ff4fd8, #8f5cff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin: 0;
+        "
+      >
+        🎮 Minijuegos GL
+      </h1>
+      <p style="color: #ccc; font-size: 14px; margin-top: 8px">
+        Jugá, distraete y descubrí qué ver hoy
+      </p>
+    </div>
+
+    <div class="section" id="sorteo-gl">
+      <h2 style="color: #ff4fd8">🎟️ Sorteo GL</h2>
+      <p class="subtitulo-mj">
+        ¿Aburridx y no sabés qué ver? Prueba suerte con la lotería GL
+      </p>
+
+      <div id="ticket" class="ticket-gl">
+        <div class="ticket-gl-header">
+          NO. <span id="ticketNo">000000</span>
+        </div>
+
+        <div id="coverBox" class="ticket-gl-cover">
+          <img
+            id="coverImg"
+            class="ticket-gl-cover-img"
+            src=""
+            alt=""
+            style="display: none"
+          />
+          <div id="coverTitle" class="ticket-gl-cover-titulo">?</div>
+        </div>
+
+        <div class="ticket-gl-tags">
+          <span id="genreTag" class="ticket-gl-tag">Género</span>
+        </div>
+
+        <div id="tagline" class="ticket-gl-tagline">
+          Toca el botón para descubrir qué ver hoy
+        </div>
+
+        <button id="drawBtn" class="ticket-gl-boton">🎟️ Empezar sorteo</button>
+
+        <a
+          id="verSerieLink"
+          href="#"
+          class="ticket-gl-trailer"
+          style="display: none"
+        >
+          ▶ Ver esta serie
+        </a>
+
+        <div id="stamp" class="ticket-gl-stamp">¡Elegida!</div>
+      </div>
+    </div>
+
+    <div class="section" id="juegos" style="display: none">
+      <h2 style="color: #ff4fd8">🎮 Más minijuegos</h2>
+      <p class="subtitulo-mj">
+        Otras formas de matar el tiempo mientras esperás nuevo episodio
+      </p>
+      <div id="juegos-container" class="row"></div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="/img/logo.png" alt="logo" />
+          <p>Tu espacio GL favorito 💖</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explorar</h4>
+          <a href="/">Inicio</a>
+          <a href="/#series">Series GL</a>
+          <a href="/#noticias">Noticias GL</a>
+          <a href="ships-gl.html">💕 Ships GL</a>
+          <a href="/#glplayoriginals">🎬 GL Play Originals</a>
+          <a href="/#ostsgl">OSTs GL</a>
+          <a href="proximamente-gl.html">Próximamente</a>
+          <a href="extras-gl.html">🎬 GL Extras</a>
+          <a href="novelas.html">📖 Novelas GL</a>
+          <a href="/minijuegos-gl.html">🎮 Mini Juegos GL</a>
+          <a href="/#comunidadgl">Comunidad GL</a>
+          <a href="sobre-nosotras.html">Sobre Nosotras 💖</a>
+        </div>
+        <div class="footer-legal">
+          <h4>Legal</h4>
+          <p>
+            Este sitio no almacena videos ni archivos propios. Todo el contenido
+            proviene de fuentes externas.
+          </p>
+          <p>Los derechos pertenecen a sus respectivos autores.</p>
+          <a href="avisolegal.html" class="footer-links-item">Aviso Legal</a>
+          <a href="privacidad.html" class="footer-links-item"
+            >Política de Privacidad</a
+          >
+          <a href="cookies.html" class="footer-links-item"
+            >Política de Cookies</a
+          >
+        </div>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p>Email: contacto@girlsloveplay.com</p>
+          <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn"
+            >💖 Apoyar proyecto</a
+          >
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/girlsloveplayoficial/"
+              target="_blank"
+            >
+              <img src="/img/iconos/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/girlslove.play" target="_blank">
+              <img src="/img/iconos/instagram.png" alt="Instagram" />
+            </a>
+
+            <a href="https://www.tiktok.com/@girls.love.play" target="_blank">
+              <img src="/img/iconos/tiktok.png" alt="Tik Tok" />
+            </a>
+
+            <a href="https://x.com/girlslove_play" target="_blank">
+              <img src="/img/iconos/x.png" alt="X" />
+            </a>
+
+            <a href="https://www.youtube.com/@GirlsLovePlay" target="_blank">
+              <img src="/img/iconos/youtube.png" alt="Youtube" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Girls Love - Todos los derechos reservados</p>
+      </div>
+    </footer>
+
+    <button
+      onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      id="btn-arriba"
+    >
+      ⬆
+    </button>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav").classList.toggle("active");
+      }
+
+      // 👉 El sorteo lee directo de tu archivo /series.json real.
+      // No hace falta que copies ni una serie a mano acá: cuando agregues
+      // series nuevas a series.json, el sorteo las suma solo.
+      let seriesSorteoGL = [];
+
+      fetch("/data/series.json")
+        .then((res) => res.json())
+        .then((data) => {
+          seriesSorteoGL = data;
+        })
+        .catch((err) => {
+          console.error("No se pudo cargar series.json", err);
+          document.getElementById("tagline").textContent =
+            "No se pudo cargar la lista de series ahora mismo.";
+        });
+
+      (function initSorteoGL() {
+        const coverImg = document.getElementById("coverImg");
+        const coverTitle = document.getElementById("coverTitle");
+        const genreTag = document.getElementById("genreTag");
+        const tagline = document.getElementById("tagline");
+        const stamp = document.getElementById("stamp");
+        const ticketNo = document.getElementById("ticketNo");
+        const btn = document.getElementById("drawBtn");
+        const verSerieLink = document.getElementById("verSerieLink");
+
+        ticketNo.textContent = String(
+          Math.floor(Math.random() * 900000) + 100000
+        );
+
+        function applyShow(s) {
+          if (s.img) {
+            coverImg.src = s.img;
+            coverImg.style.display = "block";
+            coverTitle.style.display = "none";
+          } else {
+            coverImg.style.display = "none";
+            coverTitle.style.display = "block";
+            coverTitle.textContent = s.titulo;
+          }
+          genreTag.textContent = s.genero || "GL";
+        }
+
+        btn.addEventListener("click", function () {
+          if (!seriesSorteoGL.length) {
+            tagline.textContent =
+              "Todavía está cargando la lista, esperá un segundo...";
+            return;
+          }
+
+          btn.disabled = true;
+          stamp.style.transform = "rotate(-18deg) scale(0)";
+          verSerieLink.style.display = "none";
+          tagline.textContent = "Sorteando...";
+          ticketNo.textContent = String(
+            Math.floor(Math.random() * 900000) + 100000
+          );
+
+          let ticks = 0;
+          const maxTicks = 16;
+          const finalPick =
+            seriesSorteoGL[Math.floor(Math.random() * seriesSorteoGL.length)];
+
+          const interval = setInterval(function () {
+            const s =
+              seriesSorteoGL[Math.floor(Math.random() * seriesSorteoGL.length)];
+            applyShow(s);
+            ticks++;
+            if (ticks >= maxTicks) {
+              clearInterval(interval);
+              applyShow(finalPick);
+              tagline.textContent = "¡" + finalPick.titulo + "!";
+              stamp.style.transform = "rotate(-18deg) scale(1)";
+              verSerieLink.href = "/serie/" + finalPick.slug;
+              verSerieLink.style.display = "block";
+              btn.disabled = false;
+            }
+          }, 70 + ticks * 6);
+        });
+      })();
+
+      const juegosArray = [
+        {
+          nombre: "Poster CP Lottery",
+          descripcion: "Sorteá una recomendación entre tus series favoritas.",
+          link: "gl-title-lottery.html",
+          emoji: "🎟️",
+        },
+        {
+          nombre: "CP Connect",
+          descripcion: "Uní las parejas correctas de tus series GL.",
+          link: "cp-matching-game.html",
+          emoji: "💞",
+        },
+      ];
+
+      function renderJuegos(array) {
+        const container = document.getElementById("juegos-container");
+        if (!container) return;
+        container.innerHTML = "";
+        array.forEach((j) => {
+          const a = document.createElement("a");
+          a.href = j.link;
+          a.className = "juego-card";
+          a.innerHTML = `
+            <div class="juego-card-emoji">${j.emoji}</div>
+            <div class="juego-card-nombre">${j.nombre}</div>
+            <div class="juego-card-desc">${j.descripcion}</div>
+          `;
+          container.appendChild(a);
+        });
+      }
+
+      let juegosFiltrados = [...juegosArray];
+
+      function filtrarJuegos() {
+        const q = document
+          .getElementById("buscador-juegos")
+          .value.toLowerCase();
+        juegosFiltrados = juegosArray.filter((j) =>
+          j.nombre.toLowerCase().includes(q)
+        );
+        renderJuegos(juegosFiltrados);
+      }
+
+      function limpiarBusquedaJuegos() {
+        document.getElementById("buscador-juegos").value = "";
+        juegosFiltrados = [...juegosArray];
+        renderJuegos(juegosFiltrados);
+      }
+
+      renderJuegos(juegosArray);
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .header {
+        overflow: hidden;
+      }
+
+      .search-box input {
+        min-width: 0;
+      }
+
+      @media (max-width: 400px) {
+        .search-box input {
+          width: 60px;
+        }
+      }
+
+      .subtitulo-mj {
+        text-align: center;
+        color: #ccc;
+        font-size: 14px;
+        margin-top: -6px;
+        margin-bottom: 24px;
+        padding: 0 16px;
+        overflow-wrap: break-word;
+      }
+
+      .ticket-gl {
+        position: relative;
+        background: #2d1050;
+        border: 2px dashed #8f5cff;
+        border-radius: 18px;
+        padding: 24px 20px;
+        text-align: center;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .ticket-gl-header {
+        font-family: monospace;
+        font-size: 11px;
+        color: #e8e0ff;
+        margin-bottom: 14px;
+      }
+      .ticket-gl-cover {
+        height: 120px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ff4fd8, #8f5cff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+      .ticket-gl-cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .ticket-gl-cover-titulo {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        padding: 0 12px;
+      }
+      .ticket-gl-tags {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .ticket-gl-tag {
+        font-size: 12px;
+        padding: 3px 12px;
+        border-radius: 20px;
+        background: #3d1060;
+        color: #e0c4ff;
+      }
+      .ticket-gl-tagline {
+        font-size: 13px;
+        color: #c4aeff;
+        min-height: 20px;
+        margin-bottom: 16px;
+      }
+      .ticket-gl-boton {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #ff4fd8, #8f5cff);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .ticket-gl-trailer {
+        display: block;
+        margin-top: 10px;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1.5px solid #ff4fd8;
+        color: #ff4fd8;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .ticket-gl-stamp {
+        position: absolute;
+        top: 44%;
+        right: -8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #ff4fd8;
+        border: 2px solid #ff4fd8;
+        border-radius: 6px;
+        padding: 2px 10px;
+        transform: rotate(-18deg) scale(0);
+        transition: transform 0.25s ease;
+        background: #1a0a2e;
+      }
+
+      #sorteo-gl,
+      #juegos {
+        text-align: center;
+      }
+
+      #juegos-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+      .juego-card {
+        display: block;
+        flex: 1 1 220px;
+        max-width: 260px;
+        background: #2d1050;
+        border: 1px solid #3d1060;
+        border-radius: 14px;
+        padding: 20px 16px;
+        text-decoration: none;
+        color: inherit;
+        text-align: center;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+      .juego-card:hover {
+        transform: translateY(-3px);
+        border-color: #ff4fd8;
+      }
+      .juego-card-emoji {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+      .juego-card-nombre {
+        font-size: 15px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+      .juego-card-desc {
+        font-size: 12px;
+        color: #c4aeff;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 480px) {
+        .ticket-gl {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </body>
+</html>
