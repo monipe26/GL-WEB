@@ -115,7 +115,7 @@
           NO. <span id="ticketNo">000000</span>
         </div>
 
-        <div id="coverBox" class="ticket-gl-cover">
+        <div id="coverBox" class="ticket-gl-cover cover-empty">
           <img
             id="coverImg"
             class="ticket-gl-cover-img"
@@ -266,6 +266,7 @@
         const ticketNo = document.getElementById("ticketNo");
         const btn = document.getElementById("drawBtn");
         const verSerieLink = document.getElementById("verSerieLink");
+        const coverBox = document.getElementById("coverBox");
 
         ticketNo.textContent = String(
           Math.floor(Math.random() * 900000) + 100000
@@ -292,6 +293,7 @@
           }
 
           btn.disabled = true;
+          coverBox.classList.remove("cover-empty");
           stamp.style.transform = "rotate(-18deg) scale(0)";
           verSerieLink.style.display = "none";
           tagline.textContent = "Sorteando...";
@@ -300,7 +302,7 @@
           );
 
           let ticks = 0;
-          const maxTicks = 16;
+          const maxTicks = 20;
           const finalPick =
             seriesSorteoGL[Math.floor(Math.random() * seriesSorteoGL.length)];
 
@@ -455,6 +457,20 @@
         font-weight: 600;
         color: #fff;
         padding: 0 12px;
+      }
+      .cover-empty {
+        background: radial-gradient(
+          circle at center,
+          #241238 0%,
+          #120a1f 75%
+        ) !important;
+      }
+      .cover-empty .ticket-gl-cover-titulo {
+        font-size: 84px;
+        font-weight: 800;
+        color: #fff;
+        text-shadow: 0 0 18px rgba(255, 79, 216, 0.85),
+          0 0 40px rgba(143, 92, 255, 0.55);
       }
       .ticket-gl-tags {
         display: flex;
