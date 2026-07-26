@@ -1,5 +1,15 @@
 [
   {
+    "id": "noticia42",
+    "img": "/img/noticias/sincenorita-gl.jpg",
+    "slug": "sincenorita-primer-teaser-nene-khaimoox",
+    "titulo": "La serie GL SINCENORITA lanza su primer teaser con Nene y Khaimoox como protagonistas",
+    "fecha": "26 Julio, 2026",
+    "resumen": "La nueva serie GL tailandesa SINCENORITA presentó oficialmente su primer teaser, con Thanchanok Nene Yutthasarnsiri y Celine Khaimoox Phongphan protagonizando una historia de romance, misterio y elementos fantásticos.",
+    "trailer": "j4iDmMyC1K8"
+  },
+
+  {
     "id": "noticia41",
     "img": "/img/noticias/revenge-the-series.jpg",
     "slug": "revenge-serie-gl-themework-studio-accion-venganza",
