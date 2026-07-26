@@ -204,6 +204,7 @@ const microficcionArray = [
       "8-gqyjWqmt8",
       "FEhfS0UXrPU",
       "0VPkMVoWq8o",
+      "Vasz1IRo9Xw",
     ],
   },
 
@@ -836,7 +837,7 @@ fetch("/data/noticias.json")
     if (path.startsWith("/noticia/")) {
       const slug = path.split("/noticia/")[1];
       const noticia = noticiasArray.find((n) => n.slug === slug);
-      if (noticia) abrirModal(noticia);
+      if (noticia) abrirModal(noticia, "noticias");
     }
   })
   .catch((err) => console.error("Error cargando noticias:", err));
@@ -1723,7 +1724,14 @@ function renderComunidad(
 // 📰 RENDER NOTICIAS
 // =====================
 
-function renderNoticias(array, containerId, paginationId, perPage = 5) {
+function renderNoticias(
+  array,
+  containerId,
+  paginationId,
+  perPage = 5,
+  sectionId = "noticias",
+  openFn = abrirNoticia
+) {
   let page = 1;
 
   const container = document.getElementById(containerId);
@@ -1744,7 +1752,7 @@ function renderNoticias(array, containerId, paginationId, perPage = 5) {
 
       div.style.cursor = "pointer";
 
-      div.onclick = () => abrirNoticia(item);
+      div.onclick = () => openFn(item);
 
       div.innerHTML = `
         <div class="noticia-img">
@@ -1782,7 +1790,7 @@ function renderNoticias(array, containerId, paginationId, perPage = 5) {
         page = i;
         render();
         setTimeout(() => {
-          const section = document.getElementById("noticias");
+          const section = document.getElementById(sectionId);
           const yOffset = window.innerWidth <= 700 ? -70 : -100;
           const y =
             section.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -1803,7 +1811,7 @@ function renderNoticias(array, containerId, paginationId, perPage = 5) {
 function abrirNoticia(item) {
   history.pushState({}, "", "/noticia/" + item.slug);
   document.title = item.titulo;
-  abrirModal(item);
+  abrirModal(item, "noticias");
 }
 
 // =====================
@@ -1842,21 +1850,24 @@ function cerrarSerie() {
 // 📰 MODAL
 // =====================
 
-// Cache en memoria: si ya se pidió una noticia completa, no se vuelve a fetchear
-const noticiasCompletasCache = new Map();
+// Cache en memoria: si ya se pidió un detalle, no se vuelve a fetchear
+const detalleCache = {
+  noticias: new Map(),
+};
 
-async function obtenerNoticiaCompleta(id) {
-  if (noticiasCompletasCache.has(id)) {
-    return noticiasCompletasCache.get(id);
+async function obtenerDetalleCompleto(tipo, id) {
+  const cache = detalleCache[tipo];
+  if (cache.has(id)) {
+    return cache.get(id);
   }
-  const res = await fetch(`/data/noticias/${id}.json`);
-  if (!res.ok) throw new Error("No se pudo cargar la noticia: " + id);
+  const res = await fetch(`/data/${tipo}/${id}.json`);
+  if (!res.ok) throw new Error("No se pudo cargar el detalle: " + id);
   const data = await res.json();
-  noticiasCompletasCache.set(id, data);
+  cache.set(id, data);
   return data;
 }
 
-async function abrirModal(item) {
+async function abrirModal(item, tipo = "noticias") {
   // Datos livianos (ya los tenemos desde el índice) -> se muestran al instante
   document.getElementById("modal-img").src = item.img;
   document.getElementById("modal-fecha").textContent = "📅 " + item.fecha;
@@ -1901,10 +1912,10 @@ async function abrirModal(item) {
 
   // Solo el texto se pide bajo demanda
   try {
-    const detalle = await obtenerNoticiaCompleta(item.id);
+    const detalle = await obtenerDetalleCompleto(tipo, item.id);
     let textoHtml = detalle.texto.replace(/\n\n/g, "<br><br>");
 
-    // Si la noticia tiene una segunda imagen (imgFinal), se agrega debajo del texto
+    // Si el detalle tiene una segunda imagen (imgFinal), se agrega debajo del texto
     if (detalle.imgFinal) {
       textoHtml += `
         <img
@@ -1918,8 +1929,8 @@ async function abrirModal(item) {
     document.getElementById("modal-texto").innerHTML = textoHtml;
   } catch (err) {
     document.getElementById("modal-texto").textContent =
-      "No se pudo cargar la noticia. Intentá de nuevo más tarde.";
-    console.error("Error cargando detalle de noticia:", err);
+      "No se pudo cargar el contenido. Intentá de nuevo más tarde.";
+    console.error("Error cargando detalle:", err);
   }
 }
 
@@ -1976,12 +1987,30 @@ function toggleMenu() {
 }
 
 document
-  .querySelectorAll(".nav a")
+  .querySelectorAll(".nav a:not(.nav-dropdown-toggle)")
   .forEach((link) =>
     link.addEventListener("click", () =>
       document.querySelector(".nav").classList.remove("active")
     )
   );
+
+// DROPDOWN "NOTICIAS GL"
+document.querySelectorAll(".nav-dropdown-toggle").forEach((toggle) => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    document.querySelectorAll(".nav-dropdown.active").forEach((d) => {
+      if (d !== dropdown) d.classList.remove("active");
+    });
+    dropdown.classList.toggle("active");
+  });
+});
+
+document.addEventListener("click", (e) => {
+  document.querySelectorAll(".nav-dropdown.active").forEach((dropdown) => {
+    if (!dropdown.contains(e.target)) dropdown.classList.remove("active");
+  });
+});
 
 document.querySelectorAll('a[href="#inicio"]').forEach((link) =>
   link.addEventListener("click", (e) => {

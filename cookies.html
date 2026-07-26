@@ -43,7 +43,17 @@
       <nav class="nav">
         <a href="index.html#inicio">Inicio</a>
         <a href="index.html#series">Series GL</a>
-        <a href="index.html#noticias">Noticias GL</a>
+
+        <div class="nav-dropdown">
+          <a href="index.html#noticias" class="nav-dropdown-toggle"
+            >Noticias GL <span class="dropdown-arrow">▾</span></a
+          >
+          <div class="nav-dropdown-menu">
+            <a href="index.html#noticias">📰 Noticias GL</a>
+            <a href="mundo-gl.html">🌐 Mundo GL</a>
+          </div>
+        </div>
+
         <a href="ships-gl.html">💕 Ships GL</a>
         <a href="index.html#glplayoriginals">🎬 GL Play Originals</a>
         <a href="index.html#ostsgl">OSTs GL</a>
@@ -178,12 +188,33 @@
         document.querySelector(".nav").classList.toggle("active");
       }
       document
-        .querySelectorAll(".nav a")
+        .querySelectorAll(".nav a:not(.nav-dropdown-toggle)")
         .forEach((link) =>
           link.addEventListener("click", () =>
             document.querySelector(".nav").classList.remove("active")
           )
         );
+
+      // DROPDOWN "NOTICIAS GL"
+      document.querySelectorAll(".nav-dropdown-toggle").forEach((toggle) => {
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          const dropdown = toggle.parentElement;
+          document.querySelectorAll(".nav-dropdown.active").forEach((d) => {
+            if (d !== dropdown) d.classList.remove("active");
+          });
+          dropdown.classList.toggle("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        document
+          .querySelectorAll(".nav-dropdown.active")
+          .forEach((dropdown) => {
+            if (!dropdown.contains(e.target))
+              dropdown.classList.remove("active");
+          });
+      });
     </script>
   </body>
 </html>
