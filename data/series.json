@@ -1,5 +1,15 @@
 [
   {
+    "id": "deepsecret",
+    "slug": "deep-secret",
+    "img": "/img/series/deep-secret.jpg",
+    "titulo": "Deep Secret (2026)",
+    "genero": "Romance",
+    "sinopsis": "La pareja de streamers Yeong Heun y Lee Jeong emprende una emocionante, intensa e inolvidable aventura juntas.",
+    "videos": ["QkhIgFWFBNY"]
+  },
+
+  {
     "id": "podcastalertadecoqueteo",
     "slug": "podcast-alerta-de-coqueteo",
     "img": "/img/series/podcast-alerta-de-coqueteo.jpg",
