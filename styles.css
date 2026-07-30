@@ -1169,10 +1169,8 @@ body {
   height: 220px;
 }
 
-/* Mundo GL: sus imágenes suelen llevar texto, así que no se recortan */
 #mundogl-modal-img {
-  object-fit: contain;
-  background: rgba(0, 0, 0, 0.25);
+  object-fit: cover;
 }
 
 .modal-fecha {
