@@ -1104,10 +1104,22 @@ function onYouTubeIframeAPIReady() {
     events: {
       onReady: (e) => {
         playerReady = true;
-        cargarSerie("gaptheseries");
+        // Si entramos directo a un link de /serie/algo, esa ruta se va a
+        // encargar de cargar la serie correcta. Cargar GAP acá también
+        // generaba una doble orden al reproductor casi simultánea, que a
+        // veces hacía que YouTube tire error de reproducción.
+        const path = window.location.pathname;
+        if (!path.startsWith("/serie/")) {
+          cargarSerie("gaptheseries");
+        }
+      },
+      onError: (e) => {
+        // El video/playlist no se puede embeber (bloqueado por el canal, borrado, etc.)
+        mostrarFallbackEmbed();
       },
       onStateChange: (e) => {
         if (e.data === YT.PlayerState.PLAYING) {
+          ocultarFallbackEmbed();
           if (ostTimer) {
             clearTimeout(ostTimer);
             ostTimer = null;
@@ -1167,9 +1179,40 @@ function onYouTubeIframeAPIReady() {
 // REPRODUCTOR FUNCIONES
 // =====================
 
+// Cuando un video/playlist no se puede reproducir embebido (bloqueado por
+// el canal), mostramos un botón para verlo directo en YouTube en vez de
+// dejar la pantalla trabada sin explicación.
+function mostrarFallbackEmbed() {
+  const fallback = document.getElementById("embed-fallback");
+  const link = document.getElementById("embed-fallback-link");
+  if (!fallback || !link) return;
+
+  const serie = [...seriesArray].find((s) => s.id === currentSerieId);
+  let url = "";
+
+  if (serie && serie.playlist) {
+    url = `https://www.youtube.com/playlist?list=${serie.playlist}`;
+  } else if (serie && serie.videos && serie.videos[current]) {
+    url = `https://www.youtube.com/watch?v=${serie.videos[current]}`;
+  } else if (playlist && playlist[current]) {
+    url = `https://www.youtube.com/watch?v=${playlist[current]}`;
+  }
+
+  if (!url) return;
+
+  link.href = url;
+  fallback.style.display = "flex";
+}
+
+function ocultarFallbackEmbed() {
+  const fallback = document.getElementById("embed-fallback");
+  if (fallback) fallback.style.display = "none";
+}
+
 function cargarSerie(id) {
   const serie = [...seriesArray].find((s) => s.id === id);
   if (!serie) return;
+  ocultarFallbackEmbed();
   idiomaSubtituloAplicado = false;
   currentSerieId = id;
   current = 0;
