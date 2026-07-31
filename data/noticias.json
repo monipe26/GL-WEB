@@ -9,6 +9,24 @@
   },
 
   {
+    "id": "noticia48",
+    "img": "/img/noticias/fairway-of-love-trailer-oficial.jpg",
+    "slug": "fairway-of-love-trailer-oficial-estreno-septiembre",
+    "titulo": "Fairway of Love lanza su tráiler oficial y confirma su estreno para septiembre de 2026",
+    "fecha": "31 Julio, 2026",
+    "resumen": "La producción de Mojo Muse Management presentó oficialmente el primer tráiler de Fairway of Love, que llegará a la pantalla el 6 de septiembre de 2026 a través de one31, mientras que su edición UNCUT podrá verse exclusivamente en WeTV.",
+    "trailer": "SY0FBEQ6NjM"
+  },
+
+  {
+    "id": "noticia47",
+    "img": "/img/noticias/motion-entertainment-reality-show.jpg",
+    "slug": "shelly-pundao-nuevo-reality-motion-minds",
+    "titulo": "Shelly, Pundao y más: así será el nuevo reality de Motion Minds",
+    "fecha": "29 Julio, 2026",
+    "resumen": "Motion Minds Entertainment se prepara para el estreno de un nuevo reality show que reunirá a las artistas de la primera y segunda generación de la agencia, con ocho episodios llenos de desafíos, juegos y momentos inolvidables."
+  },
+  {
     "id": "noticia46",
     "img": "/img/noticias/enjoy-thidarat.jpg",
     "slug": "enjoy-thidarat-lanza-enjoy-house-nuevo-espacio-creativo",
