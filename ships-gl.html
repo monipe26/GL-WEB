@@ -43,6 +43,64 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="ships-gl.css" />
     <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <style>
+      .filtro-btn {
+        padding: 8px 18px;
+        border: 1px solid rgba(255, 79, 216, 0.4);
+        border-radius: 20px;
+        background: transparent;
+        color: #ccc;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.2s;
+      }
+      .filtro-btn:hover,
+      .filtro-btn.active {
+        background: #ff4fd8;
+        color: white;
+        border-color: #ff4fd8;
+      }
+
+      #ships-container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .filtro-letra {
+        padding: 5px 12px !important;
+        font-size: 12px !important;
+        min-width: 36px;
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        #ships-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        #ships-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      #ships-container .noticia-img {
+        aspect-ratio: 2/1;
+        position: relative;
+      }
+      #ships-container .noticia-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 10, 30, 0.6) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
     <div id="inicio"></div>
@@ -1192,64 +1250,5 @@
       generarFiltroLetras();
       renderShips(shipsFiltrados, "ships-container", "pagination-ships", 12);
     </script>
-
-    <style>
-      .filtro-btn {
-        padding: 8px 18px;
-        border: 1px solid rgba(255, 79, 216, 0.4);
-        border-radius: 20px;
-        background: transparent;
-        color: #ccc;
-        cursor: pointer;
-        font-size: 13px;
-        transition: all 0.2s;
-      }
-      .filtro-btn:hover,
-      .filtro-btn.active {
-        background: #ff4fd8;
-        color: white;
-        border-color: #ff4fd8;
-      }
-
-      #ships-container {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .filtro-letra {
-        padding: 5px 12px !important;
-        font-size: 12px !important;
-        min-width: 36px;
-        font-weight: 700;
-      }
-
-      @media (max-width: 900px) {
-        #ships-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (max-width: 480px) {
-        #ships-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      #ships-container .noticia-img {
-        aspect-ratio: 2/1;
-        position: relative;
-      }
-      #ships-container .noticia-img::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to top,
-          rgba(15, 10, 30, 0.6) 0%,
-          transparent 65%
-        );
-        pointer-events: none;
-      }
-    </style>
   </body>
 </html>
