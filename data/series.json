@@ -1,5 +1,15 @@
 [
   {
+    "id": "offtherecord2",
+    "slug": "off-the-record-2",
+    "img": "/img/series/off-the-record-2.jpg",
+    "titulo": "Off the record 2 (2026)",
+    "genero": "Romance",
+    "sinopsis": "Un intenso romance de oficina marcado por la tensión, reglas estrictas y celos entre una perfeccionista líder de equipo y su pasante, la joven Kang Da-in.",
+    "videos": ["y3X2FTKwszg", "1GmoMdvJGdI"]
+  },
+
+  {
     "id": "deepsecret",
     "slug": "deep-secret",
     "img": "/img/series/deep-secret-1.jpg",
