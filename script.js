@@ -14,6 +14,25 @@ let playlistLength = 0;
 let lastPlaylistIndex = -1;
 
 let progressInterval = null; // guarda el progreso cada X segundos mientras se reproduce
+let subsWatchdog = null; // 🔤 vigila que los subtítulos sigan activos mientras se reproduce
+
+// 🔤 Fuerza el subtítulo en español. A veces YouTube todavía no cargó la
+// lista de pistas de subtítulos en el instante exacto en que arranca el
+// video (o el propio reproductor de YouTube "olvida" la preferencia al
+// pasar de un episodio a otro, entrar/salir de pantalla completa, etc.),
+// así que reintentamos un par de veces con un pequeño delay en vez de
+// llamarlo una sola vez y confiar en que funcionó.
+function forzarSubtitulos(reintentos = 4) {
+  if (!player || !player.setOption) return;
+  const serieActual = [...seriesArray].find((s) => s.id === currentSerieId);
+  if (serieActual && serieActual.esShort) return; // los shorts no llevan subtítulos forzados
+
+  player.setOption("captions", "track", { languageCode: "es" });
+
+  if (reintentos > 0) {
+    setTimeout(() => forzarSubtitulos(reintentos - 1), 700);
+  }
+}
 
 // =====================
 // 🎬 SERIES
@@ -1123,6 +1142,12 @@ function onYouTubeIframeAPIReady() {
         // El video/playlist no se puede embeber (bloqueado por el canal, borrado, etc.)
         mostrarFallbackEmbed();
       },
+      // 🔤 Se dispara cuando los módulos internos del reproductor (como el
+      // de subtítulos) terminan de cargar. Es el momento más confiable para
+      // forzar el idioma, más confiable incluso que "PLAYING".
+      onApiChange: () => {
+        forzarSubtitulos(0);
+      },
       onStateChange: (e) => {
         if (e.data === YT.PlayerState.PLAYING) {
           ocultarFallbackEmbed();
@@ -1135,16 +1160,31 @@ function onYouTubeIframeAPIReady() {
           actualizarEpisodio();
           actualizarTituloYoutube();
 
-          const serieActual = [...seriesArray].find(
-            (s) => s.id === currentSerieId
-          );
-          if (player.setOption && !(serieActual && serieActual.esShort)) {
-            player.setOption("captions", "track", { languageCode: "es" });
-          }
+          forzarSubtitulos();
 
           // 💾 arranca a guardar el progreso cada 5s mientras se reproduce
           if (!progressInterval) {
             progressInterval = setInterval(guardarProgreso, 5000);
+          }
+
+          // 🔤 vigía: cada 4s, mientras se está reproduciendo, chequea que
+          // el subtítulo siga puesto y si YouTube lo apagó solo (pasa en
+          // algunos episodios/dispositivos, sobre todo al salir de pantalla
+          // completa o girar la pantalla), lo vuelve a prender.
+          if (!subsWatchdog) {
+            subsWatchdog = setInterval(() => {
+              if (!player || !player.getOption || !player.getPlayerState)
+                return;
+              if (player.getPlayerState() !== YT.PlayerState.PLAYING) return;
+              const serieActual = [...seriesArray].find(
+                (s) => s.id === currentSerieId
+              );
+              if (serieActual && serieActual.esShort) return;
+              const track = player.getOption("captions", "track");
+              if (!track || !track.languageCode) {
+                player.setOption("captions", "track", { languageCode: "es" });
+              }
+            }, 4000);
           }
         }
 
@@ -1170,6 +1210,10 @@ function onYouTubeIframeAPIReady() {
           if (progressInterval) {
             clearInterval(progressInterval);
             progressInterval = null;
+          }
+          if (subsWatchdog) {
+            clearInterval(subsWatchdog);
+            subsWatchdog = null;
           }
           borrarProgreso(currentSerieId);
 
@@ -1278,8 +1322,7 @@ function cargarSerie(id) {
     });
     setTimeout(() => {
       player.setShuffle(false);
-      if (player.setOption)
-        player.setOption("captions", "track", { languageCode: "es" });
+      forzarSubtitulos();
       const lista = player.getPlaylist();
       playlistLength = lista && lista.length ? lista.length : 0;
       lastPlaylistIndex = -1;
@@ -1301,8 +1344,7 @@ function cargarSerie(id) {
       videoId: playlist[current],
       startSeconds: segundoInicial,
     });
-    if (player.setOption)
-      player.setOption("captions", "track", { languageCode: "es" });
+    forzarSubtitulos();
   }
 }
 
@@ -1333,8 +1375,7 @@ function prevVideo() {
   current--;
   if (current >= 0) {
     player.loadVideoById(playlist[current]);
-    if (player.setOption)
-      player.setOption("captions", "track", { languageCode: "es" });
+    forzarSubtitulos();
   } else current = 0;
 }
 
@@ -1367,8 +1408,7 @@ function nextVideo() {
   current++;
   if (current < playlist.length) {
     player.loadVideoById(playlist[current]);
-    if (player.setOption)
-      player.setOption("captions", "track", { languageCode: "es" });
+    forzarSubtitulos();
   }
 }
 
