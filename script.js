@@ -1062,6 +1062,25 @@ function claveProgreso(serieId) {
   return "progreso_serie_" + serieId;
 }
 
+const CLAVE_ULTIMA_SERIE = "ultima_serie_vista";
+
+// 📺 Guarda cuál fue la última serie que el usuario estaba mirando, para
+// poder retomarla sola cuando vuelve a entrar a la página (aunque sea al
+// día siguiente), en vez de arrancar siempre con la serie de portada.
+function guardarUltimaSerie(serieId) {
+  try {
+    localStorage.setItem(CLAVE_ULTIMA_SERIE, serieId);
+  } catch (e) {}
+}
+
+function obtenerUltimaSerie() {
+  try {
+    return localStorage.getItem(CLAVE_ULTIMA_SERIE);
+  } catch (e) {
+    return null;
+  }
+}
+
 function obtenerProgreso(serieId) {
   try {
     const raw = localStorage.getItem(claveProgreso(serieId));
@@ -1075,6 +1094,8 @@ function guardarProgreso() {
   if (!player || typeof player.getCurrentTime !== "function") return;
   const segundo = player.getCurrentTime();
   if (!segundo || segundo < 1) return;
+
+  guardarUltimaSerie(currentSerieId);
 
   const serie = [...seriesArray].find((s) => s.id === currentSerieId);
   let indice = current;
@@ -1135,7 +1156,13 @@ function onYouTubeIframeAPIReady() {
         // veces hacía que YouTube tire error de reproducción.
         const path = window.location.pathname;
         if (!path.startsWith("/serie/")) {
-          cargarSerie("gaptheseries");
+          // 📺 Si el usuario ya venía mirando una serie (aunque haya sido
+          // ayer), retomamos esa en vez de arrancar siempre con la serie
+          // de portada.
+          const ultimaSerie = obtenerUltimaSerie();
+          const existeUltimaSerie =
+            ultimaSerie && [...seriesArray].some((s) => s.id === ultimaSerie);
+          cargarSerie(existeUltimaSerie ? ultimaSerie : "gaptheseries");
         }
       },
       onError: (e) => {
@@ -1265,6 +1292,7 @@ function cargarSerie(id) {
   ocultarFallbackEmbed();
   idiomaSubtituloAplicado = false;
   currentSerieId = id;
+  guardarUltimaSerie(id);
   current = 0;
   playlist = [];
   playingOst = false;
@@ -1518,6 +1546,7 @@ function reproducirContenido(item, ocultarControles = false) {
     .forEach((c) => c.classList.remove("active"));
   if (!playerReady) return;
   currentSerieId = item.id;
+  guardarUltimaSerie(item.id);
   current = 0;
   playlist = [];
   playingOst = false;
