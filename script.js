@@ -73,7 +73,6 @@ fetch("/data/series.json")
 // =====================
 
 const comunidadArray = [
-  { id: "c17", videoId: "jad-V_nyvaY" },
   { id: "c16", videoId: "Ks-a0A8IeZQ" },
   { id: "c15", videoId: "Q3EdOV87E14" },
   { id: "c14", videoId: "c5Z4TtrIXcI" },
@@ -97,6 +96,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
+  { id: "ost111", videoId: "jad-V_nyvaY" },
   { id: "ost110", videoId: "V0b-54I-1-0" },
   { id: "ost109", videoId: "AdqIf57MDv8" },
   { id: "ost108", videoId: "D7O-CA32bzI" },
