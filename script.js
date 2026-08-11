@@ -210,6 +210,17 @@ const ostsArray = [
 // =====================
 const microficcionArray = [
   // Microdrama por partes
+
+  {
+    id: "micro4",
+    slug: "mi-persona-favorita",
+    titulo: "Mi Persona Favorita",
+    canal: "Girls Love Play",
+    videoId: "YFtI5Og8Dp8",
+    esShort: true,
+    videos: ["YFtI5Og8Dp8"],
+  },
+
   {
     id: "micro3",
     slug: "nos-vemos-el-viernes",
