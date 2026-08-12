@@ -1,5 +1,15 @@
 [
   {
+    "id": "firstlove",
+    "slug": "first-love",
+    "img": "/img/series/first-love.jpg",
+    "titulo": "FirstLove (2026)",
+    "genero": "Romance/Juvenil",
+    "sinopsis": "Linlada, marcada por heridas familiares, conoce a Thorfan y descubre su primer amor. Pero los malentendidos y secretos las separan. ¿Podrán volver a encontrarse?",
+    "videos": ["K4E0ah7Qmbg"]
+  },
+
+  {
     "id": "sonoshunkan-koidatta",
     "slug": "sono-shunkan,koi-datta",
     "img": "/img/series/sono-shunkan-koi-datta.jpg",
