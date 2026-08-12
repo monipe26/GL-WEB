@@ -696,7 +696,8 @@
     "titulo": "On & Off Season 3 (2026)",
     "genero": "Romance/Drama",
     "sinopsis": "Una CEO exitosa enfrenta romances, desafíos empresariales y complejas relaciones personales junto a las mujeres que forman parte de su círculo más cercano.",
-    "videos": ["hCIZIANZCsY"]
+    "videos": ["hCIZIANZCsY"],
+    "oculto": true
   },
 
   {
@@ -1061,7 +1062,8 @@
     "titulo": "On & Off (2025)",
     "genero": "Drama/Romance ",
     "sinopsis": "Dos amantes ocultan su relación en la oficina; entre presiones sociales y jerarquías, su amor lucha por sobrevivir.",
-    "videos": ["h9u5l8ZtHgg"]
+    "videos": ["h9u5l8ZtHgg"],
+    "oculto": true
   },
 
   {
@@ -1443,7 +1445,8 @@
     "titulo": "On & Off Season 2 (2025)",
     "genero": "Romance",
     "sinopsis": "Dos amantes ocultan su relación en la oficina. Entre jerarquías y normas conservadoras, deberán elegir entre el amor y las apariencias.",
-    "videos": ["EKgy5EM-Vhw"]
+    "videos": ["EKgy5EM-Vhw"],
+    "oculto": true
   },
 
   {
