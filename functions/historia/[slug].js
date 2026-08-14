@@ -1,5 +1,10 @@
 const historias = [
   {
+    slug: "mi-persona-favorita",
+    titulo: "Mi Persona Favorita",
+    videoId: "YFtI5Og8Dp8",
+  },
+  {
     slug: "nos-vemos-el-viernes",
     titulo: "Nos vemos el viernes",
     videoId: "xnB-EeT8TtQ",
@@ -58,10 +63,9 @@ export async function onRequestGet(context) {
   // 👇 esto es lo nuevo: mete el texto real, visible, en el HTML
   class InfoContenido {
     element(el) {
-      el.setInnerContent(
-        `<h1>${item.titulo}</h1><p>${descripcion}</p>`,
-        { html: true }
-      );
+      el.setInnerContent(`<h1>${item.titulo}</h1><p>${descripcion}</p>`, {
+        html: true,
+      });
     }
   }
 
