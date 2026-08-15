@@ -961,20 +961,6 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-#microficcion-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-
-@media (max-width: 700px) {
-  #microficcion-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-#microficcion-container .com-thumb {
-  height: 90px;
-}
 /* ===================== */
 /* NOTICIAS GL - GRID    */
 /* ===================== */

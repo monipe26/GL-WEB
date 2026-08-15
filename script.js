@@ -208,124 +208,6 @@ const ostsArray = [
   { id: "ost1", videoId: "lvBRWn8qldg" },
 ];
 // =====================
-// 🎬 MICROFICCIÓN GL
-// =====================
-const microficcionArray = [
-  // Microdrama por partes
-
-  {
-    id: "micro4",
-    slug: "mi-persona-favorita",
-    titulo: "Mi Persona Favorita",
-    canal: "Girls Love Play",
-    videoId: "YFtI5Og8Dp8",
-    esShort: true,
-    videos: ["YFtI5Og8Dp8", "VS2aRl-TsAI", "q392a7dx8bg", "VdKW4TDiDGk"],
-  },
-
-  {
-    id: "micro3",
-    slug: "nos-vemos-el-viernes",
-    titulo: "Nos vemos el viernes",
-    canal: "Girls Love Play",
-    videoId: "xnB-EeT8TtQ",
-    esShort: true,
-    videos: [
-      "xnB-EeT8TtQ",
-      "AEvA4W3Heew",
-      "kzbfjUFgBAQ",
-      "RGaxbYo8dws",
-      "A8TqT3e_Sag",
-      "IX6o24TIOUY",
-      "8-gqyjWqmt8",
-      "FEhfS0UXrPU",
-      "0VPkMVoWq8o",
-      "Vasz1IRo9Xw",
-      "TZeEhxUIq0E",
-      "ixckUHC5LRI",
-      "bqwpE6lqTW4",
-      "BNVpqp3sNZU",
-      "AOlACaihfjw",
-      "49i5GQsxmKY",
-      "c1XJJLONQ1M",
-    ],
-  },
-
-  {
-    id: "micro2",
-    slug: "lo-que-nunca-nos-dijimos",
-    titulo: "Lo que nunca nos dijimos ❤️",
-    canal: "Girls Love Play",
-    videoId: "ttopwmuZ7QI",
-    esShort: true,
-    videos: ["ttopwmuZ7QI", "ncsSqJEQOHg"],
-  },
-
-  {
-    id: "micro1",
-    slug: "cinco-minutos-de-mentira",
-    titulo: "❤️ Mini Drama GL: 5 Minutos de Mentira",
-    canal: "Girls Love Play",
-    videoId: "MaCuR49C5Tc",
-    esShort: true,
-    videos: [
-      "MaCuR49C5Tc",
-      "cj4hcHsVWgE",
-      "74CANIQkBY8",
-      "iNaMkX_s8Tg",
-      "AkMP_8a9aMU",
-      "sdQ21YFgsyQ",
-      "kkt4pO6t1LM",
-      "xdN-IZD4UH0",
-      "LFyuw2VffCw",
-      "v9OZc19k4_U",
-      "dcyDAdJf9YY",
-      "W6dp7IcS5xA",
-      "Z4qVZNe2s5A",
-      "WKN6ycgFrtY",
-      "g6GWBDq7KXY",
-      "Oo031FCuld0",
-      "ort5NbUM57g",
-      "06JRCv74G5M",
-      "K4Y1K3LtMw4",
-      "D-rZtFKiVJI",
-      "m06yUUZ_HhA",
-      "tnOb3-EjQKo",
-      "TjK9iKzb-7Y",
-      "YZlvT5ts3N0",
-      "dPZFDJUpwEQ",
-      "muEb7NJl-to",
-      "0kPg4ZKaeGY",
-      "UNrro7PlM-s",
-      "g8IYws4kIoY",
-      "0I8uNe6gg3A",
-      "fkCDF5mlkJ4",
-      "fMP7aptesxw",
-      "K0CJTZFCcqA",
-      "OXVhnvP-Y-Y",
-      "szlbEEU_0vg",
-    ],
-  },
-
-  // Short individual
-  {
-    id: "micro3b",
-    slug: "no-dijo-estoy-celosa-pero-lo-estaba",
-    videoId: "kxO8_5xRHn0",
-    esShort: true,
-    videos: ["kxO8_5xRHn0"],
-  },
-
-  // Short individual
-  {
-    id: "micro2b",
-    slug: "no-la-mires-asi",
-    videoId: "F-Nbm3qOx8o",
-    esShort: true,
-    videos: ["F-Nbm3qOx8o"],
-  },
-];
-// =====================
 // TIENDA GL
 // =====================
 const explorarArray = [
@@ -1723,8 +1605,7 @@ function renderComunidad(
   containerId,
   paginationId,
   perPage = 5,
-  sectionId,
-  usarUrl = false
+  sectionId
 ) {
   let page = 1;
   const container = document.getElementById(containerId);
@@ -1780,14 +1661,10 @@ function renderComunidad(
       div.className = "com-card";
 
       div.onclick = () => {
-        if (usarUrl && item.slug) {
-          abrirHistoria(item);
-        } else {
-          reproducirContenido(
-            item,
-            sectionId === "ostsgl" || sectionId === "comunidadgl"
-          );
-        }
+        reproducirContenido(
+          item,
+          sectionId === "ostsgl" || sectionId === "comunidadgl"
+        );
       };
 
       const cached = titleCache[item.videoId];
@@ -1951,22 +1828,6 @@ function abrirNoticia(item) {
 }
 
 // =====================
-// 🎬 ABRIR HISTORIA (GL PLAY ORIGINALS)
-// =====================
-
-function abrirHistoria(item) {
-  history.pushState({}, "", "/historia/" + item.slug);
-  document.title = (item.titulo || "Historia GL") + " - Girls Love Play";
-  reproducirContenido(item);
-}
-
-function cerrarHistoria() {
-  history.pushState({}, "", "/");
-  document.title = "Girls Love Play - Tu espacio GL favorito 💖";
-  ocultarInfoContenido();
-}
-
-// =====================
 // 🎬 ABRIR SERIE (SEO)
 // =====================
 
@@ -2093,14 +1954,6 @@ function cerrarModal(e) {
 renderNoticias(noticiasArray, "noticias-container", "pagination-noticias", 6);
 renderShips(shipsArray, "ships-container", "pagination-ships", 6);
 renderComunidad(
-  microficcionArray,
-  "microficcion-container",
-  "pagination-microficcion",
-  4,
-  "microficcion",
-  true
-);
-renderComunidad(
   comunidadArray,
   "comunidad-container",
   "pagination-comunidad",
@@ -2172,23 +2025,6 @@ window.addEventListener("load", () => {
       document.body.style.background =
         "url('https://i.postimg.cc/Zn5kq1g3/Cielo-nocturno-de-luces-suaves.png') no-repeat center/cover";
       abrirShip(ship);
-    }
-  }
-
-  if (path.startsWith("/historia/")) {
-    const slug = path.split("/historia/")[1];
-    const historia = microficcionArray.find((h) => h.slug === slug);
-    if (historia) {
-      const intentar = () => {
-        if (playerReady) {
-          reproducirContenido(historia);
-          document.title =
-            (historia.titulo || "Historia GL") + " - Girls Love Play";
-        } else {
-          setTimeout(intentar, 300);
-        }
-      };
-      intentar();
     }
   }
 });
