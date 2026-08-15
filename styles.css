@@ -1302,3 +1302,14 @@ body {
   font-size: 14px;
   line-height: 1.7;
 }
+
+/* 🇦🇷 Bandera Argentina en el footer */
+.footer-flag {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  margin: 0 2px;
+}
