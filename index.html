@@ -160,6 +160,15 @@
       </div>
     </section>
 
+    <!-- 🌐 MUNDO GL -->
+    <section class="section" id="mundogl">
+      <h2>🌐 Mundo GL</h2>
+      <p class="subtitulo">Guías, curiosidades y todo sobre el mundo GL</p>
+      <div id="mundogl-container"></div>
+      <div class="pagination-wrapper">
+        <div class="pagination" id="pagination-mundogl"></div>
+      </div>
+    </section>
 
     <!-- 💕 SHIPS GL -->
 <section class="section" id="shipsgl">
@@ -320,6 +329,24 @@
     >
       ⬆
     </button>
+
+    <!-- MODAL MUNDO GL -->
+    <div class="modal-overlay" id="modal-mundogl" onclick="cerrarModalMundoGL(event)">
+      <div class="modal-box">
+        <button class="modal-cerrar" onclick="cerrarModalMundoGL()">✕</button>
+        <img class="modal-img" id="mundogl-modal-img" src="" alt="" />
+        <p class="modal-fecha" id="mundogl-modal-fecha"></p>
+        <p class="modal-titulo" id="mundogl-modal-titulo"></p>
+        <p class="modal-texto" id="mundogl-modal-texto"></p>
+        <div id="mundogl-modal-video"></div>
+        <button
+          class="modal-subir"
+          onclick="document.querySelector('#modal-mundogl .modal-box').scrollTop=0"
+        >
+          ⬆
+        </button>
+      </div>
+    </div>
 
     <!-- MODAL SHIPS GL -->
 <div class="modal-overlay" id="modal-ships" onclick="cerrarModalShip(event)">

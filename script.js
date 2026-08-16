@@ -770,6 +770,155 @@ fetch("/data/noticias.json")
   .catch((err) => console.error("Error cargando noticias:", err));
 
 // =====================
+// 🌐 MUNDO GL — cargado desde JSON, mismo patrón que Noticias
+// =====================
+
+let mundoglArray = [];
+const mundoglDetalleCache = new Map();
+
+fetch("/data/mundogl.json")
+  .then((r) => r.json())
+  .then((data) => {
+    mundoglArray = data;
+    renderMundoGL(mundoglArray, "mundogl-container", "pagination-mundogl", 6);
+
+    // Si entraron directo a una URL de Mundo GL, abrir el modal
+    const path = window.location.pathname;
+    if (path.startsWith("/mundo-gl/")) {
+      const slug = path.split("/mundo-gl/")[1];
+      const item = mundoglArray.find((n) => n.slug === slug);
+      if (item) abrirMundoGL(item);
+    }
+  })
+  .catch((err) => console.error("Error cargando Mundo GL:", err));
+
+function renderMundoGL(array, containerId, paginationId, perPage = 6) {
+  let page = 1;
+  const container = document.getElementById(containerId);
+  const pagination = document.getElementById(paginationId);
+
+  function render() {
+    container.innerHTML = "";
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+
+    array.slice(start, end).forEach((item) => {
+      const div = document.createElement("div");
+      div.className = "noticia-card";
+      div.style.cursor = "pointer";
+      div.onclick = () => abrirMundoGL(item);
+
+      div.innerHTML = `
+        <div class="noticia-img">
+          <img loading="lazy" src="${item.img}" alt="${item.titulo}">
+        </div>
+        <div class="noticia-info">
+          <p class="noticia-fecha">📅 ${item.fecha}</p>
+          <p class="noticia-titulo">${item.titulo}</p>
+          <p class="noticia-texto">${item.resumen || item.texto}</p>
+        </div>
+      `;
+
+      container.appendChild(div);
+    });
+
+    pagination.innerHTML = "";
+    const total = Math.ceil(array.length / perPage);
+
+    for (let i = 1; i <= total; i++) {
+      const b = document.createElement("button");
+      b.textContent = i;
+      if (i === page) b.classList.add("active");
+
+      b.onclick = () => {
+        page = i;
+        render();
+        setTimeout(() => {
+          const section = document.getElementById("mundogl");
+          const yOffset = window.innerWidth <= 700 ? -70 : -100;
+          const y =
+            section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }, 100);
+      };
+
+      pagination.appendChild(b);
+    }
+  }
+
+  render();
+}
+
+function abrirMundoGL(item) {
+  history.pushState({}, "", "/mundo-gl/" + item.slug);
+  document.title = (item.tituloSeo || item.titulo) + " - Girls Love Play";
+  abrirModalMundoGL(item);
+}
+
+async function obtenerDetalleMundoGL(id) {
+  if (mundoglDetalleCache.has(id)) return mundoglDetalleCache.get(id);
+  const res = await fetch(`/data/mundogl/${id}.json`);
+  if (!res.ok) throw new Error("No se pudo cargar el detalle: " + id);
+  const data = await res.json();
+  mundoglDetalleCache.set(id, data);
+  return data;
+}
+
+async function abrirModalMundoGL(item) {
+  document.getElementById("mundogl-modal-img").src = item.img;
+  document.getElementById("mundogl-modal-fecha").textContent = "📅 " + item.fecha;
+  document.getElementById("mundogl-modal-titulo").textContent = item.titulo;
+  document.getElementById("mundogl-modal-texto").textContent = "Cargando...";
+
+  const videoEl = document.getElementById("mundogl-modal-video");
+  if (item.trailer) {
+    videoEl.innerHTML = `
+      <div style="position:relative;padding-bottom:58.25%;height:0;margin-top:10px;border-radius:10px;overflow:hidden;">
+        <iframe
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:10px;"
+          src="https://www.youtube.com/embed/${item.trailer}"
+          allowfullscreen
+        ></iframe>
+      </div>
+    `;
+  } else {
+    videoEl.innerHTML = "";
+  }
+
+  document.getElementById("modal-mundogl").classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  try {
+    const detalle = await obtenerDetalleMundoGL(item.id);
+    let textoHtml = detalle.texto.replace(/\n\n/g, "<br><br>");
+
+    if (detalle.imgFinal) {
+      textoHtml += `
+        <img
+          src="${detalle.imgFinal}"
+          alt="${item.titulo}"
+          style="width:100%;border-radius:10px;margin-top:16px;display:block;"
+        />
+      `;
+    }
+
+    document.getElementById("mundogl-modal-texto").innerHTML = textoHtml;
+  } catch (err) {
+    document.getElementById("mundogl-modal-texto").textContent =
+      "No se pudo cargar el contenido. Intentá de nuevo más tarde.";
+    console.error("Error cargando detalle de Mundo GL:", err);
+  }
+}
+
+function cerrarModalMundoGL(e) {
+  if (e && e.target !== document.getElementById("modal-mundogl")) return;
+  document.getElementById("modal-mundogl").classList.remove("active");
+  document.body.style.overflow = "";
+  history.pushState({}, "", "/");
+  document.title = "Girls Love Play - Tu espacio GL en español 💕🇦🇷";
+}
+
+// =====================
 // 🔎 BUSCADOR GLOBAL
 // =====================
 
