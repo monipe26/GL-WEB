@@ -28,6 +28,18 @@
   <meta property="og:url" content="https://girlsloveplay.com/mundo-gl.html" />
 
   <link rel="stylesheet" href="styles.css" />
+  <!-- 🇦🇷 Estilo para la banderita del footer -->
+  <style>
+    .footer-flag {
+      display: inline-block;
+      width: 18px;
+      height: 12px;
+      vertical-align: middle;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+      margin: 0 2px;
+    }
+  </style>
   <link rel="icon" type="image/png" href="/img/favicon.png" />
 </head>
 <body>
@@ -142,7 +154,34 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Girls Love - Todos los derechos reservados</p>
+      <p>
+        © 2026 Girls Love Play - Argentina
+        <svg class="footer-flag" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de Argentina" role="img">
+          <rect width="60" height="40" fill="#fff" />
+          <rect width="60" height="13.33" fill="#75AADB" />
+          <rect y="26.67" width="60" height="13.33" fill="#75AADB" />
+          <g transform="translate(30,20)">
+            <circle r="4.6" fill="#FFCC33" stroke="#85340A" stroke-width="0.5" />
+            <g fill="#FFCC33" stroke="#85340A" stroke-width="0.4">
+              <g id="footer-rayo-mundo">
+                <polygon points="0,-8.5 -0.9,-5.3 0.9,-5.3" />
+              </g>
+              <use href="#footer-rayo-mundo" transform="rotate(45)" />
+              <use href="#footer-rayo-mundo" transform="rotate(90)" />
+              <use href="#footer-rayo-mundo" transform="rotate(135)" />
+              <use href="#footer-rayo-mundo" transform="rotate(180)" />
+              <use href="#footer-rayo-mundo" transform="rotate(225)" />
+              <use href="#footer-rayo-mundo" transform="rotate(270)" />
+              <use href="#footer-rayo-mundo" transform="rotate(315)" />
+            </g>
+            <circle r="3.2" fill="#FFCC33" stroke="#85340A" stroke-width="0.4" />
+            <circle cx="-1.1" cy="-0.3" r="0.35" fill="#85340A" />
+            <circle cx="1.1" cy="-0.3" r="0.35" fill="#85340A" />
+            <path d="M -1.1 1 Q 0 1.9 1.1 1" stroke="#85340A" stroke-width="0.35" fill="none" stroke-linecap="round" />
+          </g>
+        </svg>
+        - Todos los derechos reservados
+      </p>
     </div>
   </footer>
 
