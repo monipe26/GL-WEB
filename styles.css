@@ -982,6 +982,16 @@ body {
   border: 1px solid rgba(255, 79, 216, 0.15);
   cursor: pointer;
   transition: transform 0.2s ease, border-color 0.2s ease;
+  color: inherit;
+  text-decoration: none;
+}
+
+.noticia-card,
+.noticia-card:visited,
+.noticia-card:hover,
+.noticia-card:active,
+.noticia-card * {
+  text-decoration: none;
 }
 
 .noticia-card:hover {
@@ -1056,6 +1066,29 @@ body {
   #noticias-container,
   #mundogl-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Si la última tarjeta queda sola en su fila (cantidad impar de noticias),
+   que ocupe TODO el ancho de la fila, sin dejar ningún espacio vacío */
+@media (max-width: 900px) {
+  #noticias-container .noticia-card:last-child:nth-child(odd),
+  #mundogl-container .noticia-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+
+  #noticias-container .noticia-card:last-child:nth-child(odd) .noticia-img,
+  #mundogl-container .noticia-card:last-child:nth-child(odd) .noticia-img {
+    width: 45%;
+    aspect-ratio: unset;
+    height: auto;
+  }
+
+  #noticias-container .noticia-card:last-child:nth-child(odd) .noticia-info,
+  #mundogl-container .noticia-card:last-child:nth-child(odd) .noticia-info {
+    flex: 1;
+    justify-content: center;
   }
 }
 
