@@ -63,7 +63,106 @@
       }
     }
   }
-  </script>
+  </script>  <!-- Estilos del banner carrusel "Próximamente" -->
+  <style>
+    .banner-carrusel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1800 / 250;
+      max-height: 260px;
+      overflow: hidden;
+      border-radius: 0 0 12px 12px;
+    }
+    .banner-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+    .banner-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .banner-slide a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      background-size: cover;
+      background-position: center;
+    }
+    /* Imagen de cada slide — versión PC (panorámica) */
+    .banner-img-1 { background-image: url('/img/banner1.jpg'); }
+    .banner-img-2 { background-image: url('/img/banner1.jpg'); }
+    .banner-img-3 { background-image: url('/img/banner1.jpg'); }
+
+    /* Versión mobile — recorte propio, más centrado */
+    @media (max-width: 700px) {
+      .banner-img-1 { background-image: url('/img/banner1-mobile.jpg'); }
+      .banner-img-2 { background-image: url('/img/banner1-mobile.jpg'); }
+      .banner-img-3 { background-image: url('/img/banner1-mobile.jpg'); }
+    }
+    .banner-flecha {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      border: none;
+      font-size: 1.6rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .banner-flecha:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .banner-flecha.prev { left: 14px; }
+    .banner-flecha.next { right: 14px; }
+    .banner-puntos {
+      position: absolute;
+      bottom: 14px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 5;
+    }
+    .banner-punto {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .banner-punto.active {
+      background: #ff5c8d;
+      transform: scale(1.2);
+    }
+    .banner-separador {
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, #ff5c8d 20%, #f107a3 50%, #ff5c8d 80%, transparent);
+      box-shadow: 0 0 8px rgba(255, 92, 141, 0.9), 0 0 16px rgba(241, 7, 163, 0.5);
+    }
+    @media (max-width: 700px) {
+      .banner-carrusel { border-radius: 0; aspect-ratio: unset; height: 150px; max-height: 150px; }
+      .banner-flecha { width: 34px; height: 34px; font-size: 1.2rem; }
+      .banner-puntos { bottom: 6px; gap: 5px; }
+      .banner-punto { width: 6px; height: 6px; }
+    }
+  </style>
 </head>
   <body>
     <!-- ANCLA INICIO -->
@@ -117,6 +216,27 @@
         <button onclick="limpiar()">✕</button>
       </div>
     </header>
+
+    <!-- 🎬 BANNER CARRUSEL "PRÓXIMAMENTE" -->
+    <div class="banner-carrusel" id="banner-carrusel">
+      <div class="banner-slide active">
+        <a href="proximamente-gl.html" class="banner-img-1"></a>
+      </div>
+      <div class="banner-slide">
+        <a href="proximamente-gl.html" class="banner-img-2"></a>
+      </div>
+      <div class="banner-slide">
+        <a href="proximamente-gl.html" class="banner-img-3"></a>
+      </div>
+
+      <button class="banner-flecha prev" onclick="bannerMover(-1)" aria-label="Anterior">‹</button>
+      <button class="banner-flecha next" onclick="bannerMover(1)" aria-label="Siguiente">›</button>
+
+      <div class="banner-puntos" id="banner-puntos"></div>
+    </div>
+
+    <!-- Línea fina de separación entre banner y reproductor -->
+    <div class="banner-separador"></div>
 
     <!-- HERO VIDEO -->
     <div class="hero">
@@ -527,6 +647,51 @@
     cerrarTodo();
   });
 })();
+</script>
+
+<!-- 🎬 Script del banner carrusel "Próximamente" -->
+<script>
+  (function () {
+    const slides = document.querySelectorAll("#banner-carrusel .banner-slide");
+    const puntosContainer = document.getElementById("banner-puntos");
+    const carrusel = document.getElementById("banner-carrusel");
+    let actual = 0;
+    let autoplay;
+    const INTERVALO_MS = 6000;
+
+    // Crear los puntitos según la cantidad de slides
+    slides.forEach((_, i) => {
+      const b = document.createElement("button");
+      b.className = "banner-punto" + (i === 0 ? " active" : "");
+      b.setAttribute("aria-label", "Ir al slide " + (i + 1));
+      b.onclick = () => irASlide(i);
+      puntosContainer.appendChild(b);
+    });
+    const puntos = document.querySelectorAll(".banner-punto");
+
+    function irASlide(i) {
+      slides[actual].classList.remove("active");
+      puntos[actual].classList.remove("active");
+      actual = (i + slides.length) % slides.length;
+      slides[actual].classList.add("active");
+      puntos[actual].classList.add("active");
+    }
+
+    window.bannerMover = function (dir) {
+      irASlide(actual + dir);
+      reiniciarAutoplay();
+    };
+
+    function reiniciarAutoplay() {
+      clearInterval(autoplay);
+      autoplay = setInterval(() => irASlide(actual + 1), INTERVALO_MS);
+    }
+
+    carrusel.addEventListener("mouseenter", () => clearInterval(autoplay));
+    carrusel.addEventListener("mouseleave", reiniciarAutoplay);
+
+    reiniciarAutoplay();
+  })();
 </script>
 
 
