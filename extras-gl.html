@@ -416,6 +416,12 @@
       const extrasArray = [
 
       {
+          slug: "reaction-moonshadow-series-ep2",
+          videoId: "ORV5zwJZ6gQ", // 👈 reemplazá esto con el ID real de YouTube
+          sinopsis: "",
+        },
+
+      {
           slug: "behind-the-scenes-broken-of-love-hua-cai-sham-rak-q14",
           videoId: "1N9DxDuKNws", // 👈 reemplazá esto con el ID real de YouTube
           sinopsis: "",
@@ -645,6 +651,7 @@
       ];
 
       let playerExtras = null;
+      let indiceActualExtras = 0; // guarda qué video del array se está reproduciendo
 
       // --- Progreso de reproducción (retomar donde quedó cada video) ---
       const CLAVE_PROGRESO_EXTRAS = "glExtrasProgreso";
@@ -716,7 +723,18 @@
         } else if (e.data === YT.PlayerState.ENDED) {
           detenerTrackeoProgresoExtras();
           borrarProgresoExtra(videoId); // terminó: la próxima vez arranca de cero
+          reproducirSiguienteExtra();
         }
+      }
+
+      function reproducirSiguienteExtra() {
+        // Avanza al siguiente extra del array; si era el último,
+        // vuelve a empezar desde el primero (loop continuo).
+        const siguienteIndice = (indiceActualExtras + 1) % extrasArray.length;
+        const siguienteItem = extrasArray[siguienteIndice];
+        // actualizarUrl=true para reflejarlo en la URL, pero sin scroll
+        // (hacerScroll=false) para no mover la pantalla automáticamente.
+        cargarExtra(siguienteItem, true, false);
       }
 
       function guardarProgresoActualExtras() {
@@ -751,14 +769,19 @@
         cargarExtra(item, false); // false = no reescribir la URL al cargar la página
       }
 
-      function cargarExtra(item, actualizarUrl = true) {
+      function cargarExtra(item, actualizarUrl = true, hacerScroll = actualizarUrl) {
         // Antes de cambiar de video, guardamos dónde íbamos en el anterior
         guardarProgresoActualExtras();
         detenerTrackeoProgresoExtras();
 
+        // Guardamos en qué posición del array está este video,
+        // así al terminar sabemos cuál es "el siguiente".
+        const idx = extrasArray.findIndex((it) => it.slug === item.slug);
+        indiceActualExtras = idx !== -1 ? idx : 0;
+
         document.getElementById("episodio-info-extras").textContent =
           "Cargando...";
-        if (actualizarUrl) {
+        if (hacerScroll) {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
 

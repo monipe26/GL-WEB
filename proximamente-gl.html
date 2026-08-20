@@ -410,6 +410,14 @@
       // 👉 "slug" = identificador único para la URL (minúsculas, con guiones, sin espacios ni tildes).
       // Agregá "fecha" y "sinopsis" a mano para cada trailer.
       const proximamenteArray = [
+
+      {
+          slug: "khom-khlang-the-series-official-teaser",
+          videoId: "sMCoQPTUpuY",
+          fecha: "Septiembre 2026",
+          sinopsis:
+            "Pheem, una policía racional, deberá unir fuerzas con Bulan, una misteriosa maestra de rituales, para resolver un caso que las llevará entre magia, secretos y romance.",
+        },
         {
           slug: "juliet-juliet-official-trailer",
           videoId: "AXmCUd_uPOY",
@@ -762,6 +770,7 @@
       ];
 
       let playerProx = null;
+      let indiceActualProx = 0; // guarda qué trailer del array se está reproduciendo
 
       function buscarPorSlug(slug) {
         return proximamenteArray.find((it) => it.slug === slug);
@@ -775,13 +784,20 @@
         cargarTrailer(item, false); // false = no reescribir la URL al cargar la página
       }
 
-      function cargarTrailer(item, actualizarUrl = true) {
+      function cargarTrailer(item, actualizarUrl = true, hacerScroll = actualizarUrl) {
         document.getElementById("episodio-info-prox").textContent =
           "Cargando...";
+
+        // Guardamos en qué posición del array está este trailer,
+        // así al terminar sabemos cuál es "el siguiente".
+        const idx = proximamenteArray.findIndex((it) => it.slug === item.slug);
+        indiceActualProx = idx !== -1 ? idx : 0;
+
         // Solo hacemos scroll cuando el usuario elige un trailer manualmente
-        // (actualizarUrl = true). Si es la carga automática al entrar a la
-        // página (actualizarUrl = false), no hace falta scrollear.
-        if (actualizarUrl) {
+        // (hacerScroll = true). Si es la carga automática al entrar a la
+        // página, o el avance automático al terminar un trailer, no hace
+        // falta scrollear.
+        if (hacerScroll) {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
         if (playerProx && typeof playerProx.loadVideoById === "function") {
@@ -805,6 +821,13 @@
                   });
                 }
               },
+              onStateChange: (e) => {
+                // Cuando el trailer termina, pasamos automáticamente
+                // al siguiente de la lista (sin tocar nada).
+                if (e.data === YT.PlayerState.ENDED) {
+                  reproducirSiguienteTrailer();
+                }
+              },
             },
           });
         }
@@ -813,6 +836,18 @@
           const nuevaUrl = "proximamente-gl.html?t=" + item.slug;
           history.pushState({ slug: item.slug }, "", nuevaUrl);
         }
+      }
+
+      function reproducirSiguienteTrailer() {
+        // Avanza al siguiente trailer del array; si era el último,
+        // vuelve a empezar desde el primero (loop infinito tipo "autoplay").
+        const siguienteIndice =
+          (indiceActualProx + 1) % proximamenteArray.length;
+        const siguienteItem = proximamenteArray[siguienteIndice];
+        // actualizarUrl=true para que quede reflejado en la URL (por si lo
+        // comparten), pero hacerScroll=false para no mover la pantalla
+        // mientras el usuario está viendo/leyendo otra parte de la página.
+        cargarTrailer(siguienteItem, true, false);
       }
 
       // Si el usuario usa los botones de atrás/adelante del navegador
