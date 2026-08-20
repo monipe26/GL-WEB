@@ -31,13 +31,18 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="ships-gl.css" />
-  <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+  <!-- Íconos del navegador y Apple -->
+  <link rel="icon" type="image/png" href="/img/icon-192.png" />
+  <link rel="apple-touch-icon" href="/img/icon-192.png" />
 
   <!-- 📲 PWA Manifest y Configuración Móvil -->
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#ff4fd8" />
   <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="GL Play" />
 
   <!-- 🇦🇷 Estilo para la banderita del footer -->
   <style>
@@ -52,7 +57,7 @@
     }
   </style>
 
-  <!-- Datos estructurados: le dicen a Google, sin ambigüedad, cuál es la descripción oficial del sitio -->
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,7 +76,9 @@
       }
     }
   }
-  </script>  <!-- Estilos del banner carrusel "Próximamente" -->
+  </script>
+
+  <!-- Estilos del banner carrusel "Próximamente" -->
   <style>
     .banner-carrusel {
       position: relative;
@@ -100,12 +107,10 @@
       background-size: cover;
       background-position: center;
     }
-    /* Imagen de cada slide — versión PC (panorámica) */
     .banner-img-1 { background-image: url('/img/banner2.jpg'); }
     .banner-img-2 { background-image: url('/img/banner1.jpg'); }
     .banner-img-3 { background-image: url('/img/banner1.jpg'); }
 
-    /* Versión mobile — recorte propio, más centrado */
     @media (max-width: 700px) {
       .banner-img-1 { background-image: url('/img/banner2-mobile.jpg'); }
       .banner-img-2 { background-image: url('/img/banner1-mobile.jpg'); }
@@ -268,7 +273,7 @@
     <!-- 🎬 Título automático del video (tomado de YouTube) -->
     <div id="video-titulo-youtube" class="video-titulo-yt"></div>
 
-    <!-- 👇 NUEVO: Info de la serie/historia para SEO -->
+    <!-- Info de la serie/historia para SEO -->
     <div id="info-contenido" class="info-contenido"></div>
 
     <!-- SERIES -->
@@ -302,14 +307,14 @@
     </section>
 
     <!-- 💕 SHIPS GL -->
-<section class="section" id="shipsgl">
-  <h2>💕 Ships GL</h2>
-  <p class="subtitulo">Las parejas que nos robaron el corazón</p>
-  <div id="ships-container"></div>
-  <div class="pagination-wrapper">
-    <div class="pagination" id="pagination-ships"></div>
-  </div>
-</section>
+    <section class="section" id="shipsgl">
+      <h2>💕 Ships GL</h2>
+      <p class="subtitulo">Las parejas que nos robaron el corazón</p>
+      <div id="ships-container"></div>
+      <div class="pagination-wrapper">
+        <div class="pagination" id="pagination-ships"></div>
+      </div>
+    </section>
 
     <!-- OSTs GL -->
     <div id="ostsgl" class="section">
@@ -331,17 +336,17 @@
       </div>
     </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-container">
-    <!-- LOGO / MARCA -->
-    <div class="footer-brand">
-      <img
-        src="/img/logo.png"
-        alt="logo"
-      />
-      <p>Tu espacio GL favorito 💖</p>
-    </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- LOGO / MARCA -->
+        <div class="footer-brand">
+          <img
+            src="/img/logo.png"
+            alt="logo"
+          />
+          <p>Tu espacio GL favorito 💖</p>
+        </div>
 
         <!-- LINKS -->
         <div class="footer-links">
@@ -354,8 +359,8 @@
           <a href="#ostsgl">OSTs GL</a>
           <a href="proximamente-gl.html">Próximamente</a>
           <a href="extras-gl.html">🎬 GL Extras</a>
-         <a href="novelas.html">📖 Novelas GL</a>
-         <a href="/minijuegos-gl.html">🎮 Mini Juegos GL</a>
+          <a href="novelas.html">📖 Novelas GL</a>
+          <a href="/minijuegos-gl.html">🎮 Mini Juegos GL</a>
           <a href="#comunidadgl">Comunidad GL</a>
           <a href="sobre-nosotras.html">Sobre Nosotras 💖</a>
         </div>
@@ -369,66 +374,60 @@
           </p>
           <p>Los derechos pertenecen a sus respectivos autores.</p>
           <a href="avisolegal.html" class="footer-links-item">Aviso Legal</a>
-          <a href="privacidad.html" class="footer-links-item"
-            >Politica de Privacidad</a
-          >
-          <a href="cookies.html" class="footer-links-item"
-            >Politica de Cookies</a
-          >
+          <a href="privacidad.html" class="footer-links-item">Politica de Privacidad</a>
+          <a href="cookies.html" class="footer-links-item">Politica de Cookies</a>
         </div>
 
-    <!-- CONTACTO -->
-<div class="footer-contact">
-  <h4>Contacto</h4>
-  <p>Email: contacto@girlsloveplay.com</p>
-  <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn">💖 Apoyar proyecto</a>
-  <div class="footer-socials">
-    <a href="https://www.facebook.com/girlsloveplayoficial/" target="_blank">
-      <img src="/img/iconos/facebook.png" alt="Facebook" />
-    </a>
-    <a href="https://www.instagram.com/girlslove.play" target="_blank">
-      <img src="/img/iconos/instagram.png" alt="Instagram" />
-    </a>
-
-    <a href="https://x.com/girlslove_play" target="_blank">
-      <img src="/img/iconos/x.png" alt="X" />
-    </a>
-  </div>
-</div>
+        <!-- CONTACTO -->
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p>Email: contacto@girlsloveplay.com</p>
+          <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn">💖 Apoyar proyecto</a>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/girlsloveplayoficial/" target="_blank">
+              <img src="/img/iconos/facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.instagram.com/girlslove.play" target="_blank">
+              <img src="/img/iconos/instagram.png" alt="Instagram" />
+            </a>
+            <a href="https://x.com/girlslove_play" target="_blank">
+              <img src="/img/iconos/x.png" alt="X" />
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div> <!-- cierra footer-container -->
-  <div class="footer-bottom">
-    <p>
-      © 2026 Girls Love Play - Argentina
-      <svg class="footer-flag" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de Argentina" role="img">
-        <rect width="60" height="40" fill="#fff" />
-        <rect width="60" height="13.33" fill="#75AADB" />
-        <rect y="26.67" width="60" height="13.33" fill="#75AADB" />
-        <g transform="translate(30,20)">
-          <circle r="4.6" fill="#FFCC33" stroke="#85340A" stroke-width="0.5" />
-          <g fill="#FFCC33" stroke="#85340A" stroke-width="0.4">
-            <g id="footer-rayo">
-              <polygon points="0,-8.5 -0.9,-5.3 0.9,-5.3" />
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 Girls Love Play - Argentina
+          <svg class="footer-flag" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de Argentina" role="img">
+            <rect width="60" height="40" fill="#fff" />
+            <rect width="60" height="13.33" fill="#75AADB" />
+            <rect y="26.67" width="60" height="13.33" fill="#75AADB" />
+            <g transform="translate(30,20)">
+              <circle r="4.6" fill="#FFCC33" stroke="#85340A" stroke-width="0.5" />
+              <g fill="#FFCC33" stroke="#85340A" stroke-width="0.4">
+                <g id="footer-rayo">
+                  <polygon points="0,-8.5 -0.9,-5.3 0.9,-5.3" />
+                </g>
+                <use href="#footer-rayo" transform="rotate(45)" />
+                <use href="#footer-rayo" transform="rotate(90)" />
+                <use href="#footer-rayo" transform="rotate(135)" />
+                <use href="#footer-rayo" transform="rotate(180)" />
+                <use href="#footer-rayo" transform="rotate(225)" />
+                <use href="#footer-rayo" transform="rotate(270)" />
+                <use href="#footer-rayo" transform="rotate(315)" />
+              </g>
+              <circle r="3.2" fill="#FFCC33" stroke="#85340A" stroke-width="0.4" />
+              <circle cx="-1.1" cy="-0.3" r="0.35" fill="#85340A" />
+              <circle cx="1.1" cy="-0.3" r="0.35" fill="#85340A" />
+              <path d="M -1.1 1 Q 0 1.9 1.1 1" stroke="#85340A" stroke-width="0.35" fill="none" stroke-linecap="round" />
             </g>
-            <use href="#footer-rayo" transform="rotate(45)" />
-            <use href="#footer-rayo" transform="rotate(90)" />
-            <use href="#footer-rayo" transform="rotate(135)" />
-            <use href="#footer-rayo" transform="rotate(180)" />
-            <use href="#footer-rayo" transform="rotate(225)" />
-            <use href="#footer-rayo" transform="rotate(270)" />
-            <use href="#footer-rayo" transform="rotate(315)" />
-          </g>
-          <circle r="3.2" fill="#FFCC33" stroke="#85340A" stroke-width="0.4" />
-          <circle cx="-1.1" cy="-0.3" r="0.35" fill="#85340A" />
-          <circle cx="1.1" cy="-0.3" r="0.35" fill="#85340A" />
-          <path d="M -1.1 1 Q 0 1.9 1.1 1" stroke="#85340A" stroke-width="0.35" fill="none" stroke-linecap="round" />
-        </g>
-      </svg>
-      - Todos los derechos reservados
-    </p>
-  </div>
-</footer>
+          </svg>
+          - Todos los derechos reservados
+        </p>
+      </div>
+    </footer>
 
     <script src="/script.js" defer></script>
 
@@ -476,16 +475,16 @@
     </div>
 
     <!-- MODAL SHIPS GL -->
-<div class="modal-overlay" id="modal-ships" onclick="cerrarModalShip(event)">
-  <div class="modal-box">
-    <button class="modal-cerrar" onclick="cerrarModalShip()">✕</button>
-    <img class="modal-img" id="ship-modal-img" src="" alt="" />
-    <p class="modal-fecha" id="ship-modal-ship"></p>
-    <p class="modal-titulo" id="ship-modal-nombres"></p>
-    <div id="ship-modal-body"></div>
-    <button class="modal-subir" onclick="document.querySelector('#modal-ships .modal-box').scrollTop=0">⬆</button>
-  </div>
-</div>
+    <div class="modal-overlay" id="modal-ships" onclick="cerrarModalShip(event)">
+      <div class="modal-box">
+        <button class="modal-cerrar" onclick="cerrarModalShip()">✕</button>
+        <img class="modal-img" id="ship-modal-img" src="" alt="" />
+        <p class="modal-fecha" id="ship-modal-ship"></p>
+        <p class="modal-titulo" id="ship-modal-nombres"></p>
+        <div id="ship-modal-body"></div>
+        <button class="modal-subir" onclick="document.querySelector('#modal-ships .modal-box').scrollTop=0">⬆</button>
+      </div>
+    </div>
  
     <!-- MODAL LEGAL -->
     <div
@@ -521,174 +520,173 @@
       </div>
     </div>
   
-<!-- Banner de bienvenida -->
-<div id="welcomeBanner" style="
-  position: fixed; inset: 0; z-index: 9999;
-  background: rgba(0,0,0,0.75);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-">
-  <canvas id="confettiCanvas" style="position:fixed; inset:0; pointer-events:none;"></canvas>
-  <div style="
-    background: #1a1a1a; color: white; padding: 40px 30px;
-    border-radius: 16px; text-align: center; max-width: 400px;
-    position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    z-index: 2;
-  ">
-    <button id="closeBanner" style="
-      position:absolute; top:10px; right:14px; background:none; border:none;
-      color:white; font-size:22px; cursor:pointer;
-    ">✕</button>
-    <h2 style="margin:0 0 10px; font-size:26px;">🎉 ¡Bienvenidx a Girls Love Play! 🎉</h2>
-    <p style="margin:0; opacity:0.85;">Sentate, relajate y disfrutá</p>
-  </div>
-</div>
+    <!-- Banner de bienvenida -->
+    <div id="welcomeBanner" style="
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.75);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    ">
+      <canvas id="confettiCanvas" style="position:fixed; inset:0; pointer-events:none;"></canvas>
+      <div style="
+        background: #1a1a1a; color: white; padding: 40px 30px;
+        border-radius: 16px; text-align: center; max-width: 400px;
+        position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        z-index: 2;
+      ">
+        <button id="closeBanner" style="
+          position:absolute; top:10px; right:14px; background:none; border:none;
+          color:white; font-size:22px; cursor:pointer;
+        ">✕</button>
+        <h2 style="margin:0 0 10px; font-size:26px;">🎉 ¡Bienvenidx a Girls Love Play! 🎉</h2>
+        <p style="margin:0; opacity:0.85;">Sentate, relajate y disfrutá</p>
+      </div>
+    </div>
 
-<script>
-(function() {
-  const MODO_PRUEBA = false;
-  const FECHA_LANZAMIENTO = "2026-07-14";
-  const DIAS_CAMPANA = 7;
-  const DURACION_CARTEL_MS = 6000;
+    <script>
+    (function() {
+      const MODO_PRUEBA = false;
+      const FECHA_LANZAMIENTO = "2026-07-14";
+      const DIAS_CAMPANA = 7;
+      const DURACION_CARTEL_MS = 6000;
 
-  const inicio = new Date(FECHA_LANZAMIENTO).getTime();
-  const fin = inicio + DIAS_CAMPANA * 24 * 60 * 60 * 1000;
-  const ahora = Date.now();
+      const inicio = new Date(FECHA_LANZAMIENTO).getTime();
+      const fin = inicio + DIAS_CAMPANA * 24 * 60 * 60 * 1000;
+      const ahora = Date.now();
 
-  const banner = document.getElementById("welcomeBanner");
+      const banner = document.getElementById("welcomeBanner");
 
-  if (!MODO_PRUEBA && ahora > fin) {
-    banner.style.display = "none";
-    return;
-  }
+      if (!MODO_PRUEBA && ahora > fin) {
+        banner.style.display = "none";
+        return;
+      }
 
-  if (!MODO_PRUEBA && localStorage.getItem("welcomeShown")) {
-    banner.style.display = "none";
-    return;
-  }
+      if (!MODO_PRUEBA && localStorage.getItem("welcomeShown")) {
+        banner.style.display = "none";
+        return;
+      }
 
-  if (!MODO_PRUEBA) {
-    localStorage.setItem("welcomeShown", "true");
-  }
+      if (!MODO_PRUEBA) {
+        localStorage.setItem("welcomeShown", "true");
+      }
 
-  const canvas = document.getElementById("confettiCanvas");
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+      const canvas = document.getElementById("confettiCanvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-  const coloresSerpentina = ["#ff595e","#ffca3a","#8ac926","#1982c4","#6a4c93"];
+      const coloresSerpentina = ["#ff595e","#ffca3a","#8ac926","#1982c4","#6a4c93"];
 
-  let serpentinas = Array.from({length: 80}, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * -canvas.height,
-    ancho: Math.random() * 6 + 4,
-    alto: Math.random() * 18 + 10,
-    vel: Math.random() * 3 + 2,
-    angulo: Math.random() * 360,
-    velAngulo: Math.random() * 6 - 3,
-    color: coloresSerpentina[Math.floor(Math.random() * coloresSerpentina.length)]
-  }));
+      let serpentinas = Array.from({length: 80}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * -canvas.height,
+        ancho: Math.random() * 6 + 4,
+        alto: Math.random() * 18 + 10,
+        vel: Math.random() * 3 + 2,
+        angulo: Math.random() * 360,
+        velAngulo: Math.random() * 6 - 3,
+        color: coloresSerpentina[Math.floor(Math.random() * coloresSerpentina.length)]
+      }));
 
-  let globos = Array.from({length: 18}, () => ({
-    x: Math.random() * canvas.width,
-    y: canvas.height + Math.random() * 300,
-    vel: Math.random() * 1.5 + 1,
-    tam: Math.random() * 20 + 28,
-    balanceo: Math.random() * 2 - 1,
-    offset: Math.random() * 1000
-  }));
+      let globos = Array.from({length: 18}, () => ({
+        x: Math.random() * canvas.width,
+        y: canvas.height + Math.random() * 300,
+        vel: Math.random() * 1.5 + 1,
+        tam: Math.random() * 20 + 28,
+        balanceo: Math.random() * 2 - 1,
+        offset: Math.random() * 1000
+      }));
 
-  let animando = true;
-  let frame = 0;
+      let animando = true;
+      let frame = 0;
 
-  function dibujar() {
-    if (!animando) return;
-    frame++;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+      function dibujar() {
+        if (!animando) return;
+        frame++;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    serpentinas.forEach(s => {
-      ctx.save();
-      ctx.translate(s.x, s.y);
-      ctx.rotate((s.angulo * Math.PI) / 180);
-      ctx.fillStyle = s.color;
-      ctx.fillRect(-s.ancho / 2, -s.alto / 2, s.ancho, s.alto);
-      ctx.restore();
+        serpentinas.forEach(s => {
+          ctx.save();
+          ctx.translate(s.x, s.y);
+          ctx.rotate((s.angulo * Math.PI) / 180);
+          ctx.fillStyle = s.color;
+          ctx.fillRect(-s.ancho / 2, -s.alto / 2, s.ancho, s.alto);
+          ctx.restore();
 
-      s.y += s.vel;
-      s.angulo += s.velAngulo;
-      if (s.y > canvas.height) s.y = -20;
-    });
+          s.y += s.vel;
+          s.angulo += s.velAngulo;
+          if (s.y > canvas.height) s.y = -20;
+        });
 
-    ctx.textAlign = "center";
-    globos.forEach(g => {
-      ctx.font = g.tam + "px serif";
-      const x = g.x + Math.sin((frame + g.offset) * 0.03) * 15 * g.balanceo;
-      ctx.fillText("🎈", x, g.y);
-      g.y -= g.vel;
-      if (g.y < -50) g.y = canvas.height + 50;
-    });
+        ctx.textAlign = "center";
+        globos.forEach(g => {
+          ctx.font = g.tam + "px serif";
+          const x = g.x + Math.sin((frame + g.offset) * 0.03) * 15 * g.balanceo;
+          ctx.fillText("🎈", x, g.y);
+          g.y -= g.vel;
+          if (g.y < -50) g.y = canvas.height + 50;
+        });
 
-    requestAnimationFrame(dibujar);
-  }
-  dibujar();
+        requestAnimationFrame(dibujar);
+      }
+      dibujar();
 
-  function cerrarTodo() {
-    animando = false;
-    banner.style.display = "none";
-  }
+      function cerrarTodo() {
+        animando = false;
+        banner.style.display = "none";
+      }
 
-  const timer = setTimeout(cerrarTodo, DURACION_CARTEL_MS);
+      const timer = setTimeout(cerrarTodo, DURACION_CARTEL_MS);
 
-  document.getElementById("closeBanner").addEventListener("click", () => {
-    clearTimeout(timer);
-    cerrarTodo();
-  });
-})();
-</script>
+      document.getElementById("closeBanner").addEventListener("click", () => {
+        clearTimeout(timer);
+        cerrarTodo();
+      });
+    })();
+    </script>
 
-<!-- 🎬 Script del banner carrusel "Próximamente" -->
-<script>
-  (function () {
-    const slides = document.querySelectorAll("#banner-carrusel .banner-slide");
-    const puntosContainer = document.getElementById("banner-puntos");
-    const carrusel = document.getElementById("banner-carrusel");
-    let actual = 0;
-    let autoplay;
-    const INTERVALO_MS = 6000;
+    <!-- 🎬 Script del banner carrusel "Próximamente" -->
+    <script>
+      (function () {
+        const slides = document.querySelectorAll("#banner-carrusel .banner-slide");
+        const puntosContainer = document.getElementById("banner-puntos");
+        const carrusel = document.getElementById("banner-carrusel");
+        let actual = 0;
+        let autoplay;
+        const INTERVALO_MS = 6000;
 
-    slides.forEach((_, i) => {
-      const b = document.createElement("button");
-      b.className = "banner-punto" + (i === 0 ? " active" : "");
-      b.setAttribute("aria-label", "Ir al slide " + (i + 1));
-      b.onclick = () => irASlide(i);
-      puntosContainer.appendChild(b);
-    });
-    const puntos = document.querySelectorAll(".banner-punto");
+        slides.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.className = "banner-punto" + (i === 0 ? " active" : "");
+          b.setAttribute("aria-label", "Ir al slide " + (i + 1));
+          b.onclick = () => irASlide(i);
+          puntosContainer.appendChild(b);
+        });
+        const puntos = document.querySelectorAll(".banner-punto");
 
-    function irASlide(i) {
-      slides[actual].classList.remove("active");
-      puntos[actual].classList.remove("active");
-      actual = (i + slides.length) % slides.length;
-      slides[actual].classList.add("active");
-      puntos[actual].classList.add("active");
-    }
+        function irASlide(i) {
+          slides[actual].classList.remove("active");
+          puntos[actual].classList.remove("active");
+          actual = (i + slides.length) % slides.length;
+          slides[actual].classList.add("active");
+          puntos[actual].classList.add("active");
+        }
 
-    window.bannerMover = function (dir) {
-      irASlide(actual + dir);
-      reiniciarAutoplay();
-    };
+        window.bannerMover = function (dir) {
+          irASlide(actual + dir);
+          reiniciarAutoplay();
+        };
 
-    function reiniciarAutoplay() {
-      clearInterval(autoplay);
-      autoplay = setInterval(() => irASlide(actual + 1), INTERVALO_MS);
-    }
+        function reiniciarAutoplay() {
+          clearInterval(autoplay);
+          autoplay = setInterval(() => irASlide(actual + 1), INTERVALO_MS);
+        }
 
-    carrusel.addEventListener("mouseenter", () => clearInterval(autoplay));
-    carrusel.addEventListener("mouseleave", reiniciarAutoplay);
+        carrusel.addEventListener("mouseenter", () => clearInterval(autoplay));
+        carrusel.addEventListener("mouseleave", reiniciarAutoplay);
 
-    reiniciarAutoplay();
-  })();
-</script>
-
+        reiniciarAutoplay();
+      })();
+    </script>
   </body>
 </html>
