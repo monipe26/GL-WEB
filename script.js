@@ -73,7 +73,6 @@ fetch("/data/series.json")
 // =====================
 
 const comunidadArray = [
-  
   { id: "c17", videoId: "S1RJIUquQNw" },
   { id: "c17", videoId: "07lA6tgjWdY" },
   { id: "c16", videoId: "Ks-a0A8IeZQ" },
@@ -99,8 +98,7 @@ const comunidadArray = [
 // ✅ Solo necesitás pegar el videoId — título y miniatura se cargan solos
 // =====================
 const ostsArray = [
-
-    { id: "ost113", videoId: "fRiq7IlCO3c" },
+  { id: "ost113", videoId: "fRiq7IlCO3c" },
   { id: "ost112", videoId: "hpbb1xLc-tE" },
   { id: "ost112", videoId: "Ra0ZOFiHoEI" },
   { id: "ost111", videoId: "jad-V_nyvaY" },
@@ -212,6 +210,7 @@ const ostsArray = [
   { id: "ost2", videoId: "BKBA4FqZwEg" },
   { id: "ost1", videoId: "lvBRWn8qldg" },
 ];
+
 // =====================
 // TIENDA GL
 // =====================
@@ -227,8 +226,6 @@ const explorarArray = [
 // =====================
 // 💕 SHIPS GL - DATOS
 // =====================
-// PEGÁ este bloque ANTES de la línea: renderSection(seriesArray, ...)
-// que está al final de tu script.js
 
 const shipsArray = [
   {
@@ -251,7 +248,6 @@ const shipsArray = [
     descripcion:
       "Una de las parejas GL más icónicas del mundo. Freen y Becky se conocieron trabajando juntas y su química en pantalla conquistó a millones de fans globales. GAP: The Series acumuló más de 900 millones de vistas en YouTube.",
   },
-
   {
     ship: "LMSY",
     slug: "lmsy-gl-ship",
@@ -271,7 +267,6 @@ const shipsArray = [
     descripcion:
       "Lookmhee y Sonya debutaron juntas en Affair (2024) y rápidamente se convirtieron en una de las parejas GL más queridas de Tailandia. Su segunda serie Harmony Secret (2025) las catapultó a nivel internacional. En 2026 regresan con Hometown Romance, consolidando su lugar entre las duplas GL más poderosas del momento.",
   },
-
   {
     ship: "LingOrm",
     slug: "lingorm-gl-ship",
@@ -291,7 +286,6 @@ const shipsArray = [
     descripcion:
       "LingOrm debutó con The Secret of Us, el primer GL en horario prime de Channel 3. Su química natural y las historias maduras que protagonizan las convirtieron en un fenómeno global, especialmente en Corea del Sur.",
   },
-
   {
     ship: "Englot",
     slug: "englot-gl-ship",
@@ -313,7 +307,6 @@ const shipsArray = [
     descripcion:
       "Engfa es actriz y exreina de belleza, Charlotte es actriz tailandesa-occidental. Juntas forman una de las parejas GL más estéticas del medio. Son embajadoras de Dior y participan en el mega proyecto 4 Elements.",
   },
-
   {
     ship: "FayeAtom",
     slug: "fayeatom-gl-ship",
@@ -329,7 +322,6 @@ const shipsArray = [
     descripcion:
       "Faye es actriz, exreina de belleza Miss Grand Thailand 2016 y fundadora de Fabel Entertainment. Atom es cantante y ex integrante del grupo idol VIIS. Su primera serie juntas es Broken of Love (2026), donde Faye interpreta a una mujer marcada por la venganza que se enamora de la hija de su enemigo, papel de Atom.",
   },
-
   {
     ship: "MilkLove",
     slug: "milklove-gl-ship",
@@ -350,7 +342,6 @@ const shipsArray = [
     descripcion:
       "Milk y Love comenzaron como pareja secundaria en un BL y se convirtieron en las primeras GL leads de GMMTV con 23.5, que debutó simultáneamente en Netflix. Son una de las duplas GL más queridas del fandom tailandés.",
   },
-
   {
     ship: "NamtanFilm",
     slug: "namtanfilm-gl-ship",
@@ -366,7 +357,6 @@ const shipsArray = [
     descripcion:
       "Namtan es una de las actrices más reconocidas de GMMTV con una larga trayectoria. Film Rachanun es su contraparte GL. Juntas protagonizan la historia de Prim y Freen en Girl Rules junto a otras parejas GL.",
   },
-
   {
     ship: "AppleMim",
     slug: "applemim-gl-ship",
@@ -455,7 +445,6 @@ const shipsArray = [
     descripcion:
       "Noon y Praewa se conocieron como pareja secundaria en Love Senior (2023) y volvieron a compartir pantalla en el BL Flirt Milk (2025). Su popularidad dentro del fandom llevó a que Star Hunter Entertainment les diera su primera oportunidad como pareja GL protagonista en Hidden Heart, uno de los proyectos más esperados del género.",
   },
-
   {
     ship: "LillyBelle",
     slug: "lillybelle-gl-ship",
@@ -489,7 +478,6 @@ const shipsArray = [
     descripcion:
       "Lena y Miu son la segunda pareja GL de Channel 3 tras LingOrm. En My Safe Zone interpretan a Alin y Jane, dos amigas que llevan 8 años en una zona de amistad que empieza a tambalearse. Su química natural y los temas emotivos de la serie la convirtieron en uno de los GL más destacados de 2025. En 2026 regresan juntas en Pls. Love.",
   },
-
   {
     ship: "GraceOaey",
     slug: "graceoaey-gl-ship",
@@ -520,7 +508,6 @@ const shipsArray = [
     descripcion:
       "Fay y May debutaron juntas en My Marvellous Dream Is You (2024), donde sus personajes se ven la una en los sueños de la otra. Regresaron en Somewhere Somehow (2025), donde son ex novias del colegio que se reencuentran como jefa y empleada. Tras salir de",
   },
-
   {
     ship: "EnjoyJune",
     slug: "enjoyjune-gl-ship",
@@ -551,7 +538,6 @@ const shipsArray = [
     descripcion:
       "Emi y Bonnie debutaron en Us (2025), la tercera serie GL de GMMTV, donde interpretan a Dokrak y Pam en una historia de amor llena de obstáculos. En febrero 2026 debutaron como dúo musical EMIBONNIE bajo Riser Music con el single: Fall For You. Regresan a pantalla con Moonshadow, prevista para diciembre 2026.",
   },
-
   {
     ship: "ChristineMae",
     slug: "christinemae-gl-ship",
@@ -567,7 +553,6 @@ const shipsArray = [
     descripcion:
       "Christine y Mae protagonizaron Reverse 4 You (2024), una GL de amor y destino donde Jattawa puede controlar el tiempo y su hermana predice que su alma gemela es Four, su senior con mala reputación. La serie está disponible en Netflix. Ambas han dejado Kantana Motion Pictures y están trabajando en proyectos separados por el momento.",
   },
-
   {
     ship: "BleJi",
     slug: "bleji-gl-ship",
@@ -609,7 +594,6 @@ const shipsArray = [
       { nombre: "Anda", url: "https://www.instagram.com/anda_anunta" },
       { nombre: "Lookkaew", url: "https://www.instagram.com/lookkaeww_k" },
     ],
-
     series: ["Love Senior (2023) ", "Remain (2026), próximamente"],
     descripcion:
       "Anda y Lookkaew son integrantes del grupo idol COSMOS bajo Star Hunter Entertainment. Debutaron como pareja GL en Love Senior (2023) y se convirtieron en una de las duplas más queridas del fandom. Regresan juntas en Remain (2026), su tercera serie GL.",
@@ -927,21 +911,6 @@ function cerrarModalMundoGL(e) {
 
 const globalData = [...seriesArray, ...comunidadArray, ...explorarArray];
 
-const secciones = [
-  {
-    array: seriesArray,
-    containerId: "series-container",
-    paginationId: "pagination-series",
-    sectionId: "series",
-  },
-  {
-    array: noticiasArray,
-    containerId: "noticias-container",
-    paginationId: "pagination-noticias",
-    sectionId: "noticias",
-  },
-];
-
 function buscar() {
   const input = document.getElementById("buscador").value.toLowerCase().trim();
   if (input === "") {
@@ -1114,9 +1083,6 @@ function claveProgreso(serieId) {
 
 const CLAVE_ULTIMA_SERIE = "ultima_serie_vista";
 
-// 📺 Guarda cuál fue la última serie que el usuario estaba mirando, para
-// poder retomarla sola cuando vuelve a entrar a la página (aunque sea al
-// día siguiente), en vez de arrancar siempre con la serie de portada.
 function guardarUltimaSerie(serieId) {
   try {
     localStorage.setItem(CLAVE_ULTIMA_SERIE, serieId);
@@ -1168,8 +1134,6 @@ function borrarProgreso(serieId) {
 // YOUTUBE API
 // =====================
 
-// En Android, al entrar a pantalla completa, intentamos forzar horizontal
-// (en iPhone/Safari no tiene efecto, Apple no lo permite desde la web)
 document.addEventListener("fullscreenchange", () => {
   if (document.fullscreenElement) {
     if (screen.orientation && screen.orientation.lock) {
@@ -1200,15 +1164,8 @@ function onYouTubeIframeAPIReady() {
     events: {
       onReady: (e) => {
         playerReady = true;
-        // Si entramos directo a un link de /serie/algo, esa ruta se va a
-        // encargar de cargar la serie correcta. Cargar GAP acá también
-        // generaba una doble orden al reproductor casi simultánea, que a
-        // veces hacía que YouTube tire error de reproducción.
         const path = window.location.pathname;
         if (!path.startsWith("/serie/")) {
-          // 📺 Si el usuario ya venía mirando una serie (aunque haya sido
-          // ayer), retomamos esa en vez de arrancar siempre con la serie
-          // de portada.
           const ultimaSerie = obtenerUltimaSerie();
           const existeUltimaSerie =
             ultimaSerie && [...seriesArray].some((s) => s.id === ultimaSerie);
@@ -1216,12 +1173,8 @@ function onYouTubeIframeAPIReady() {
         }
       },
       onError: (e) => {
-        // El video/playlist no se puede embeber (bloqueado por el canal, borrado, etc.)
         mostrarFallbackEmbed();
       },
-      // 🔤 Se dispara cuando los módulos internos del reproductor (como el
-      // de subtítulos) terminan de cargar. Es el momento más confiable para
-      // forzar el idioma, más confiable incluso que "PLAYING".
       onApiChange: () => {
         forzarSubtitulos(0);
       },
@@ -1239,15 +1192,10 @@ function onYouTubeIframeAPIReady() {
 
           forzarSubtitulos();
 
-          // 💾 arranca a guardar el progreso cada 5s mientras se reproduce
           if (!progressInterval) {
             progressInterval = setInterval(guardarProgreso, 5000);
           }
 
-          // 🔤 vigía: cada 4s, mientras se está reproduciendo, chequea que
-          // el subtítulo siga puesto y si YouTube lo apagó solo (pasa en
-          // algunos episodios/dispositivos, sobre todo al salir de pantalla
-          // completa o girar la pantalla), lo vuelve a prender.
           if (!subsWatchdog) {
             subsWatchdog = setInterval(() => {
               if (!player || !player.getOption || !player.getPlayerState)
@@ -1266,7 +1214,7 @@ function onYouTubeIframeAPIReady() {
         }
 
         if (e.data === YT.PlayerState.PAUSED) {
-          guardarProgreso(); // guarda también al pausar
+          guardarProgreso();
         }
 
         if (e.data === YT.PlayerState.ENDED) {
@@ -1283,7 +1231,6 @@ function onYouTubeIframeAPIReady() {
             return;
           }
 
-          // 💾 la serie terminó del todo: borramos el progreso guardado
           if (progressInterval) {
             clearInterval(progressInterval);
             progressInterval = null;
@@ -1306,9 +1253,6 @@ function onYouTubeIframeAPIReady() {
 // REPRODUCTOR FUNCIONES
 // =====================
 
-// Cuando un video/playlist no se puede reproducir embebido (bloqueado por
-// el canal), mostramos un botón para verlo directo en YouTube en vez de
-// dejar la pantalla trabada sin explicación.
 function mostrarFallbackEmbed() {
   const fallback = document.getElementById("embed-fallback");
   const link = document.getElementById("embed-fallback-link");
@@ -1354,15 +1298,11 @@ function cargarSerie(id) {
   }
   ocultarTikTok();
 
-  ocultarTikTok();
-
-  // 🔧 Por si veníamos de un OST o Comunidad (que la esconden), volvemos a mostrar la botonera
   const controlesEpisodio = document.querySelector(".player-controls");
   if (controlesEpisodio) {
     controlesEpisodio.classList.remove("oculto-controles");
   }
 
-  // 🔧 Adaptar el reproductor a vertical si la serie es un short
   const hero = document.querySelector(".hero");
   if (serie.esShort) {
     hero.style.aspectRatio = "9/16";
@@ -1388,7 +1328,6 @@ function cargarSerie(id) {
     return;
   }
 
-  // 💾 ¿hay progreso guardado de esta serie? si hay, retomamos ahí
   const progreso = obtenerProgreso(id);
 
   if (serie.playlist) {
@@ -1404,7 +1343,6 @@ function cargarSerie(id) {
       const lista = player.getPlaylist();
       playlistLength = lista && lista.length ? lista.length : 0;
       lastPlaylistIndex = -1;
-      // 💾 si veníamos con un segundo guardado, saltamos ahí
       if (progreso && progreso.segundo > 0 && player.seekTo) {
         player.seekTo(progreso.segundo, true);
       }
@@ -1547,7 +1485,6 @@ function actualizarEpisodio() {
     return;
   }
 
-  // Si no es una serie (es un short/historia de microficción u otro contenido)
   info.innerText = "Episodio " + (current + 1) + " de " + playlist.length;
 }
 
@@ -1564,7 +1501,6 @@ function actualizarTituloYoutube() {
   if (data && data.title) {
     el.innerText = data.title;
   } else {
-    // A veces YouTube tarda un instante en entregar el título, reintentamos
     setTimeout(actualizarTituloYoutube, 300);
   }
 }
@@ -1574,7 +1510,6 @@ function actualizarTituloYoutube() {
 // =====================
 
 function mostrarInfoContenido(item) {
-  // Desactivado por ahora
   return;
 }
 
@@ -1665,6 +1600,7 @@ function reproducirContenido(item, ocultarControles = false) {
   }, 200);
   document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
 }
+
 // =====================
 // 🎞 RENDER SERIES CARDS + PAGINACIÓN
 // =====================
@@ -1748,6 +1684,7 @@ function renderSection(array, containerId, paginationId, perPage = 20) {
 
   render();
 }
+
 // =====================
 // 📺 RENDER COMUNIDAD
 // =====================
@@ -1887,6 +1824,7 @@ function renderComunidad(
 
   render();
 }
+
 // =====================
 // 📰 RENDER NOTICIAS
 // =====================
@@ -1900,42 +1838,28 @@ function renderNoticias(
   openFn = abrirNoticia
 ) {
   let page = 1;
-
   const container = document.getElementById(containerId);
-
   const pagination = document.getElementById(paginationId);
 
   function render() {
     container.innerHTML = "";
-
     const start = (page - 1) * perPage;
-
     const end = start + perPage;
 
     array.slice(start, end).forEach((item) => {
       const div = document.createElement("div");
-
       div.className = "noticia-card";
-
       div.style.cursor = "pointer";
-
       div.onclick = () => openFn(item);
 
       div.innerHTML = `
         <div class="noticia-img">
           <img loading="lazy" src="${item.img}" alt="${item.titulo}">
         </div>
-
         <div class="noticia-info">
           <p class="noticia-fecha">📅 ${item.fecha}</p>
-
-          <p class="noticia-titulo">
-            ${item.titulo}
-          </p>
-
-          <p class="noticia-texto">
-  ${item.resumen || item.texto}
-</p>
+          <p class="noticia-titulo">${item.titulo}</p>
+          <p class="noticia-texto">${item.resumen || item.texto}</p>
         </div>
       `;
 
@@ -1943,14 +1867,11 @@ function renderNoticias(
     });
 
     pagination.innerHTML = "";
-
     const total = Math.ceil(array.length / perPage);
 
     for (let i = 1; i <= total; i++) {
       const b = document.createElement("button");
-
       b.textContent = i;
-
       if (i === page) b.classList.add("active");
 
       b.onclick = () => {
@@ -1971,6 +1892,7 @@ function renderNoticias(
 
   render();
 }
+
 // =====================
 // 🟣 ABRIR NOTICIA SEO
 // =====================
@@ -2001,7 +1923,6 @@ function cerrarSerie() {
 // 📰 MODAL
 // =====================
 
-// Cache en memoria: si ya se pidió un detalle, no se vuelve a fetchear
 const detalleCache = {
   noticias: new Map(),
 };
@@ -2019,13 +1940,11 @@ async function obtenerDetalleCompleto(tipo, id) {
 }
 
 async function abrirModal(item, tipo = "noticias") {
-  // Datos livianos (ya los tenemos desde el índice) -> se muestran al instante
   document.getElementById("modal-img").src = item.img;
   document.getElementById("modal-fecha").textContent = "📅 " + item.fecha;
   document.getElementById("modal-titulo").textContent = item.titulo;
   document.getElementById("modal-texto").textContent = "Cargando...";
 
-  // El trailer ya viene en el índice -> se muestra de una, sin esperar el fetch
   const videoEl = document.getElementById("modal-video");
   if (item.trailer) {
     videoEl.innerHTML = `
@@ -2061,12 +1980,10 @@ async function abrirModal(item, tipo = "noticias") {
   document.getElementById("modal-noticias").classList.add("active");
   document.body.style.overflow = "hidden";
 
-  // Solo el texto se pide bajo demanda
   try {
     const detalle = await obtenerDetalleCompleto(tipo, item.id);
     let textoHtml = detalle.texto.replace(/\n\n/g, "<br><br>");
 
-    // Si el detalle tiene una segunda imagen (imgFinal), se agrega debajo del texto
     if (detalle.imgFinal) {
       textoHtml += `
         <img
@@ -2091,13 +2008,9 @@ async function abrirModal(item, tipo = "noticias") {
 
 function cerrarModal(e) {
   if (e && e.target !== document.getElementById("modal-noticias")) return;
-
   document.getElementById("modal-noticias").classList.remove("active");
-
   document.body.style.overflow = "";
-
   history.pushState({}, "", "/");
-
   document.title = "GL Series";
 }
 
@@ -2115,7 +2028,7 @@ renderComunidad(
   "comunidadgl"
 );
 renderComunidad(ostsArray, "osts-container", "pagination-osts", 8, "ostsgl");
-// Fix scroll al inicio (SIEMPRE arriba, sin importar el # que tenga la URL)
+
 if (!window.location.hash) {
   window.scrollTo(0, 0);
   setTimeout(() => window.scrollTo(0, 0), 300);
@@ -2180,5 +2093,55 @@ window.addEventListener("load", () => {
         "url('https://i.postimg.cc/Zn5kq1g3/Cielo-nocturno-de-luces-suaves.png') no-repeat center/cover";
       abrirShip(ship);
     }
+  }
+});
+
+// =====================
+// 📲 PWA: SERVICE WORKER & INSTALACIÓN
+// =====================
+let deferredPrompt = null;
+const btnPwa = document.getElementById("btn-pwa-instalar");
+
+// 1. Registrar Service Worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .catch((err) => console.error("Error registrando SW:", err));
+  });
+}
+
+// 2. Capturar evento de instalación nativo
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (btnPwa && window.innerWidth <= 700) {
+    btnPwa.classList.add("pwa-visible");
+  }
+});
+
+// 3. Manejar el clic en el botón del menú
+if (btnPwa) {
+  btnPwa.addEventListener("click", async (e) => {
+    e.preventDefault();
+    if (!deferredPrompt) {
+      alert("Para agregarla, abrí el menú de tu navegador y elegí 'Agregar a la pantalla principal'.");
+      return;
+    }
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === "accepted") {
+      btnPwa.classList.remove("pwa-visible");
+      btnPwa.style.display = "none";
+    }
+    deferredPrompt = null;
+  });
+}
+
+// 4. Ocultar botón si ya está instalada
+window.addEventListener("appinstalled", () => {
+  if (btnPwa) {
+    btnPwa.classList.remove("pwa-visible");
+    btnPwa.style.display = "none";
   }
 });

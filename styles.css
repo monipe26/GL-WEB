@@ -436,9 +436,6 @@ body {
 /* ===================== */
 /* PAGINACIÓN */
 /* ===================== */
-/* ===================== */
-/* PAGINACIÓN */
-/* ===================== */
 .pagination-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -948,7 +945,7 @@ body {
   }
 }
 
-/* 👇 PEGÁ ACÁ */
+/* OSTs */
 #osts-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -962,6 +959,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 /* ===================== */
 /* NOTICIAS GL - GRID    */
 /* ===================== */
@@ -1069,8 +1067,6 @@ body {
   }
 }
 
-/* Si la última tarjeta queda sola en su fila (cantidad impar de noticias),
-   que ocupe TODO el ancho de la fila, sin dejar ningún espacio vacío */
 @media (max-width: 900px) {
   #noticias-container .noticia-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
@@ -1124,6 +1120,7 @@ body {
   );
   pointer-events: none;
 }
+
 /* ===================== */
 /* MODAL NOTICIAS        */
 /* ===================== */
@@ -1227,6 +1224,7 @@ body {
 .modal-texto.ship-desc {
   min-height: 0;
 }
+
 /* ===================== */
 /* BANNER TOP            */
 /* ===================== */
@@ -1343,4 +1341,26 @@ body {
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
   margin: 0 2px;
+}
+
+/* ===================== */
+/* 📲 BOTÓN PWA EN MENÚ MÓVIL */
+/* ===================== */
+.nav-pwa-install {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .nav.active .nav-pwa-install.pwa-visible {
+    display: block !important;
+    width: 80%;
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 79, 216, 0.3);
+    color: #ff77d6 !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 79, 216, 0.4);
+  }
 }

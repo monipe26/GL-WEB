@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
 
@@ -30,6 +32,12 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="ships-gl.css" />
   <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+  <!-- 📲 PWA Manifest y Configuración Móvil -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#ff4fd8" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <!-- 🇦🇷 Estilo para la banderita del footer -->
   <style>
@@ -200,6 +208,9 @@
         <a href="novelas.html">📖 Novelas GL</a>
         <a href="/minijuegos-gl.html">🎮 Mini Juegos GL</a>
         <a href="#comunidadgl">Comunidad GL</a>
+
+        <!-- 📲 BOTÓN PWA (SOLO MÓVIL) -->
+        <a href="#" id="btn-pwa-instalar" class="nav-pwa-install" style="display: none;">📲 AÑADIR A INICIO</a>
       </nav>
 
       <!-- BUSCADOR -->
@@ -379,13 +390,9 @@
       <img src="/img/iconos/instagram.png" alt="Instagram" />
     </a>
 
-    
-
     <a href="https://x.com/girlslove_play" target="_blank">
       <img src="/img/iconos/x.png" alt="X" />
     </a>
-
-   
   </div>
 </div>
       </div>
@@ -480,7 +487,6 @@
   </div>
 </div>
  
-
     <!-- MODAL LEGAL -->
     <div
       class="modal-overlay"
@@ -540,14 +546,10 @@
 
 <script>
 (function() {
-  // ============================================
-  // 👇 CONFIGURACIÓN — TOCÁ SOLO ESTO
-  // ============================================
-  const MODO_PRUEBA = false; // true = aparece siempre, aunque ya lo hayas visto (para probar) | false = una sola vez por persona
-  const FECHA_LANZAMIENTO = "2026-07-14"; // fecha real en que activás el hosting
+  const MODO_PRUEBA = false;
+  const FECHA_LANZAMIENTO = "2026-07-14";
   const DIAS_CAMPANA = 7;
-  const DURACION_CARTEL_MS = 6000; // 6 segundos
-  // ============================================
+  const DURACION_CARTEL_MS = 6000;
 
   const inicio = new Date(FECHA_LANZAMIENTO).getTime();
   const fin = inicio + DIAS_CAMPANA * 24 * 60 * 60 * 1000;
@@ -569,7 +571,6 @@
     localStorage.setItem("welcomeShown", "true");
   }
 
-  // --- Canvas ---
   const canvas = document.getElementById("confettiCanvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
@@ -577,7 +578,6 @@
 
   const coloresSerpentina = ["#ff595e","#ffca3a","#8ac926","#1982c4","#6a4c93"];
 
-  // Serpentinas cayendo (tiras rectangulares que rotan)
   let serpentinas = Array.from({length: 80}, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * -canvas.height,
@@ -589,7 +589,6 @@
     color: coloresSerpentina[Math.floor(Math.random() * coloresSerpentina.length)]
   }));
 
-  // Globos subiendo (emoji)
   let globos = Array.from({length: 18}, () => ({
     x: Math.random() * canvas.width,
     y: canvas.height + Math.random() * 300,
@@ -607,7 +606,6 @@
     frame++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Dibujar serpentinas
     serpentinas.forEach(s => {
       ctx.save();
       ctx.translate(s.x, s.y);
@@ -621,7 +619,6 @@
       if (s.y > canvas.height) s.y = -20;
     });
 
-    // Dibujar globos con emoji
     ctx.textAlign = "center";
     globos.forEach(g => {
       ctx.font = g.tam + "px serif";
@@ -659,7 +656,6 @@
     let autoplay;
     const INTERVALO_MS = 6000;
 
-    // Crear los puntitos según la cantidad de slides
     slides.forEach((_, i) => {
       const b = document.createElement("button");
       b.className = "banner-punto" + (i === 0 ? " active" : "");
@@ -694,7 +690,5 @@
   })();
 </script>
 
-
   </body>
-  
 </html>
