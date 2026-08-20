@@ -2162,52 +2162,6 @@ document.querySelectorAll('a[href="#inicio"]').forEach((link) =>
   })
 );
 
-// =====================
-// PWA - BOTÓN "AÑADIR A INICIO" (solo menú móvil)
-// =====================
-(function () {
-  let deferredPrompt = null;
-  const pwaItem = document.getElementById("pwa-install-item");
-  const pwaBtn = document.getElementById("pwa-install-btn");
-
-  function isAppInstalled() {
-    return (
-      window.matchMedia("(display-mode: standalone)").matches ||
-      window.navigator.standalone === true // iOS Safari
-    );
-  }
-
-  if (isAppInstalled() && pwaItem) {
-    pwaItem.hidden = true;
-  }
-
-  // Chrome/Android disparan este evento cuando el sitio cumple los requisitos de instalación
-  window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault();
-    deferredPrompt = event;
-    if (pwaItem && !isAppInstalled()) {
-      pwaItem.hidden = false;
-    }
-  });
-
-  if (pwaBtn) {
-    pwaBtn.addEventListener("click", async () => {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log("Resultado instalación PWA:", outcome);
-      deferredPrompt = null;
-      if (pwaItem) pwaItem.hidden = true;
-      document.querySelector(".nav").classList.remove("active");
-    });
-  }
-
-  window.addEventListener("appinstalled", () => {
-    if (pwaItem) pwaItem.hidden = true;
-    deferredPrompt = null;
-  });
-})();
-
 // MODAL LEGAL
 function cerrarModalLegal(e) {
   if (!e || e.target.classList.contains("modal-overlay")) {

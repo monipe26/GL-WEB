@@ -173,40 +173,6 @@ body {
 }
 
 /* ===================== */
-/* BOTÓN INSTALAR PWA (solo menú móvil) */
-/* ===================== */
-/* La visibilidad la controla el JS con el atributo [hidden].
-   Este bloque solo se encarga de que en desktop quede SIEMPRE oculto. */
-@media (min-width: 701px) {
-  .pwa-install-item {
-    display: none !important;
-  }
-}
-
-.pwa-install-btn {
-  display: block;
-  width: 100%;
-  background: transparent;
-  border: none;
-  color: #ff4fd8;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 13px;
-  text-align: center;
-  padding: 12px 0 0 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.pwa-install-btn:hover,
-.pwa-install-btn:active {
-  color: #ff4fd8;
-  opacity: 1;
-  text-shadow: 0 0 8px #ff4fd8;
-}
-
-/* ===================== */
 /* DROPDOWN "NOTICIAS GL" */
 /* ===================== */
 .nav-dropdown {
@@ -553,12 +519,6 @@ body {
 
   .nav.active {
     display: flex;
-  }
-
-  .pwa-install-item {
-    width: 80%;
-    border-top: 1px solid rgba(255, 79, 216, 0.25);
-    margin-top: 8px;
   }
 
   .nav-dropdown {
@@ -1112,21 +1072,18 @@ body {
 /* Si la última tarjeta queda sola en su fila (cantidad impar de noticias),
    que ocupe TODO el ancho de la fila, sin dejar ningún espacio vacío */
 @media (max-width: 900px) {
-  #noticias-container .noticia-card:last-child:nth-child(odd),
-  #mundogl-container .noticia-card:last-child:nth-child(odd) {
+  #noticias-container .noticia-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     flex-direction: row;
   }
 
-  #noticias-container .noticia-card:last-child:nth-child(odd) .noticia-img,
-  #mundogl-container .noticia-card:last-child:nth-child(odd) .noticia-img {
+  #noticias-container .noticia-card:last-child:nth-child(odd) .noticia-img {
     width: 45%;
     aspect-ratio: unset;
     height: auto;
   }
 
-  #noticias-container .noticia-card:last-child:nth-child(odd) .noticia-info,
-  #mundogl-container .noticia-card:last-child:nth-child(odd) .noticia-info {
+  #noticias-container .noticia-card:last-child:nth-child(odd) .noticia-info {
     flex: 1;
     justify-content: center;
   }
