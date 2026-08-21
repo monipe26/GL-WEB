@@ -9,6 +9,8 @@ let player,
 let currentSerieId = "gaptheseries";
 let playingOst = false;
 let ostTimer = null;
+let autoplayOstAleatorio = false; // 🎲 true mientras se reproducen OSTs de la galería en bucle aleatorio
+let ultimoOstVideoId = null; // evita repetir el mismo OST dos veces seguidas
 let idiomaSubtituloAplicado = false; // evita re-forzar el idioma en cada pausa/play
 let playlistLength = 0;
 let lastPlaylistIndex = -1;
@@ -1218,6 +1220,22 @@ function onYouTubeIframeAPIReady() {
         }
 
         if (e.data === YT.PlayerState.ENDED) {
+          // 🎲 OSTs GL: al terminar uno, sigue automáticamente con otro al azar
+          if (autoplayOstAleatorio && ostsArray.length) {
+            const disponibles = ostsArray.filter(
+              (o) => o.videoId !== ultimoOstVideoId
+            );
+            const pool = disponibles.length ? disponibles : ostsArray;
+            const siguiente = pool[Math.floor(Math.random() * pool.length)];
+            if (siguiente) {
+              ultimoOstVideoId = siguiente.videoId;
+              currentSerieId = siguiente.id;
+              guardarUltimaSerie(siguiente.id);
+              player.loadVideoById(siguiente.videoId);
+            }
+            return;
+          }
+
           const serie = [...seriesArray].find((s) => s.id === currentSerieId);
 
           if (serie && serie.playlist && serie.ostVideo && !playingOst) {
@@ -1292,6 +1310,8 @@ function cargarSerie(id) {
   playingOst = false;
   playlistLength = 0;
   lastPlaylistIndex = -1;
+  autoplayOstAleatorio = false;
+  ultimoOstVideoId = null;
   if (ostTimer) {
     clearTimeout(ostTimer);
     ostTimer = null;
@@ -1524,7 +1544,7 @@ function ocultarInfoContenido() {
 // ▶ REPRODUCTOR UNIVERSAL
 // =====================
 
-function reproducirContenido(item, ocultarControles = false) {
+function reproducirContenido(item, ocultarControles = false, esGaleriaOst = false) {
   idiomaSubtituloAplicado = false;
   document
     .querySelectorAll(".card")
@@ -1537,6 +1557,8 @@ function reproducirContenido(item, ocultarControles = false) {
   playingOst = false;
   playlistLength = 0;
   lastPlaylistIndex = -1;
+  autoplayOstAleatorio = esGaleriaOst;
+  ultimoOstVideoId = esGaleriaOst ? item.videoId : null;
   if (ostTimer) {
     clearTimeout(ostTimer);
     ostTimer = null;
@@ -1754,7 +1776,8 @@ function renderComunidad(
       div.onclick = () => {
         reproducirContenido(
           item,
-          sectionId === "ostsgl" || sectionId === "comunidadgl"
+          sectionId === "ostsgl" || sectionId === "comunidadgl",
+          sectionId === "ostsgl"
         );
       };
 
