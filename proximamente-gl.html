@@ -300,7 +300,10 @@
         <div class="footer-contact">
           <h4>Contacto</h4>
           <p>Email: contacto@girlsloveplay.com</p>
-          <a href="TU-LINK-PAYPAL" target="_blank" class="donate-btn"
+          <a
+            href="https://ko-fi.com/girlsloveplay"
+            target="_blank"
+            class="donate-btn"
             >💖 Apoyar proyecto</a
           >
           <div class="footer-socials">
@@ -410,9 +413,7 @@
       // 👉 "slug" = identificador único para la URL (minúsculas, con guiones, sin espacios ni tildes).
       // Agregá "fecha" y "sinopsis" a mano para cada trailer.
       const proximamenteArray = [
-
-      
-      {
+        {
           slug: "tsukiatte-agetemo-ii-kana-gl-live-action",
           videoId: "CXVDGq8dRJg",
           fecha: "Septiembre 2026",
@@ -420,7 +421,7 @@
             "Miwa y Saeko comienzan una relación casi por impulso. Lo que parece una experiencia nueva y emocionante pronto las enfrentará a sus inseguridades, deseos y desafíos como pareja.",
         },
 
-      {
+        {
           slug: "khom-khlang-the-series-official-teaser",
           videoId: "sMCoQPTUpuY",
           fecha: "Septiembre 2026",
@@ -793,7 +794,11 @@
         cargarTrailer(item, false); // false = no reescribir la URL al cargar la página
       }
 
-      function cargarTrailer(item, actualizarUrl = true, hacerScroll = actualizarUrl) {
+      function cargarTrailer(
+        item,
+        actualizarUrl = true,
+        hacerScroll = actualizarUrl
+      ) {
         document.getElementById("episodio-info-prox").textContent =
           "Cargando...";
 
