@@ -688,5 +688,16 @@
         reiniciarAutoplay();
       })();
     </script>
+
+    <!-- Detecta cuándo alguien instala la PWA y lo manda a Google Analytics -->
+    <script>
+      window.addEventListener('appinstalled', function() {
+        gtag('event', 'pwa_instalada', {
+          'event_category': 'PWA',
+          'event_label': 'Usuario instaló la app desde el navegador'
+        });
+        console.log('PWA instalada - evento enviado a Analytics');
+      });
+    </script>
   </body>
 </html>
