@@ -1368,5 +1368,5 @@ body {
 
 /* 🔧 Ajuste: primera tarjeta de Mundo GL se recortaba el texto de la izquierda */
 #mundogl-container .noticia-card:nth-child(1) .noticia-img img {
-  object-position: 0% center;
+  object-position: 20% center;
 }
