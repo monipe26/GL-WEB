@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-RPZ4XSDK4N");
+    </script>
+    <base href="/" />
+    <title>Actrices GL - Girls Love Play 💕</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Girls Love Play - Conocé a las actrices del universo GL asiático: bio, fecha de nacimiento, series y ships de cada una 💕."
+    />
+    <meta
+      name="keywords"
+      content="actrices GL, actrices girls love, actrices tailandesas GL, Freen, Becky, elenco GL"
+    />
+    <meta name="author" content="Girls Love Play" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Actrices GL - Girls Love Play 💕" />
+    <meta
+      property="og:description"
+      content="Girls Love Play - Conocé a las actrices del universo GL asiático."
+    />
+    <meta
+      property="og:image"
+      content="https://gl-web-psi.vercel.app/img/logo.png"
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <!-- 🇦🇷 Estilo para la banderita del footer -->
+    <style>
+      .footer-flag {
+        display: inline-block;
+        width: 18px;
+        height: 12px;
+        vertical-align: middle;
+        border-radius: 2px;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+        margin: 0 2px;
+      }
+    </style>
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+    <style>
+      /* ===================== */
+      /* ACTRICES GL           */
+      /* ===================== */
+      .filtro-btn {
+        padding: 8px 18px;
+        border: 1px solid rgba(255, 79, 216, 0.4);
+        border-radius: 20px;
+        background: transparent;
+        color: #ccc;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.2s;
+      }
+      .filtro-btn:hover,
+      .filtro-btn.active {
+        background: #ff4fd8;
+        color: white;
+        border-color: #ff4fd8;
+      }
+      .filtro-letra {
+        padding: 5px 12px !important;
+        font-size: 12px !important;
+        min-width: 36px;
+        font-weight: 700;
+      }
+
+      #actrices-container {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+      @media (max-width: 900px) {
+        #actrices-container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        #actrices-container {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+      }
+
+      .actriz-card {
+        display: flex;
+        flex-direction: column;
+        background: rgba(26, 21, 64, 0.7);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 79, 216, 0.15);
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+      .actriz-card:hover {
+        transform: scale(1.03);
+        border-color: rgba(255, 79, 216, 0.5);
+      }
+      .actriz-foto {
+        width: 100%;
+        aspect-ratio: 3/4;
+        position: relative;
+        overflow: hidden;
+      }
+      .actriz-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s;
+      }
+      .actriz-card:hover .actriz-foto img {
+        transform: scale(1.06);
+      }
+      .actriz-foto::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 6, 24, 0.9) 0%,
+          rgba(10, 6, 24, 0.1) 45%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .actriz-signo {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(15, 10, 30, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        backdrop-filter: blur(2px);
+      }
+      .actriz-nombre {
+        position: absolute;
+        bottom: 8px;
+        left: 10px;
+        right: 10px;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.25;
+      }
+      .actriz-info {
+        padding: 8px 10px 12px;
+      }
+      .actriz-ship {
+        font-size: 11px;
+        color: #ff4fd8;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* MODAL ACTRIZ */
+      .actriz-modal-header {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .actriz-modal-foto {
+        width: 110px;
+        height: 140px;
+        border-radius: 12px;
+        object-fit: cover;
+        flex-shrink: 0;
+        border: 1px solid rgba(255, 79, 216, 0.3);
+      }
+      @media (max-width: 480px) {
+        .actriz-modal-foto {
+          width: 90px;
+          height: 115px;
+        }
+      }
+      .actriz-modal-datos p {
+        margin: 3px 0;
+        font-size: 13px;
+        color: #ccc;
+      }
+      .actriz-modal-datos .nombre-nativo {
+        color: #9d8fcc;
+        font-style: italic;
+        font-size: 13px;
+      }
+      .ficha-label {
+        margin-top: 16px;
+        color: #ff4fd8;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+      .badge-serie {
+        display: inline-block;
+        background: rgba(143, 92, 255, 0.18);
+        border: 1px solid rgba(143, 92, 255, 0.3);
+        color: #c4aeff;
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 10px;
+        margin: 3px 2px;
+      }
+      .badge-ship {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(255, 79, 216, 0.15);
+        border: 1px solid rgba(255, 79, 216, 0.4);
+        color: #ffb3ec;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 14px;
+        border-radius: 20px;
+        text-decoration: none;
+        margin: 3px 2px;
+        cursor: pointer;
+      }
+      .badge-ship:hover {
+        background: #ff4fd8;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="inicio"></div>
+
+    <header class="header">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div class="logo-container">
+        <a href="/"><img src="/img/logo.png" class="logo" /></a>
+      </div>
+      <nav class="nav">
+        <a href="/">Inicio</a>
+        <a href="/#series">Series GL</a>
+
+        <div class="nav-dropdown">
+          <a href="/noticias.html" class="nav-dropdown-toggle"
+            >Noticias GL <span class="dropdown-arrow">▾</span></a
+          >
+          <div class="nav-dropdown-menu">
+            <a href="/noticias.html">📰 Noticias GL</a>
+            <a href="mundo-gl.html">🌐 Mundo GL</a>
+          </div>
+        </div>
+
+        <a href="actrices-gl.html">👑 Actrices GL</a>
+        <a href="ships-gl.html">💕 Ships GL</a>
+        <a href="/#ostsgl">OSTs GL</a>
+        <a href="proximamente-gl.html">Próximamente</a>
+        <a href="extras-gl.html">🎬GL Extras</a>
+        <a href="novelas.html">📖 Novelas GL</a>
+        <a href="/minijuegos-gl.html">🎮 Mini Juegos GL</a>
+        <a href="/#comunidadgl">Comunidad GL</a>
+      </nav>
+      <div class="search-box">
+        <input
+          type="text"
+          id="buscador-actrices"
+          placeholder="Buscar actriz..."
+          onkeyup="filtrarActrices()"
+          autocomplete="off"
+        />
+        <button onclick="limpiarActrices()">✕</button>
+      </div>
+    </header>
+
+    <!-- HERO ACTRICES -->
+    <div style="text-align: center; padding: 40px 20px 20px">
+      <h1
+        style="
+          font-size: 2rem;
+          background: linear-gradient(90deg, #ff4fd8, #8f5cff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin: 0;
+        "
+      >
+        👑 Actrices GL
+      </h1>
+      <p style="color: #ccc; font-size: 14px; margin-top: 8px">
+        Conocé a las protagonistas del universo GL
+      </p>
+    </div>
+
+    <!-- FILTRO ALFABÉTICO -->
+    <div
+      id="filtro-letras-actrices"
+      style="
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        padding: 0 20px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      "
+    ></div>
+
+    <!-- ACTRICES CONTAINER -->
+    <section class="section">
+      <div id="actrices-container"></div>
+      <div class="pagination-wrapper">
+        <div class="pagination" id="pagination-actrices"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <img src="/img/logo.png" alt="logo" />
+          <p>Tu espacio GL favorito 💖</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explorar</h4>
+          <a href="/">Inicio</a>
+          <a href="/#series">Series GL</a>
+          <a href="/noticias.html">Noticias GL</a>
+          <a href="mundo-gl.html">🌐 Mundo GL</a>
+          <a href="actrices-gl.html">👑 Actrices GL</a>
+          <a href="ships-gl.html">💕 Ships GL</a>
+          <a href="/#ostsgl">OSTs GL</a>
+          <a href="proximamente-gl.html">Próximamente</a>
+          <a href="extras-gl.html">🎬 GL Extras</a>
+          <a href="novelas.html">📖 Novelas GL</a>
+          <a href="/minijuegos-gl.html">🎮 Mini Juegos GL</a>
+          <a href="/#comunidadgl">Comunidad GL</a>
+          <a href="sobre-nosotras.html">Sobre Nosotras 💖</a>
+        </div>
+        <div class="footer-legal">
+          <h4>Legal</h4>
+          <p>
+            Este sitio no almacena videos ni archivos propios. Todo el contenido
+            proviene de fuentes externas.
+          </p>
+          <p>Los derechos pertenecen a sus respectivos autores.</p>
+          <a href="avisolegal.html" class="footer-links-item">Aviso Legal</a>
+          <a href="privacidad.html" class="footer-links-item"
+            >Política de Privacidad</a
+          >
+          <a href="cookies.html" class="footer-links-item"
+            >Política de Cookies</a
+          >
+        </div>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <p>Email: info.girlsloveplay@gmail.com</p>
+          <a href="https://ko-fi.com/girlsloveplay" target="_blank" class="donate-btn"
+            >💖 Apoyar proyecto</a
+          >
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/girlsloveplayoficial/"
+              target="_blank"
+            >
+              <img
+                src="https://i.postimg.cc/yNCH6MKJ/facebook.png"
+                alt="Facebook"
+              />
+            </a>
+            <a href="https://www.instagram.com/girlslove.play" target="_blank">
+              <img
+                src="https://i.postimg.cc/NFKs2Rz5/instagram.png"
+                alt="Instagram"
+              />
+            </a>
+            <a href="https://x.com/girlslove_play" target="_blank">
+              <img src="/img/iconos/x.png" alt="X" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2026 Girls Love Play - Argentina
+          <svg class="footer-flag" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de Argentina" role="img">
+            <rect width="60" height="40" fill="#fff" />
+            <rect width="60" height="13.33" fill="#75AADB" />
+            <rect y="26.67" width="60" height="13.33" fill="#75AADB" />
+            <g transform="translate(30,20)">
+              <circle r="4.6" fill="#FFCC33" stroke="#85340A" stroke-width="0.5" />
+              <g fill="#FFCC33" stroke="#85340A" stroke-width="0.4">
+                <g id="footer-rayo-actrices">
+                  <polygon points="0,-8.5 -0.9,-5.3 0.9,-5.3" />
+                </g>
+                <use href="#footer-rayo-actrices" transform="rotate(45)" />
+                <use href="#footer-rayo-actrices" transform="rotate(90)" />
+                <use href="#footer-rayo-actrices" transform="rotate(135)" />
+                <use href="#footer-rayo-actrices" transform="rotate(180)" />
+                <use href="#footer-rayo-actrices" transform="rotate(225)" />
+                <use href="#footer-rayo-actrices" transform="rotate(270)" />
+                <use href="#footer-rayo-actrices" transform="rotate(315)" />
+              </g>
+              <circle r="3.2" fill="#FFCC33" stroke="#85340A" stroke-width="0.4" />
+              <circle cx="-1.1" cy="-0.3" r="0.35" fill="#85340A" />
+              <circle cx="1.1" cy="-0.3" r="0.35" fill="#85340A" />
+              <path d="M -1.1 1 Q 0 1.9 1.1 1" stroke="#85340A" stroke-width="0.35" fill="none" stroke-linecap="round" />
+            </g>
+          </svg>
+          - Todos los derechos reservados
+        </p>
+      </div>
+    </footer>
+
+    <!-- MODAL ACTRIZ -->
+    <div
+      class="modal-overlay"
+      id="modal-actriz"
+      onclick="cerrarModalActriz(event)"
+    >
+      <div class="modal-box">
+        <button class="modal-cerrar" onclick="cerrarModalActriz()">✕</button>
+
+        <div class="actriz-modal-header">
+          <img class="actriz-modal-foto" id="actriz-modal-img" src="" alt="" />
+          <div class="actriz-modal-datos">
+            <p class="modal-titulo" style="font-size:19px;margin-bottom:2px" id="actriz-modal-nombre"></p>
+            <p class="nombre-nativo" id="actriz-modal-nombre-nativo"></p>
+            <p id="actriz-modal-nacimiento"></p>
+          </div>
+        </div>
+
+        <div id="actriz-modal-body"></div>
+
+        <button
+          class="modal-subir"
+          onclick="document.querySelector('#modal-actriz .modal-box').scrollTop=0"
+        >
+          ⬆
+        </button>
+      </div>
+    </div>
+
+    <button
+      onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      id="btn-arriba"
+    >
+      ⬆
+    </button>
+
+    <script>
+      // =====================
+      // MENÚ HAMBURGUESA
+      // =====================
+      function toggleMenu() {
+        document.querySelector(".nav").classList.toggle("active");
+      }
+
+      document
+        .querySelectorAll(".nav a:not(.nav-dropdown-toggle)")
+        .forEach((link) =>
+          link.addEventListener("click", () =>
+            document.querySelector(".nav").classList.remove("active")
+          )
+        );
+
+      // DROPDOWN "NOTICIAS GL"
+      document.querySelectorAll(".nav-dropdown-toggle").forEach((toggle) => {
+        toggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          const dropdown = toggle.parentElement;
+          document.querySelectorAll(".nav-dropdown.active").forEach((d) => {
+            if (d !== dropdown) d.classList.remove("active");
+          });
+          dropdown.classList.toggle("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        document
+          .querySelectorAll(".nav-dropdown.active")
+          .forEach((dropdown) => {
+            if (!dropdown.contains(e.target))
+              dropdown.classList.remove("active");
+          });
+      });
+
+      // =====================
+      // DATOS ACTRICES
+      // (bio, mascota y agencia son opcionales: si no están, no se muestran)
+      // =====================
+      // 👉 Para agregar una actriz nueva: copiá un bloque { ... } completo,
+      // pegalo antes del corchete de cierre "]" y completá sus datos.
+      // Campos opcionales (si no los tenés, no pongas la línea y no pasa nada):
+      // nombreNativo, nacimiento, nacionalidad, instagram, ship, shipSlug, bio, mascota, agencia
+      const actricesArray = [
+        {
+          nombre: "Alisa Khemnak",
+          slug: "alisa-khemnak-gl-actriz",
+          nombreNativo: "อลิสา เขมนาค",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1996-07-17",
+          foto: "/img/actrices/alisa-khemnak.jpg",
+          instagram: "https://www.instagram.com/nm.alisa",
+          ship: "NamoAmee",
+          series: ["Ice Break", "Heart Melt (2025)"],
+        },
+        {
+          nombre: "Anda Anunta Teavirat",
+          slug: "anda-anunta-teavirat-gl-actriz",
+          nombreNativo: "อันดา อนันตา เตียวิรัตน์",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1998-04-10",
+          foto: "/img/actrices/anda-anunta-teavirat.jpg",
+          instagram: "https://www.instagram.com/anda_anunta",
+          ship: "AndaLookkaew",
+          shipSlug: "andalookkaew-gl-ship",
+          series: [
+            "Secret Crush on You (2022)",
+            "Love Senior (2023)",
+            "Sunset Vibes (2024)",
+            "Khom Khlang (2026)",
+            "Remain (2026)",
+          ],
+        },
+        {
+          nombre: "Aom Pundao Panyabaramee",
+          slug: "aom-pundao-panyabaramee-gl-actriz",
+          nombreNativo: "ออม พันดาว ปัญญาบารมี",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1999-06-18",
+          foto: "/img/actrices/aom-pundao-panyabaramee.jpg",
+          instagram: "https://www.instagram.com/_pundao",
+          ship: "ShellyPundao",
+          shipSlug: "shellypundao-gl-ship",
+          series: ["Roller Coaster The Series (2025)", "By Your Side (2026)"],
+        },
+        {
+          nombre: "Aoom Thaweeporn Phingchamrat",
+          slug: "aoom-thaweeporn-phingchamrat-gl-actriz",
+          nombreNativo: "อุ้ม ทวีพร พริ้งจำรัส",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1996-03-17",
+          foto: "/img/actrices/aoom-thaweeporn-phingchamrat.jpg",
+          instagram: "https://www.instagram.com/aoomtwp",
+          ship: "MeenBabe",
+          shipSlug: "meenbabe-gl-ship",
+          series: [
+            "Delete Your Past (2025)",
+            "Under Her Rules (2025)",
+            "About Galaxy (2026)",
+          ],
+        },
+        {
+          nombre: "Apple Lapisara Intarasut",
+          slug: "apple-lapisara-intarasut-gl-actriz",
+          nombreNativo: "แอปเปิ้ล ลาภิสรา อินทรสูต",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1994-09-01",
+          foto: "/img/actrices/apple-lapisara-intarasut.jpg",
+          instagram: "https://www.instagram.com/applelapisara",
+          ship: "AppleMim",
+          shipSlug: "applemim-gl-ship",
+          series: ["4 Elements: The Earth (2026)"],
+        },
+        {
+          nombre: "Arhoung Nattawadee Pipobpornchai",
+          slug: "arhoung-nattawadee-pipobpornchai-gl-actriz",
+          nombreNativo: "ณัฐวดี พิภพพรชัย",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2004-09-04",
+          foto: "/img/actrices/arhoung-nattawadee-pipobpornchai.jpg",
+          instagram: "https://www.instagram.com/arhoungg",
+          ship: "PamArhoung",
+          shipSlug: "Pamy-Arhoung-gl-ship",
+          series: ["Love of Secret (2022)", "Queendom (2025)"],
+        },
+        {
+          nombre: "Arling Angsumalee Inchai",
+          slug: "arling-angsumalee-inchai-gl-actriz",
+          nombreNativo: "อังสุมาลี อินชัย",
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada todavía
+          foto: "/img/actrices/arling-angsumalee-inchai.jpg",
+          instagram: "https://www.instagram.com/_axling",
+          ship: "ArlingKitty",
+          series: [
+            "Love Beyond the Fence (2025)",
+            "Can I Love You, Ms. Cold? (2025)",
+            "Beloved Frangipani (2025)",
+            "Heart Rule (2025)",
+            "Killer Heart (2025)",
+          ],
+        },
+        {
+          nombre: "Atom (Aphichaya)",
+          slug: "atom-aphichaya-kamnoetsirikun-gl-actriz",
+          nombreNativo: "อภิชญา กำเนิดศิริกุล",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1997-11-20",
+          foto: "/img/actrices/atom-aphichaya-kamnoetsirikun.jpg",
+          instagram: "https://www.instagram.com/atomapcy_",
+          ship: "AtomMer",
+          shipSlug: "atommer-gl-ship",
+          series: ["Love Senior (2023)", "My Only Sunshine (2025)"],
+        },
+        {
+          nombre: "Atom (Pariya)",
+          slug: "atom-pariya-piyapanopas-gl-actriz",
+          nombreNativo: "ปรียา ปิยะพนภาส",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2001-11-12",
+          foto: "/img/actrices/atom-pariya-piyapanopas.jpg",
+          instagram: "https://www.instagram.com/atomprys",
+          ship: "FayeAtom",
+          shipSlug: "fayeatom-gl-ship",
+          series: ["Broken of Love (2026)"],
+        },
+        {
+          nombre: "Aya Orapan Phongmaykin",
+          slug: "aya-orapan-phongmaykin-gl-actriz",
+          nombreNativo: "เอญ่า อรพรรณ ผ่องเมฆินทร์",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2000-02-20",
+          foto: "/img/actrices/aya-orapan-phongmaykin.jpg",
+          instagram: "https://www.instagram.com/ayaorapan",
+          ship: "MieAya",
+          shipSlug: "MieAya-gl-ship",
+          series: ["Love Sea (2024)", "Love Beyond Dreams (2026)"],
+        },
+        {
+          nombre: "Azura Belva Emma Denise",
+          slug: "azura-belva-emma-denise-gl-actriz",
+          // nombreNativo: no confirmado
+          // nacionalidad: no confirmada
+          // nacimiento: no confirmada
+          foto: "/img/actrices/azura-belva-emma-denise.jpg",
+          instagram: "https://www.instagram.com/bxellaq",
+          ship: "AizeBella",
+          series: ["Teach Me Softly (2025)", "The Girl Who Meow (2025)"],
+        },
+        {
+          nombre: "Becky",
+          slug: "becky-gl-actriz",
+          nombreNativo: "เบคกี้ อาร์มสตรอง",
+          nacionalidad: "Tailandesa-británica",
+          nacimiento: "2002-12-05",
+          foto: "/img/actrices/becky.jpg",
+          instagram: "https://www.instagram.com/beccca",
+          ship: "FreenBecky",
+          shipSlug: "freenbecky-gl-ship",
+          series: [
+            "GAP: The Series (2022)",
+            "Uranus 2324 (2024)",
+            "The Loyal Pin (2024)",
+            "4 Elements: The Air (2026)",
+          ],
+        },
+        {
+          nombre: "Belle Jiratchaya Kittavornsakul",
+          slug: "belle-jiratchaya-kittavornsakul-gl-actriz",
+          nombreNativo: "จิรัชญา กิจถาวรสกุล",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2005-05-01",
+          foto: "/img/actrices/belle-jiratchaya-kittavornsakul.jpg",
+          instagram: "https://www.instagram.com/bellejirat",
+          ship: "LillyBelle",
+          shipSlug: "lillybelle-gl-ship",
+          series: ["Harmony Secret (2025)", "I Wanna Be Sup'tar (2026)"],
+        },
+        {
+          nombre: "Bonnie Pattraphus Borattasuwan",
+          slug: "bonnie-pattraphus-borattasuwan-gl-actriz",
+          nombreNativo: "ภัทราภัสร์ โบรัชตะสุวรรณ์",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2004-01-27",
+          foto: "/img/actrices/bonnie-pattraphus-borattasuwan.jpg",
+          instagram: "https://www.instagram.com/beonnnie",
+          ship: "EmiBonnie",
+          shipSlug: "emibonnie-gl-ship",
+          series: ["Us (2025)", "Girl Rules (2026)"],
+        },
+        {
+          nombre: "Chanya Amarit Duval",
+          slug: "chanya-amarit-duval-gl-actriz",
+          nombreNativo: "ชัญญา อมฤต ดูวาล์",
+          nacionalidad: "Tailandesa-francesa",
+          nacimiento: "1996-07-11",
+          foto: "/img/actrices/chanya-amarit-duval.jpg",
+          instagram: "https://www.instagram.com/chanyaduval",
+          ship: "MayyuChanya",
+          series: ["Love Sea (2024)", "AI Girl (2026)"],
+        },
+        {
+          nombre: "Charlotte Austin",
+          slug: "charlotte-austin-gl-actriz",
+          nombreNativo: "ชาร์ล็อต ออสติน",
+          nacionalidad: "Tailandesa-británica",
+          nacimiento: "1998-12-21",
+          foto: "/img/actrices/charlotte-austin.jpg",
+          instagram: "https://www.instagram.com/itscharlotty",
+          ship: "EngLot",
+          shipSlug: "englot-gl-ship",
+          series: [
+            "Show Me Love (2023)",
+            "Love Bully (2024)",
+            "Petrichor (2024)",
+            "Unlimited Love (2025)",
+            "4 Elements: The Water (2026)",
+          ],
+        },
+        {
+          nombre: "Chayissara Wattananawin",
+          slug: "chayissara-wattananawin-gl-actriz",
+          nombreNativo: "ชยิสรา วัฒนะนาวิน",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1998-04-02",
+          foto: "/img/actrices/chayissara-wattananawin.jpg",
+          instagram: "https://www.instagram.com/jennychayissara",
+          series: [],
+        },
+        {
+          nombre: "Christine Gulasatree Michalsky",
+          slug: "christine-gulasatree-michalsky-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/christine-gulasatree-michalsky.jpg",
+          instagram: "https://www.instagram.com/gulasatree",
+          ship: "ChristineMae",
+          shipSlug: "christinemae-gl-ship",
+          series: ["Reverse 4 You (2024)"],
+        },
+        {
+          nombre: "Chutikan Siangdee",
+          slug: "chutikan-siangdee-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/chutikan-siangdee.jpg",
+          instagram: "https://www.instagram.com/ice_chu_",
+          series: [
+            "Fate's Whispers (2024)",
+            "Love From Another Star (2025)",
+            "Hate You Love You (2025)",
+            "L.L.L. Project (2025)",
+            "The End (2025)",
+          ],
+        },
+        {
+          nombre: "Ciize Rutricha Phapakithi",
+          slug: "ciize-rutricha-phapakithi-gl-actriz",
+          nombreNativo: "รัตท์ริชา ประภากิติ",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1999-09-23",
+          foto: "/img/actrices/ciize-rutricha-phapakithi.jpg",
+          instagram: "https://www.instagram.com/ciizezphr",
+          ship: "KapookCiize / EarnCiize",
+          shipSlug: "kapook-ciize-gl-ship",
+          series: [
+            "23.5 (2024)",
+            "Pluto (2024–2025)",
+            "Girl Rules (2026)",
+            "Enemies with Benefits (2026)",
+            "Ditto (2026)",
+          ],
+        },
+        {
+          nombre: "Darran Zeththinich Chanavarasutthisiri",
+          slug: "darran-zeththinich-chanavarasutthisiri-gl-actriz",
+          nombreNativo: "เศรษฐิณิช ชนวราสุทธิศิริ",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1993-09-22",
+          foto: "/img/actrices/darran-zeththinich-chanavarasutthisiri.jpg",
+          instagram: "https://www.instagram.com/darranzeth",
+          ship: "JaraJennie",
+          series: ["Dream Mind (2026)"],
+        },
+        {
+          nombre: "Desoraya Techapaibul",
+          slug: "desoraya-techapaibul-gl-actriz",
+          nombreNativo: "ดิสรยา เตชะไพบูลย์",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2000-12-09",
+          foto: "/img/actrices/desoraya-techapaibul.jpg",
+          instagram: "https://www.instagram.com/nurdesoraya",
+          series: ["Dangerous Queen (2025)"],
+        },
+        {
+          nombre: "Earn Preeyaphat Lawsuwansiri",
+          slug: "earn-preeyaphat-lawsuwansiri-gl-actriz",
+          nombreNativo: "เอิร์น ปรียาภัทย์ หล่อสุวรรณศิริ",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2001-12-30",
+          foto: "/img/actrices/earn-preeyaphat-lawsuwansiri.jpg",
+          instagram: "https://www.instagram.com/earnpypp_",
+          ship: "EarnCiize",
+          series: ["23.5 (2024)", "Pluto (2024–2025)"],
+        },
+        {
+          nombre: "Eisaya Hosuwan",
+          slug: "eisaya-hosuwan-gl-actriz",
+          nombreNativo: "อิษยา ฮอสุวรรณ",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1996-07-04",
+          foto: "/img/actrices/eisaya-hosuwan.jpg",
+          instagram: "https://www.instagram.com/oomeisaya",
+          ship: "OomBam",
+          shipSlug: "oombam-gl-ship",
+          series: ["Play Park (2026)", "Fulfill (2026)"],
+        },
+        {
+          nombre: "Ella Neelasha",
+          slug: "ella-neelasha-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/ella-neelasha.jpg",
+          instagram: "https://www.instagram.com/niirchaa_46",
+          series: ["When Love Returns (2026)"],
+        },
+        {
+          nombre: "Emi Thasorn Klinnium",
+          slug: "emi-thasorn-klinnium-gl-actriz",
+          nombreNativo: "ทสร กลิ่นเนียม",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1998-04-25",
+          foto: "/img/actrices/emi-thasorn-klinnium.jpg",
+          instagram: "https://www.instagram.com/emiamily",
+          ship: "EmiBonnie",
+          shipSlug: "emibonnie-gl-ship",
+          series: ["Us (2025)", "Moonshadow (2026)"],
+        },
+        {
+          nombre: "Engfa Waraha",
+          slug: "engfa-waraha-gl-actriz",
+          nombreNativo: "อิงฟ้า วราหะ",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1995-02-15",
+          foto: "/img/actrices/engfa-waraha.jpg",
+          instagram: "https://www.instagram.com/fa_engfa8",
+          ship: "EngLot",
+          shipSlug: "englot-gl-ship",
+          series: [
+            "Show Me Love (2023)",
+            "Love Bully (2024)",
+            "Petrichor (2024)",
+            "Unlimited Love (2025)",
+            "4 Elements: The Earth (2026)",
+            "4 Elements: The Water (2026)",
+            "4 Elements: The Air (2026)",
+            "4 Elements: The Fire (2026)",
+            "Under Her Rules (2026)",
+          ],
+        },
+        {
+          nombre: "England Ladamanee Rattanapornvareesakul",
+          slug: "england-ladamanee-rattanapornvareesakul-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/england-ladamanee-rattanapornvareesakul.jpg",
+          instagram: "https://www.instagram.com/eng_lr39",
+          ship: "NikyEngland",
+          shipSlug: "nikyengland-gl-ship",
+          series: ["Shades (2025)"],
+        },
+        {
+          nombre: "Enjoy Thidarat Puerthong",
+          slug: "enjoy-thidarat-puerthong-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/enjoy-thidarat-puerthong.jpg",
+          instagram: "https://www.instagram.com/enjoyyotdr",
+          ship: "EnjoyJune",
+          shipSlug: "enjoyjune-gl-ship",
+          series: ["Denied Love (2025)"],
+        },
+        {
+          nombre: "Fahsai (Minyada)",
+          slug: "fahsai-minyada-boonsup-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          nacimiento: "1995-08-18",
+          foto: "/img/actrices/fahsai-minyada-boonsup.jpg",
+          instagram: "https://www.instagram.com/fahsai.myd",
+          ship: "Fern & Fahsai",
+          series: ["Be Mine: Prologue Day (2025)"],
+        },
+        {
+          nombre: "Fahsai (Paweensuda)",
+          slug: "fahsai-paweensuda-drouin-gl-actriz",
+          nombreNativo: "ปวีณสุดา ดรูอิ้น",
+          nacionalidad: "Tailandesa-canadiense",
+          nacimiento: "1993-10-12",
+          foto: "/img/actrices/fahsai-paweensuda-drouin.jpg",
+          instagram: "https://www.instagram.com/paweensuda",
+          series: ["The Hidden Blood (2026)"],
+        },
+        {
+          nombre: "Fay (Apisara)",
+          slug: "fay-apisara-lertwisettheerakul-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/fay-apisara-lertwisettheerakul.jpg",
+          instagram: "https://www.instagram.com/fayapis.l",
+          ship: "FayGene",
+          series: ["I Wanna Be Sup'tar (2026)", "Chasing Love (2026)"],
+        },
+        {
+          nombre: "Fay (Kunyaphat)",
+          slug: "fay-kunyaphat-na-nakorn-gl-actriz",
+          nombreNativo: "กัญญาภัค ณ นคร",
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/fay-kunyaphat-na-nakorn.jpg",
+          instagram: "https://www.instagram.com/fay_riezz",
+          ship: "FayMay",
+          shipSlug: "faymay-gl-ship",
+          series: [
+            "My Marvellous Dream Is You (2024)",
+            "Somewhere Somehow (2025)",
+          ],
+        },
+        {
+          nombre: "Faye",
+          slug: "faye-peraya-malisorn-gl-actriz",
+          // nombreNativo: no confirmado con suficiente seguridad
+          nacionalidad: "Tailandesa",
+          nacimiento: "1994-10-13",
+          foto: "/img/actrices/faye-peraya-malisorn.jpg",
+          instagram: "https://www.instagram.com/faye",
+          ship: "FayeAtom / FayeYoko",
+          shipSlug: "fayeatom-gl-ship",
+          series: [
+            "Blank The Series (2024)",
+            "Blank The Series Season 2 (2024)",
+            "Broken of Love (2026)",
+          ],
+        },
+        {
+          nombre: "FayFay",
+          slug: "fayfay-thitayaporn-prasertsom-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/fayfay-thitayaporn-prasertsom.jpg",
+          instagram: "https://www.instagram.com/f.fayfayy",
+          ship: "FayFay",
+          series: ["B•Friend (2025)"],
+          bio: "En B•Friend (12 episodios, 2025) interpreta a Dawan/Wanyiwa.",
+        },
+        {
+          nombre: "Ferin",
+          slug: "ferin-weerin-kaewpuk-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          nacimiento: "1995-12-06",
+          foto: "/img/actrices/ferin-weerin-kaewpuk.jpg",
+          instagram: "https://www.instagram.com/ferinweerin",
+          ship: "FerinPuiFai / Feringreat",
+          series: [
+            "Same Place, New Pace (2025)",
+            "Hidden Heat (2025)",
+            "Catch Cat Crush (2025)",
+            "Sassy Season (2025)",
+            "Hidden Half (2025)",
+            "I Don't Remember the Feeling (2025)",
+            "Girl Rules (2026)",
+          ],
+        },
+        {
+          nombre: "Fern",
+          slug: "fern-jeerawan-kumjina-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          nacimiento: "1996-11-26",
+          foto: "/img/actrices/fern-jeerawan-kumjina.jpg",
+          ship: "Fern & Fahsai",
+          series: ["Be Mine: Prologue Day (2025)"],
+        },
+        {
+          nombre: "Film",
+          slug: "film-rachanun-mahawan-gl-actriz",
+          nombreNativo: "รชานันท์ มหาวรรณ์",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2000-07-14",
+          foto: "/img/actrices/film-rachanun-mahawan.jpg",
+          instagram: "https://www.instagram.com/fr.racha",
+          ship: "NamtanFilm",
+          shipSlug: "namtanfilm-gl-ship",
+          series: [
+            "Pluto (2024–2025)",
+            "Girl Rules (2026)",
+            "Moonshadow (2026)",
+            "Her (2026)",
+          ],
+        },
+        {
+          nombre: "Folk",
+          slug: "folk-sutima-korkiatvanich-gl-actriz",
+          nombreNativo: "สุทิมา กรเกียรติวานิช",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2000-05-15",
+          foto: "/img/actrices/folk-sutima-korkiatvanich.jpg",
+          instagram: "https://www.instagram.com/ffolky",
+          ship: "OrmFolk",
+          shipSlug: "ormfolk-gl-ship",
+          series: [
+            "Be Mine: Prologue Day (2025)",
+            "Apple My Love (2024)",
+            "(Your) Apple (2025)",
+            "My Lady's Bodyguard (2025)",
+            "Love Bound (2025)",
+            "CRUSH (2026)",
+          ],
+        },
+        {
+          nombre: "Fond",
+          slug: "fond-natticha-chantaravareelekha-gl-actriz",
+          nombreNativo: "ณัฐชา จันทร์วารีเลขา",
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/fond-natticha-chantaravareelekha.jpg",
+          instagram: "https://www.instagram.com/fondnatticha",
+          ship: "PahnFond",
+          series: ["The Cheese Sisters (2021)", "Wish Upon a Star (2025)"],
+        },
+        {
+          nombre: "Freen",
+          slug: "freen-sarocha-chankimha-gl-actriz",
+          nombreNativo: "สโรชา จันทร์กิมฮะ",
+          nacionalidad: "Tailandesa",
+          nacimiento: "1998-08-08",
+          foto: "/img/actrices/freen-sarocha-chankimha.jpg",
+          instagram: "https://www.instagram.com/srchafreen",
+          ship: "FreenBecky",
+          shipSlug: "freenbecky-gl-ship",
+          series: [
+            "GAP: The Series (2022)",
+            "Uranus 2324 (2024)",
+            "The Loyal Pin (2024)",
+            "4 Elements: The Earth (2026)",
+            "4 Elements: The Water (2026)",
+            "4 Elements: The Air (2026)",
+            "4 Elements: The Fire (2026)",
+            "Cranium (2026)",
+          ],
+        },
+        {
+          nombre: "Ganchutikan",
+          slug: "ganchutikan-pytanagul-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/ganchutikan-pytanagul.jpg",
+          instagram: "https://www.instagram.com/ganchu_erng",
+          series: [
+            "Stay with Me (2025)",
+            "Stay with Me Season 2 (2025)",
+            "Stay with Me Season 3 (2026)",
+            "Stay with Me Season 4 (2026)",
+          ],
+        },
+        {
+          nombre: "Gene",
+          slug: "gene-ornalin-leelaburanathanakul-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          // nacimiento: no confirmada
+          foto: "/img/actrices/gene-ornalin-leelaburanathanakul.jpg",
+          instagram: "https://www.instagram.com/ornalin_gene",
+          ship: "FayGene",
+          series: ["I Wanna Be Sup'tar (2026)", "Chasing Love (2026)"],
+        },
+        {
+          nombre: "Gift",
+          slug: "gift-sirinart-sugandharat-gl-actriz",
+          // nombreNativo: no confirmado
+          nacionalidad: "Tailandesa",
+          nacimiento: "1995-02-10",
+          foto: "/img/actrices/gift-sirinart-sugandharat.jpg",
+          instagram: "https://www.instagram.com/siin.41",
+          ship: "GiftAomsin",
+          series: ["Love Bully (2024)", "Chasing Love (2026)"],
+        },
+        {
+          nombre: "Ginny",
+          slug: "ginny-natnicha-pratipnatsiri-gl-actriz",
+          nombreNativo: "ณัฐนิชา ประทีปนาศิริ",
+          nacionalidad: "Tailandesa",
+          nacimiento: "2000-12-16",
+          foto: "/img/actrices/ginny-natnicha-pratipnatsiri.jpg",
+          instagram: "https://www.instagram.com/ginnynatnicha",
+          ship: "GinnyJayna",
+          shipSlug: "ginnyjayna-gl-ship",
+          series: ["Poisonous Love (2025)", "Lunar Secret (2026)"],
+          bio: "En Poisonous Love comparte protagónico con Jayna Angelina.",
+        },
+      ];
+
+      // =====================
+      // SIGNO ZODIACAL (calculado a partir de la fecha)
+      // =====================
+      const SIGNOS = [
+        { nombre: "Capricornio", emoji: "♑", desde: [12, 22], hasta: [1, 19] },
+        { nombre: "Acuario", emoji: "♒", desde: [1, 20], hasta: [2, 18] },
+        { nombre: "Piscis", emoji: "♓", desde: [2, 19], hasta: [3, 20] },
+        { nombre: "Aries", emoji: "♈", desde: [3, 21], hasta: [4, 19] },
+        { nombre: "Tauro", emoji: "♉", desde: [4, 20], hasta: [5, 20] },
+        { nombre: "Géminis", emoji: "♊", desde: [5, 21], hasta: [6, 20] },
+        { nombre: "Cáncer", emoji: "♋", desde: [6, 21], hasta: [7, 22] },
+        { nombre: "Leo", emoji: "♌", desde: [7, 23], hasta: [8, 22] },
+        { nombre: "Virgo", emoji: "♍", desde: [8, 23], hasta: [9, 22] },
+        { nombre: "Libra", emoji: "♎", desde: [9, 23], hasta: [10, 22] },
+        { nombre: "Escorpio", emoji: "♏", desde: [10, 23], hasta: [11, 21] },
+        { nombre: "Sagitario", emoji: "♐", desde: [11, 22], hasta: [12, 21] },
+      ];
+
+      function calcularSigno(fechaISO) {
+        if (!fechaISO) return null;
+        const [, mes, dia] = fechaISO.split("-").map(Number);
+        return SIGNOS.find(({ desde, hasta }) => {
+          const [dm, dd] = desde;
+          const [hm, hd] = hasta;
+          if (dm === hm) return mes === dm && dia >= dd && dia <= hd;
+          if (dm > hm) {
+            // el rango cruza fin de año (Capricornio)
+            return (mes === dm && dia >= dd) || (mes === hm && dia <= hd);
+          }
+          return (mes === dm && dia >= dd) || (mes === hm && dia <= hd) || (mes > dm && mes < hm);
+        });
+      }
+
+      function formatearFecha(fechaISO) {
+        if (!fechaISO) return "";
+        const [anio, mes, dia] = fechaISO.split("-").map(Number);
+        const meses = [
+          "enero", "febrero", "marzo", "abril", "mayo", "junio",
+          "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+        ];
+        return `${dia} de ${meses[mes - 1]} de ${anio}`;
+      }
+
+      actricesArray.sort((a, b) =>
+        a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase())
+      );
+
+      let actricesFiltradas = [...actricesArray];
+      let letraActivaActriz = "todas";
+
+      // =====================
+      // FILTRO ALFABÉTICO
+      // =====================
+      function generarFiltroLetrasActrices() {
+        const letras = [
+          ...new Set(actricesArray.map((a) => a.nombre[0].toUpperCase())),
+        ].sort();
+
+        const contenedor = document.getElementById("filtro-letras-actrices");
+        contenedor.innerHTML = "";
+
+        const btnTodas = document.createElement("button");
+        btnTodas.textContent = "Todas";
+        btnTodas.className = "filtro-btn filtro-letra active";
+        btnTodas.onclick = () => filtrarLetraActriz("todas", btnTodas);
+        contenedor.appendChild(btnTodas);
+
+        letras.forEach((letra) => {
+          const btn = document.createElement("button");
+          btn.textContent = letra;
+          btn.className = "filtro-btn filtro-letra";
+          btn.onclick = () => filtrarLetraActriz(letra, btn);
+          contenedor.appendChild(btn);
+        });
+      }
+
+      function filtrarLetraActriz(letra, btn) {
+        letraActivaActriz = letra;
+        document
+          .querySelectorAll("#filtro-letras-actrices .filtro-letra")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        aplicarFiltrosActrices();
+      }
+
+      function aplicarFiltrosActrices() {
+        actricesFiltradas = actricesArray.filter(
+          (a) =>
+            letraActivaActriz === "todas" ||
+            a.nombre[0].toUpperCase() === letraActivaActriz
+        );
+        renderActrices(
+          actricesFiltradas,
+          "actrices-container",
+          "pagination-actrices",
+          12
+        );
+      }
+
+      function limpiarActrices() {
+        document.getElementById("buscador-actrices").value = "";
+        aplicarFiltrosActrices();
+      }
+
+      function filtrarActrices() {
+        const q = document
+          .getElementById("buscador-actrices")
+          .value.toLowerCase();
+        if (q === "") {
+          limpiarActrices();
+          return;
+        }
+        actricesFiltradas = actricesArray.filter(
+          (a) =>
+            a.nombre.toLowerCase().includes(q) ||
+            (a.nombreNativo && a.nombreNativo.toLowerCase().includes(q)) ||
+            (a.ship && a.ship.toLowerCase().includes(q)) ||
+            a.series.some((s) => s.toLowerCase().includes(q))
+        );
+        renderActrices(
+          actricesFiltradas,
+          "actrices-container",
+          "pagination-actrices",
+          12
+        );
+      }
+
+      // =====================
+      // RENDER ACTRICES
+      // =====================
+      function renderActrices(array, containerId, paginationId, perPage = 12) {
+        let page = 1;
+        const container = document.getElementById(containerId);
+        const pagination = document.getElementById(paginationId);
+
+        function render() {
+          container.innerHTML = "";
+          const start = (page - 1) * perPage;
+          const end = start + perPage;
+
+          array.slice(start, end).forEach((item) => {
+            const signo = calcularSigno(item.nacimiento);
+            const div = document.createElement("div");
+            div.className = "actriz-card";
+            div.onclick = () => abrirActriz(item);
+
+            div.innerHTML = `
+              <div class="actriz-foto">
+                <img loading="lazy" src="${item.foto}" alt="${item.nombre}">
+                ${signo ? `<span class="actriz-signo" title="${signo.nombre}">${signo.emoji}</span>` : ""}
+                <p class="actriz-nombre">${item.nombre}</p>
+              </div>
+              <div class="actriz-info">
+                ${item.ship ? `<p class="actriz-ship">💕 ${item.ship}</p>` : ""}
+              </div>
+            `;
+            container.appendChild(div);
+          });
+
+          pagination.innerHTML = "";
+          const total = Math.ceil(array.length / perPage);
+          for (let i = 1; i <= total; i++) {
+            const b = document.createElement("button");
+            b.textContent = i;
+            if (i === page) b.classList.add("active");
+            b.onclick = () => {
+              page = i;
+              render();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+            pagination.appendChild(b);
+          }
+        }
+        render();
+      }
+
+      // =====================
+      // ABRIR MODAL ACTRIZ
+      // =====================
+      function abrirActriz(item) {
+        history.pushState({}, "", "/actriz/" + item.slug);
+        document.title = item.nombre + " - Actriz GL | Girls Love Play";
+
+        const signo = calcularSigno(item.nacimiento);
+
+        document.getElementById("actriz-modal-img").src = item.foto;
+        document.getElementById("actriz-modal-img").alt = item.nombre;
+        document.getElementById("actriz-modal-nombre").textContent = item.nombre;
+        document.getElementById("actriz-modal-nombre-nativo").textContent =
+          item.nombreNativo || "";
+
+        const nacimientoTxt = item.nacimiento
+          ? `🎂 ${formatearFecha(item.nacimiento)} ${signo ? `&nbsp;·&nbsp; ${signo.emoji} ${signo.nombre}` : ""}`
+          : "";
+        const nacionalidadTxt = item.nacionalidad ? `🌏 ${item.nacionalidad}` : "";
+        document.getElementById("actriz-modal-nacimiento").innerHTML = [
+          nacimientoTxt,
+          nacionalidadTxt,
+        ]
+          .filter(Boolean)
+          .join("<br>");
+
+        const seriesHTML = (item.series && item.series.length
+          ? item.series
+          : ["Próximamente"]
+        )
+          .map((s) => `<span class="badge-serie">🎬 ${s}</span>`)
+          .join("");
+
+        // Ship: si tenemos el slug, es link a su ficha en Ships GL. Si no, se muestra sin link.
+        const shipHTML = item.ship
+          ? `<p class="ficha-label">💕 SHIP</p>
+             <div style="margin-top:8px">
+               ${
+                 item.shipSlug
+                   ? `<a class="badge-ship" href="/ship/${item.shipSlug}">💕 ${item.ship}</a>`
+                   : `<span class="badge-ship" style="cursor:default">💕 ${item.ship}</span>`
+               }
+             </div>`
+          : "";
+
+        const instaHTML = item.instagram
+          ? `<p class="ficha-label">📸 INSTAGRAM</p>
+             <div style="margin-top:8px">
+               <a href="${item.instagram}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:white;font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;text-decoration:none;margin:3px 2px">📸 Ver perfil</a>
+             </div>`
+          : "";
+
+        // Campos opcionales: solo se muestran si tienen contenido
+        const bioHTML = item.bio
+          ? `<p class="ficha-label">📝 BIO</p>
+             <p class="modal-texto" style="margin-top:8px;min-height:0">${item.bio}</p>`
+          : "";
+
+        const mascotaHTML = item.mascota
+          ? `<p class="ficha-label">🐾 MASCOTA</p>
+             <p class="modal-texto" style="margin-top:8px;min-height:0">${item.mascota}</p>`
+          : "";
+
+        const agenciaHTML = item.agencia
+          ? `<p class="ficha-label">🏢 AGENCIA</p>
+             <p class="modal-texto" style="margin-top:8px;min-height:0">${item.agencia}</p>`
+          : "";
+
+        document.getElementById("actriz-modal-body").innerHTML = `
+          ${bioHTML}
+          <p class="ficha-label">🎬 SERIES</p>
+          <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">${seriesHTML}</div>
+          ${shipHTML}
+          ${instaHTML}
+          ${mascotaHTML}
+          ${agenciaHTML}
+        `;
+
+        document.getElementById("modal-actriz").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function cerrarModalActriz(e) {
+        if (
+          e &&
+          e.type === "click" &&
+          e.target !== document.getElementById("modal-actriz")
+        )
+          return;
+        document.getElementById("modal-actriz").classList.remove("active");
+        document.body.style.overflow = "";
+        history.pushState({}, "", "/actrices-gl.html");
+        document.title = "Actrices GL - Girls Love Play 💕";
+      }
+
+      // Iniciar
+      generarFiltroLetrasActrices();
+      renderActrices(actricesFiltradas, "actrices-container", "pagination-actrices", 12);
+    </script>
+  </body>
+</html>
