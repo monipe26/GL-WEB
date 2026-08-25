@@ -1363,4 +1363,11 @@ body {
     letter-spacing: 1px;
     text-shadow: 0 0 10px rgba(255, 79, 216, 0.4);
   }
+
+
+
+  #mundogl-container .noticia-card:nth-child(1) .noticia-img img {
+    object-position: 0% center;
+  }
+
 }
