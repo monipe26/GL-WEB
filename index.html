@@ -83,6 +83,123 @@
   }
   </script>
 
+  <!-- Estilos del aviso de cumpleaños (ventanita flotante, solo en el index) -->
+  <style>
+    #aviso-cumple-index {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 24px;
+    }
+    #aviso-cumple-index:empty {
+      display: none;
+    }
+    #aviso-cumple-index::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.62);
+      z-index: -1;
+    }
+    .aviso-cumple-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      background: linear-gradient(160deg, #ff4fd8, #8f5cff);
+      border-radius: 20px;
+      padding: 36px 26px 26px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 79, 216, 0.4);
+      animation: aviso-cumple-entrada 0.4s ease;
+      max-width: 300px;
+      width: 100%;
+    }
+    @keyframes aviso-cumple-entrada {
+      from { opacity: 0; transform: translateY(16px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .aviso-cumple-foto {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid rgba(255, 255, 255, 0.7);
+      margin-bottom: 4px;
+    }
+    .aviso-cumple-texto {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+    .aviso-cumple-nombre {
+      margin: 0;
+      color: #fff;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .aviso-cumple-msj {
+      margin: 0;
+      color: #fff;
+      font-size: 13px;
+      opacity: 0.95;
+    }
+    .aviso-cumple-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 6px;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 18px;
+      text-decoration: none;
+      width: fit-content;
+    }
+    .aviso-cumple-link:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .aviso-cumple-cerrar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.18);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      opacity: 0.9;
+      line-height: 1;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .aviso-cumple-cerrar:hover {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    @media (max-width: 700px) {
+      .aviso-cumple-card {
+        max-width: 280px;
+        padding: 32px 22px 22px;
+      }
+    }
+  </style>
+
   <!-- Estilos del banner carrusel "Próximamente" -->
   <style>
     .banner-carrusel {
@@ -527,6 +644,9 @@
       </div>
     </div>
   
+    <!-- Aviso de cumpleaños (ventanita flotante, no invasiva) -->
+    <div id="aviso-cumple-index"></div>
+
     <!-- Banner de bienvenida -->
     <div id="welcomeBanner" style="
       position: fixed; inset: 0; z-index: 9999;
@@ -694,6 +814,63 @@
 
         reiniciarAutoplay();
       })();
+    </script>
+
+    <!-- 🎂 Aviso de cumpleaños (ventanita no invasiva, solo en el index) -->
+    <script src="/actrices-data.js"></script>
+    <script src="/cumpleanos-utils.js"></script>
+    <script>
+    (function () {
+      const DURACION_AVISO_MS = 15000; // se cierra sola a los 15s si no la cierran antes
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof obtenerActricesDeCumple !== "function") return;
+
+        const cumpleañeras = obtenerActricesDeCumple();
+        if (!cumpleañeras.length) return;
+
+        // Para no repetir el aviso cada vez que entran al index el mismo día
+        // (según el día vigente en Tailandia, que es lo que define el cumpleaños).
+        const hoyTH = getFechaHoyThailand();
+        const claveHoy =
+          "cumpleAvisoIndex_" +
+          hoyTH.year + "-" + hoyTH.month + "-" + hoyTH.day +
+          "_" + cumpleañeras.map((a) => a.slug).sort().join(",");
+
+        if (localStorage.getItem(claveHoy)) return;
+        localStorage.setItem(claveHoy, "1");
+
+        const contenedor = document.getElementById("aviso-cumple-index");
+        if (!contenedor) return;
+
+        cumpleañeras.forEach((actriz) => {
+          const card = document.createElement("div");
+          card.className = "aviso-cumple-card";
+          card.innerHTML = `
+            <button class="aviso-cumple-cerrar" aria-label="Cerrar">✕</button>
+            <img class="aviso-cumple-foto" src="${actriz.foto}" alt="${actriz.nombre}">
+            <div class="aviso-cumple-texto">
+              <p class="aviso-cumple-nombre">${actriz.nombre}</p>
+              <p class="aviso-cumple-msj">🎉 ¡Hoy es su cumpleaños!</p>
+              ${
+                actriz.instagram
+                  ? `<a class="aviso-cumple-link" href="${actriz.instagram}" target="_blank" rel="noopener">📸 Andá a saludarla</a>`
+                  : ""
+              }
+            </div>
+          `;
+
+          const cerrarCard = () => {
+            card.remove();
+          };
+          card.querySelector(".aviso-cumple-cerrar").addEventListener("click", cerrarCard);
+
+          contenedor.appendChild(card);
+
+          setTimeout(cerrarCard, DURACION_AVISO_MS);
+        });
+      });
+    })();
     </script>
 
     <!-- Detecta cuándo alguien instala la PWA y lo manda a Google Analytics -->
