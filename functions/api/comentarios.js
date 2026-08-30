@@ -11,7 +11,7 @@ export async function onRequestGet(context) {
 
   try {
     const { results } = await env.DB.prepare(
-      "SELECT id, nombre, texto, fecha, likes FROM comentarios WHERE slug = ? AND tipo = ? ORDER BY fecha DESC"
+      "SELECT id, nombre, texto, fecha, likes FROM comentarios WHERE noticia_slug = ? AND tipo = ? ORDER BY fecha DESC"
     )
       .bind(slug, tipo)
       .all();
@@ -67,7 +67,7 @@ export async function onRequestPost(context) {
 
   try {
     await env.DB.prepare(
-      "INSERT INTO comentarios (slug, tipo, nombre, texto, fecha, likes, ip_hash) VALUES (?, ?, ?, ?, ?, 0, ?)"
+      "INSERT INTO comentarios (noticia_slug, tipo, nombre, texto, fecha, likes, ip_hash) VALUES (?, ?, ?, ?, ?, 0, ?)"
     )
       .bind(slug, tipo, nombreLimpio, textoLimpio, fecha, ipHash)
       .run();
