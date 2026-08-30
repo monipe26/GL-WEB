@@ -28,6 +28,8 @@
   <meta property="og:url" content="https://girlsloveplay.com/mundo-gl.html" />
 
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <link rel="stylesheet" href="/comentarios-styles.css" />
   <!-- 🇦🇷 Estilo para la banderita del footer -->
   <style>
     .footer-flag {
@@ -199,6 +201,7 @@
       <p class="modal-titulo" id="mundogl-modal-titulo"></p>
       <p class="modal-texto" id="mundogl-modal-texto"></p>
       <div id="mundogl-modal-video"></div>
+      <div id="modal-comentarios-mundogl"></div>
       <button
         class="modal-subir"
         onclick="document.querySelector('#modal-mundogl .modal-box').scrollTop=0"
@@ -207,6 +210,8 @@
       </button>
     </div>
   </div>
+
+  <script src="/comentarios.js" defer></script>
 
   <script>
     // =====================
@@ -360,6 +365,7 @@
 
       document.getElementById("modal-mundogl").classList.add("active");
       document.body.style.overflow = "hidden";
+      if (window.renderComentarios) window.renderComentarios("modal-comentarios-mundogl", item.slug, "mundogl");
 
       try {
         const detalle = await obtenerDetalleMundoGL(item.id);

@@ -2004,6 +2004,7 @@ async function abrirModal(item, tipo = "noticias") {
 
   document.getElementById("modal-noticias").classList.add("active");
   document.body.style.overflow = "hidden";
+  if (window.renderComentarios) window.renderComentarios("modal-comentarios-noticias", item.slug, "noticias");
 
   try {
     const detalle = await obtenerDetalleCompleto(tipo, item.id);

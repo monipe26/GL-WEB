@@ -36,6 +36,8 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="ships-gl.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <link rel="stylesheet" href="/comentarios-styles.css" />
 
   <!-- Íconos del navegador y Apple -->
   <link rel="icon" type="image/png" href="/img/icon-192.png" />
@@ -554,6 +556,7 @@
     </footer>
 
     <script src="/script.js" defer></script>
+    <script src="/comentarios.js" defer></script>
 
     <!-- MODAL NOTICIAS -->
     <div class="modal-overlay" id="modal-noticias" onclick="cerrarModal(event)">
@@ -564,6 +567,7 @@
         <p class="modal-titulo" id="modal-titulo"></p>
         <p class="modal-texto" id="modal-texto"></p>
         <div id="modal-video"></div>
+        <div id="modal-comentarios-noticias"></div>
         <button
           class="modal-subir"
           onclick="document.querySelector('.modal-box').scrollTop=0"
