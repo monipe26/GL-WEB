@@ -30,7 +30,7 @@ async function renderComentarios(containerId, slug, tipo = "noticias") {
       <div class="comentarios-form">
         <input type="text" id="${containerId}-nombre" maxlength="40" placeholder="Tu nombre" />
         <textarea id="${containerId}-texto" maxlength="1000" placeholder="Escribí tu comentario..."></textarea>
-        <div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}" data-callback="___turnstileOk_${containerId.replace(/[^a-zA-Z0-9]/g, "")}"></div>
+        <div class="cf-turnstile" id="${containerId}-turnstile"></div>
         <button id="${containerId}-publicar" disabled>Publicar comentario</button>
         <p class="comentarios-msg" id="${containerId}-msg"></p>
       </div>
@@ -38,10 +38,30 @@ async function renderComentarios(containerId, slug, tipo = "noticias") {
   `;
 
   let token = null;
-  window["___turnstileOk_" + containerId.replace(/[^a-zA-Z0-9]/g, "")] = (t) => {
-    token = t;
-    document.getElementById(containerId + "-publicar").disabled = false;
-  };
+
+  // El widget se crea de forma dinámica (recién ahora existe en el DOM),
+  // así que hay que renderizarlo a mano con turnstile.render() en vez de
+  // confiar en el auto-render de data-sitekey (ese solo detecta widgets
+  // que ya estaban en el HTML cuando el script de Turnstile cargó).
+  function montarTurnstile() {
+    if (!window.turnstile) {
+      // El script de challenges.cloudflare.com todavía no cargó, reintentamos
+      setTimeout(montarTurnstile, 200);
+      return;
+    }
+    window.turnstile.render(`#${containerId}-turnstile`, {
+      sitekey: TURNSTILE_SITE_KEY,
+      callback: (t) => {
+        token = t;
+        document.getElementById(containerId + "-publicar").disabled = false;
+      },
+      "expired-callback": () => {
+        token = null;
+        document.getElementById(containerId + "-publicar").disabled = true;
+      },
+    });
+  }
+  montarTurnstile();
 
   await cargarLista(containerId, slug, tipo);
 
@@ -76,8 +96,9 @@ async function renderComentarios(containerId, slug, tipo = "noticias") {
       document.getElementById(containerId + "-texto").value = "";
       if (data.publicado) await cargarLista(containerId, slug, tipo);
 
-      if (window.turnstile) window.turnstile.reset();
+      if (window.turnstile) window.turnstile.reset(`#${containerId}-turnstile`);
       token = null;
+      document.getElementById(containerId + "-publicar").disabled = true;
     } catch (e) {
       msg.textContent = "Error de conexión. Probá de nuevo.";
       document.getElementById(containerId + "-publicar").disabled = false;
