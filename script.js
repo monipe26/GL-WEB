@@ -729,6 +729,7 @@ function cerrarModalShip(e) {
   if (e && e.target !== document.getElementById("modal-ships")) return;
   document.getElementById("modal-ships").classList.remove("active");
   document.body.style.overflow = "";
+  document.body.style.background = "";
   history.pushState({}, "", "/");
   document.title = "Girls Love Play - Series GL Asiáticas en Español";
 }
@@ -878,7 +879,6 @@ async function abrirModalMundoGL(item) {
 
   document.getElementById("modal-mundogl").classList.add("active");
   document.body.style.overflow = "hidden";
-  if (window.renderComentarios) window.renderComentarios("modal-comentarios-mundogl", item.slug, "mundogl");
 
   try {
     const detalle = await obtenerDetalleMundoGL(item.id);
@@ -2005,7 +2005,6 @@ async function abrirModal(item, tipo = "noticias") {
 
   document.getElementById("modal-noticias").classList.add("active");
   document.body.style.overflow = "hidden";
-  if (window.renderComentarios) window.renderComentarios("modal-comentarios-noticias", item.slug, "noticias");
 
   try {
     const detalle = await obtenerDetalleCompleto(tipo, item.id);
