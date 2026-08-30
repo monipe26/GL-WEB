@@ -878,6 +878,7 @@ async function abrirModalMundoGL(item) {
 
   document.getElementById("modal-mundogl").classList.add("active");
   document.body.style.overflow = "hidden";
+  if (window.renderComentarios) window.renderComentarios("modal-comentarios-mundogl", item.slug, "mundogl");
 
   try {
     const detalle = await obtenerDetalleMundoGL(item.id);
