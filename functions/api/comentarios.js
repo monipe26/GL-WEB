@@ -1,114 +1,156 @@
-import { hashIp, verificarTurnstile, contarEnlaces, respuestaJSON } from "./_utils.js";
+// =====================================================
+// 💬 SISTEMA DE COMENTARIOS - Girls Love Play
+// Este archivo se carga UNA vez en cada página que tenga
+// modales con comentarios (index.html y mundo-gl.html).
+// No toca nada del resto del sitio.
+// =====================================================
 
-// GET /api/comentarios?slug=xxx&tipo=noticias
-// Devuelve los comentarios ya aprobados de esa noticia, los más nuevos primero.
-export async function onRequestGet(context) {
-  const { request, env } = context;
-  const url = new URL(request.url);
-  const slug = url.searchParams.get("slug");
-  const tipo = url.searchParams.get("tipo") || "noticias";
+const TURNSTILE_SITE_KEY = "0x4AAAAAAEiI227QkehQP1WC"; // tu Site key pública de Turnstile
 
-  if (!slug) return respuestaJSON({ error: "Falta el slug" }, 400);
-
-  const { results } = await env.DB.prepare(
-    `SELECT id, nombre, texto, fecha, likes
-     FROM comentarios
-     WHERE noticia_slug = ? AND tipo = ? AND estado = 'aprobado'
-     ORDER BY id DESC
-     LIMIT 200`
-  )
-    .bind(slug, tipo)
-    .all();
-
-  return respuestaJSON({ comentarios: results });
+function escaparHTML(texto) {
+  const div = document.createElement("div");
+  div.textContent = texto;
+  return div.innerHTML;
 }
 
-// POST /api/comentarios
-// Body: { slug, tipo, nombre, texto, turnstileToken }
-export async function onRequestPost(context) {
-  const { request, env } = context;
-  const ip = request.headers.get("CF-Connecting-IP") || "0.0.0.0";
-  const ipHash = await hashIp(ip);
+function formatearFecha(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString("es-AR", { day: "numeric", month: "long", year: "numeric" });
+}
 
-  let body;
-  try {
-    body = await request.json();
-  } catch (e) {
-    return respuestaJSON({ error: "Datos inválidos" }, 400);
-  }
+async function renderComentarios(containerId, slug, tipo = "noticias") {
+  const cont = document.getElementById(containerId);
+  if (!cont) return;
 
-  const slug = (body.slug || "").trim();
-  const tipo = body.tipo === "mundogl" ? "mundogl" : "noticias";
-  const nombre = (body.nombre || "").trim().slice(0, 40);
-  const texto = (body.texto || "").trim().slice(0, 1000);
-  const turnstileToken = body.turnstileToken;
+  cont.innerHTML = `
+    <div class="comentarios-caja">
+      <h3 class="comentarios-titulo">💬 Comentarios</h3>
+      <div class="comentarios-lista" id="${containerId}-lista">Cargando comentarios...</div>
 
-  if (!slug || !nombre || !texto || texto.length < 2) {
-    return respuestaJSON({ error: "Completá tu nombre y el comentario." }, 400);
-  }
+      <div class="comentarios-form">
+        <input type="text" id="${containerId}-nombre" maxlength="40" placeholder="Tu nombre" />
+        <textarea id="${containerId}-texto" maxlength="1000" placeholder="Escribí tu comentario..."></textarea>
+        <div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}" data-callback="___turnstileOk_${containerId.replace(/[^a-zA-Z0-9]/g, "")}"></div>
+        <button id="${containerId}-publicar" disabled>Publicar comentario</button>
+        <p class="comentarios-msg" id="${containerId}-msg"></p>
+      </div>
+    </div>
+  `;
 
-  // 1) Verificar que no sea un bot
-  const humano = await verificarTurnstile(turnstileToken, ip, env.TURNSTILE_SECRET);
-  if (!humano) {
-    return respuestaJSON({ error: "No pudimos verificar que sos una persona. Probá de nuevo." }, 400);
-  }
+  let token = null;
+  window["___turnstileOk_" + containerId.replace(/[^a-zA-Z0-9]/g, "")] = (t) => {
+    token = t;
+    document.getElementById(containerId + "-publicar").disabled = false;
+  };
 
-  // 2) ¿Esta IP está bloqueada por la administradora?
-  const bloqueada = await env.DB.prepare(
-    "SELECT ip_hash FROM ips_bloqueadas WHERE ip_hash = ?"
-  )
-    .bind(ipHash)
-    .first();
-  if (bloqueada) {
-    return respuestaJSON({ error: "No pudimos publicar tu comentario." }, 403);
-  }
+  await cargarLista(containerId, slug, tipo);
 
-  // 3) Límite de frecuencia: no más de 1 comentario cada 20 segundos por IP
-  const ultimo = await env.DB.prepare(
-    "SELECT fecha FROM comentarios WHERE ip_hash = ? ORDER BY id DESC LIMIT 1"
-  )
-    .bind(ipHash)
-    .first();
-  if (ultimo) {
-    const segundos = (Date.now() - new Date(ultimo.fecha).getTime()) / 1000;
-    if (segundos < 20) {
-      return respuestaJSON({ error: "Esperá unos segundos antes de comentar de nuevo." }, 429);
+  document.getElementById(containerId + "-publicar").addEventListener("click", async () => {
+    const nombre = document.getElementById(containerId + "-nombre").value.trim();
+    const texto = document.getElementById(containerId + "-texto").value.trim();
+    const msg = document.getElementById(containerId + "-msg");
+
+    if (!nombre || !texto) {
+      msg.textContent = "Completá tu nombre y el comentario.";
+      return;
     }
-  }
 
-  // 4) Decidir el estado: aprobado / pendiente / bloqueado
-  let estado = "aprobado";
+    document.getElementById(containerId + "-publicar").disabled = true;
+    msg.textContent = "Publicando...";
 
-  const enlaces = contarEnlaces(texto);
-  if (enlaces >= 3) estado = "bloqueado";
-  else if (enlaces === 2) estado = "pendiente";
+    try {
+      const res = await fetch("/api/comentarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug, tipo, nombre, texto, turnstileToken: token }),
+      });
+      const data = await res.json();
 
-  if (estado === "aprobado") {
-    const { results: palabras } = await env.DB.prepare(
-      "SELECT palabra FROM palabras_bloqueadas"
-    ).all();
-    const textoLower = texto.toLowerCase();
-    const contieneProhibida = palabras.some((p) =>
-      textoLower.includes(String(p.palabra).toLowerCase())
-    );
-    if (contieneProhibida) estado = "pendiente";
-  }
+      if (!res.ok) {
+        msg.textContent = data.error || "No se pudo publicar tu comentario.";
+        document.getElementById(containerId + "-publicar").disabled = false;
+        return;
+      }
 
-  const fecha = new Date().toISOString();
+      msg.textContent = data.mensaje;
+      document.getElementById(containerId + "-texto").value = "";
+      if (data.publicado) await cargarLista(containerId, slug, tipo);
 
-  await env.DB.prepare(
-    `INSERT INTO comentarios (noticia_slug, tipo, nombre, texto, fecha, estado, ip_hash, likes)
-     VALUES (?, ?, ?, ?, ?, ?, ?, 0)`
-  )
-    .bind(slug, tipo, nombre, texto, fecha, estado, ipHash)
-    .run();
-
-  return respuestaJSON({
-    ok: true,
-    publicado: estado === "aprobado",
-    mensaje:
-      estado === "aprobado"
-        ? "¡Comentario publicado!"
-        : "¡Gracias! Tu comentario se va a mostrar luego de una revisión rápida.",
+      if (window.turnstile) window.turnstile.reset();
+      token = null;
+    } catch (e) {
+      msg.textContent = "Error de conexión. Probá de nuevo.";
+      document.getElementById(containerId + "-publicar").disabled = false;
+    }
   });
 }
+
+async function cargarLista(containerId, slug, tipo) {
+  const lista = document.getElementById(containerId + "-lista");
+  try {
+    const res = await fetch(`/api/comentarios?slug=${encodeURIComponent(slug)}&tipo=${tipo}`);
+    const data = await res.json();
+    const comentarios = data.comentarios || [];
+
+    if (!comentarios.length) {
+      lista.innerHTML = `<p class="comentarios-vacio">Todavía no hay comentarios. ¡Sé la primera en comentar! 💕</p>`;
+      return;
+    }
+
+    lista.innerHTML = comentarios
+      .map(
+        (c) => `
+      <div class="comentario-item" data-id="${c.id}">
+        <div class="comentario-avatar">👤</div>
+        <div class="comentario-cuerpo">
+          <p class="comentario-nombre">${escaparHTML(c.nombre)}</p>
+          <p class="comentario-texto">${escaparHTML(c.texto)}</p>
+          <div class="comentario-acciones">
+            <span class="comentario-fecha">${formatearFecha(c.fecha)}</span>
+            <button class="btn-like" onclick="darLike(${c.id}, this)">❤️ <span>${c.likes}</span></button>
+            <button class="btn-reportar" onclick="reportarComentario(${c.id})">🚩 Reportar</button>
+          </div>
+        </div>
+      </div>`
+      )
+      .join("");
+  } catch (e) {
+    lista.innerHTML = `<p class="comentarios-vacio">No se pudieron cargar los comentarios.</p>`;
+  }
+}
+
+async function darLike(id, btn) {
+  btn.disabled = true;
+  try {
+    const res = await fetch(`/api/comentarios/${id}/like`, { method: "POST" });
+    const data = await res.json();
+    if (data.likes !== undefined) btn.querySelector("span").textContent = data.likes;
+  } catch (e) {}
+}
+
+async function reportarComentario(id) {
+  const motivo = prompt(
+    "Motivo del reporte:\n1) Spam\n2) Acoso\n3) Insultos\n4) Contenido inapropiado\n5) Información falsa\n6) Otro\n\nEscribí el número:"
+  );
+  const motivos = {
+    1: "Spam",
+    2: "Acoso",
+    3: "Insultos",
+    4: "Contenido inapropiado",
+    5: "Información falsa",
+    6: "Otro",
+  };
+  if (!motivo || !motivos[motivo]) return;
+
+  try {
+    const res = await fetch(`/api/comentarios/${id}/reportar`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ motivo: motivos[motivo] }),
+    });
+    const data = await res.json();
+    alert(data.mensaje || "Gracias por avisarnos.");
+  } catch (e) {}
+}
+
+window.renderComentarios = renderComentarios;
