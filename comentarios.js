@@ -5,7 +5,7 @@
 // No toca nada del resto del sitio.
 // =====================================================
 
-const TURNSTILE_SITE_KEY = "0x4AAAAAAAEiT227QkehQP1WC"; // tu Site key pública de Turnstile
+const TURNSTILE_SITE_KEY = "0x4AAAAAAEiI227QkehQP1WC"; // tu Site key pública de Turnstile
 
 function escaparHTML(texto) {
   const div = document.createElement("div");
