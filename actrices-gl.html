@@ -710,14 +710,16 @@
           item.nombreNativo || "";
 
         const edad = calcularEdad(item.nacimiento);
-        const nacimientoTxt = item.nacimiento
-          ? `🎂 ${formatearFecha(item.nacimiento)} ${
-              edad !== null ? `&nbsp;·&nbsp; ${edad} años` : ""
-            } ${signo ? `&nbsp;·&nbsp; ${signo.emoji} ${signo.nombre}` : ""}`
+        const fechaTxt = item.nacimiento
+          ? `🎂 ${formatearFecha(item.nacimiento)}`
           : "";
+        const edadTxt = edad !== null ? `🎈 ${edad} años` : "";
+        const signoTxt = signo ? `${signo.emoji} ${signo.nombre}` : "";
         const nacionalidadTxt = item.nacionalidad ? `🌏 ${item.nacionalidad}` : "";
         document.getElementById("actriz-modal-nacimiento").innerHTML = [
-          nacimientoTxt,
+          fechaTxt,
+          edadTxt,
+          signoTxt,
           nacionalidadTxt,
         ]
           .filter(Boolean)

@@ -33,7 +33,10 @@ function getFechaHoyThailand() {
 function calcularEdad(fechaISO) {
   if (!fechaISO) return null;
   const [anioNac, mesNac, diaNac] = fechaISO.split("-").map(Number);
-  const hoy = getFechaHoyAR();
+  // Usamos la fecha de Tailandia (no la de Argentina) para que la edad
+  // se actualice en el mismo instante en que arranca el aviso de
+  // cumpleaños (estadoCumple usa ese mismo reloj).
+  const hoy = getFechaHoyThailand();
   let edad = hoy.year - anioNac;
   const noLlegoCumpleEsteAnio =
     hoy.month < mesNac || (hoy.month === mesNac && hoy.day < diaNac);
