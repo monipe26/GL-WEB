@@ -1,4 +1,4 @@
-import { hashIp, respuestaJSON } from "../_utils.js";
+import { hashIp, respuestaJSON } from "../../_utils.js";
 
 // POST /api/comentarios/123/like
 export async function onRequestPost(context) {
