@@ -879,6 +879,7 @@ async function abrirModalMundoGL(item) {
 
   document.getElementById("modal-mundogl").classList.add("active");
   document.body.style.overflow = "hidden";
+  if (window.renderComentarios) window.renderComentarios("modal-comentarios-mundogl", item.slug, "mundogl");
 
   try {
     const detalle = await obtenerDetalleMundoGL(item.id);
@@ -2005,6 +2006,7 @@ async function abrirModal(item, tipo = "noticias") {
 
   document.getElementById("modal-noticias").classList.add("active");
   document.body.style.overflow = "hidden";
+  if (window.renderComentarios) window.renderComentarios("modal-comentarios-noticias", item.slug, tipo);
 
   try {
     const detalle = await obtenerDetalleCompleto(tipo, item.id);
