@@ -1,12 +1,31 @@
 [
   {
+    "id": "hello-stranger",
+    "slug": "hello-stranger",
+    "img": "/img/series/hello-stranger.jpg",
+    "titulo": "Hello, Stranger (2026)",
+    "genero": "Romance/Drama",
+    "sinopsis": "Tras nueve años como aprendiz, Ina conoce a Jenny, una mujer temporalmente en Corea. Su encuentro despierta sentimientos que harán que Ina cuestione su futuro.",
+    "videos": ["EJQ6de4S-No"]
+  },
+
+  {
+    "id": "please-be-gentle-boss",
+    "slug": "please-be-gentle-boss",
+    "img": "/img/series/please-be-gentle-boss.jpg",
+    "titulo": "Please Be Gentle Boss (2026)",
+    "genero": "Romance/Drama",
+    "sinopsis": "",
+    "videos": ["D_XBlKBjECE"]
+  },
+  {
     "id": "firstlove",
     "slug": "first-love",
     "img": "/img/series/first-love.jpg",
     "titulo": "FirstLove (2026)",
     "genero": "Romance/Juvenil",
     "sinopsis": "Linlada, marcada por heridas familiares, conoce a Thorfan y descubre su primer amor. Pero los malentendidos y secretos las separan. ¿Podrán volver a encontrarse?",
-    "videos": ["K4E0ah7Qmbg","QkrVXadZ3Ag","fbf7agLdL8E","k6CNa5krQjE"]
+    "videos": ["K4E0ah7Qmbg", "QkrVXadZ3Ag", "fbf7agLdL8E", "k6CNa5krQjE"]
   },
 
   {
@@ -16,7 +35,7 @@
     "titulo": "Sono Shunkan, Koi Datta (2026)",
     "genero": "Romance/Drama",
     "sinopsis": "Mio, una popular estudiante de maquillaje y peluquería, se acerca a Ruka, una joven de moda. Al trabajar juntas, la atracción entre ambas crece hasta convertirse en algo más.",
-    "videos": ["xVXQvA8tWZ0", "zfxgIwKbJn4","N5LmJ5v5LwE"]
+    "videos": ["xVXQvA8tWZ0", "zfxgIwKbJn4", "N5LmJ5v5LwE"]
   },
 
   {
@@ -26,7 +45,13 @@
     "titulo": "Off the record 2 (2026)",
     "genero": "Romance",
     "sinopsis": "Un intenso romance de oficina marcado por la tensión, reglas estrictas y celos entre una perfeccionista líder de equipo y su pasante, la joven Kang Da-in.",
-    "videos": ["y3X2FTKwszg", "1GmoMdvJGdI","FQQlWmDL8mk","umM5nOLlY2s","tv-FbcKn5GU"]
+    "videos": [
+      "y3X2FTKwszg",
+      "1GmoMdvJGdI",
+      "FQQlWmDL8mk",
+      "umM5nOLlY2s",
+      "tv-FbcKn5GU"
+    ]
   },
 
   {
