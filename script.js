@@ -858,7 +858,8 @@ async function obtenerDetalleMundoGL(id) {
 
 async function abrirModalMundoGL(item) {
   document.getElementById("mundogl-modal-img").src = item.img;
-  document.getElementById("mundogl-modal-fecha").textContent = "📅 " + item.fecha;
+  document.getElementById("mundogl-modal-fecha").textContent =
+    "📅 " + item.fecha;
   document.getElementById("mundogl-modal-titulo").textContent = item.titulo;
   document.getElementById("mundogl-modal-texto").textContent = "Cargando...";
 
@@ -879,7 +880,8 @@ async function abrirModalMundoGL(item) {
 
   document.getElementById("modal-mundogl").classList.add("active");
   document.body.style.overflow = "hidden";
-  if (window.renderComentarios) window.renderComentarios("modal-comentarios-mundogl", item.slug, "mundogl");
+  if (window.renderComentarios)
+    window.renderComentarios("modal-comentarios-mundogl", item.slug, "mundogl");
 
   try {
     const detalle = await obtenerDetalleMundoGL(item.id);
@@ -1548,7 +1550,11 @@ function ocultarInfoContenido() {
 // ▶ REPRODUCTOR UNIVERSAL
 // =====================
 
-function reproducirContenido(item, ocultarControles = false, esGaleriaOst = false) {
+function reproducirContenido(
+  item,
+  ocultarControles = false,
+  esGaleriaOst = false
+) {
   idiomaSubtituloAplicado = false;
   document
     .querySelectorAll(".card")
@@ -2006,7 +2012,10 @@ async function abrirModal(item, tipo = "noticias") {
 
   document.getElementById("modal-noticias").classList.add("active");
   document.body.style.overflow = "hidden";
-  if (window.renderComentarios) window.renderComentarios("modal-comentarios-noticias", item.slug, tipo);
+  if (window.renderComentarios)
+    window.renderComentarios("modal-comentarios-noticias", item.slug, tipo, {
+      titulo: item.titulo,
+    });
 
   try {
     const detalle = await obtenerDetalleCompleto(tipo, item.id);
@@ -2153,7 +2162,9 @@ if (btnPwa) {
   btnPwa.addEventListener("click", async (e) => {
     e.preventDefault();
     if (!deferredPrompt) {
-      alert("Para agregarla, abrí el menú de tu navegador y elegí 'Agregar a la pantalla principal'.");
+      alert(
+        "Para agregarla, abrí el menú de tu navegador y elegí 'Agregar a la pantalla principal'."
+      );
       return;
     }
     deferredPrompt.prompt();
