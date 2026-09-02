@@ -5,7 +5,7 @@
 // No toca nada del resto del sitio.
 // =====================================================
 
-const TURNSTILE_SITE_KEY = "0x4AAAAAAAEiT227QkehQP1WC"; // tu Site key pública de Turnstile
+const TURNSTILE_SITE_KEY = "0x4AAAAAAEiI227QkehQP1WC"; // tu Site key pública de Turnstile
 
 function escaparHTML(texto) {
   const div = document.createElement("div");
@@ -15,19 +15,10 @@ function escaparHTML(texto) {
 
 function formatearFecha(iso) {
   const d = new Date(iso);
-  return d.toLocaleDateString("es-AR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  return d.toLocaleDateString("es-AR", { day: "numeric", month: "long", year: "numeric" });
 }
 
-async function renderComentarios(
-  containerId,
-  slug,
-  tipo = "noticias",
-  meta = {}
-) {
+async function renderComentarios(containerId, slug, tipo = "noticias", meta = {}) {
   const cont = document.getElementById(containerId);
   if (!cont) return;
 
@@ -91,58 +82,45 @@ async function renderComentarios(
 
   await cargarLista(containerId, slug, tipo);
 
-  document
-    .getElementById(containerId + "-publicar")
-    .addEventListener("click", async () => {
-      const nombre = document
-        .getElementById(containerId + "-nombre")
-        .value.trim();
-      const texto = document
-        .getElementById(containerId + "-texto")
-        .value.trim();
-      const msg = document.getElementById(containerId + "-msg");
+  document.getElementById(containerId + "-publicar").addEventListener("click", async () => {
+    const nombre = document.getElementById(containerId + "-nombre").value.trim();
+    const texto = document.getElementById(containerId + "-texto").value.trim();
+    const msg = document.getElementById(containerId + "-msg");
 
-      if (!nombre || !texto) {
-        msg.textContent = "Completá tu nombre y el comentario.";
+    if (!nombre || !texto) {
+      msg.textContent = "Completá tu nombre y el comentario.";
+      return;
+    }
+
+    document.getElementById(containerId + "-publicar").disabled = true;
+    msg.textContent = "Publicando...";
+
+    try {
+      const res = await fetch("/api/comentarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug, tipo, nombre, texto, turnstileToken: token }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        msg.textContent = data.error || "No se pudo publicar tu comentario.";
+        document.getElementById(containerId + "-publicar").disabled = false;
         return;
       }
 
+      msg.textContent = data.mensaje;
+      document.getElementById(containerId + "-texto").value = "";
+      if (data.publicado) await cargarLista(containerId, slug, tipo);
+
+      if (window.turnstile) window.turnstile.reset(`#${containerId}-turnstile`);
+      token = null;
       document.getElementById(containerId + "-publicar").disabled = true;
-      msg.textContent = "Publicando...";
-
-      try {
-        const res = await fetch("/api/comentarios", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            slug,
-            tipo,
-            nombre,
-            texto,
-            turnstileToken: token,
-          }),
-        });
-        const data = await res.json();
-
-        if (!res.ok) {
-          msg.textContent = data.error || "No se pudo publicar tu comentario.";
-          document.getElementById(containerId + "-publicar").disabled = false;
-          return;
-        }
-
-        msg.textContent = data.mensaje;
-        document.getElementById(containerId + "-texto").value = "";
-        if (data.publicado) await cargarLista(containerId, slug, tipo);
-
-        if (window.turnstile)
-          window.turnstile.reset(`#${containerId}-turnstile`);
-        token = null;
-        document.getElementById(containerId + "-publicar").disabled = true;
-      } catch (e) {
-        msg.textContent = "Error de conexión. Probá de nuevo.";
-        document.getElementById(containerId + "-publicar").disabled = false;
-      }
-    });
+    } catch (e) {
+      msg.textContent = "Error de conexión. Probá de nuevo.";
+      document.getElementById(containerId + "-publicar").disabled = false;
+    }
+  });
 }
 
 function configurarCompartir(containerId, titulo) {
@@ -167,26 +145,21 @@ function configurarCompartir(containerId, titulo) {
 
   document.getElementById(containerId + "-x").addEventListener("click", () => {
     window.open(
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        titulo
-      )}&url=${encodeURIComponent(url)}`,
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(titulo)}&url=${encodeURIComponent(url)}`,
       "_blank",
       "noopener,width=600,height=500"
     );
   });
 
-  document
-    .getElementById(containerId + "-copiar")
-    .addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(url);
-        msg.textContent = "¡Link copiado! 💕";
-        setTimeout(() => (msg.textContent = ""), 2500);
-      } catch (e) {
-        msg.textContent =
-          "No se pudo copiar. Copiá el link desde la barra de direcciones.";
-      }
-    });
+  document.getElementById(containerId + "-copiar").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      msg.textContent = "¡Link copiado! 💕";
+      setTimeout(() => (msg.textContent = ""), 2500);
+    } catch (e) {
+      msg.textContent = "No se pudo copiar. Copiá el link desde la barra de direcciones.";
+    }
+  });
 
   const btnNativo = document.getElementById(containerId + "-nativo");
   if (navigator.share) {
@@ -202,9 +175,7 @@ function configurarCompartir(containerId, titulo) {
 async function cargarLista(containerId, slug, tipo) {
   const lista = document.getElementById(containerId + "-lista");
   try {
-    const res = await fetch(
-      `/api/comentarios?slug=${encodeURIComponent(slug)}&tipo=${tipo}`
-    );
+    const res = await fetch(`/api/comentarios?slug=${encodeURIComponent(slug)}&tipo=${tipo}`);
     const data = await res.json();
     const comentarios = data.comentarios || [];
 
@@ -223,12 +194,8 @@ async function cargarLista(containerId, slug, tipo) {
           <p class="comentario-texto">${escaparHTML(c.texto)}</p>
           <div class="comentario-acciones">
             <span class="comentario-fecha">${formatearFecha(c.fecha)}</span>
-            <button class="btn-like" onclick="darLike(${
-              c.id
-            }, this)">❤️ <span>${c.likes}</span></button>
-            <button class="btn-reportar" onclick="reportarComentario(${
-              c.id
-            })">🚩 Reportar</button>
+            <button class="btn-like" onclick="darLike(${c.id}, this)">❤️ <span>${c.likes}</span></button>
+            <button class="btn-reportar" onclick="reportarComentario(${c.id})">🚩 Reportar</button>
           </div>
         </div>
       </div>`
@@ -244,8 +211,7 @@ async function darLike(id, btn) {
   try {
     const res = await fetch(`/api/comentarios/${id}/like`, { method: "POST" });
     const data = await res.json();
-    if (data.likes !== undefined)
-      btn.querySelector("span").textContent = data.likes;
+    if (data.likes !== undefined) btn.querySelector("span").textContent = data.likes;
   } catch (e) {}
 }
 
