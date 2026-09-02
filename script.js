@@ -2134,12 +2134,10 @@ window.addEventListener("load", () => {
 });
 
 // =====================
-// 📲 PWA: SERVICE WORKER & INSTALACIÓN
+// 📲 PWA: SERVICE WORKER
+// (La lógica de instalación -mobile y PC- vive ahora en index.html,
+// en un solo lugar, para no duplicar el manejo de beforeinstallprompt)
 // =====================
-let deferredPrompt = null;
-const btnPwa = document.getElementById("btn-pwa-instalar");
-
-// 1. Registrar Service Worker
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
@@ -2147,40 +2145,3 @@ if ("serviceWorker" in navigator) {
       .catch((err) => console.error("Error registrando SW:", err));
   });
 }
-
-// 2. Capturar evento de instalación nativo
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  if (btnPwa && window.innerWidth <= 700) {
-    btnPwa.classList.add("pwa-visible");
-  }
-});
-
-// 3. Manejar el clic en el botón del menú
-if (btnPwa) {
-  btnPwa.addEventListener("click", async (e) => {
-    e.preventDefault();
-    if (!deferredPrompt) {
-      alert(
-        "Para agregarla, abrí el menú de tu navegador y elegí 'Agregar a la pantalla principal'."
-      );
-      return;
-    }
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") {
-      btnPwa.classList.remove("pwa-visible");
-      btnPwa.style.display = "none";
-    }
-    deferredPrompt = null;
-  });
-}
-
-// 4. Ocultar botón si ya está instalada
-window.addEventListener("appinstalled", () => {
-  if (btnPwa) {
-    btnPwa.classList.remove("pwa-visible");
-    btnPwa.style.display = "none";
-  }
-});

@@ -453,8 +453,8 @@
     <div id="pwa-mini-infobar">
       <img src="/img/icon-192.png" alt="Girls Love Play" />
       <div class="pwa-infobar-texto">
-        <strong>Girls Love Play</strong>
-        Instalá la app en tu celular
+        <strong id="pwa-infobar-titulo">Girls Love Play</strong>
+        <span id="pwa-infobar-mensaje">Instalá la app en tu celular</span>
       </div>
       <button id="pwa-infobar-instalar">Instalar</button>
       <button id="pwa-infobar-cerrar" aria-label="Cerrar">✕</button>
@@ -1167,18 +1167,34 @@
       })();
     </script>
 
-    <!-- 📲 Captura del evento de instalación PWA + mini-infobar personalizado -->
+    <!-- 📲 Captura del evento de instalación PWA + mini-infobar personalizado (mobile y PC) -->
     <script>
       (function () {
         let deferredPrompt = null;
-        const CLAVE_CERRADO = "pwaInfobarCerrado"; // no lo mostramos de nuevo en la misma sesión si lo cerraron
+        let autoHideTimer = null;
+
+        const CLAVE_CERRADO_MOBILE = "pwaInfobarCerrado"; // sessionStorage: solo se oculta por esta sesión
+        const CLAVE_PC = "pwaInfobarPC"; // localStorage: timestamp de última vez mostrado, o "instalado"
+        const DIAS_ESPERA_PC = 7; // cada cuántos días insistimos en PC si no lo instaló
+        const SEGUNDOS_VISIBLE_PC = 6; // cuánto queda visible en PC antes de auto-ocultarse
 
         const infobar = document.getElementById("pwa-mini-infobar");
+        const tituloInfobar = document.getElementById("pwa-infobar-titulo");
+        const mensajeInfobar = document.getElementById("pwa-infobar-mensaje");
         const btnInstalarInfobar = document.getElementById(
           "pwa-infobar-instalar"
         );
         const btnCerrarInfobar = document.getElementById("pwa-infobar-cerrar");
         const btnMenuPwa = document.getElementById("btn-pwa-instalar");
+
+        const TEXTO_MOBILE = {
+          titulo: "Girls Love Play",
+          mensaje: "Instalá la app en tu celular",
+        };
+        const TEXTO_PC = {
+          titulo: "Instalá Girls Love Play",
+          mensaje: "Agregala a tu escritorio en un clic",
+        };
 
         // 📱 Solo celular: chequeamos user-agent (no ancho de pantalla,
         // así una ventana de PC angosta no cuenta como "mobile")
@@ -1186,32 +1202,80 @@
           return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
         }
 
-        window.addEventListener("beforeinstallprompt", function (e) {
-          e.preventDefault(); // evita el mini-infobar nativo del navegador
+        // ¿La app ya está corriendo instalada (modo standalone)?
+        function esStandalone() {
+          return (
+            window.matchMedia("(display-mode: standalone)").matches ||
+            window.navigator.standalone === true
+          );
+        }
 
-          // En PC no guardamos el evento ni mostramos nada: cortamos acá.
-          if (!esMobile()) return;
+        // Solo aplica en PC: decide si corresponde mostrar el aviso ahora
+        function puedeMostrarEnPC() {
+          const estado = localStorage.getItem(CLAVE_PC);
 
-          deferredPrompt = e;
-
-          // Mostramos nuestro botón dentro del menú (ya lo tenías en el HTML)
-          if (btnMenuPwa) {
-            btnMenuPwa.style.display = "";
-            btnMenuPwa.classList.add("pwa-visible");
+          if (estado === "instalado") {
+            // Si figura instalado pero ya no corre en standalone,
+            // asumimos que la desinstalaron y volvemos a habilitar el aviso.
+            if (!esStandalone()) {
+              localStorage.removeItem(CLAVE_PC);
+              return true;
+            }
+            return false; // sigue instalada: no mostrar nunca
           }
 
-          // Mostramos nuestro mini-infobar arriba, salvo que lo hayan cerrado antes en esta sesión
-          if (infobar && !sessionStorage.getItem(CLAVE_CERRADO)) {
-            infobar.classList.add("visible");
+          if (!estado) return true; // nunca se mostró
+
+          const diasPasados =
+            (Date.now() - parseInt(estado, 10)) / (1000 * 60 * 60 * 24);
+          return diasPasados >= DIAS_ESPERA_PC;
+        }
+
+        window.addEventListener("beforeinstallprompt", function (e) {
+          e.preventDefault(); // evita el mini-infobar nativo del navegador
+          deferredPrompt = e;
+
+          if (esMobile()) {
+            // ---- Mobile: comportamiento original, sin cambios ----
+            if (tituloInfobar) tituloInfobar.textContent = TEXTO_MOBILE.titulo;
+            if (mensajeInfobar)
+              mensajeInfobar.textContent = TEXTO_MOBILE.mensaje;
+
+            if (btnMenuPwa) {
+              btnMenuPwa.style.display = "";
+              btnMenuPwa.classList.add("pwa-visible");
+            }
+
+            if (infobar && !sessionStorage.getItem(CLAVE_CERRADO_MOBILE)) {
+              infobar.classList.add("visible");
+            }
+          } else {
+            // ---- PC: texto propio, se autooculta y respeta el cooldown de 7 días ----
+            if (!puedeMostrarEnPC()) return;
+
+            if (tituloInfobar) tituloInfobar.textContent = TEXTO_PC.titulo;
+            if (mensajeInfobar) mensajeInfobar.textContent = TEXTO_PC.mensaje;
+
+            if (infobar) infobar.classList.add("visible");
+            localStorage.setItem(CLAVE_PC, Date.now().toString());
+
+            autoHideTimer = setTimeout(function () {
+              if (infobar) infobar.classList.remove("visible");
+            }, SEGUNDOS_VISIBLE_PC * 1000);
           }
         });
 
         async function dispararInstalacion() {
           if (!deferredPrompt) return;
+          clearTimeout(autoHideTimer);
           infobar.classList.remove("visible");
           deferredPrompt.prompt();
           const { outcome } = await deferredPrompt.userChoice;
           console.log("Resultado instalación PWA:", outcome);
+
+          if (outcome === "accepted" && !esMobile()) {
+            localStorage.setItem(CLAVE_PC, "instalado");
+          }
           deferredPrompt = null;
         }
 
@@ -1226,8 +1290,13 @@
         }
         if (btnCerrarInfobar) {
           btnCerrarInfobar.addEventListener("click", function () {
+            clearTimeout(autoHideTimer);
             infobar.classList.remove("visible");
-            sessionStorage.setItem(CLAVE_CERRADO, "1");
+            if (esMobile()) {
+              sessionStorage.setItem(CLAVE_CERRADO_MOBILE, "1");
+            }
+            // En PC no hace falta guardar nada más acá: el timestamp ya
+            // quedó guardado al mostrarse, así que reaparece a los 7 días.
           });
         }
 
@@ -1236,6 +1305,10 @@
           deferredPrompt = null;
           if (infobar) infobar.classList.remove("visible");
           if (btnMenuPwa) btnMenuPwa.style.display = "none";
+
+          if (!esMobile()) {
+            localStorage.setItem(CLAVE_PC, "instalado");
+          }
 
           gtag("event", "pwa_instalada", {
             event_category: "PWA",
