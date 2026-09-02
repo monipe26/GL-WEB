@@ -274,8 +274,15 @@
           </div>
         </div>
 
-        <a href="actrices-gl.html">👑 Actrices GL</a>
-        <a href="ships-gl.html">💕 Ships GL</a>
+        <div class="nav-dropdown">
+          <a href="actrices-gl.html" class="nav-dropdown-toggle"
+            >👑 Actrices GL <span class="dropdown-arrow">▾</span></a
+          >
+          <div class="nav-dropdown-menu">
+            <a href="actrices-gl.html">👑 Actrices GL</a>
+            <a href="ships-gl.html">💕 Ships GL</a>
+          </div>
+        </div>
         <a href="/#ostsgl">OSTs GL</a>
         <a href="proximamente-gl.html">Próximamente</a>
         <a href="extras-gl.html">🎬GL Extras</a>
@@ -376,7 +383,10 @@
         <div class="footer-contact">
           <h4>Contacto</h4>
           <p>Email: info.girlsloveplay@gmail.com</p>
-          <a href="https://ko-fi.com/girlsloveplay" target="_blank" class="donate-btn"
+          <a
+            href="https://ko-fi.com/girlsloveplay"
+            target="_blank"
+            class="donate-btn"
             >💖 Apoyar proyecto</a
           >
           <div class="footer-socials">
@@ -404,12 +414,23 @@
       <div class="footer-bottom">
         <p>
           © 2026 Girls Love Play - Argentina
-          <svg class="footer-flag" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="Bandera de Argentina" role="img">
+          <svg
+            class="footer-flag"
+            viewBox="0 0 60 40"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="Bandera de Argentina"
+            role="img"
+          >
             <rect width="60" height="40" fill="#fff" />
             <rect width="60" height="13.33" fill="#75AADB" />
             <rect y="26.67" width="60" height="13.33" fill="#75AADB" />
             <g transform="translate(30,20)">
-              <circle r="4.6" fill="#FFCC33" stroke="#85340A" stroke-width="0.5" />
+              <circle
+                r="4.6"
+                fill="#FFCC33"
+                stroke="#85340A"
+                stroke-width="0.5"
+              />
               <g fill="#FFCC33" stroke="#85340A" stroke-width="0.4">
                 <g id="footer-rayo-actrices">
                   <polygon points="0,-8.5 -0.9,-5.3 0.9,-5.3" />
@@ -422,10 +443,21 @@
                 <use href="#footer-rayo-actrices" transform="rotate(270)" />
                 <use href="#footer-rayo-actrices" transform="rotate(315)" />
               </g>
-              <circle r="3.2" fill="#FFCC33" stroke="#85340A" stroke-width="0.4" />
+              <circle
+                r="3.2"
+                fill="#FFCC33"
+                stroke="#85340A"
+                stroke-width="0.4"
+              />
               <circle cx="-1.1" cy="-0.3" r="0.35" fill="#85340A" />
               <circle cx="1.1" cy="-0.3" r="0.35" fill="#85340A" />
-              <path d="M -1.1 1 Q 0 1.9 1.1 1" stroke="#85340A" stroke-width="0.35" fill="none" stroke-linecap="round" />
+              <path
+                d="M -1.1 1 Q 0 1.9 1.1 1"
+                stroke="#85340A"
+                stroke-width="0.35"
+                fill="none"
+                stroke-linecap="round"
+              />
             </g>
           </svg>
           - Todos los derechos reservados
@@ -445,7 +477,11 @@
         <div class="actriz-modal-header">
           <img class="actriz-modal-foto" id="actriz-modal-img" src="" alt="" />
           <div class="actriz-modal-datos">
-            <p class="modal-titulo" style="font-size:19px;margin-bottom:2px" id="actriz-modal-nombre"></p>
+            <p
+              class="modal-titulo"
+              style="font-size: 19px; margin-bottom: 2px"
+              id="actriz-modal-nombre"
+            ></p>
             <p class="nombre-nativo" id="actriz-modal-nombre-nativo"></p>
             <p id="actriz-modal-nacimiento"></p>
           </div>
@@ -547,7 +583,11 @@
             // el rango cruza fin de año (Capricornio)
             return (mes === dm && dia >= dd) || (mes === hm && dia <= hd);
           }
-          return (mes === dm && dia >= dd) || (mes === hm && dia <= hd) || (mes > dm && mes < hm);
+          return (
+            (mes === dm && dia >= dd) ||
+            (mes === hm && dia <= hd) ||
+            (mes > dm && mes < hm)
+          );
         });
       }
 
@@ -555,8 +595,18 @@
         if (!fechaISO) return "";
         const [anio, mes, dia] = fechaISO.split("-").map(Number);
         const meses = [
-          "enero", "febrero", "marzo", "abril", "mayo", "junio",
-          "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+          "enero",
+          "febrero",
+          "marzo",
+          "abril",
+          "mayo",
+          "junio",
+          "julio",
+          "agosto",
+          "septiembre",
+          "octubre",
+          "noviembre",
+          "diciembre",
         ];
         return `${dia} de ${meses[mes - 1]} de ${anio}`;
       }
@@ -667,7 +717,11 @@
             div.innerHTML = `
               <div class="actriz-foto">
                 <img loading="lazy" src="${item.foto}" alt="${item.nombre}">
-                ${signo ? `<span class="actriz-signo" title="${signo.nombre}">${signo.emoji}</span>` : ""}
+                ${
+                  signo
+                    ? `<span class="actriz-signo" title="${signo.nombre}">${signo.emoji}</span>`
+                    : ""
+                }
                 <p class="actriz-nombre">${item.nombre}</p>
               </div>
               <div class="actriz-info">
@@ -705,7 +759,8 @@
 
         document.getElementById("actriz-modal-img").src = item.foto;
         document.getElementById("actriz-modal-img").alt = item.nombre;
-        document.getElementById("actriz-modal-nombre").textContent = item.nombre;
+        document.getElementById("actriz-modal-nombre").textContent =
+          item.nombre;
         document.getElementById("actriz-modal-nombre-nativo").textContent =
           item.nombreNativo || "";
 
@@ -715,7 +770,9 @@
           : "";
         const edadTxt = edad !== null ? `🎈 ${edad} años` : "";
         const signoTxt = signo ? `${signo.emoji} ${signo.nombre}` : "";
-        const nacionalidadTxt = item.nacionalidad ? `🌏 ${item.nacionalidad}` : "";
+        const nacionalidadTxt = item.nacionalidad
+          ? `🌏 ${item.nacionalidad}`
+          : "";
         document.getElementById("actriz-modal-nacimiento").innerHTML = [
           fechaTxt,
           edadTxt,
@@ -744,9 +801,8 @@
              </div>`
           : "";
 
-        const seriesHTML = (item.series && item.series.length
-          ? item.series
-          : ["Próximamente"]
+        const seriesHTML = (
+          item.series && item.series.length ? item.series : ["Próximamente"]
         )
           .map((s) => `<span class="badge-serie">🎬 ${s}</span>`)
           .join("");
@@ -816,7 +872,12 @@
 
       // Iniciar
       generarFiltroLetrasActrices();
-      renderActrices(actricesFiltradas, "actrices-container", "pagination-actrices", 12);
+      renderActrices(
+        actricesFiltradas,
+        "actrices-container",
+        "pagination-actrices",
+        12
+      );
     </script>
   </body>
 </html>
