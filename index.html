@@ -1180,8 +1180,18 @@
         const btnCerrarInfobar = document.getElementById("pwa-infobar-cerrar");
         const btnMenuPwa = document.getElementById("btn-pwa-instalar");
 
+        // 📱 Solo celular: chequeamos user-agent (no ancho de pantalla,
+        // así una ventana de PC angosta no cuenta como "mobile")
+        function esMobile() {
+          return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+        }
+
         window.addEventListener("beforeinstallprompt", function (e) {
           e.preventDefault(); // evita el mini-infobar nativo del navegador
+
+          // En PC no guardamos el evento ni mostramos nada: cortamos acá.
+          if (!esMobile()) return;
+
           deferredPrompt = e;
 
           // Mostramos nuestro botón dentro del menú (ya lo tenías en el HTML)
