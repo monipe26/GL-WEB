@@ -121,7 +121,7 @@ body {
 /* LOGO */
 .logo {
   width: 120px;
-  height: auto;
+  height: 40px;
   filter: drop-shadow(0 0 10px #ff4fd8) drop-shadow(0 0 20px #8f5cff);
 }
 
@@ -1363,7 +1363,6 @@ body {
     letter-spacing: 1px;
     text-shadow: 0 0 10px rgba(255, 79, 216, 0.4);
   }
-
 }
 
 /* 🔧 Ajuste: primera tarjeta de Mundo GL se recortaba el texto de la izquierda */
