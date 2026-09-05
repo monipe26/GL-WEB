@@ -1,15 +1,32 @@
 // functions/actrices-gl.html.js
-// VERSIÓN DE DIAGNÓSTICO — si algo falla, lo escribe en la página en vez
-// de esconderlo, para poder ver el motivo con "ver código fuente".
-// Una vez que confirmemos que anda, la cambiamos por la versión final.
+//
+// Mismo patrón que noticias.html.js y mundo-gl.html.js, pero para leer
+// actrices-data.js (que no es JSON, es código JS) sin usar new Function
+// ni eval — Cloudflare no permite "generar código desde texto" por
+// seguridad. En cambio, leemos el archivo como texto y le agregamos las
+// comillas que le faltan a las claves para poder usar JSON.parse, que
+// sí está permitido.
 
 const PER_PAGE = 12;
+
+function parsearActricesJS(codigo) {
+  const inicioArray = codigo.indexOf("[", codigo.indexOf("actricesArray"));
+  const finArray = codigo.lastIndexOf("]");
+  let texto = codigo.slice(inicioArray, finArray + 1);
+
+  // Le ponemos comillas a las claves sin comillas: nombre: -> "nombre":
+  texto = texto.replace(/([{,]\s*)([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:/g, '$1"$2":');
+
+  // JSON no permite comas antes de cerrar ] o } — se las sacamos.
+  texto = texto.replace(/,(\s*[}\]])/g, "$1");
+
+  return JSON.parse(texto);
+}
 
 async function cargarActrices(env, request) {
   const jsRes = await env.ASSETS.fetch(new URL("/actrices-data.js", request.url));
   const codigo = await jsRes.text();
-  const obtenerArray = new Function(`${codigo}\nreturn actricesArray;`);
-  return obtenerArray();
+  return parsearActricesJS(codigo);
 }
 
 export async function onRequestGet(context) {
@@ -22,15 +39,12 @@ export async function onRequestGet(context) {
   try {
     actrices = await cargarActrices(env, request);
     if (!Array.isArray(actrices)) {
-      errorMensaje = "DEBUG: actricesArray no es un array. Es: " + typeof actrices;
+      errorMensaje = "DEBUG: no es un array. Es: " + typeof actrices;
     }
   } catch (e) {
     errorMensaje = "DEBUG ERROR: " + e.message;
   }
 
-  // Si algo falló, escribimos el motivo adentro del contenedor para
-  // poder verlo con "ver código fuente" — esto es temporal, solo para
-  // diagnosticar.
   if (errorMensaje) {
     class DebugContainer {
       element(el) {
