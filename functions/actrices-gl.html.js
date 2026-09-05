@@ -1,25 +1,51 @@
 // functions/actrices-gl.html.js
 //
-// Mismo patrón que noticias.html.js y mundo-gl.html.js, pero para leer
-// actrices-data.js (que no es JSON, es código JS) sin usar new Function
-// ni eval — Cloudflare no permite "generar código desde texto" por
-// seguridad. En cambio, leemos el archivo como texto y le agregamos las
-// comillas que le faltan a las claves para poder usar JSON.parse, que
-// sí está permitido.
+// Lee actrices-data.js como texto y lo convierte a JSON válido:
+// - borra los comentarios // (los usás para marcar datos "no confirmado"),
+//   sin tocar las // que forman parte de URLs como instagram.com/...
+// - le agrega comillas a las claves sin comillas
+// - saca las comas de más antes de cerrar ] o }
+// No usa new Function ni eval (Cloudflare no lo permite).
 
 const PER_PAGE = 12;
+
+function quitarComentarios(texto) {
+  let resultado = "";
+  let dentroString = false;
+  for (let i = 0; i < texto.length; i++) {
+    const c = texto[i];
+    if (dentroString) {
+      resultado += c;
+      if (c === "\\") {
+        resultado += texto[i + 1];
+        i++;
+        continue;
+      }
+      if (c === '"') dentroString = false;
+      continue;
+    }
+    if (c === '"') {
+      dentroString = true;
+      resultado += c;
+      continue;
+    }
+    if (c === "/" && texto[i + 1] === "/") {
+      while (i < texto.length && texto[i] !== "\n") i++;
+      resultado += "\n";
+      continue;
+    }
+    resultado += c;
+  }
+  return resultado;
+}
 
 function parsearActricesJS(codigo) {
   const inicioArray = codigo.indexOf("[", codigo.indexOf("actricesArray"));
   const finArray = codigo.lastIndexOf("]");
   let texto = codigo.slice(inicioArray, finArray + 1);
-
-  // Le ponemos comillas a las claves sin comillas: nombre: -> "nombre":
+  texto = quitarComentarios(texto);
   texto = texto.replace(/([{,]\s*)([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:/g, '$1"$2":');
-
-  // JSON no permite comas antes de cerrar ] o } — se las sacamos.
   texto = texto.replace(/,(\s*[}\]])/g, "$1");
-
   return JSON.parse(texto);
 }
 

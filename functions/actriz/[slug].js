@@ -1,14 +1,41 @@
 // functions/actriz/[slug].js
-//
-// Página individual de cada actriz: /actriz/{slug}
-// Igual que actrices-gl.html.js, leemos actrices-data.js como texto y lo
-// convertimos a JSON válido en vez de usar new Function/eval (Cloudflare
-// no lo permite por seguridad).
+// Misma lógica de lectura que actrices-gl.html.js (sin new Function/eval).
+
+function quitarComentarios(texto) {
+  let resultado = "";
+  let dentroString = false;
+  for (let i = 0; i < texto.length; i++) {
+    const c = texto[i];
+    if (dentroString) {
+      resultado += c;
+      if (c === "\\") {
+        resultado += texto[i + 1];
+        i++;
+        continue;
+      }
+      if (c === '"') dentroString = false;
+      continue;
+    }
+    if (c === '"') {
+      dentroString = true;
+      resultado += c;
+      continue;
+    }
+    if (c === "/" && texto[i + 1] === "/") {
+      while (i < texto.length && texto[i] !== "\n") i++;
+      resultado += "\n";
+      continue;
+    }
+    resultado += c;
+  }
+  return resultado;
+}
 
 function parsearActricesJS(codigo) {
   const inicioArray = codigo.indexOf("[", codigo.indexOf("actricesArray"));
   const finArray = codigo.lastIndexOf("]");
   let texto = codigo.slice(inicioArray, finArray + 1);
+  texto = quitarComentarios(texto);
   texto = texto.replace(/([{,]\s*)([a-zA-Z_$][a-zA-Z0-9_$]*)\s*:/g, '$1"$2":');
   texto = texto.replace(/,(\s*[}\]])/g, "$1");
   return JSON.parse(texto);
