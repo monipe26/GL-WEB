@@ -28,11 +28,7 @@ const actricesArray = [
     instagram: "https://www.instagram.com/anda_anunta",
     ship: "AndaLookkaew",
     shipSlug: "andalookkaew-gl-ship",
-    series: [
-    "Love Senior (2023)",
-   "Khom Khlang (2026)",
-    "Remain (2026)",
-    ],
+    series: ["Love Senior (2023)", "Khom Khlang (2026)", "Remain (2026)"],
   },
   {
     nombre: "Aom Pundao Panyabaramee",
@@ -72,8 +68,10 @@ const actricesArray = [
     instagram: "https://www.instagram.com/applelapisara",
     ship: "AppleMim",
     shipSlug: "applemim-gl-ship",
-    series: ["4 Elements: The Earth (2026), 4 Elements: The Fire (2026), 4 Elements: The Water (2026), 4 Elements: The Air (2026)",
-    "Somewhere Somehow  (2025)"],
+    series: [
+      "4 Elements: The Earth (2026), 4 Elements: The Fire (2026), 4 Elements: The Water (2026), 4 Elements: The Air (2026)",
+      "Somewhere Somehow  (2025)",
+    ],
   },
   {
     nombre: "Arhoung Nattawadee Pipobpornchai",
@@ -97,15 +95,15 @@ const actricesArray = [
     instagram: "https://www.instagram.com/_axling",
     ship: "ArlingKitty",
     series: [
-    "Why Even Try (2026)",
-    "Beloved Frangipani (2026)",
+      "Why Even Try (2026)",
+      "Beloved Frangipani (2026)",
       "Love Beyond the Fence (2025)",
       "Can I Love You, Ms. Cold? (2025)",
       "Doctor Love Edition (2025)",
       "Heart Rule (2025)",
       "Killer Heart (2025)",
       "My Dear Ghost (2025)",
-      "L.L.L. Project (2025)"
+      "L.L.L. Project (2025)",
     ],
   },
   {
@@ -192,7 +190,7 @@ const actricesArray = [
     instagram: "https://www.instagram.com/beonnnie",
     ship: "EmiBonnie",
     shipSlug: "emibonnie-gl-ship",
-    series: ["Us (2025)", "Girl Rules (2026)","Moonshadow (2026)"],
+    series: ["Us (2025)", "Girl Rules (2026)", "Moonshadow (2026)"],
   },
   {
     nombre: "Chanya Amarit Duval",
@@ -345,7 +343,7 @@ const actricesArray = [
     instagram: "https://www.instagram.com/emiamily",
     ship: "EmiBonnie",
     shipSlug: "emibonnie-gl-ship",
-    series: ["Us (2025)","Girls Rules (2026)", "Moonshadow (2026)"],
+    series: ["Us (2025)", "Girls Rules (2026)", "Moonshadow (2026)"],
   },
   {
     nombre: "Engfa Waraha",
@@ -435,10 +433,7 @@ const actricesArray = [
     instagram: "https://www.instagram.com/fay_riezz",
     ship: "FayMay",
     shipSlug: "faymay-gl-ship",
-    series: [
-      "My Marvellous Dream Is You (2024)",
-      "Somewhere Somehow (2025)",
-    ],
+    series: ["My Marvellous Dream Is You (2024)", "Somewhere Somehow (2025)"],
   },
   {
     nombre: "Faye Peraya Malisorn",
@@ -466,7 +461,6 @@ const actricesArray = [
     instagram: "https://www.instagram.com/f.fayfayy",
     ship: "FayFay",
     series: ["B•Friend (2025)"],
-   
   },
   {
     nombre: "Ferin Weerin Kaewpuk",
@@ -613,7 +607,6 @@ const actricesArray = [
     ship: "GinnyJayna",
     shipSlug: "ginnyjayna-gl-ship",
     series: ["Poisonous Love (2025)", "Lunar Secret (2026)"],
-   
   },
   {
     nombre: "Grace Budsarin Wonglelanont",
@@ -789,7 +782,6 @@ const actricesArray = [
     ship: "EnjoyJune",
     shipSlug: "enjoyjune-gl-ship",
     series: ["Denied Love (2025)"],
-  
   },
   {
     nombre: "June Wanwimol Jaenasavamethee",
@@ -824,7 +816,6 @@ const actricesArray = [
     ship: "KaoJane",
     shipSlug: "kaojane-gl-ship",
     series: ["Love Design (2025)"],
-  
   },
   {
     nombre: "Kapook Ploynira Hiruntaveesin",
@@ -836,8 +827,11 @@ const actricesArray = [
     instagram: "https://www.instagram.com/kapookphat",
     ship: "KapookCiize",
     shipSlug: "kapook-ciize-gl-ship",
-    series: ["Pluto (2024)", "Enemies with Benefits (2026)", "Girl Rules (2026)"],
-   
+    series: [
+      "Pluto (2024)",
+      "Enemies with Benefits (2026)",
+      "Girl Rules (2026)",
+    ],
   },
   {
     nombre: "Ketkramut Phuttima",
@@ -870,7 +864,6 @@ const actricesArray = [
       "Stay With Me Season 3 (2025)",
       "Stay With Me Season 4 (2025)",
     ],
-   
   },
   {
     nombre: "Fairy Kirana Pipityakorn",
@@ -893,7 +886,11 @@ const actricesArray = [
     foto: "/img/actrices/kitty-punnaray.jpg",
     instagram: "https://www.instagram.com/kitty.punnaray",
     ship: "ArlingKitty",
-    series: ["Doctor Love Edition (2025)", "Heart Rule (2025)", "My Dear Ghost (2025)"],
+    series: [
+      "Doctor Love Edition (2025)",
+      "Heart Rule (2025)",
+      "My Dear Ghost (2025)",
+    ],
   },
   {
     nombre: "Lena Lorena Schuett",
@@ -969,7 +966,11 @@ const actricesArray = [
     instagram: "https://www.instagram.com/lmlookmhee",
     ship: "LMSY",
     shipSlug: "lmsy-gl-ship",
-    series: ["Affair (2024)", "Harmony Secret (2025)", "Hometown Romance (2026)"],
+    series: [
+      "Affair (2024)",
+      "Harmony Secret (2025)",
+      "Hometown Romance (2026)",
+    ],
   },
   {
     nombre: "Looknam Orntara Poolsak",
@@ -998,6 +999,125 @@ const actricesArray = [
     instagram: "https://www.instagram.com/loverrukk",
     ship: "MilkLove",
     shipSlug: "milklove-gl-ship",
+    series: [
+      "Magic of Zero: Zero Photography (2022)",
+      "23.5 (2024)",
+      "Whale Store xoxo (2025)",
+      "Girl Rules (2026)",
+      "Ditto (2026)",
+    ],
+  },
+
+  // ================================================
+  // 🆕 NUEVAS - PENDIENTES DE CORRECCIÓN MANUAL
+  // (agregadas sin ordenar, tal cual el texto original)
+  // ================================================
+  {
+    nombre: "Mable Siriwalee Siriwibool",
+    slug: "mable-siriwalee-siriwibool-gl-actriz",
+    nombreNativo: "เมเบิ้ล สิริวลี สิริวิบูลย์",
+    nacionalidad: "Tailandesa",
+    nacimiento: "1997-04-23",
+    foto: "/img/actrices/mable-siriwalee-siriwibool.jpg",
+    instagram: "https://www.instagram.com/mable_siriwalee",
+    ship: "Blejie",
+    series: ["ClaireBell (2025)"],
+  },
+  {
+    nombre: "Mae Methakarn Anektanasuwan",
+    slug: "mae-methakarn-anektanasuwan-gl-actriz",
+    nombreNativo: "เม เมธกานต์ เอนกธนะสุวรรณ",
+    nacionalidad: "Tailandesa",
+    nacimiento: "1999-04-05",
+    foto: "/img/actrices/mae-methakarn-anektanasuwan.jpg",
+    instagram: "https://www.instagram.com/maetk",
+    ship: "ChristineMae",
+    series: ["Reverse 4 You (2024)"],
+  },
+  {
+    nombre: "Marissa Lloyd",
+    slug: "marissa-lloyd-gl-actriz",
+    nombreNativo: "มาริซ่า ลลอยด์",
+    nacionalidad: "Tailandesa",
+    nacimiento: "2004-07-13",
+    instagram: "https://www.instagram.com/marissa.msl",
+    foto: "/img/actrices/marissa-lloyd.jpg",
+    series: ["Blank The Series (2024)", "Blank The Series Season 2 (2024)"],
+  },
+  {
+    nombre: "May Yada Watcharamusik",
+    slug: "may-yada-watcharamusik-gl-actriz",
+    nombreNativo: "เมษ์ ญดา วัชระมูสิก",
+    nacionalidad: "Tailandesa",
+    nacimiento: "1997-10-31",
+    foto: "/img/actrices/may-yada-watcharamusik.jpg",
+    instagram: "https://www.instagram.com/maywyda",
+    ship: "FayMay",
+    series: ["My Marvellous Dream Is You (2024)", "Somewhere Somehow (2025)"],
+  },
+  {
+    nombre: "Meena Rina Chatamonchai",
+    slug: "meena-rina-chatamonchai-gl-actriz",
+    nombreNativo: "มีนา ริณา ฉัตรอมรชัย",
+    nacionalidad: "Tailandesa",
+    nacimiento: "1997-10-13",
+    foto: "/img/actrices/meena-rina-chatamonchai.jpg",
+    instagram: "https://www.instagram.com/meenaxrina",
+    ship: "MeenBabe",
+    series: ["Delete Your Past (2024)", "About Galaxy (próximamente)"],
+  },
+  {
+    nombre: "Mersedes Siripath Sarakune",
+    slug: "mersedes-siripath-sarakune-gl-actriz",
+    nombreNativo: "เมอซีเดส สิรภัทร สาระคุณ",
+    nacionalidad: "Tailandesa",
+    nacimiento: "2001-10-13",
+    foto: "/img/actrices/mersedes-siripath-sarakune.jpg",
+    instagram: "https://www.instagram.com/mmersedes",
+    ship: "AtomMer",
+    series: ["Love Senior (2023)", "My Only Sunshine (2025)"],
+  },
+  {
+    nombre: "Mew Thanthip Thaweesinthanat",
+    slug: "mew-thanthip-thaweesinthanat-gl-actriz",
+    nombreNativo: "มิว ธัญทิพย์ ทวีสินธนัตย์",
+    nacionalidad: "Tailandesa",
+    nacimiento: "1998-07-13",
+    foto: "/img/actrices/mew-thanthip-thaweesinthanat.jpg",
+    instagram: "https://www.instagram.com/khunmewwww",
+    ship: "MewNe",
+    series: ["Poisonous Love (2025)"],
+  },
+  {
+    nombre: "Mewnich Nannaphas Loetnamchoetsakun",
+    slug: "mewnich-nannaphas-loetnamchoetsakun-gl-actriz",
+    nombreNativo: "มิวนิค นันท์นภัส เลิศนามเชิดสกุล",
+    nacionalidad: "Tailandesa",
+    nacimiento: "2002-03-11",
+    foto: "/img/actrices/mewnich-nannaphas-loetnamchoetsakun.jpg",
+    instagram: "https://www.instagram.com/mewnich.nannaphas",
+    ship: "JuneMewnich",
+    series: ["Whale Store xoxo (2025)", "Love's Echoes (2026)"],
+  },
+  {
+    nombre: "Mie Phattaranan Padpai",
+    slug: "mie-phattaranan-padpai-gl-actriz",
+    nombreNativo: "มี่ ภัทรนันท์ ปัดภัย",
+    nacionalidad: "Tailandesa",
+    nacimiento: "1999-03-01",
+    foto: "/img/actrices/mie-phattaranan-padpai.jpg",
+    instagram: "https://www.instagram.com/miephat",
+    series: ["Love Beyond Dreams (2026)"],
+  },
+  {
+    nombre: "Milk Pansa Vosbein",
+    slug: "milk-pansa-vosbein-gl-actriz",
+    nombreNativo: "มิ้ลค์ พรรษา วอสเบียน",
+    nacionalidad: "Tailandesa",
+    nacimiento: "1996-07-31",
+    foto: "/img/actrices/milk-pansa-vosbein.jpg",
+    instagram: "https://www.instagram.com/panly.v",
+    ship: "MilkLove",
     series: [
       "Magic of Zero: Zero Photography (2022)",
       "23.5 (2024)",

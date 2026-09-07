@@ -65,7 +65,7 @@
     <link rel="stylesheet" href="/comentarios-styles.css" />
 
     <!-- Íconos del navegador y Apple -->
-    <link rel="icon" type="image/png" href="/img/icon-192.png" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
     <link rel="apple-touch-icon" href="/img/icon-192.png" />
 
     <!-- 📲 PWA Manifest y Configuración Móvil -->
@@ -579,15 +579,51 @@
         if (!pre) return;
 
         var progreso = 0;
-        var paginaCargo = false;
+
+        // Todo lo que tiene que estar listo antes de abrir la página.
+        // El reproductor de YouTube queda AFUERA a propósito: sigue
+        // cargando de fondo y aparece solo cuando esté listo, sin
+        // trabar la apertura del resto del sitio.
+        var listo = {
+          pagina: false, // window "load": imágenes, banner, CSS y JS
+          series: false, // tapas de series (series.json)
+          noticias: false, // noticias GL
+          mundogl: false, // Mundo GL
+        };
+
+        function todoListo() {
+          return (
+            listo.pagina && listo.series && listo.noticias && listo.mundogl
+          );
+        }
+
         window.addEventListener("load", function () {
-          paginaCargo = true;
+          listo.pagina = true;
         });
+        document.addEventListener("gl-series-listas", function () {
+          listo.series = true;
+        });
+        document.addEventListener("gl-noticias-listas", function () {
+          listo.noticias = true;
+        });
+        document.addEventListener("gl-mundogl-listo", function () {
+          listo.mundogl = true;
+        });
+
+        // 🛟 Red de seguridad: si algo tarda demasiado (conexión muy
+        // lenta, falla algún JSON, etc.) no dejamos al usuario trabado
+        // en la precarga más de 5 segundos.
+        setTimeout(function () {
+          listo.pagina = true;
+          listo.series = true;
+          listo.noticias = true;
+          listo.mundogl = true;
+        }, 5000);
 
         var intervalo = setInterval(function () {
           // Avanza rápido al principio y se frena cerca del final,
-          // esperando a que la página termine de cargar de verdad.
-          var maximo = paginaCargo ? 100 : 92;
+          // esperando a que absolutamente todo termine de cargar.
+          var maximo = todoListo() ? 100 : 92;
           progreso += Math.random() * 14 + 5;
           if (progreso > maximo) progreso = maximo;
 

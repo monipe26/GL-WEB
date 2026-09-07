@@ -66,8 +66,15 @@ fetch("/data/series.json")
         intentarAbrirSerie();
       }
     }
+
+    // 💓 Avisa a la precarga que las series ya están listas y pintadas
+    document.dispatchEvent(new Event("gl-series-listas"));
   })
-  .catch((err) => console.error("Error cargando series:", err));
+  .catch((err) => {
+    console.error("Error cargando series:", err);
+    // Avisamos igual para que la precarga no se quede esperando para siempre
+    document.dispatchEvent(new Event("gl-series-listas"));
+  });
 
 // =====================
 // COMUNIDAD
@@ -761,8 +768,14 @@ fetch("/data/noticias.json")
       const noticia = noticiasArray.find((n) => n.slug === slug);
       if (noticia) abrirModal(noticia, "noticias");
     }
+
+    // 💓 Avisa a la precarga que las noticias ya están listas y pintadas
+    document.dispatchEvent(new Event("gl-noticias-listas"));
   })
-  .catch((err) => console.error("Error cargando noticias:", err));
+  .catch((err) => {
+    console.error("Error cargando noticias:", err);
+    document.dispatchEvent(new Event("gl-noticias-listas"));
+  });
 
 // =====================
 // 🌐 MUNDO GL — cargado desde JSON, mismo patrón que Noticias
@@ -784,8 +797,14 @@ fetch("/data/mundogl.json")
       const item = mundoglArray.find((n) => n.slug === slug);
       if (item) abrirMundoGL(item);
     }
+
+    // 💓 Avisa a la precarga que Mundo GL ya está listo y pintado
+    document.dispatchEvent(new Event("gl-mundogl-listo"));
   })
-  .catch((err) => console.error("Error cargando Mundo GL:", err));
+  .catch((err) => {
+    console.error("Error cargando Mundo GL:", err);
+    document.dispatchEvent(new Event("gl-mundogl-listo"));
+  });
 
 function renderMundoGL(array, containerId, paginationId, perPage = 6) {
   let page = 1;
@@ -1182,9 +1201,13 @@ function onYouTubeIframeAPIReady() {
             ultimaSerie && [...seriesArray].some((s) => s.id === ultimaSerie);
           cargarSerie(existeUltimaSerie ? ultimaSerie : "gaptheseries");
         }
+        // 💓 Avisa a la precarga que el reproductor ya está listo
+        document.dispatchEvent(new Event("gl-player-listo"));
       },
       onError: (e) => {
         mostrarFallbackEmbed();
+        // Avisamos igual para que la precarga no se quede esperando para siempre
+        document.dispatchEvent(new Event("gl-player-listo"));
       },
       onApiChange: () => {
         forzarSubtitulos(0);
