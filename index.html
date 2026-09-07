@@ -554,6 +554,38 @@
         }
       }
     </style>
+
+    <!-- 💓 Estilos del mini indicador de carga del reproductor -->
+    <style>
+      .gl-player-cargando {
+        position: absolute;
+        inset: 0;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: rgba(10, 5, 20, 0.55);
+        color: #fff;
+        font-size: 12.5px;
+        font-weight: 600;
+        text-align: center;
+        pointer-events: none;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+      .gl-player-cargando.gl-player-cargando-oculto {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .gl-player-cargando-corazon {
+        width: 46px;
+        height: 46px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 14px rgba(255, 79, 216, 0.65));
+        animation: gl-preloader-latido 1.1s ease-in-out infinite;
+      }
+    </style>
   </head>
   <body>
     <!-- 💓 PRECARGA / SPLASH SCREEN -->
@@ -575,21 +607,21 @@
         var pre = document.getElementById("gl-preloader");
         if (!pre) return;
 
-        // 🚪 La precarga se muestra UNA SOLA VEZ por visita al sitio:
-        // la primera vez que alguien entra. Después, navegue a donde
-        // navegue (Noticias, Series, vuelva al index, etc.), no se
-        // vuelve a mostrar hasta que cierre y vuelva a abrir el sitio.
+        // 🚪 La precarga completa se muestra UNA SOLA VEZ por sesión:
+        // la primera vez que alguien entra al sitio. Después, aunque
+        // vuelva a "Inicio" varias veces navegando, no se vuelve a
+        // mostrar (para eso queda el mini "cargando reproductor" de
+        // más abajo, que sí se repite sin tapar toda la pantalla).
         var YA_VISTA = "gl_precarga_vista";
         var yaVioPrecarga = false;
         try {
           yaVioPrecarga = sessionStorage.getItem(YA_VISTA) === "1";
         } catch (e) {}
 
-        // Además, si venís de otra página con un enlace tipo
-        // "index.html#series" (Actrices, Ships, Noticias, Mundo GL,
-        // Próximamente, etc.), tampoco la mostramos: dejamos que el
-        // navegador salte directo a la sección, sin nada que bloquee
-        // el scroll.
+        // Si venís con un enlace tipo "index.html#series" (Actrices,
+        // Ships, Noticias, Mundo GL, Próximamente, etc.), tampoco la
+        // mostramos: dejamos que el navegador salte directo a la
+        // sección, sin nada que bloquee el scroll.
         if (yaVioPrecarga || window.location.hash) {
           pre.remove();
           return;
@@ -796,7 +828,33 @@
       <div id="tiktok-container"></div>
       <div id="shorts-container"></div>
       <div id="player"></div>
+      <div id="gl-player-cargando" class="gl-player-cargando">
+        <img
+          src="/img/icon-512.png"
+          alt=""
+          class="gl-player-cargando-corazon"
+        />
+        <p>Cargando reproductor...</p>
+      </div>
     </div>
+
+    <script>
+      (function () {
+        var cargando = document.getElementById("gl-player-cargando");
+        if (!cargando) return;
+
+        function ocultar() {
+          cargando.classList.add("gl-player-cargando-oculto");
+        }
+
+        document.addEventListener("gl-player-listo", ocultar);
+
+        // 🛟 Red de seguridad: si el reproductor de YouTube no responde
+        // (bloqueado, sin internet, etc.) no dejamos el spinner girando
+        // para siempre.
+        setTimeout(ocultar, 10000);
+      })();
+    </script>
 
     <div class="player-controls">
       <button onclick="prevVideo()">⏮ Episodio anterior</button>
