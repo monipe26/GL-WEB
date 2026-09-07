@@ -571,12 +571,38 @@
       </p>
     </div>
     <script>
-      document.documentElement.classList.add("gl-preloader-activo");
       (function () {
         var pre = document.getElementById("gl-preloader");
+        if (!pre) return;
+
+        // 🚪 La precarga se muestra UNA SOLA VEZ por visita al sitio:
+        // la primera vez que alguien entra. Después, navegue a donde
+        // navegue (Noticias, Series, vuelva al index, etc.), no se
+        // vuelve a mostrar hasta que cierre y vuelva a abrir el sitio.
+        var YA_VISTA = "gl_precarga_vista";
+        var yaVioPrecarga = false;
+        try {
+          yaVioPrecarga = sessionStorage.getItem(YA_VISTA) === "1";
+        } catch (e) {}
+
+        // Además, si venís de otra página con un enlace tipo
+        // "index.html#series" (Actrices, Ships, Noticias, Mundo GL,
+        // Próximamente, etc.), tampoco la mostramos: dejamos que el
+        // navegador salte directo a la sección, sin nada que bloquee
+        // el scroll.
+        if (yaVioPrecarga || window.location.hash) {
+          pre.remove();
+          return;
+        }
+
+        try {
+          sessionStorage.setItem(YA_VISTA, "1");
+        } catch (e) {}
+
+        document.documentElement.classList.add("gl-preloader-activo");
+
         var barra = document.getElementById("gl-preloader-barra");
         var porcentaje = document.getElementById("gl-preloader-porcentaje");
-        if (!pre) return;
 
         var progreso = 0;
 
