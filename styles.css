@@ -28,6 +28,17 @@ body {
   background-attachment: fixed;
 }
 
+/* 📱 En celular, "fixed" en el fondo causa un parpadeo/doble salto al
+   hacer scroll o al "tironcito" de actualizar (la barra de direcciones
+   del navegador se esconde/aparece y obliga a repintar todo el fondo).
+   En pantallas chicas lo dejamos "scroll" normal, que no tiene ese
+   problema. En PC queda igual que antes (fixed). */
+@media (max-width: 700px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 /* =====================
   OVERLAY NETFLIX
   ===================== */
