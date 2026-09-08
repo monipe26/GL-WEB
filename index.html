@@ -293,10 +293,10 @@
         background-position: center;
       }
       .banner-img-1 {
-        background-image: url("/img/banner1.jpg");
+        background-image: url("/img/banner2.jpg");
       }
       .banner-img-2 {
-        background-image: url("/img/banner2.jpg");
+        background-image: url("/img/banner1.jpg");
       }
       .banner-img-3 {
         background-image: url("/img/banner3.jpg");
@@ -304,10 +304,10 @@
 
       @media (max-width: 700px) {
         .banner-img-1 {
-          background-image: url("/img/banner1-mobile.jpg");
+          background-image: url("/img/banner2-mobile.jpg");
         }
         .banner-img-2 {
-          background-image: url("/img/banner2-mobile.jpg");
+          background-image: url("/img/banner1-mobile.jpg");
         }
         .banner-img-3 {
           background-image: url("/img/banner3-mobile.jpg");
@@ -529,6 +529,36 @@
         72% {
           transform: scale(1);
         }
+      }
+
+      /* 💓 Mini corazón que tapa la grilla de Series mientras
+         cargan las tapas (series.json), solo esa cajita, sin
+         tocar el splash grande de arriba. */
+      .gl-series-wrap {
+        position: relative;
+        min-height: 220px;
+      }
+      .gl-series-cargando {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1a0a2e;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+      .gl-series-cargando.gl-series-cargando-oculto {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .gl-series-cargando-corazon {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 14px rgba(255, 79, 216, 0.65));
+        animation: gl-preloader-latido 1.1s ease-in-out infinite;
       }
       .gl-preloader-titulo {
         margin: 0;
@@ -811,22 +841,21 @@
     <div class="banner-carrusel" id="banner-carrusel">
       <div class="banner-slide active">
         <a
-          href="https://t.me/girlsloveplay"
+          href="https://www.instagram.com/saphicon.arg/"
           target="_blank"
           rel="noopener"
           class="banner-img-1"
         ></a>
       </div>
       <div class="banner-slide">
-        <a href="proximamente-gl.html" class="banner-img-2"></a>
-      </div>
-      <div class="banner-slide">
         <a
-          href="https://www.instagram.com/saphicon.arg/"
-          target="_blank"
-          rel="noopener"
+          href="javascript:void(0)"
+          onclick="return false;"
           class="banner-img-3"
         ></a>
+      </div>
+      <div class="banner-slide">
+        <a href="proximamente-gl.html" class="banner-img-2"></a>
       </div>
 
       <button
@@ -902,11 +931,42 @@
     <div id="series" class="section">
       <h2>📺 Series GL</h2>
       <p class="subtitulo">Las mejores series GL</p>
-      <div id="series-container" class="row"></div>
+      <div class="gl-series-wrap">
+        <div id="series-container" class="row"></div>
+        <div id="gl-series-cargando" class="gl-series-cargando">
+          <img
+            src="/img/icon-512.png"
+            alt=""
+            class="gl-series-cargando-corazon"
+          />
+        </div>
+      </div>
       <div class="pagination-wrapper">
         <div id="pagination-series" class="pagination"></div>
       </div>
     </div>
+
+    <!-- 💓 Esconde el mini corazón de Series apenas terminan de -->
+    <!-- cargar y pintarse las tapas (o a los 4s como máximo). -->
+    <script>
+      (function () {
+        var cargando = document.getElementById("gl-series-cargando");
+        if (!cargando) return;
+
+        var yaEscondido = false;
+        function esconder() {
+          if (yaEscondido) return;
+          yaEscondido = true;
+          cargando.classList.add("gl-series-cargando-oculto");
+          setTimeout(function () {
+            cargando.remove();
+          }, 400);
+        }
+
+        document.addEventListener("gl-series-listas", esconder);
+        setTimeout(esconder, 4000);
+      })();
+    </script>
 
     <!-- NOTICIAS GL -->
     <section class="section" id="noticias">
@@ -1397,16 +1457,8 @@
           autoplay = setInterval(() => irASlide(actual + 1), INTERVALO_MS);
         }
 
-        // La pausa al pasar el mouse solo tiene sentido en PC (dispositivos
-        // con mouse real). En celular el navegador simula un "mouseenter"
-        // al tocar la pantalla pero nunca llega el "mouseleave", así que
-        // el carrusel quedaba trabado para siempre después del primer toque.
-        if (window.matchMedia("(hover: hover)").matches) {
-          carrusel.addEventListener("mouseenter", () =>
-            clearInterval(autoplay)
-          );
-          carrusel.addEventListener("mouseleave", reiniciarAutoplay);
-        }
+        carrusel.addEventListener("mouseenter", () => clearInterval(autoplay));
+        carrusel.addEventListener("mouseleave", reiniciarAutoplay);
 
         reiniciarAutoplay();
       })();
