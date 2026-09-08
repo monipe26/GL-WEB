@@ -1,6 +1,29 @@
 <head>
   <meta charset="UTF-8" />
 
+  <!-- 🎨 Color de fondo puesto ACÁ ARRIBA a propósito: evita el
+       flash blanco/negro mientras baja el resto del CSS, y hace que
+       la página entera aparezca con un fade suave en vez de "pop-earse"
+       de golpe cuando termina de cargar styles.css. -->
+  <meta name="color-scheme" content="dark" />
+  <style>
+    html {
+      background: #1a0a2e;
+    }
+    body {
+      opacity: 0;
+      animation: gl-fade-in 0.35s ease forwards;
+    }
+    @keyframes gl-fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+
   <meta name="google-site-verification" content="FJZyglZBytt3m8gDe_H6G-512ncJA_LF2EsQt6q0wIg" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RPZ4XSDK4N"></script>

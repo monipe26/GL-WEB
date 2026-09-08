@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <meta charset="UTF-8" />
+
+    <!-- 🌙 Evita el flasheo negro/blanco al navegar entre páginas:
+         le decimos al navegador el color de fondo ANTES de que
+         cargue styles.css, así nunca pinta el fondo por defecto. -->
+    <meta name="color-scheme" content="dark" />
+    <style>
+      html {
+        background: #1a0a2e;
+      }
+
+      /* 🌙 Fade-in suave: la página entera aparece de a poco en vez de
+         "pop-earse" de golpe cuando termina de cargar styles.css. Así
+         el paso del fondo sólido al degradé no se siente como salto. */
+      body {
+        opacity: 0;
+        animation: gl-fade-in 0.35s ease forwards;
+      }
+      @keyframes gl-fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9087491386478357"
       crossorigin="anonymous"
     ></script>
-
-    <meta charset="UTF-8" />
 
     <meta
       name="google-site-verification"
