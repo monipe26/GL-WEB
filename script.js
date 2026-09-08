@@ -740,8 +740,15 @@ function cerrarModalShip(e) {
   document.getElementById("modal-ships").classList.remove("active");
   document.body.style.overflow = "";
   document.body.style.background = "";
-  history.pushState({}, "", "/");
   document.title = "Girls Love Play - Series GL Asiáticas en Español";
+  // 🔙 Mismo arreglo que en Noticias: si venías de otra página real
+  // (ships-gl.html), volvemos ahí de verdad en vez de resetear la URL
+  // sobre el index.
+  if (document.referrer && document.referrer.indexOf(location.origin) === 0) {
+    history.back();
+  } else {
+    history.pushState({}, "", "/");
+  }
 }
 
 // =====================
@@ -931,8 +938,14 @@ function cerrarModalMundoGL(e) {
   if (e && e.target !== document.getElementById("modal-mundogl")) return;
   document.getElementById("modal-mundogl").classList.remove("active");
   document.body.style.overflow = "";
-  history.pushState({}, "", "/");
   document.title = "Girls Love Play - Tu espacio GL en español 💕🇦🇷";
+  // 🔙 Mismo arreglo: si venías de otra página real (mundo-gl.html),
+  // volvemos ahí de verdad en vez de resetear la URL sobre el index.
+  if (document.referrer && document.referrer.indexOf(location.origin) === 0) {
+    history.back();
+  } else {
+    history.pushState({}, "", "/");
+  }
 }
 
 // =====================
@@ -2073,8 +2086,16 @@ function cerrarModal(e) {
   if (e && e.target !== document.getElementById("modal-noticias")) return;
   document.getElementById("modal-noticias").classList.remove("active");
   document.body.style.overflow = "";
-  history.pushState({}, "", "/");
   document.title = "GL Series";
+  // 🔙 Si llegaste desde otra página real del sitio (por ejemplo
+  // noticias.html), volvemos de verdad a esa página en vez de solo
+  // resetear la URL sobre el index (que es lo que hacía que, al cerrar,
+  // pareciera que "se iba al index" en vez de quedarte en Noticias).
+  if (document.referrer && document.referrer.indexOf(location.origin) === 0) {
+    history.back();
+  } else {
+    history.pushState({}, "", "/");
+  }
 }
 
 // =====================
