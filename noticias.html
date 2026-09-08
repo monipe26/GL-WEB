@@ -1,26 +1,14 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- 🎨 Color de fondo puesto ACÁ ARRIBA a propósito: evita el
-       flash blanco/negro mientras baja el resto del CSS, y hace que
-       la página entera aparezca con un fade suave en vez de "pop-earse"
-       de golpe cuando termina de cargar styles.css. -->
+  <!-- 🎨 PRUEBA: fondo 100% sólido, sin gradiente y sin fade-in, para
+       ver si así desaparece el destello del todo. El !important en
+       el body es para pisar el degradé que pone styles.css. -->
   <meta name="color-scheme" content="dark" />
   <style>
-    html {
-      background: #1a0a2e;
-    }
+    html,
     body {
-      opacity: 0;
-      animation: gl-fade-in 0.35s ease forwards;
-    }
-    @keyframes gl-fade-in {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      background: #1a0a2e !important;
     }
   </style>
 
