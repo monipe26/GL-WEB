@@ -210,6 +210,30 @@
     </div>
   </footer>
 
+  <!-- Comentarios (mismo sistema que el resto del sitio) -->
+  <script src="/comentarios.js" defer></script>
+
+  <!-- MODAL NOTICIAS (propio de esta página, no navega a ningún lado) -->
+  <div class="modal-overlay" id="modal-noticias" onclick="cerrarNoticiaModal(event)">
+    <div class="modal-box">
+      <button class="modal-cerrar" onclick="cerrarNoticiaModal()">✕</button>
+      <img class="modal-img" id="modal-img" src="" alt="" />
+      <p class="modal-fecha" id="modal-fecha"></p>
+      <p class="modal-titulo" id="modal-titulo"></p>
+      <p class="modal-texto" id="modal-texto"></p>
+      <div id="modal-video"></div>
+      <div id="modal-comentarios-noticias"></div>
+      <button class="modal-subir" onclick="document.querySelector('.modal-box').scrollTop=0">⬆</button>
+    </div>
+  </div>
+
+  <button
+    onclick="window.scrollTo({top:0, behavior:'smooth'})"
+    id="btn-arriba"
+  >
+    ⬆
+  </button>
+
   <script>
     // =====================
     // MENÚ HAMBURGUESA (igual que en el resto del sitio)
@@ -269,9 +293,13 @@
         const end = start + perPage;
 
         array.slice(start, end).forEach((item) => {
-          // 👇 <a href> real hacia /noticia/{slug} (no div con onclick):
-          // así Google descubre y rastrea cada noticia individual
-          // con solo leer esta página.
+          // 👇 Seguimos usando un <a href> real hacia /noticia/{slug}
+          // (para que Google lo descubra, y para que clic derecho /
+          // abrir en pestaña nueva / clic con el medio sigan
+          // funcionando como cualquier link). Pero un clic normal lo
+          // interceptamos para abrir el modal ACÁ MISMO, sin navegar a
+          // ningún lado — así no hay flash, ni salto, y el fondo se
+          // queda mostrando esta misma sección de Noticias.
           const a = document.createElement("a");
           a.className = "noticia-card";
           a.href = "/noticia/" + item.slug;
@@ -286,6 +314,16 @@
               <p class="noticia-texto">${item.resumen || item.texto}</p>
             </div>
           `;
+
+          a.addEventListener("click", (e) => {
+            // Ctrl/Cmd/Shift/clic del medio: dejamos que el navegador
+            // lo abra en pestaña nueva, como cualquier link normal.
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) {
+              return;
+            }
+            e.preventDefault();
+            abrirNoticiaModal(item);
+          });
 
           container.appendChild(a);
         });
@@ -315,6 +353,89 @@
       }
 
       render();
+    }
+
+    // =====================
+    // 📰 MODAL DE NOTICIAS (se abre acá mismo, sin navegar a otra página)
+    // =====================
+
+    const detalleCacheNoticias = new Map();
+
+    async function obtenerDetalleNoticia(id) {
+      if (detalleCacheNoticias.has(id)) return detalleCacheNoticias.get(id);
+      const res = await fetch(`/data/noticias/${id}.json`);
+      if (!res.ok) throw new Error("No se pudo cargar el detalle: " + id);
+      const data = await res.json();
+      detalleCacheNoticias.set(id, data);
+      return data;
+    }
+
+    async function abrirNoticiaModal(item) {
+      document.getElementById("modal-img").src = item.img;
+      document.getElementById("modal-fecha").textContent = "📅 " + item.fecha;
+      document.getElementById("modal-titulo").textContent = item.titulo;
+      document.getElementById("modal-texto").textContent = "Cargando...";
+
+      const videoEl = document.getElementById("modal-video");
+      if (item.trailer) {
+        videoEl.innerHTML = `
+          <div style="position:relative;padding-bottom:58.25%;height:0;margin-top:10px;border-radius:10px;overflow:hidden;">
+            <iframe
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:10px;"
+              src="https://www.youtube.com/embed/${item.trailer}"
+              allowfullscreen
+            ></iframe>
+          </div>
+        `;
+      } else {
+        videoEl.innerHTML = "";
+      }
+
+      document.getElementById("modal-noticias").classList.add("active");
+      document.body.style.overflow = "hidden";
+
+      // Actualizamos la URL (para que se pueda compartir/recargar) sin
+      // navegar de verdad a ningún lado.
+      history.pushState({}, "", "/noticia/" + item.slug);
+      document.title = item.titulo + " - Girls Love Play";
+
+      if (window.renderComentarios) {
+        window.renderComentarios(
+          "modal-comentarios-noticias",
+          item.slug,
+          "noticias",
+          { titulo: item.titulo }
+        );
+      }
+
+      try {
+        const detalle = await obtenerDetalleNoticia(item.id);
+        let textoHtml = (detalle.texto || item.resumen || "").replace(
+          /\n\n/g,
+          "<br><br>"
+        );
+        if (detalle.imgFinal) {
+          textoHtml += `
+            <img
+              src="${detalle.imgFinal}"
+              alt="${item.titulo}"
+              style="width:100%;border-radius:10px;margin-top:16px;display:block;"
+            />
+          `;
+        }
+        document.getElementById("modal-texto").innerHTML = textoHtml;
+      } catch (err) {
+        document.getElementById("modal-texto").textContent =
+          "No se pudo cargar el contenido. Intentá de nuevo más tarde.";
+      }
+    }
+
+    function cerrarNoticiaModal(e) {
+      if (e && e.target !== document.getElementById("modal-noticias")) return;
+      document.getElementById("modal-noticias").classList.remove("active");
+      document.body.style.overflow = "";
+      history.pushState({}, "", "/noticias.html");
+      document.title = "Noticias GL - Girls Love Play 💕🇦🇷";
     }
   </script>
 </body>
