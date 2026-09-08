@@ -818,15 +818,15 @@
         ></a>
       </div>
       <div class="banner-slide">
+        <a href="proximamente-gl.html" class="banner-img-2"></a>
+      </div>
+      <div class="banner-slide">
         <a
           href="https://www.instagram.com/saphicon.arg/"
           target="_blank"
           rel="noopener"
-          class="banner-img-2"
+          class="banner-img-3"
         ></a>
-      </div>
-      <div class="banner-slide">
-        <a href="proximamente-gl.html" class="banner-img-3"></a>
       </div>
 
       <button
@@ -1397,8 +1397,16 @@
           autoplay = setInterval(() => irASlide(actual + 1), INTERVALO_MS);
         }
 
-        carrusel.addEventListener("mouseenter", () => clearInterval(autoplay));
-        carrusel.addEventListener("mouseleave", reiniciarAutoplay);
+        // La pausa al pasar el mouse solo tiene sentido en PC (dispositivos
+        // con mouse real). En celular el navegador simula un "mouseenter"
+        // al tocar la pantalla pero nunca llega el "mouseleave", así que
+        // el carrusel quedaba trabado para siempre después del primer toque.
+        if (window.matchMedia("(hover: hover)").matches) {
+          carrusel.addEventListener("mouseenter", () =>
+            clearInterval(autoplay)
+          );
+          carrusel.addEventListener("mouseleave", reiniciarAutoplay);
+        }
 
         reiniciarAutoplay();
       })();
