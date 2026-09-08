@@ -55,6 +55,51 @@
     </style>
     <link rel="stylesheet" href="ships-gl.css" />
     <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+    <!-- 💓 Tapa de precarga: cubre el flash inicial con el mismo
+         corazoncito latiendo del reproductor, 1s, y se desvanece sola. -->
+    <style>
+      #gl-ships-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: #1a0a2e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+      #gl-ships-preloader.gl-ships-preloader-oculto {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      #gl-ships-preloader img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 18px rgba(255, 79, 216, 0.65));
+        animation: gl-ships-latido 1.1s ease-in-out infinite;
+      }
+      @keyframes gl-ships-latido {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        22% {
+          transform: scale(1.18);
+        }
+        38% {
+          transform: scale(0.94);
+        }
+        55% {
+          transform: scale(1.1);
+        }
+        72% {
+          transform: scale(1);
+        }
+      }
+    </style>
     <style>
       .filtro-btn {
         padding: 8px 18px;
@@ -115,6 +160,24 @@
     </style>
   </head>
   <body>
+    <!-- 💓 TAPA DE PRECARGA (va primera, para pintar antes que nada
+         y tapar el flash inicial mientras carga el resto) -->
+    <div id="gl-ships-preloader">
+      <img src="/img/icon-512.png" alt="" />
+    </div>
+    <script>
+      (function () {
+        setTimeout(function () {
+          var pre = document.getElementById("gl-ships-preloader");
+          if (!pre) return;
+          pre.classList.add("gl-ships-preloader-oculto");
+          setTimeout(function () {
+            pre.remove();
+          }, 400);
+        }, 1000);
+      })();
+    </script>
+
     <div id="inicio"></div>
 
     <header class="header">
