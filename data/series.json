@@ -25,7 +25,13 @@
     "titulo": "FirstLove (2026)",
     "genero": "Romance/Juvenil",
     "sinopsis": "Linlada, marcada por heridas familiares, conoce a Thorfan y descubre su primer amor. Pero los malentendidos y secretos las separan. ¿Podrán volver a encontrarse?",
-    "videos": ["K4E0ah7Qmbg", "QkrVXadZ3Ag", "fbf7agLdL8E", "k6CNa5krQjE","u5ltcAIRb9M"]
+    "videos": [
+      "K4E0ah7Qmbg",
+      "QkrVXadZ3Ag",
+      "fbf7agLdL8E",
+      "k6CNa5krQjE",
+      "u5ltcAIRb9M"
+    ]
   },
 
   {
@@ -50,7 +56,8 @@
       "1GmoMdvJGdI",
       "FQQlWmDL8mk",
       "umM5nOLlY2s",
-      "tv-FbcKn5GU"
+      "tv-FbcKn5GU",
+      "DHTjBWPRdjw"
     ]
   },
 
@@ -818,7 +825,11 @@
       "N64zxa1u2mc",
       "PDBhiG_KJpo",
       "Iq1iUOhSupw",
-      "jrxcH5wi-uA"
+      "jrxcH5wi-uA",
+      "wzCoE3hdq44",
+      "jnK6CM5PwA4",
+      "yj8i8F2rINk",
+      "2sCRk76XDIk"
     ]
   },
 
@@ -2561,8 +2572,6 @@
     "sinopsis": "Panpan sueña con ser ídolo, pero oculta su meta y su amor por Aitim a su estricto padre cirujano, quien exige que siga sus pasos y se convierta en una famosa médica.",
     "videos": ["g40fx3vnUBw"]
   },
-
-
 
   {
     "id": "myfairyghost",
