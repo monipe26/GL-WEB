@@ -1,5 +1,14 @@
 [
   {
+    "id": "third-person",
+    "slug": "third-person",
+    "img": "/img/series/third-person1.jpg",
+    "titulo": "Third Person (2026)",
+    "genero": "Romance/Drama",
+    "sinopsis": "Chris, una joven con amnesia tras un accidente, vive con su pareja Nadia. Todo parece ir bien hasta que la llegada de Sun comienza a despertar dudas sobre su pasado.",
+    "videos": ["jKTTpHZZ_NE", "F3hvGQjKOF4", "D4mywLblnCI", "v8lekwMTqtw"]
+  },
+  {
     "id": "hello-stranger",
     "slug": "hello-stranger",
     "img": "/img/series/hello-stranger.jpg",
