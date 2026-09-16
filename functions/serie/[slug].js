@@ -36,6 +36,17 @@ export async function onRequestGet(context) {
     }
   }
 
+  // 🚫 SEO: esta página es un reproductor embebido de YouTube con poco
+  // texto propio, así que le pedimos a Google que no la indexe (pero sí
+  // puede seguir sus links). No afecta nada más del sitio, solo esta ruta.
+  class MetaRobots {
+    element(el) {
+      if (el.getAttribute("name") === "robots") {
+        el.setAttribute("content", "noindex, follow");
+      }
+    }
+  }
+
   // Mete el texto real, visible, en el HTML (igual que en noticia)
   class InfoContenido {
     element(el) {
@@ -48,6 +59,7 @@ export async function onRequestGet(context) {
   return new HTMLRewriter()
     .on('meta[property^="og:"]', new MetaProp())
     .on('meta[name="description"]', new MetaDescription())
+    .on('meta[name="robots"]', new MetaRobots())
     .on("title", { element: (el) => el.setInnerContent(titulo) })
     .on("#info-contenido", new InfoContenido())
     .transform(htmlRes);
