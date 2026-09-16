@@ -45,6 +45,24 @@ const PAGINAS_FIJAS = [
   { loc: `${DOMINIO}/privacidad.html`, changefreq: "yearly", priority: "0.2" },
   { loc: `${DOMINIO}/cookies.html`, changefreq: "yearly", priority: "0.2" },
 ];
+
+// Novelas: como cada capítulo es un archivo HTML escrito a mano (no un
+// JSON), no se puede "descubrir" solo. Cada vez que subas un capítulo
+// nuevo, agregá una línea acá con el nombre del archivo (sin ".html").
+// 👉 No se agregan acá las páginas de /serie/ (son solo embeds de
+//    YouTube) — esas van con noindex, no al sitemap.
+const NOVELAS_SLUGS = [
+  "novela-el-amor-que-trasciende",
+  "novela-el-amor-que-trasciende-ep1-parte1",
+  "novela-el-amor-que-trasciende-ep1-parte2",
+  "novela-el-amor-que-trasciende-ep1-parte3",
+  "novela-el-amor-que-trasciende-ep2-parte1",
+  "novela-el-amor-que-trasciende-ep2-parte2",
+  "novela-el-amor-que-trasciende-ep2-parte3",
+  "novela-el-amor-que-trasciende-ep3-parte1",
+  // 👇 agregá acá los próximos capítulos, así:
+  // "novela-el-amor-que-trasciende-ep4-parte1",
+];
 // =======================================================
 
 function leerArchivo(ruta, nombre) {
@@ -117,6 +135,10 @@ function generar() {
     xml += bloqueUrl(`${DOMINIO}/actriz/${slug}`, "monthly", "0.5");
   }
 
+  for (const slug of NOVELAS_SLUGS) {
+    xml += bloqueUrl(`${DOMINIO}/${slug}.html`, "monthly", "0.6");
+  }
+
   xml += "</urlset>\n";
 
   fs.writeFileSync(RUTA_SITEMAP, xml, "utf-8");
@@ -126,7 +148,8 @@ function generar() {
     noticias.length +
     mundogl.length +
     shipSlugs.length +
-    actrizSlugs.length;
+    actrizSlugs.length +
+    NOVELAS_SLUGS.length;
 
   console.log(`✅ sitemap.xml actualizado con éxito.`);
   console.log(`   - Páginas fijas: ${PAGINAS_FIJAS.length}`);
@@ -134,6 +157,7 @@ function generar() {
   console.log(`   - Mundo GL: ${mundogl.length}`);
   console.log(`   - Ships: ${shipSlugs.length}`);
   console.log(`   - Actrices: ${actrizSlugs.length}`);
+  console.log(`   - Novelas: ${NOVELAS_SLUGS.length}`);
   console.log(`   - Total de URLs: ${total}`);
 }
 
