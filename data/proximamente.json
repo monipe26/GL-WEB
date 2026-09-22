@@ -1,5 +1,13 @@
 [
   {
+    slug: "yes-maybe-no-official-pilot-teaser",
+    fecha: "",
+    videoId: "cGHp3YXefR8", // 👈 reemplazá esto con el ID real de YouTube
+    sinopsis:
+      "Pat se reencuentra con Pie, su amiga y primer amor. Pero sus sentimientos han ido más allá de la amistad, obligándola a enfrentar aquello que siente por ella.",
+  },
+  
+  {
     slug: "official-pilot-resonance-jang-wak-rak-phleng-khxng-rea",
     videoId: "FoVP2y29_Tk", // 👈 reemplazá esto con el ID real de YouTube
     sinopsis:
