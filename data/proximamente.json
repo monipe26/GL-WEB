@@ -1,5 +1,12 @@
 [
   {
+    slug: "the-only-light-official-trailer",
+    fecha: "",
+    videoId: "xx2hEPvURR4", // 👈 reemplazá esto con el ID real de YouTube
+    sinopsis:
+      "",
+  },
+  {
     slug: "yes-maybe-no-official-pilot-teaser",
     fecha: "",
     videoId: "cGHp3YXefR8", // 👈 reemplazá esto con el ID real de YouTube
