@@ -1,5 +1,12 @@
 [
   {
+    slug: "official-pilot-yes-maybe-no",
+    fecha: "",
+    videoId: "AWnUGoONk_o", // 👈 reemplazá esto con el ID real de YouTube
+    sinopsis:
+      "Pat se reencuentra con Pie, su amiga y primer amor. Pero sus sentimientos han ido más allá de la amistad, obligándola a enfrentar aquello que siente por ella.",
+  },
+  {
     slug: "the-only-light-official-trailer",
     fecha: "",
     videoId: "xx2hEPvURR4", // 👈 reemplazá esto con el ID real de YouTube
