@@ -1,5 +1,12 @@
 [
   {
+    slug: "official-teaser-love-on-hire",
+    fecha: "",
+    videoId: "F1l1mAvSmZo", // 👈 reemplazá esto con el ID real de YouTube
+    sinopsis:
+      "Cuando el amor se convierte en un trabajo, dos mujeres descubren que fingir una ruptura puede ser mucho más complicado que enamorarse.",
+  },
+  {
     slug: "official-pilot-yes-maybe-no",
     fecha: "",
     videoId: "AWnUGoONk_o", // 👈 reemplazá esto con el ID real de YouTube
